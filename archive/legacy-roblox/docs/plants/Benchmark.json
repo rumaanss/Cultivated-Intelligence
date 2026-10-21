@@ -1,0 +1,54 @@
+[
+  {
+    "policy": "wait",
+    "founders": 24,
+    "ticks": 300,
+    "light": 1,
+    "rain": 0,
+    "wallSeconds": 0.24524840699996275,
+    "msPerStep": 0.8174946899998758,
+    "finalPlants": 24,
+    "organs": 0,
+    "snapshotBytes": 9592,
+    "checkpointBytes": 466291
+  },
+  {
+    "policy": "neural",
+    "founders": 24,
+    "ticks": 600,
+    "light": 1,
+    "rain": 0.025,
+    "wallSeconds": 1.9922823920001065,
+    "msPerStep": 3.3204706533335107,
+    "finalPlants": 308,
+    "organs": 1162,
+    "snapshotBytes": 230813,
+    "checkpointBytes": 6182409
+  },
+  {
+    "policy": "baseline",
+    "founders": 24,
+    "ticks": 600,
+    "light": 1,
+    "rain": 0.025,
+    "wallSeconds": 7.60812131900002,
+    "msPerStep": 12.680202198333367,
+    "finalPlants": 512,
+    "organs": 4235,
+    "snapshotBytes": 583672,
+    "checkpointBytes": 10458770
+  },
+  {
+    "policy": "baseline",
+    "founders": 128,
+    "ticks": 300,
+    "light": 0.4,
+    "rain": 0.025,
+    "wallSeconds": 3.4871521199997915,
+    "msPerStep": 11.623840399999304,
+    "finalPlants": 512,
+    "organs": 7742,
+    "snapshotBytes": 916895,
+    "checkpointBytes": 11013226
+  }
+]

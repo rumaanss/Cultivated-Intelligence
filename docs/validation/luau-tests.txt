@@ -1,0 +1,5 @@
+PASS UI behavioral checks
+PASS habitat radial frame: 17472 round trips, depths and antipodal rejection
+PASS regional solar clock inversion: 12010 phases; daylight matches biological phase
+PASS bounded percentile window and repeated-snapshot interpolation
+PASS original species silhouettes and non-zenith solar cycles

@@ -1,0 +1,1627 @@
+[
+  {
+    "path": "simulation/CMakeLists.txt",
+    "source": "work/project_audit/sources/cpp/CMakeLists.txt",
+    "sha256": "dd272208aca0c0b39c793b385102282978a81b73747b2cfbb02be880145b4ac9"
+  },
+  {
+    "path": "simulation/SIMD_DECISION_GATE.md",
+    "source": "work/project_audit/sources/cpp/SIMD_DECISION_GATE.md",
+    "sha256": "436d9833db3b3ceca7a3e92dc0f11e9df7221d9f96fd541680b0f37e44acaf5e"
+  },
+  {
+    "path": "simulation/README.md",
+    "source": "work/project_audit/sources/cpp/README.md",
+    "sha256": "3cd7a73cc11c71d2345990898b2c8c317ccce087bd71dbd0f28c23b0a2eb19ea"
+  },
+  {
+    "path": "simulation/CULTIVATED_INTELLIGENCE_REPORT.md",
+    "source": "work/project_audit/sources/cpp/CULTIVATED_INTELLIGENCE_REPORT.md",
+    "sha256": "e45b4ecc37b92ad8c1987aedc01c03bbac44e468674389cb2cbd8c22fca9e9ab"
+  },
+  {
+    "path": "simulation/SERIAL_POPULATION_DECISION_GATE.md",
+    "source": "work/project_audit/sources/cpp/SERIAL_POPULATION_DECISION_GATE.md",
+    "sha256": "7d63b4c01b0c9af7c45bc78f81ce781f4fc78c05b60b26e3998c4ced4b68bd82"
+  },
+  {
+    "path": "simulation/config/lake_geometry.json",
+    "source": "work/project_audit/sources/cpp/config/lake_geometry.json",
+    "sha256": "afd6891e4edc5b66ed7ab96f7afd8f8b7524aab60cf624b3b6327ff70a9b3f38"
+  },
+  {
+    "path": "simulation/config/shared_geometry.json",
+    "source": "work/project_audit/sources/cpp/config/shared_geometry.json",
+    "sha256": "2ce1df99851752be4f77404b9d1a83322dffff2cf59a06b75ac0fb0286bb11c4"
+  },
+  {
+    "path": "simulation/config/pond_geometry.json",
+    "source": "work/project_audit/sources/cpp/config/pond_geometry.json",
+    "sha256": "7ffda115ab7291141dd0d6f8807b547bf2a604f296f70f7817faeb13a4741fae"
+  },
+  {
+    "path": "simulation/tools/recording_to_rojo.py",
+    "source": "work/project_audit/sources/cpp/tools/recording_to_rojo.py",
+    "sha256": "5e9bb78bf442d1776682f9d9ca255a934be2cd457767f766e4055f9611a649e3"
+  },
+  {
+    "path": "simulation/tools/generate_geometry.py",
+    "source": "work/project_audit/sources/cpp/tools/generate_geometry.py",
+    "sha256": "d7803e1066e32372e0f2213833c815c9eb2b4f665429118c10088159fa6caf20"
+  },
+  {
+    "path": "simulation/models/BodoSaltans.gltf",
+    "source": "work/project_audit/sources/cpp/models/BodoSaltans.gltf",
+    "sha256": "29c3b5f25f4c8d53dbc370ee49162454ecc21d7387f4c7ef6310baafe645a19e"
+  },
+  {
+    "path": "simulation/models/Tideback_palette.png",
+    "source": "work/project_audit/sources/cpp/models/Tideback_palette.png",
+    "sha256": "bafeee1549a6bd35d3151a83b6bd48841d20b610a20ba5097fe9bd4f11f69ad9"
+  },
+  {
+    "path": "simulation/models/Reedrunner_palette.png",
+    "source": "work/project_audit/sources/cpp/models/Reedrunner_palette.png",
+    "sha256": "56c732d60ffe7aaace7fa4f0642b09b549bdaa22254246f5686bb38a4196d0b8"
+  },
+  {
+    "path": "simulation/models/Bacterivore_palette.png",
+    "source": "work/project_audit/sources/cpp/models/Bacterivore_palette.png",
+    "sha256": "342efa168a72e608823301b5924d0823a575925f9cedea99fe3f9594f9c4a4af"
+  },
+  {
+    "path": "simulation/models/Cyanobacteria__LOD1_palette.png",
+    "source": "work/project_audit/sources/cpp/models/Cyanobacteria__LOD1_palette.png",
+    "sha256": "f7db27362731c86b22eabd16202d46d8c7a23cb046ae4f7248177e1d34f2a247"
+  },
+  {
+    "path": "simulation/models/Bacterivore__LOD1.gltf",
+    "source": "work/project_audit/sources/cpp/models/Bacterivore__LOD1.gltf",
+    "sha256": "dbc2ed5561bbc325682349d939d5a821c845bcac63a65e16e2ff408f7d96e81f"
+  },
+  {
+    "path": "simulation/models/Bacterivore.mtl",
+    "source": "work/project_audit/sources/cpp/models/Bacterivore.mtl",
+    "sha256": "5271c6aa21a14296b4a49194df780efd0bdfc043a880118bb2ed5f1e70b2f944"
+  },
+  {
+    "path": "simulation/models/body_contract.json",
+    "source": "work/project_audit/sources/cpp/models/body_contract.json",
+    "sha256": "3b943d67d32ed8bdd71b7e78f07517264b2b31c5355bd35d8d4394d7efd4aacd"
+  },
+  {
+    "path": "simulation/models/Crestgrazer.gltf",
+    "source": "work/project_audit/sources/cpp/models/Crestgrazer.gltf",
+    "sha256": "df0d5c96f3ecd74277f161068eb52407e26a561497560f7e13edd32d73e35a82"
+  },
+  {
+    "path": "simulation/models/Crestgrazer__LOD1.gltf",
+    "source": "work/project_audit/sources/cpp/models/Crestgrazer__LOD1.gltf",
+    "sha256": "b1073d74170430b05165c0c1ef40daff4bfff90a5e1317d0f639ad40d8f60e42"
+  },
+  {
+    "path": "simulation/models/BodoSaltans.mtl",
+    "source": "work/project_audit/sources/cpp/models/BodoSaltans.mtl",
+    "sha256": "0332477c53790f4b06c40c82fc6c77d8a09148a233fc9d55c2762005fe68d6ac"
+  },
+  {
+    "path": "simulation/models/Cyanobacteria.gltf",
+    "source": "work/project_audit/sources/cpp/models/Cyanobacteria.gltf",
+    "sha256": "7308210b6fcb9b4aa6c8597cb060761947ed4756833b5671c7dd00d602daa01e"
+  },
+  {
+    "path": "simulation/models/Reedrunner__LOD1.mtl",
+    "source": "work/project_audit/sources/cpp/models/Reedrunner__LOD1.mtl",
+    "sha256": "1295cec9220fa68bafd4a9d9a0c71a2c0acacba90e98eca2092f777a32590e0b"
+  },
+  {
+    "path": "simulation/models/BodoSaltans__LOD1.gltf",
+    "source": "work/project_audit/sources/cpp/models/BodoSaltans__LOD1.gltf",
+    "sha256": "73ab50f144d08cd4ea8925f52bd0330294b4eb0ae9e07f340a26e2ba4089e493"
+  },
+  {
+    "path": "simulation/models/Cyanobacteria__LOD1.gltf",
+    "source": "work/project_audit/sources/cpp/models/Cyanobacteria__LOD1.gltf",
+    "sha256": "2fec8fc67e33578662a477ea2420f5f2104a6410721259d7dccc8a8fcb7a5b8c"
+  },
+  {
+    "path": "simulation/models/designs.json",
+    "source": "work/project_audit/sources/cpp/models/designs.json",
+    "sha256": "f552dac6e4a1bfbd962475b9afce02de004d1db7964b2040878cc850ef40e7aa"
+  },
+  {
+    "path": "simulation/models/Tideback__LOD1.gltf",
+    "source": "work/project_audit/sources/cpp/models/Tideback__LOD1.gltf",
+    "sha256": "692c54249783d5dc17354d1eeecdec6af2de062c962e24f4c6ccbaa15f9678e3"
+  },
+  {
+    "path": "simulation/models/Tideback.mtl",
+    "source": "work/project_audit/sources/cpp/models/Tideback.mtl",
+    "sha256": "852a086e6314e29261e79749ff66460d66f186e9810fc4a7ee65af5909bd5fcc"
+  },
+  {
+    "path": "simulation/models/Bacterivore__LOD1.mtl",
+    "source": "work/project_audit/sources/cpp/models/Bacterivore__LOD1.mtl",
+    "sha256": "9a2cdd6fd30aaa370dd7c9b2f77f935a455e6ac2855ddf8977ac29e66fddaf64"
+  },
+  {
+    "path": "simulation/models/Crestgrazer_palette.png",
+    "source": "work/project_audit/sources/cpp/models/Crestgrazer_palette.png",
+    "sha256": "bdb2ee8868a93957a4c7dd1372da59a25f2259938bcb40756e028d6474129eab"
+  },
+  {
+    "path": "simulation/models/Cyanobacteria_palette.png",
+    "source": "work/project_audit/sources/cpp/models/Cyanobacteria_palette.png",
+    "sha256": "59f265bd4f6757c8b1689768f2a6ce3a47faa26ed21e764fc10e9a0aca9268bf"
+  },
+  {
+    "path": "simulation/models/Tideback__LOD1.mtl",
+    "source": "work/project_audit/sources/cpp/models/Tideback__LOD1.mtl",
+    "sha256": "917a123d13647d2a3b8b6a7acd3b1f37b3de8ba85f366ccfd1bdfd15149d2c14"
+  },
+  {
+    "path": "simulation/models/Reedrunner__LOD1.gltf",
+    "source": "work/project_audit/sources/cpp/models/Reedrunner__LOD1.gltf",
+    "sha256": "ab09a8861adc2a69e6687c6c142efcba6578193ff64b82fdb96e92f8a9bec2e4"
+  },
+  {
+    "path": "simulation/models/Crestgrazer__LOD1_palette.png",
+    "source": "work/project_audit/sources/cpp/models/Crestgrazer__LOD1_palette.png",
+    "sha256": "59c2693f2de5378cf5ca6184566c229908c135573690e0d5098a62829a42fc68"
+  },
+  {
+    "path": "simulation/models/Reedrunner__LOD1_palette.png",
+    "source": "work/project_audit/sources/cpp/models/Reedrunner__LOD1_palette.png",
+    "sha256": "66dbf22c7627a2df70dfbba5affab8246ff17e84c7dc774386104729c0845339"
+  },
+  {
+    "path": "simulation/models/budgets.json",
+    "source": "work/project_audit/sources/cpp/models/budgets.json",
+    "sha256": "17433d4f728d6576c6051878593724e0a2e1ff86aad39d829914c182962e82ee"
+  },
+  {
+    "path": "simulation/models/BodoSaltans__LOD1.mtl",
+    "source": "work/project_audit/sources/cpp/models/BodoSaltans__LOD1.mtl",
+    "sha256": "63928e954ae9b4029128f72e5f218c10748f91a53be4db4984ceb39d0aafc7e3"
+  },
+  {
+    "path": "simulation/models/Bacterivore__LOD1_palette.png",
+    "source": "work/project_audit/sources/cpp/models/Bacterivore__LOD1_palette.png",
+    "sha256": "c1c29194071a50460380ab1787927ba26a389c4f57c0f51fb9eee64dcc20172f"
+  },
+  {
+    "path": "simulation/models/Reedrunner.gltf",
+    "source": "work/project_audit/sources/cpp/models/Reedrunner.gltf",
+    "sha256": "6b956bd8f089a85057ec8b26fef041985203206ff9cc399cf34af84e051f0824"
+  },
+  {
+    "path": "simulation/models/Crestgrazer__LOD1.mtl",
+    "source": "work/project_audit/sources/cpp/models/Crestgrazer__LOD1.mtl",
+    "sha256": "7ca208777f6205e28fb4b140884791509395adc78f87d30c59ae0b9d4631c3ed"
+  },
+  {
+    "path": "simulation/models/Tideback.gltf",
+    "source": "work/project_audit/sources/cpp/models/Tideback.gltf",
+    "sha256": "a436ece8f5a836caced5b396f63df5d355504a80032291667c1088e79e1e25f5"
+  },
+  {
+    "path": "simulation/models/Cyanobacteria.mtl",
+    "source": "work/project_audit/sources/cpp/models/Cyanobacteria.mtl",
+    "sha256": "d232323e357a8b2cf9e09767968ec5d8fde96fbfc22c6481ab432c251dd806a8"
+  },
+  {
+    "path": "simulation/models/BodoSaltans_palette.png",
+    "source": "work/project_audit/sources/cpp/models/BodoSaltans_palette.png",
+    "sha256": "efe740433fca32ba56287b6f034df894f850443f953fe6f7462f893f2150a956"
+  },
+  {
+    "path": "simulation/models/Crestgrazer.mtl",
+    "source": "work/project_audit/sources/cpp/models/Crestgrazer.mtl",
+    "sha256": "bd8908bb6d87fae85d20b0d6a0c71430aa3d1df1d00c4344424fd04d88c144c6"
+  },
+  {
+    "path": "simulation/models/Cyanobacteria__LOD1.mtl",
+    "source": "work/project_audit/sources/cpp/models/Cyanobacteria__LOD1.mtl",
+    "sha256": "e7a150beba89959a349e0e438cd048b57d8441e6833293f9bb8e7150048b2e19"
+  },
+  {
+    "path": "simulation/models/Tideback__LOD1_palette.png",
+    "source": "work/project_audit/sources/cpp/models/Tideback__LOD1_palette.png",
+    "sha256": "9c9a345303a04f6e26081e10b897b5118f14372d0447366ee6ea337b1dd45339"
+  },
+  {
+    "path": "simulation/models/Reedrunner.mtl",
+    "source": "work/project_audit/sources/cpp/models/Reedrunner.mtl",
+    "sha256": "f6744199f9452a8570bf4461e5ca987bfcade226f4649f34173947530182150f"
+  },
+  {
+    "path": "simulation/models/Bacterivore.gltf",
+    "source": "work/project_audit/sources/cpp/models/Bacterivore.gltf",
+    "sha256": "3ec1f91dd3ca67f2e69db677a306c0845fa337a6209d2502d9df9efdb3d5517e"
+  },
+  {
+    "path": "simulation/models/BodoSaltans__LOD1_palette.png",
+    "source": "work/project_audit/sources/cpp/models/BodoSaltans__LOD1_palette.png",
+    "sha256": "942b35b3247dc8f3de8a3a56f78497732cde1978ccaf98683ee90e43e827b8ae"
+  },
+  {
+    "path": "simulation/src/main.cpp",
+    "source": "work/project_audit/sources/cpp/src/main.cpp",
+    "sha256": "9ea862c9831e6a9abe4a633eedf15789be170cc403ade4347891e837c9edd5ab"
+  },
+  {
+    "path": "simulation/tools/plants/showcase.cpp",
+    "source": "work/project_audit/sources/cpp/tools/plants/showcase.cpp",
+    "sha256": "c43de67b0a380c02a89bc6761a3403a22c8cb670accf8afaf180f831dc3d6221"
+  },
+  {
+    "path": "simulation/tools/plants/CMakeLists.txt",
+    "source": "work/project_audit/sources/cpp/tools/plants/CMakeLists.txt",
+    "sha256": "90ae204cee58871914d5041a3b0649102f3dae74fd2b9f237bb8c8240dedb18f"
+  },
+  {
+    "path": "simulation/tools/plants/benchmark.py",
+    "source": "work/project_audit/sources/cpp/tools/plants/benchmark.py",
+    "sha256": "a09a7f47a959f8abda1cf4a74137ee1438ed6399e705ff1e623eda2e6edca0f3"
+  },
+  {
+    "path": "simulation/tools/live_bridge/test_crash_recovery.py",
+    "source": "work/project_audit/sources/cpp/tools/live_bridge/test_crash_recovery.py",
+    "sha256": "c1c24e84ac470bcc3fe128fdfe163a62f4f1be9a53c19be54cdc5b67b3fd9ffd"
+  },
+  {
+    "path": "simulation/tools/live_bridge/test_paged_transport.py",
+    "source": "work/project_audit/sources/cpp/tools/live_bridge/test_paged_transport.py",
+    "sha256": "311e36c1f52696ca73e22d2305c3406262aeae8071f69cc44cabefe227725be6"
+  },
+  {
+    "path": "simulation/tools/live_bridge/test_hardening.py",
+    "source": "work/project_audit/sources/cpp/tools/live_bridge/test_hardening.py",
+    "sha256": "bed039832a1f2cf793781b2d95e2e5d3a67a842af1681207e5dc76603a3861d7"
+  },
+  {
+    "path": "simulation/tools/live_bridge/test_plants.py",
+    "source": "work/project_audit/sources/cpp/tools/live_bridge/test_plants.py",
+    "sha256": "966fcd6848029aa39774ff761b6fb5eeafa3699e5c4f2816848eca59b951f8e9"
+  },
+  {
+    "path": "simulation/tools/live_bridge/platform_io.py",
+    "source": "work/project_audit/sources/cpp/tools/live_bridge/platform_io.py",
+    "sha256": "f515c98f6b0248e8fedac31dd2606787d1335b7678df9cc6356de85353357459"
+  },
+  {
+    "path": "simulation/tools/live_bridge/Caddyfile.example",
+    "source": "work/project_audit/sources/cpp/tools/live_bridge/Caddyfile.example",
+    "sha256": "4c3a25a44ed1bce8b2c31b82b76a7e535519f024d0c2a6d0a632ead0646dabd4"
+  },
+  {
+    "path": "simulation/tools/live_bridge/test_bundle.py",
+    "source": "work/project_audit/sources/cpp/tools/live_bridge/test_bundle.py",
+    "sha256": "0ac7ea82fc5c487f9b9f8c6a0b747dc75813a6fd37be726687e2b58f9f865298"
+  },
+  {
+    "path": "simulation/tools/live_bridge/production_wsgi.py",
+    "source": "work/project_audit/sources/cpp/tools/live_bridge/production_wsgi.py",
+    "sha256": "246d42d7bbc63f58f1dcb800813981f376afd1fad0578ff425bc9a45d25e7614"
+  },
+  {
+    "path": "simulation/tools/live_bridge/plant_channel.py",
+    "source": "work/project_audit/sources/cpp/tools/live_bridge/plant_channel.py",
+    "sha256": "cbb360355aa0932f579649e943e6b1be8f8489acb6ea339a8b93827c96f73af3"
+  },
+  {
+    "path": "simulation/tools/live_bridge/relay.py",
+    "source": "work/project_audit/sources/cpp/tools/live_bridge/relay.py",
+    "sha256": "705a5266196fae9eefff09de3e55c75e09a9cdfcd38872b789e4e449df00a2e3"
+  },
+  {
+    "path": "simulation/tools/live_bridge/diagnose.ps1",
+    "source": "work/project_audit/sources/cpp/tools/live_bridge/diagnose.ps1",
+    "sha256": "25db4faa3818542420897f1ffc1174d8cbc255d8040048cc8fdbd0833749d70f"
+  },
+  {
+    "path": "simulation/tools/live_bridge/validate_windows.ps1",
+    "source": "work/project_audit/sources/cpp/tools/live_bridge/validate_windows.ps1",
+    "sha256": "3989c3120f642115b8025575dee4cbcea40671b11a05327b059dca3d3a07c0a0"
+  },
+  {
+    "path": "simulation/tools/live_bridge/durable_store.py",
+    "source": "work/project_audit/sources/cpp/tools/live_bridge/durable_store.py",
+    "sha256": "e2468268ea2c332c7424ffc9c39a4a45cee94b76b94c8476e65129ecf692318a"
+  },
+  {
+    "path": "simulation/include/cybernet/organism_types.hpp",
+    "source": "work/project_audit/sources/cpp/include/cybernet/organism_types.hpp",
+    "sha256": "acfb4584d4b78f08ddc5b10bd10a90d8a0461e613a55c7405a38895012f26063"
+  },
+  {
+    "path": "simulation/include/cybernet/cyber_net.hpp",
+    "source": "work/project_audit/sources/cpp/include/cybernet/cyber_net.hpp",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "simulation/include/cybernet/vec3.hpp",
+    "source": "work/project_audit/sources/cpp/include/cybernet/vec3.hpp",
+    "sha256": "4654cfa61cf32be411914f119bef9bbf3bf2ba5c05f200b1249c934af31ef85b"
+  },
+  {
+    "path": "simulation/include/cybernet/random.hpp",
+    "source": "work/project_audit/sources/cpp/include/cybernet/random.hpp",
+    "sha256": "48f08dd1579dca5ed08c986f0ba40ea00cbdfaea712fec13e964304692810c46"
+  },
+  {
+    "path": "simulation/include/cybernet/simulation/simulation.hpp",
+    "source": "work/project_audit/sources/cpp/include/cybernet/simulation/simulation.hpp",
+    "sha256": "2fdcd6f4e63a197a3f74e603160866cee7679913c7ce516f52671ad314f43823"
+  },
+  {
+    "path": "simulation/include/cybernet/simulation/run_options.hpp",
+    "source": "work/project_audit/sources/cpp/include/cybernet/simulation/run_options.hpp",
+    "sha256": "ba8f1e8f9047e8dfcc7fc65106d7c9ac77a8f55479d13d725f1cad5e179969f7"
+  },
+  {
+    "path": "simulation/include/cybernet/simulation/spawning.hpp",
+    "source": "work/project_audit/sources/cpp/include/cybernet/simulation/spawning.hpp",
+    "sha256": "f9daa2ab2dd90aaef699dfbd34b65da8334fb8b5922896d96607372ff03d85d7"
+  },
+  {
+    "path": "simulation/include/cybernet/simulation/deterministic_worker_pool.hpp",
+    "source": "work/project_audit/sources/cpp/include/cybernet/simulation/deterministic_worker_pool.hpp",
+    "sha256": "ddc82907da3b1ba3c9641991db60d89179d606e2116f63e968d31d85e8db1b0a"
+  },
+  {
+    "path": "simulation/include/cybernet/simulation/async_record_writer.hpp",
+    "source": "work/project_audit/sources/cpp/include/cybernet/simulation/async_record_writer.hpp",
+    "sha256": "f6337651397cd24dd6976636a6bf1be789307d1ae193943c974519ba05cb7aff"
+  },
+  {
+    "path": "simulation/include/cybernet/simulation/lifecycle.hpp",
+    "source": "work/project_audit/sources/cpp/include/cybernet/simulation/lifecycle.hpp",
+    "sha256": "bdf06abc56877bd6faaa2b9486c65d813bdc23e2b2e6cf28fb4bf72c881da6e0"
+  },
+  {
+    "path": "simulation/include/cybernet/simulation/live_checkpoint.hpp",
+    "source": "work/project_audit/sources/cpp/include/cybernet/simulation/live_checkpoint.hpp",
+    "sha256": "84c621c3eb55ee27324272e5228ce543a65f895793052f4412692e199a55e6bd"
+  },
+  {
+    "path": "simulation/include/cybernet/simulation/plant_publisher_lock.hpp",
+    "source": "work/project_audit/sources/cpp/include/cybernet/simulation/plant_publisher_lock.hpp",
+    "sha256": "da051b60cc80ad647ed132d2528fe3069e0ef4016f5d8c5c39066266c447c4d3"
+  },
+  {
+    "path": "simulation/include/cybernet/simulation/metrics.hpp",
+    "source": "work/project_audit/sources/cpp/include/cybernet/simulation/metrics.hpp",
+    "sha256": "27420a2db2a52ea72e0ba3da5d18feed88464c2e1d3c9db83670dc497d8f939f"
+  },
+  {
+    "path": "simulation/include/cybernet/simulation/live_manifest.hpp",
+    "source": "work/project_audit/sources/cpp/include/cybernet/simulation/live_manifest.hpp",
+    "sha256": "10619ff14a3a3641274d05199775fccdb04d34d6d33a5f0021a394129f19f39f"
+  },
+  {
+    "path": "simulation/include/cybernet/simulation/selection.hpp",
+    "source": "work/project_audit/sources/cpp/include/cybernet/simulation/selection.hpp",
+    "sha256": "7d58bb5e92e067d08d5eb9fb61bd11e2f7faefc8370094bfd25fd984087e2b80"
+  },
+  {
+    "path": "simulation/include/cybernet/simulation/live_bridge.hpp",
+    "source": "work/project_audit/sources/cpp/include/cybernet/simulation/live_bridge.hpp",
+    "sha256": "1febe641a7d6b6229543406138e5089da8038a4ec4d523be4fc143f58764f3f4"
+  },
+  {
+    "path": "simulation/include/cybernet/simulation/external_actor.hpp",
+    "source": "work/project_audit/sources/cpp/include/cybernet/simulation/external_actor.hpp",
+    "sha256": "c8053ac0a547b85e43d42ceda990e4539165b572211b7077c268beef9c806185"
+  },
+  {
+    "path": "simulation/include/cybernet/simulation/snapshot_recorder.hpp",
+    "source": "work/project_audit/sources/cpp/include/cybernet/simulation/snapshot_recorder.hpp",
+    "sha256": "132feef5342cd2bfd424869a7f798e5df301261c63a7ceb4d39e897a0aded4a1"
+  },
+  {
+    "path": "simulation/include/cybernet/simulation/organism.hpp",
+    "source": "work/project_audit/sources/cpp/include/cybernet/simulation/organism.hpp",
+    "sha256": "a0138d7a62e1a69b45e94caa886c94ceb966fa4e52fd169d3838f5b1424ab8dd"
+  },
+  {
+    "path": "simulation/include/cybernet/plants/plant_world.hpp",
+    "source": "work/project_audit/sources/cpp/include/cybernet/plants/plant_world.hpp",
+    "sha256": "166c30f20b6ce7f5195a80eaae3edb071ec7dbe9dae1bb680c7336a1a7942e44"
+  },
+  {
+    "path": "simulation/include/cybernet/brain/rnn_brain.hpp",
+    "source": "work/project_audit/sources/cpp/include/cybernet/brain/rnn_brain.hpp",
+    "sha256": "30a5cc37bb3e451e52c57c4577037abdfdc0a4fc64da2276b924cdbc47890da6"
+  },
+  {
+    "path": "simulation/include/cybernet/world/heightfield.hpp",
+    "source": "work/project_audit/sources/cpp/include/cybernet/world/heightfield.hpp",
+    "sha256": "206d89b0ffd54e8d349589dac11eb884970ee5e00de6d09e146e8b6dfa03f41d"
+  },
+  {
+    "path": "simulation/include/cybernet/world/spatial_grid.hpp",
+    "source": "work/project_audit/sources/cpp/include/cybernet/world/spatial_grid.hpp",
+    "sha256": "30f9250e05bf91df7ea2ac36c75cfa0e1c3ae8fc808e6c7f626e110134461ff1"
+  },
+  {
+    "path": "simulation/include/cybernet/world/shared_geometry_generated.hpp",
+    "source": "work/project_audit/sources/cpp/include/cybernet/world/shared_geometry_generated.hpp",
+    "sha256": "2988533d46148c31f9a2ffcc5c45c9672c5c5b3a165a9fe65c290f884df6b66f"
+  },
+  {
+    "path": "simulation/include/cybernet/world/photosynthesis.hpp",
+    "source": "work/project_audit/sources/cpp/include/cybernet/world/photosynthesis.hpp",
+    "sha256": "18df86bd3e168fb0bf6ac17cb5d1de05932ce8dc4c3cdefce7713e0daa1ae407"
+  },
+  {
+    "path": "simulation/include/cybernet/world/chemistry.hpp",
+    "source": "work/project_audit/sources/cpp/include/cybernet/world/chemistry.hpp",
+    "sha256": "997e84f0db6c0af2ce0dfbd0dd9bf1429892df142da2d4af28fdf33139cad5ba"
+  },
+  {
+    "path": "simulation/include/cybernet/world/celestial.hpp",
+    "source": "work/project_audit/sources/cpp/include/cybernet/world/celestial.hpp",
+    "sha256": "5bd9316c51e5b7cd569857bcafdefc2464a991d35f71c1536f8c0442d600e260"
+  },
+  {
+    "path": "simulation/include/cybernet/world/lake_geometry_generated.hpp",
+    "source": "work/project_audit/sources/cpp/include/cybernet/world/lake_geometry_generated.hpp",
+    "sha256": "0839cbab91092ea76b053f3c4677116d20806579fac4e7dcf811cdaf301077ae"
+  },
+  {
+    "path": "simulation/include/cybernet/world/pond_geometry_generated.hpp",
+    "source": "work/project_audit/sources/cpp/include/cybernet/world/pond_geometry_generated.hpp",
+    "sha256": "24092a57be9e68df855074371643c204184a0d629b7954c986a1669773963b10"
+  },
+  {
+    "path": "simulation/include/cybernet/world/ecology.hpp",
+    "source": "work/project_audit/sources/cpp/include/cybernet/world/ecology.hpp",
+    "sha256": "ed658a9324eeef849db1298ab1df421d44bc817099695c3b06e96bc4f03f5dd6"
+  },
+  {
+    "path": "simulation/include/cybernet/world/island_world.hpp",
+    "source": "work/project_audit/sources/cpp/include/cybernet/world/island_world.hpp",
+    "sha256": "1c86799c7e24323cff9eb6918d792b4ee03370a84133e1dca13bf7a813342b1d"
+  },
+  {
+    "path": "simulation/include/cybernet/world/optics.hpp",
+    "source": "work/project_audit/sources/cpp/include/cybernet/world/optics.hpp",
+    "sha256": "5760d9cb8f01e48d9f7662eb0e271a83959cc9f346632ffca94d1ce805194f49"
+  },
+  {
+    "path": "simulation/include/cybernet/world/physics.hpp",
+    "source": "work/project_audit/sources/cpp/include/cybernet/world/physics.hpp",
+    "sha256": "446259241387c34ebf7df6019a9f73fe46aab0483a7eaae48a0e55dcbd6cc529"
+  },
+  {
+    "path": "simulation/include/cybernet/world/geometry.hpp",
+    "source": "work/project_audit/sources/cpp/include/cybernet/world/geometry.hpp",
+    "sha256": "c1ba4c6eba734b9b1a7d788e9fc96c1552e95ec45af3d37d0abf8d0e8727335b"
+  },
+  {
+    "path": "simulation/models/cpp/agent_body_contract.hpp",
+    "source": "work/project_audit/sources/cpp/models/cpp/agent_body_contract.hpp",
+    "sha256": "29b5e53c8e88006fb6beab2debbc04548ec17626119a12cc2bc1a55e7cf085a8"
+  },
+  {
+    "path": "simulation/models/cpp/agent_pose_codec.hpp",
+    "source": "work/project_audit/sources/cpp/models/cpp/agent_pose_codec.hpp",
+    "sha256": "101ed3aca8d4c4ddcd6093fc60596108d129fd1db9c0ba3125cb7c4adf1e2f8e"
+  },
+  {
+    "path": "simulation/src/simulation/lifecycle.cpp",
+    "source": "work/project_audit/sources/cpp/src/simulation/lifecycle.cpp",
+    "sha256": "b831cf1810ee3a7d2abeb91f3eafe0a9430b352424d210d0447ea4b5a8d6fe2d"
+  },
+  {
+    "path": "simulation/src/simulation/metrics.cpp",
+    "source": "work/project_audit/sources/cpp/src/simulation/metrics.cpp",
+    "sha256": "779ca460d6b3943f2aa34c1edcaa0ef93005115d9dab04fdb09b19613544a504"
+  },
+  {
+    "path": "simulation/src/simulation/live_bridge.cpp",
+    "source": "work/project_audit/sources/cpp/src/simulation/live_bridge.cpp",
+    "sha256": "68dbf19076ee794226398473bc74bad29a9cc9a23d9e7c8217960742848290e3"
+  },
+  {
+    "path": "simulation/src/simulation/async_record_writer.cpp",
+    "source": "work/project_audit/sources/cpp/src/simulation/async_record_writer.cpp",
+    "sha256": "61fb9d4673a6fe26f04a6f7e7e83d0c25f8158a7bcfefff282e3df066fee403f"
+  },
+  {
+    "path": "simulation/src/simulation/deterministic_worker_pool.cpp",
+    "source": "work/project_audit/sources/cpp/src/simulation/deterministic_worker_pool.cpp",
+    "sha256": "b14122065bacc44d4a5d3d780766a62371cfd79e4ca80a6fd70bc6800bbade1d"
+  },
+  {
+    "path": "simulation/src/simulation/plant_publisher_lock.cpp",
+    "source": "work/project_audit/sources/cpp/src/simulation/plant_publisher_lock.cpp",
+    "sha256": "1df38d74e0d76bea25a3582de5edf4949b5f90db13dba299a122c4a9b41ca0e8"
+  },
+  {
+    "path": "simulation/src/plants/plant_main.cpp",
+    "source": "work/project_audit/sources/cpp/src/plants/plant_main.cpp",
+    "sha256": "60e2341a00c20cee323ba80dd70003b86182cb9961501a27aa915082401495db"
+  },
+  {
+    "path": "simulation/src/plants/plant_world.cpp",
+    "source": "work/project_audit/sources/cpp/src/plants/plant_world.cpp",
+    "sha256": "7de7e73c528c13b983ff7a7bd3ec7acda4a8d175867a5246a79a966313c35184"
+  },
+  {
+    "path": "simulation/src/brain/brain_inspector.hpp",
+    "source": "work/project_audit/sources/cpp/src/brain/brain_inspector.hpp",
+    "sha256": "163af0ade7db9fb609b7ef457ebf1f2dbb31f8ab61b88a143eefb2cc93fb300e"
+  },
+  {
+    "path": "simulation/src/brain/rnn_brain.cpp",
+    "source": "work/project_audit/sources/cpp/src/brain/rnn_brain.cpp",
+    "sha256": "37a4051bf45795f747f4ff4a522f124713a5e8fa1171cf455c396fc1098f6f21"
+  },
+  {
+    "path": "simulation/src/world/celestial.cpp",
+    "source": "work/project_audit/sources/cpp/src/world/celestial.cpp",
+    "sha256": "55c7b5a7a1d51c6c8ec2cc1c9029f55a2ca977288565a4b40c730bbf765a0242"
+  },
+  {
+    "path": "simulation/src/world/chemistry.cpp",
+    "source": "work/project_audit/sources/cpp/src/world/chemistry.cpp",
+    "sha256": "f530b7109179d2f55258f1e2576023c055cb99ff99a8c4d128a2a399233e20d6"
+  },
+  {
+    "path": "simulation/src/world/physics.cpp",
+    "source": "work/project_audit/sources/cpp/src/world/physics.cpp",
+    "sha256": "4d17a278f8592622c7b137d91ea14e24465618b553a3b4007a8f2151d12afaa9"
+  },
+  {
+    "path": "simulation/src/world/ecology.cpp",
+    "source": "work/project_audit/sources/cpp/src/world/ecology.cpp",
+    "sha256": "48b5696d4c0ce74bc05f5adf9240d46ab37295b95d148b7edfc568e160f4fb44"
+  },
+  {
+    "path": "simulation/tests/test_spawning.cpp",
+    "source": "work/project_audit/sources/ecosystem/cpp/tests/test_spawning.cpp",
+    "sha256": "8a84fd01a660a1c0d0be46fdadfd6c55d3bcc37090c5e8d4b44daa4f784afd6c"
+  },
+  {
+    "path": "simulation/tests/test_spatial_grid.cpp",
+    "source": "work/project_audit/sources/ecosystem/cpp/tests/test_spatial_grid.cpp",
+    "sha256": "ea8c6960364d670bda777f4322c413bc445b50d1a9e4cd36358d70c20d73997e"
+  },
+  {
+    "path": "simulation/tests/test_recording.cpp",
+    "source": "work/project_audit/sources/ecosystem/cpp/tests/test_recording.cpp",
+    "sha256": "a5b8de78357bebcfe2c4b9b59e6000858c29ddb82c34639b7ce6fc709541f46b"
+  },
+  {
+    "path": "simulation/tests/test_ecology.cpp",
+    "source": "work/project_audit/sources/ecosystem/cpp/tests/test_ecology.cpp",
+    "sha256": "1560feb473e998c6780382f376c94393d9c277d2e307344818be8e3cbc591db6"
+  },
+  {
+    "path": "simulation/tests/test_metrics.cpp",
+    "source": "work/project_audit/sources/ecosystem/cpp/tests/test_metrics.cpp",
+    "sha256": "258553c8ddb792cad6dc4dca5aa133f0dbc32884b23c64fba396cfc8820cdfbd"
+  },
+  {
+    "path": "simulation/tests/test_live_bridge.cpp",
+    "source": "work/project_audit/sources/ecosystem/cpp/tests/test_live_bridge.cpp",
+    "sha256": "2f7cdd8df79c6f38f444738933a2cdeeabf7204eafaec5d6ddd65df482cc6df6"
+  },
+  {
+    "path": "simulation/tests/test_producer_cycles.cpp",
+    "source": "work/project_audit/sources/ecosystem/cpp/tests/test_producer_cycles.cpp",
+    "sha256": "865bf6dcd272fdd48bc701ef70c8d70c34d94f5168c27ad83951e2d61730177b"
+  },
+  {
+    "path": "simulation/tests/test_run_options.cpp",
+    "source": "work/project_audit/sources/ecosystem/cpp/tests/test_run_options.cpp",
+    "sha256": "5ef2fcd1303e965cc36dae0d4502a1d21824021b85e4de1689587ecce5bfc5c0"
+  },
+  {
+    "path": "simulation/tests/test_full_pond.cpp",
+    "source": "work/project_audit/sources/ecosystem/cpp/tests/test_full_pond.cpp",
+    "sha256": "99d2de810948eaefac4b092e098c5000a59010930c42954c909e596a439141a4"
+  },
+  {
+    "path": "simulation/tests/test_selection.cpp",
+    "source": "work/project_audit/sources/ecosystem/cpp/tests/test_selection.cpp",
+    "sha256": "3dc5df963d8af08329e2d238abafa9c31c67f6552268215b9d4fec61e4bc3f84"
+  },
+  {
+    "path": "simulation/tests/test_chemistry.cpp",
+    "source": "work/project_audit/sources/ecosystem/cpp/tests/test_chemistry.cpp",
+    "sha256": "4c1218750358d4eb3a12faa02a71f5e3190723ec6daf17e4cea970f64657d3c8"
+  },
+  {
+    "path": "simulation/tests/test_lake.cpp",
+    "source": "work/project_audit/sources/ecosystem/cpp/tests/test_lake.cpp",
+    "sha256": "05bcd257f311b7f7aa37f5554fe768998438551047234555a87c7df8bb5b38f4"
+  },
+  {
+    "path": "simulation/tests/test_physics.cpp",
+    "source": "work/project_audit/sources/ecosystem/cpp/tests/test_physics.cpp",
+    "sha256": "5b5b705e5df9a0313f4f20493d1b243ab992348ef263b2fbba4d7a7b8601cf0f"
+  },
+  {
+    "path": "simulation/tests/test_geometry.cpp",
+    "source": "work/project_audit/sources/ecosystem/cpp/tests/test_geometry.cpp",
+    "sha256": "fe9bde16f15073230dcf05d0f7284fcb624ebd3a9a469a0f537ab830c7816392"
+  },
+  {
+    "path": "simulation/tests/test_island_world.cpp",
+    "source": "work/project_audit/sources/ecosystem/cpp/tests/test_island_world.cpp",
+    "sha256": "359c5fdf0a17c9a4555ba4fb0217f32beb2c5edffed960236c6cc50b3cd0fe5c"
+  },
+  {
+    "path": "simulation/tests/test_optics.cpp",
+    "source": "work/project_audit/sources/ecosystem/cpp/tests/test_optics.cpp",
+    "sha256": "4721d16db4aace01abd6dabcac00253079b3e1278bf79fb69a42a3e52373616d"
+  },
+  {
+    "path": "simulation/tests/test_brain.cpp",
+    "source": "work/project_audit/sources/ecosystem/cpp/tests/test_brain.cpp",
+    "sha256": "1473f83bca16426e25d1411c8bb05365cc37978e9309e01eb521b285571562e5"
+  },
+  {
+    "path": "simulation/tests/test_live_checkpoint.cpp",
+    "source": "work/project_audit/sources/ecosystem/cpp/tests/test_live_checkpoint.cpp",
+    "sha256": "3fda2d717cc81dce2f306d8317cab06a8063744decef4162f043d814c86c93a1"
+  },
+  {
+    "path": "simulation/tests/test_async_record_writer.cpp",
+    "source": "work/project_audit/sources/ecosystem/cpp/tests/test_async_record_writer.cpp",
+    "sha256": "59f2776e7dca616d8baa3d7cb3db05886dad9ccd1ed9b074636bfc01a25da24b"
+  },
+  {
+    "path": "simulation/tests/test_lifecycle.cpp",
+    "source": "work/project_audit/sources/ecosystem/cpp/tests/test_lifecycle.cpp",
+    "sha256": "e18f1ade286b8f7fed3570bf53b28caba75aff87ce981360e150c91f3e289da1"
+  },
+  {
+    "path": "simulation/tests/test_simulation.cpp",
+    "source": "work/project_audit/sources/ecosystem/cpp/tests/test_simulation.cpp",
+    "sha256": "a466662fc33499a708f6fea712742e0da4cb28b347c7fd41a33a5a06a82e3989"
+  },
+  {
+    "path": "simulation/tests/plants/test_plants.cpp",
+    "source": "work/project_audit/sources/ecosystem/cpp/tests/plants/test_plants.cpp",
+    "sha256": "93ab48b333b4a06c0867bf08149389195648e1ff93b45b825a6c7e30cdc51446"
+  },
+  {
+    "path": "simulation/tests/plants/test_reproduction_intent.cpp",
+    "source": "work/project_audit/sources/ecosystem/cpp/tests/plants/test_reproduction_intent.cpp",
+    "sha256": "e3298c0100808a84ba671e8993d2c232b18d4b44d6afd683bfe9fe214930f31a"
+  },
+  {
+    "path": "roblox-legacy/aftman.toml",
+    "source": "work/project_audit/sources/roblox/aftman.toml",
+    "sha256": "0cb2a34f729c3c9911ac9db743e9b508276afbd8e6d77b64445c4d26406def8e"
+  },
+  {
+    "path": "roblox-legacy/ian basin viewe.md",
+    "source": "work/project_audit/sources/roblox/ian basin viewe.md",
+    "sha256": "9ea7416628a5aae8c4a477e772b73dcfd0d0e140456198502faca52008982f04"
+  },
+  {
+    "path": "roblox-legacy/ISLAND_SETUP.md",
+    "source": "work/project_audit/sources/roblox/ISLAND_SETUP.md",
+    "sha256": "56b918aaf0f9356f95ca4c53f2913927cc1f16d0121932263f8e7a17510509f5"
+  },
+  {
+    "path": "roblox-legacy/default.project.json",
+    "source": "work/project_audit/sources/roblox/default.project.json",
+    "sha256": "2deaa9826b3989d56971aa8caf625751d641c7dd7a210c08432fc857d8942022"
+  },
+  {
+    "path": "roblox-legacy/.gitignore",
+    "source": "work/project_audit/sources/roblox/.gitignore",
+    "sha256": "4ae20ef31aa83fab61308d4aaf746ae178fa55adffde5f91b1ad43397ea1f979"
+  },
+  {
+    "path": "roblox-legacy/FixBootstrapSource.ps1",
+    "source": "work/project_audit/sources/roblox/FixBootstrapSource.ps1",
+    "sha256": "db0c8319c5b046422ca67b059d27dc6d7b8edcc97961353eb87f2d4b93eafa94"
+  },
+  {
+    "path": "roblox-legacy/AGENT_KIT_SETUP.md",
+    "source": "work/project_audit/sources/roblox/AGENT_KIT_SETUP.md",
+    "sha256": "333635e4820db9479fca98fbe4d1fe6bd945bbeb0d022846d50dc67dbfb8c311"
+  },
+  {
+    "path": "roblox-legacy/README.md",
+    "source": "work/project_audit/sources/roblox/README.md",
+    "sha256": "6de149b36d95cdd7ee0d878e6603d688a02c728e0610963a15b7b4535c438b39"
+  },
+  {
+    "path": "roblox-legacy/FixStudioWarnings_v2.lua",
+    "source": "work/project_audit/sources/roblox/FixStudioWarnings_v2.lua",
+    "sha256": "bb191e32a6268c2122d984ae609514859c65104203243ea8b0435005e6c0021e"
+  },
+  {
+    "path": "roblox-legacy/TERRAIN_UPDATE.md",
+    "source": "work/project_audit/sources/roblox/TERRAIN_UPDATE.md",
+    "sha256": "2d2e5243661a1441a8b2e36785d6c29a15e48575ce90f2338028bc1806997309"
+  },
+  {
+    "path": "roblox-legacy/tools/IslandPackageInstall.lua",
+    "source": "work/project_audit/sources/roblox/tools/IslandPackageInstall.lua",
+    "sha256": "65c19c7b3e973a432518ea0f3527f321e5f2c3a38b9e11efe1c99f0c15483b50"
+  },
+  {
+    "path": "roblox-legacy/tools/package_island.py",
+    "source": "work/project_audit/sources/roblox/tools/package_island.py",
+    "sha256": "e0893280d4047daefed3e8aa408f21d123c2754c789bdc0e4784af58b121a20d"
+  },
+  {
+    "path": "roblox-legacy/tests/terrain_geometry.py",
+    "source": "work/project_audit/sources/roblox/tests/terrain_geometry.py",
+    "sha256": "f8596738cb348e1fe1cca6bddab641c5b8b3377bef9630d8983fae33860906da"
+  },
+  {
+    "path": "roblox-legacy/tests/island_generator.py",
+    "source": "work/project_audit/sources/roblox/tests/island_generator.py",
+    "sha256": "bda59b5dcd3e3127a86d5b2c2cd8c04f087efe0982a9cfe1579b6c45beb25d7e"
+  },
+  {
+    "path": "roblox-legacy/tests/agent_pose_codec.py",
+    "source": "work/project_audit/sources/roblox/tests/agent_pose_codec.py",
+    "sha256": "980de89ac0f67364b131b8b952ed1ef5ae075cc5e3030d2df14d9312e3c8d70b"
+  },
+  {
+    "path": "roblox-legacy/tests/agent_models.py",
+    "source": "work/project_audit/sources/roblox/tests/agent_models.py",
+    "sha256": "55566952961303c031859eb6857d12aebcc7ced01b269e5e33b9cd2d2214e881"
+  },
+  {
+    "path": "roblox-legacy/tools/agents/build_designs.py",
+    "source": "work/project_audit/sources/roblox/tools/agents/build_designs.py",
+    "sha256": "6e9f4904c3cd00552a407a1fa924ff157d5f5fad519fc2c814469eeb220e2992"
+  },
+  {
+    "path": "roblox-legacy/tools/agents/build_body_contract.py",
+    "source": "work/project_audit/sources/roblox/tools/agents/build_body_contract.py",
+    "sha256": "2f659878c62167218d56b24adb14cfa510e69687d2be23dbbb66241f73a298fd"
+  },
+  {
+    "path": "roblox-legacy/tools/agents/AgentKitInstall.lua",
+    "source": "work/project_audit/sources/roblox/tools/agents/AgentKitInstall.lua",
+    "sha256": "c8703ce7d8a2613e106dd3f12f0ea26f2bccb8cae7549d2d1d79bb42bb22e964"
+  },
+  {
+    "path": "roblox-legacy/tools/agents/export_models.py",
+    "source": "work/project_audit/sources/roblox/tools/agents/export_models.py",
+    "sha256": "85e09cd341bcfac69eb4fe5025deb349580ec49a3106a742b33e356432b865d3"
+  },
+  {
+    "path": "roblox-legacy/tools/agents/package_kit.py",
+    "source": "work/project_audit/sources/roblox/tools/agents/package_kit.py",
+    "sha256": "4c89f686e2e1208ca5975526d466badee84822196f7f4a02e3b9e07522681300"
+  },
+  {
+    "path": "roblox-legacy/tools/agents/refine_meshes.py",
+    "source": "work/project_audit/sources/roblox/tools/agents/refine_meshes.py",
+    "sha256": "62d87bbe6fb4b2effe4db0eef14590904adaaaa1d38e886cef389e2eda1215b5"
+  },
+  {
+    "path": "roblox-legacy/tools/agents/finish_assets.py",
+    "source": "work/project_audit/sources/roblox/tools/agents/finish_assets.py",
+    "sha256": "3502a9d5859347ac69918083d0722f0468e196b09d61889040ec824f74634ef9"
+  },
+  {
+    "path": "roblox-legacy/tools/plants/verify_and_preview.py",
+    "source": "work/project_audit/sources/roblox/tools/plants/verify_and_preview.py",
+    "sha256": "b9596e1ea562966100160b5a7d0c311b98f88307be33773cbf0ebc7e944ae986"
+  },
+  {
+    "path": "roblox-legacy/tools/plants/PlantInstall.lua",
+    "source": "work/project_audit/sources/roblox/tools/plants/PlantInstall.lua",
+    "sha256": "46593f5263762a3282887292727eae8704b66410e8055e410cc774de07fa3ff3"
+  },
+  {
+    "path": "roblox-legacy/tools/plants/render_preview.py",
+    "source": "work/project_audit/sources/roblox/tools/plants/render_preview.py",
+    "sha256": "1fbfe8d83338a29b3703ef5f61457eb1f8426f5b6c94d765b73b51b14cf427a2"
+  },
+  {
+    "path": "roblox-legacy/tools/plants/package_plants.py",
+    "source": "work/project_audit/sources/roblox/tools/plants/package_plants.py",
+    "sha256": "f69a694cf743b638e66f772ee4fba0500f38232510036cc53834e01fb7d5fd12"
+  },
+  {
+    "path": "roblox-legacy/tools/island/build_delivery.py",
+    "source": "work/project_audit/sources/roblox/tools/island/build_delivery.py",
+    "sha256": "482ca9a50d1da56a74a5e579ea578a204e474c495540a93736a6f96531af4512"
+  },
+  {
+    "path": "roblox-legacy/tools/island/FixBootstrapSource.ps1",
+    "source": "work/project_audit/sources/roblox/tools/island/FixBootstrapSource.ps1",
+    "sha256": "a1b9fed414cbe855c9a85c29b44c0f9854e365031e3fead68b4498787a311f70"
+  },
+  {
+    "path": "roblox-legacy/src/shared/LiveScene.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/LiveScene.lua",
+    "sha256": "d9aeaea7bded68a6d9860f4fad85425233372ece748eab98a8475d53686c5520"
+  },
+  {
+    "path": "roblox-legacy/src/shared/ParticleSystemBuilder.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/ParticleSystemBuilder.lua",
+    "sha256": "627c27cbcb32af161b1d5c1124d920c904c2d28f76950f1e6b45d9c7f245efe7"
+  },
+  {
+    "path": "roblox-legacy/src/shared/WaterOptics.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/WaterOptics.lua",
+    "sha256": "3d9fe167a7fdeb7deeac65e36a7fc6701950b6bf3aa1352f50188524c4a62698"
+  },
+  {
+    "path": "roblox-legacy/src/shared/BasinVisualConfig.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/BasinVisualConfig.lua",
+    "sha256": "9e63afea3fb5a9d2fbdb8d24809f588a36a0301803f65964ec1267772d567938"
+  },
+  {
+    "path": "roblox-legacy/src/shared/PlantRenderer.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/PlantRenderer.lua",
+    "sha256": "f1c87fcb986c09cfce3ec5880fb23f0ff952819a5c0d75cebae8360ed19d3ba4"
+  },
+  {
+    "path": "roblox-legacy/src/shared/ResearchCameraConfig.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/ResearchCameraConfig.lua",
+    "sha256": "1420005cd099ba63e7554310b094bf71fc95a41bf6e949c14f0ad50fd3b93e46"
+  },
+  {
+    "path": "roblox-legacy/src/shared/AgentDesignData.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/AgentDesignData.lua",
+    "sha256": "bdd7ea861804fb090386298edd1412abb09745ca8b4a947d1941245e98fd3fd0"
+  },
+  {
+    "path": "roblox-legacy/src/shared/LakebedPresentation.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/LakebedPresentation.lua",
+    "sha256": "ac8e082ba21aedd4e7352b54affc10ce559f621f7cb1c71acc5d4cf7fb9b5d02"
+  },
+  {
+    "path": "roblox-legacy/src/shared/IslandPlantMigration.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/IslandPlantMigration.lua",
+    "sha256": "3806de6523aeaf204ae521a7b69b6fb3d10a6e6feb2b61167d238075ca10f5ff"
+  },
+  {
+    "path": "roblox-legacy/src/shared/PlantAssetLibrary.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/PlantAssetLibrary.lua",
+    "sha256": "38c3d0620d92da006b91ce84d9fa86d4194f45787e0aa88eb07061e07a9d8f6d"
+  },
+  {
+    "path": "roblox-legacy/src/shared/CelestialPresentation.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/CelestialPresentation.lua",
+    "sha256": "9daae67ccc91207f45093ea36737f89ecd14926fb4a32c48b7952d66ebc2e484"
+  },
+  {
+    "path": "roblox-legacy/src/shared/OrganismRenderTypes.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/OrganismRenderTypes.lua",
+    "sha256": "bd1682e57dfc9337e05b5167ca3b548afca3718bab7ad5278e9f9bc4184cca44"
+  },
+  {
+    "path": "roblox-legacy/src/shared/SharedGeometry.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/SharedGeometry.lua",
+    "sha256": "3379a9e5f1506895e410e4248b8d65a215cbd28c173f84ecc068e2a9873473f2"
+  },
+  {
+    "path": "roblox-legacy/src/shared/PondShoreline.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/PondShoreline.lua",
+    "sha256": "c481be2408ec8e86dd32f8f05efd27873db46d9d623cbc1d696e94e5c89b0e58"
+  },
+  {
+    "path": "roblox-legacy/src/shared/NativeLakeSurface.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/NativeLakeSurface.lua",
+    "sha256": "9a24e57f66e8311fa60f9a1b48dbba0aec8a45f0b73a20a42f7e007600f347ae"
+  },
+  {
+    "path": "roblox-legacy/src/shared/AgentBodyContract.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/AgentBodyContract.lua",
+    "sha256": "2c2501d5afc901705b10e56fa6664de817fb62885491c71fd7db3a6e82a44535"
+  },
+  {
+    "path": "roblox-legacy/src/shared/WaterSurface.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/WaterSurface.lua",
+    "sha256": "b07c3d39ae0345bb7f8c5470b4cecf364a6630ff3516838b03bea84e2ce5e35a"
+  },
+  {
+    "path": "roblox-legacy/src/shared/IslandVegetation.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/IslandVegetation.lua",
+    "sha256": "69bb6e6afdc0415aa790b2d5139ce72c70ca27d81979c998ffb62b6700238a04"
+  },
+  {
+    "path": "roblox-legacy/src/shared/TerrainVisualConfig.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/TerrainVisualConfig.lua",
+    "sha256": "9cfce4bb947b983de9e2a54a32e8ba35e6d887470fdc04bd52d8117964fdf5de"
+  },
+  {
+    "path": "roblox-legacy/src/shared/PremiumWaterSystem.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/PremiumWaterSystem.lua",
+    "sha256": "5257d936cd14e890caf82fb80540089430c3d786f5260d29ea151da7ad711389"
+  },
+  {
+    "path": "roblox-legacy/src/shared/PondNativeWater.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/PondNativeWater.lua",
+    "sha256": "77be6161177acd031091117885728bd54c396b61d0e913fa518a7b4d52eee9ae"
+  },
+  {
+    "path": "roblox-legacy/src/shared/WaterPresentationConfig.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/WaterPresentationConfig.lua",
+    "sha256": "88f4e758327f8d96e091ca5ba67b413ccb66b1523d00318a57053d794927a0a0"
+  },
+  {
+    "path": "roblox-legacy/src/shared/PlaybackConfig.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/PlaybackConfig.lua",
+    "sha256": "8ee88cdcb46e2379b05ae02a349d2f92c35ab0eb4b6a8080037c5357ccd0fe35"
+  },
+  {
+    "path": "roblox-legacy/src/shared/VisualCurrentField.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/VisualCurrentField.lua",
+    "sha256": "d187834188d96e225bcf1244c81a75d6b0bcefe0e0b7443ef76c7dea71c700e6"
+  },
+  {
+    "path": "roblox-legacy/src/shared/LightingReworkConfig.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/LightingReworkConfig.lua",
+    "sha256": "f092d65f5af71ffdc497d9aed7e8624ed12afd9124192b313277eef597b4efef"
+  },
+  {
+    "path": "roblox-legacy/src/shared/EnvironmentVisualConfig.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/EnvironmentVisualConfig.lua",
+    "sha256": "5f00a2e6d18b677669497fdd14e53918c174f908f40451e3daf10d6519a38b1c"
+  },
+  {
+    "path": "roblox-legacy/src/shared/PlantSurfaceExport.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/PlantSurfaceExport.lua",
+    "sha256": "5cc975000bb0b59d23eb1f8a94ed330460a464982d536c350735ca472f2980a8"
+  },
+  {
+    "path": "roblox-legacy/src/shared/AgentModelFactory.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/AgentModelFactory.lua",
+    "sha256": "72b9a96db63efaa428003962caa10e1610e558ac4b1ee0906411ae219654e9a0"
+  },
+  {
+    "path": "roblox-legacy/src/shared/PlantTransportBridge.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/PlantTransportBridge.lua",
+    "sha256": "62b1363e9d36df3a653c25c1f1872f0fc98497890142c953f4d57529234e5515"
+  },
+  {
+    "path": "roblox-legacy/src/shared/LightingModel.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/LightingModel.lua",
+    "sha256": "1ad450fe5182d3ffadf234b7f5dd4fcd05a2129d39d5a71427e96cb217b7a7df"
+  },
+  {
+    "path": "roblox-legacy/src/shared/AgentPresentationConfig.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/AgentPresentationConfig.lua",
+    "sha256": "54c820222d9e5f0f5ee6e4a05050b7327ccb128c4c82e7450765b7d92b1f3076"
+  },
+  {
+    "path": "roblox-legacy/src/shared/DevelopmentConfig.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/DevelopmentConfig.lua",
+    "sha256": "6f3970ed8e7b9e36cfd9303995fd05e05e09fc338765508d3ba49b4fa9d80eeb"
+  },
+  {
+    "path": "roblox-legacy/src/shared/ReferenceIslandGenerator.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/ReferenceIslandGenerator.lua",
+    "sha256": "c574104cc7e52433d41e70f893dca215b9dc4b15d405135d76b9ae07876242b5"
+  },
+  {
+    "path": "roblox-legacy/src/shared/PlanetConfig.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/PlanetConfig.lua",
+    "sha256": "e2ba3ccc1b5c6da75ed80009573530f5132c68933c77ee96bf4e4b1a799a6179"
+  },
+  {
+    "path": "roblox-legacy/src/shared/GeometryPresentation.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/GeometryPresentation.lua",
+    "sha256": "3fd8f69608f93bf23b9ccf3bde343b0b81d6c24e2a16692ca750857de9370f0f"
+  },
+  {
+    "path": "roblox-legacy/src/shared/Heightfield.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/Heightfield.lua",
+    "sha256": "deefee4b4e49f15a1edf2309290c8df3dadd84a0e3bcb5eef7b37cbcf1a3d321"
+  },
+  {
+    "path": "roblox-legacy/src/shared/LiveInterpolation.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/LiveInterpolation.lua",
+    "sha256": "7b6dd200ef75d486f0c64a750daef11ec6cd3ee03d34f4f731476797046fda39"
+  },
+  {
+    "path": "roblox-legacy/src/shared/IslandField.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/IslandField.lua",
+    "sha256": "a81fcab1e994e45821fefe6f91f09adbd8816c8c33bbb41762ada87bc45c87fb"
+  },
+  {
+    "path": "roblox-legacy/src/shared/LivePhysics.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/LivePhysics.lua",
+    "sha256": "c3642e630a78665f7f7158ecd64bfa44b9a64eea258871850375d2341fbb39d0"
+  },
+  {
+    "path": "roblox-legacy/src/shared/LivePicking.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/LivePicking.lua",
+    "sha256": "af91be814bd663529c063e66fcc2f0ea15fd530ced31e27b50fd365d599cdc74"
+  },
+  {
+    "path": "roblox-legacy/src/shared/ProceduralLakeSurface.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/ProceduralLakeSurface.lua",
+    "sha256": "5b81ecbca965820933dba10ba776f09574805d960ffc3c3ebc0199daf4391aff"
+  },
+  {
+    "path": "roblox-legacy/src/shared/ResearchLighting.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/ResearchLighting.lua",
+    "sha256": "0b96ac70c67555838c4bf364e9955f24c687e564a6dca527a6d4cf59a7ef8a77"
+  },
+  {
+    "path": "roblox-legacy/src/shared/RecordingSchema.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/RecordingSchema.lua",
+    "sha256": "6a76592821b851d86048c40062d2cac478f00242d6b7b741fd3716f0e4b879d0"
+  },
+  {
+    "path": "roblox-legacy/src/shared/WaterPresentationMath.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/WaterPresentationMath.lua",
+    "sha256": "71e3191d20e1033d7ce2c8011325a44e395db5ca966cb6e2949fccdc2ba90124"
+  },
+  {
+    "path": "roblox-legacy/src/shared/LakeWaveField.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/LakeWaveField.lua",
+    "sha256": "91dd1a280ec5feb9e75e1e8b479c41358f3c552cb4b3a165480cfa676e338519"
+  },
+  {
+    "path": "roblox-legacy/src/shared/PlantShowcaseData.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/PlantShowcaseData.lua",
+    "sha256": "e8976903a9df395648c156c1eaab52713b00a7d78d89b8a476b2f3bf8a21e011"
+  },
+  {
+    "path": "roblox-legacy/src/shared/PerformanceBudget.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/PerformanceBudget.lua",
+    "sha256": "5be1b463e21a754f19708068d472d5e18e41001c18ddbb6c0ac830ef5313def2"
+  },
+  {
+    "path": "roblox-legacy/src/shared/BasinBackdrop.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/BasinBackdrop.lua",
+    "sha256": "d75497d2dbb9d2db681c16bcf763c25dc8d2302c2c3761de816f7e6858f7a171"
+  },
+  {
+    "path": "roblox-legacy/src/shared/PlaybackState.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/PlaybackState.lua",
+    "sha256": "bbc977f8e93c7a4cf2e2098c3a741854edd6fc6805e833c23a453cf4bf582d18"
+  },
+  {
+    "path": "roblox-legacy/src/shared/PlantConfig.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/PlantConfig.lua",
+    "sha256": "b8bdef1f7b88b8922322e164306801ac10b1ff9545cab1d0d291dd0e7ed2feee"
+  },
+  {
+    "path": "roblox-legacy/src/shared/MoonWaterGlint.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/MoonWaterGlint.lua",
+    "sha256": "8df7a9bb9aa708b72ee2222ed691506d87e94af2081b03deb752a122f88e6d59"
+  },
+  {
+    "path": "roblox-legacy/src/shared/IslandConfig.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/IslandConfig.lua",
+    "sha256": "e567ac512ac933bbc8046b0c0eb50bf999c6835cb3db58bc734a67489e5ee441"
+  },
+  {
+    "path": "roblox-legacy/src/shared/WaterRendererConfig.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/WaterRendererConfig.lua",
+    "sha256": "4b4acaec396195cd3cfb46e3426439d37a929b4b096280bac798ef8d23031a61"
+  },
+  {
+    "path": "roblox-legacy/src/shared/SeabedDetailBuilder.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/SeabedDetailBuilder.lua",
+    "sha256": "8329fb9327fd3a2fc49e4766d8d5cb0c382b3230663671d4a8b91e28700eaaf4"
+  },
+  {
+    "path": "roblox-legacy/src/shared/SimulationSpace.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/SimulationSpace.lua",
+    "sha256": "d605e352ced3fe784f83b8fae21034e943e9d0109772b3033450c87b1e585cb5"
+  },
+  {
+    "path": "roblox-legacy/src/shared/WaterCaustics.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/WaterCaustics.lua",
+    "sha256": "1ce7ded43126e20d0b96b0218c77338a3f43726375bb509952cc356032ccac91"
+  },
+  {
+    "path": "roblox-legacy/src/shared/WaterVisualConfig.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/WaterVisualConfig.lua",
+    "sha256": "5d835c578a2140366f49c3b4af7a4a7466603b1bc012b2e691a28a16718c9b06"
+  },
+  {
+    "path": "roblox-legacy/src/shared/PlantProtocol.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/PlantProtocol.lua",
+    "sha256": "ea58d646a625158ed629235589699289368756cd715b443d13b8be6beb069ca6"
+  },
+  {
+    "path": "roblox-legacy/src/shared/LiveConfig.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/LiveConfig.lua",
+    "sha256": "8c2554b9ff3e7a5d3ff9116197d04459b1e7569c108d0735c6054e50d83a63b8"
+  },
+  {
+    "path": "roblox-legacy/src/shared/LightingCalibration.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/LightingCalibration.lua",
+    "sha256": "ea7e00436fb19325fcc2e3a147a19229708026d70ffa4626623dae522476ce36"
+  },
+  {
+    "path": "roblox-legacy/src/shared/RecordingLoader.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/RecordingLoader.lua",
+    "sha256": "fdb5a6bc7b80f72a4aa3041390538a0219248be1007c7da3082bd425cf4eca7a"
+  },
+  {
+    "path": "roblox-legacy/src/shared/GeologyBuilder.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/GeologyBuilder.lua",
+    "sha256": "eb923c527732073b8ed3db10fa6cdb722de169bf796f36b6763a0195ecbec76e"
+  },
+  {
+    "path": "roblox-legacy/src/shared/SkyArtConfig.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/SkyArtConfig.lua",
+    "sha256": "74c08980619a7e5124c0ace54b2f9c6c2d22a1f57d7a421b1c6f3381dfdf5831"
+  },
+  {
+    "path": "roblox-legacy/src/shared/ResearchOverlay.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/ResearchOverlay.lua",
+    "sha256": "99878db8f0abe1d35b4ead6cc46f5c6e2d43d7830fa5645eaaa78755b096d589"
+  },
+  {
+    "path": "roblox-legacy/src/shared/LiveProtocol.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/LiveProtocol.lua",
+    "sha256": "5aaaa34d7ac925a3cd45e74e4055d9b0511786ef83ae20355f56ff0942f8c450"
+  },
+  {
+    "path": "roblox-legacy/src/shared/AgentPoseCodec.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/AgentPoseCodec.lua",
+    "sha256": "9c4620e11c01c0bc0ff1d05511f5f6192a5888b5bb8d9f18730228333872685c"
+  },
+  {
+    "path": "roblox-legacy/src/shared/WaterWaveMath.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/WaterWaveMath.lua",
+    "sha256": "e3864aed0d245fa235b0a717819dca041c2b7386b3f9caa2e135f9ffa4023c1e"
+  },
+  {
+    "path": "roblox-legacy/src/shared/SimulationConfig.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/SimulationConfig.lua",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "roblox-legacy/src/shared/CelestialCycleController.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/CelestialCycleController.lua",
+    "sha256": "5251961a4fe3b53e36edac97b8ba302b85ed91501de4766755c802988d363239"
+  },
+  {
+    "path": "roblox-legacy/src/client/ClientBootstrap.client.lua",
+    "source": "work/project_audit/sources/roblox/src/client/ClientBootstrap.client.lua",
+    "sha256": "197475fb591010894b336263a10575dcb3def1d2f75a24b530f6c13b128ac3f0"
+  },
+  {
+    "path": "roblox-legacy/src/server/Plants.server.lua",
+    "source": "work/project_audit/sources/roblox/src/server/Plants.server.lua",
+    "sha256": "f6539b6d85d07ce3ecefcf3ed0fa8e8adff3e4af1a3edccca0d1ac2bbe7af075"
+  },
+  {
+    "path": "roblox-legacy/src/server/ServerBootstrap.server.lua",
+    "source": "work/project_audit/sources/roblox/src/server/ServerBootstrap.server.lua",
+    "sha256": "9e5949b96a9ecad2d6b84a0ab9995929cd1a1f63f1591286c91665235d237c80"
+  },
+  {
+    "path": "roblox-legacy/src/shared/Recording/Frame_0001.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/Recording/Frame_0001.lua",
+    "sha256": "d6706e8032ea94225e4d480716ea16145eb1b7508d64b3f4214a531f065dd0fd"
+  },
+  {
+    "path": "roblox-legacy/src/shared/Recording/Frame_0006.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/Recording/Frame_0006.lua",
+    "sha256": "811ab3e8dd660a17e7b93682e3355833ad6936f38475effe74d46a9dc53352de"
+  },
+  {
+    "path": "roblox-legacy/src/shared/Recording/Frame_0003.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/Recording/Frame_0003.lua",
+    "sha256": "179e66cd255f9a746f63a6b7cac1f283c665e0a9b45b514cbee345ca76d46110"
+  },
+  {
+    "path": "roblox-legacy/src/shared/Recording/Frame_0002.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/Recording/Frame_0002.lua",
+    "sha256": "0c54d7e6e130bf3dc9b3124ae9af1654ca95aa4da8d350a077ad432e44c2b3f8"
+  },
+  {
+    "path": "roblox-legacy/src/shared/Recording/Frame_0005.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/Recording/Frame_0005.lua",
+    "sha256": "48d2f827e4469a290491f67cfcf002f32e49c063191a7a6cc0ed7fec2b4dbd48"
+  },
+  {
+    "path": "roblox-legacy/src/shared/Recording/Index.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/Recording/Index.lua",
+    "sha256": "133a4b80c5252da51dbf2b343caccf725fe34a6bee0f707822d02d86658e7d1f"
+  },
+  {
+    "path": "roblox-legacy/src/shared/Recording/Frame_0008.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/Recording/Frame_0008.lua",
+    "sha256": "9f055d6fc1b6fc4021a427c50b052f8de07edce69add3326c80335339236e72e"
+  },
+  {
+    "path": "roblox-legacy/src/shared/Recording/Frame_0007.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/Recording/Frame_0007.lua",
+    "sha256": "7875ab63894e11cce19e690d474a59a243df6cfbbdfbfd0441fa56ee90d074a8"
+  },
+  {
+    "path": "roblox-legacy/src/shared/Recording/Frame_0000.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/Recording/Frame_0000.lua",
+    "sha256": "ce8f0272659ace0686d584275e8e41ea4ea958df76d452e0fe7f6c83c3db2ca5"
+  },
+  {
+    "path": "roblox-legacy/src/shared/Recording/Frame_0009.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/Recording/Frame_0009.lua",
+    "sha256": "5b7d3af3ba43ae969b77abcadd1ae01a2650681de982dcbd604bde03b410bd54"
+  },
+  {
+    "path": "roblox-legacy/src/shared/Recording/Frame_0004.lua",
+    "source": "work/project_audit/sources/roblox/src/shared/Recording/Frame_0004.lua",
+    "sha256": "c981435b70889e100c89f3cabc30ac5d11554276a7022215426337be37004b4e"
+  },
+  {
+    "path": "roblox-legacy/src/shared/Recording/.ci-recording-generated",
+    "source": "work/project_audit/sources/roblox/src/shared/Recording/.ci-recording-generated",
+    "sha256": "d8c95165abbf54380f0285f4df98741062ed518e498d890e660d17fd82759cf5"
+  },
+  {
+    "path": "roblox-legacy/src/client/Controllers/LiveController.client.lua",
+    "source": "work/project_audit/sources/roblox/src/client/Controllers/LiveController.client.lua",
+    "sha256": "9c03553d5fccf62201e538389c73e5c76eb6e89c062163e1884eeef474cc11c2"
+  },
+  {
+    "path": "roblox-legacy/src/client/Controllers/OrganismRenderController.client.lua",
+    "source": "work/project_audit/sources/roblox/src/client/Controllers/OrganismRenderController.client.lua",
+    "sha256": "a3f09ab1eef454a20cefeb0fc56cff0fda9859685f7701e90c0086fe941cdd16"
+  },
+  {
+    "path": "roblox-legacy/src/client/Controllers/CartesianBasinController.client.lua",
+    "source": "work/project_audit/sources/roblox/src/client/Controllers/CartesianBasinController.client.lua",
+    "sha256": "8f2b5b7253db3b0ebe0d02291ac5de4551bcca5be87faf61d714950457ca84dc"
+  },
+  {
+    "path": "roblox-legacy/src/client/Controllers/ResearchCameraController.client.lua",
+    "source": "work/project_audit/sources/roblox/src/client/Controllers/ResearchCameraController.client.lua",
+    "sha256": "15098445c27ff279873da8e76328bf79e17031237b825199f7ab275920c6f756"
+  },
+  {
+    "path": "roblox-legacy/src/client/Controllers/AgentDetailController.client.lua",
+    "source": "work/project_audit/sources/roblox/src/client/Controllers/AgentDetailController.client.lua",
+    "sha256": "8cb02811528ef5c512c76626fe0dad5c00ad6e71190c20a8c1b06caee0469c43"
+  },
+  {
+    "path": "roblox-legacy/src/client/Controllers/PlantController.client.lua",
+    "source": "work/project_audit/sources/roblox/src/client/Controllers/PlantController.client.lua",
+    "sha256": "cfc0feff7961595b3afd64e2cfe20c7d9895943c17b72a51100aa6a00e146c89"
+  },
+  {
+    "path": "roblox-legacy/src/server/Services/ResearchEnviormentService.lua",
+    "source": "work/project_audit/sources/roblox/src/server/Services/ResearchEnviormentService.lua",
+    "sha256": "43c8aff8cbaca2e9176c2b601026b69a337e0536e62bf2539de59d9045dad897"
+  },
+  {
+    "path": "roblox-legacy/src/server/Services/LiveStateService.lua",
+    "source": "work/project_audit/sources/roblox/src/server/Services/LiveStateService.lua",
+    "sha256": "84400d0ed786de58ca164521bf0a12fe3de92c5217380ba2ec0dc4ea387f2b43"
+  },
+  {
+    "path": "roblox-legacy/src/server/Services/OrganismStateService.lua",
+    "source": "work/project_audit/sources/roblox/src/server/Services/OrganismStateService.lua",
+    "sha256": "9cc921b659214b595d0708bc7c342342b23d04029a2b13d32d17154adb357a1e"
+  },
+  {
+    "path": "roblox-legacy/assets/agents/BodoSaltans.gltf",
+    "source": "work/project_audit/sources/roblox/assets/agents/BodoSaltans.gltf",
+    "sha256": "29c3b5f25f4c8d53dbc370ee49162454ecc21d7387f4c7ef6310baafe645a19e"
+  },
+  {
+    "path": "roblox-legacy/assets/agents/Tideback_palette.png",
+    "source": "work/project_audit/sources/roblox/assets/agents/Tideback_palette.png",
+    "sha256": "bafeee1549a6bd35d3151a83b6bd48841d20b610a20ba5097fe9bd4f11f69ad9"
+  },
+  {
+    "path": "roblox-legacy/assets/agents/Reedrunner_palette.png",
+    "source": "work/project_audit/sources/roblox/assets/agents/Reedrunner_palette.png",
+    "sha256": "56c732d60ffe7aaace7fa4f0642b09b549bdaa22254246f5686bb38a4196d0b8"
+  },
+  {
+    "path": "roblox-legacy/assets/agents/Bacterivore_palette.png",
+    "source": "work/project_audit/sources/roblox/assets/agents/Bacterivore_palette.png",
+    "sha256": "342efa168a72e608823301b5924d0823a575925f9cedea99fe3f9594f9c4a4af"
+  },
+  {
+    "path": "roblox-legacy/assets/agents/Cyanobacteria__LOD1_palette.png",
+    "source": "work/project_audit/sources/roblox/assets/agents/Cyanobacteria__LOD1_palette.png",
+    "sha256": "f7db27362731c86b22eabd16202d46d8c7a23cb046ae4f7248177e1d34f2a247"
+  },
+  {
+    "path": "roblox-legacy/assets/agents/Bacterivore__LOD1.gltf",
+    "source": "work/project_audit/sources/roblox/assets/agents/Bacterivore__LOD1.gltf",
+    "sha256": "dbc2ed5561bbc325682349d939d5a821c845bcac63a65e16e2ff408f7d96e81f"
+  },
+  {
+    "path": "roblox-legacy/assets/agents/Bacterivore.mtl",
+    "source": "work/project_audit/sources/roblox/assets/agents/Bacterivore.mtl",
+    "sha256": "5271c6aa21a14296b4a49194df780efd0bdfc043a880118bb2ed5f1e70b2f944"
+  },
+  {
+    "path": "roblox-legacy/assets/agents/body_contract.json",
+    "source": "work/project_audit/sources/roblox/assets/agents/body_contract.json",
+    "sha256": "f1dff7c6dadaee33422372ac18603aa72a65e9d231df11d748084d7d173029b4"
+  },
+  {
+    "path": "roblox-legacy/assets/agents/Crestgrazer.gltf",
+    "source": "work/project_audit/sources/roblox/assets/agents/Crestgrazer.gltf",
+    "sha256": "df0d5c96f3ecd74277f161068eb52407e26a561497560f7e13edd32d73e35a82"
+  },
+  {
+    "path": "roblox-legacy/assets/agents/Crestgrazer__LOD1.gltf",
+    "source": "work/project_audit/sources/roblox/assets/agents/Crestgrazer__LOD1.gltf",
+    "sha256": "b1073d74170430b05165c0c1ef40daff4bfff90a5e1317d0f639ad40d8f60e42"
+  },
+  {
+    "path": "roblox-legacy/assets/agents/BodoSaltans.mtl",
+    "source": "work/project_audit/sources/roblox/assets/agents/BodoSaltans.mtl",
+    "sha256": "0332477c53790f4b06c40c82fc6c77d8a09148a233fc9d55c2762005fe68d6ac"
+  },
+  {
+    "path": "roblox-legacy/assets/agents/Cyanobacteria.gltf",
+    "source": "work/project_audit/sources/roblox/assets/agents/Cyanobacteria.gltf",
+    "sha256": "7308210b6fcb9b4aa6c8597cb060761947ed4756833b5671c7dd00d602daa01e"
+  },
+  {
+    "path": "roblox-legacy/assets/agents/Reedrunner__LOD1.mtl",
+    "source": "work/project_audit/sources/roblox/assets/agents/Reedrunner__LOD1.mtl",
+    "sha256": "1295cec9220fa68bafd4a9d9a0c71a2c0acacba90e98eca2092f777a32590e0b"
+  },
+  {
+    "path": "roblox-legacy/assets/agents/BodoSaltans__LOD1.gltf",
+    "source": "work/project_audit/sources/roblox/assets/agents/BodoSaltans__LOD1.gltf",
+    "sha256": "73ab50f144d08cd4ea8925f52bd0330294b4eb0ae9e07f340a26e2ba4089e493"
+  },
+  {
+    "path": "roblox-legacy/assets/agents/Cyanobacteria__LOD1.gltf",
+    "source": "work/project_audit/sources/roblox/assets/agents/Cyanobacteria__LOD1.gltf",
+    "sha256": "2fec8fc67e33578662a477ea2420f5f2104a6410721259d7dccc8a8fcb7a5b8c"
+  },
+  {
+    "path": "roblox-legacy/assets/agents/designs.json",
+    "source": "work/project_audit/sources/roblox/assets/agents/designs.json",
+    "sha256": "baf51bade074226a14da865be5ac64e0573943974a5987f4f99ea505ab90ef3c"
+  },
+  {
+    "path": "roblox-legacy/assets/agents/Tideback__LOD1.gltf",
+    "source": "work/project_audit/sources/roblox/assets/agents/Tideback__LOD1.gltf",
+    "sha256": "692c54249783d5dc17354d1eeecdec6af2de062c962e24f4c6ccbaa15f9678e3"
+  },
+  {
+    "path": "roblox-legacy/assets/agents/Tideback.mtl",
+    "source": "work/project_audit/sources/roblox/assets/agents/Tideback.mtl",
+    "sha256": "852a086e6314e29261e79749ff66460d66f186e9810fc4a7ee65af5909bd5fcc"
+  },
+  {
+    "path": "roblox-legacy/assets/agents/Bacterivore__LOD1.mtl",
+    "source": "work/project_audit/sources/roblox/assets/agents/Bacterivore__LOD1.mtl",
+    "sha256": "9a2cdd6fd30aaa370dd7c9b2f77f935a455e6ac2855ddf8977ac29e66fddaf64"
+  },
+  {
+    "path": "roblox-legacy/assets/agents/Crestgrazer_palette.png",
+    "source": "work/project_audit/sources/roblox/assets/agents/Crestgrazer_palette.png",
+    "sha256": "bdb2ee8868a93957a4c7dd1372da59a25f2259938bcb40756e028d6474129eab"
+  },
+  {
+    "path": "roblox-legacy/assets/agents/Cyanobacteria_palette.png",
+    "source": "work/project_audit/sources/roblox/assets/agents/Cyanobacteria_palette.png",
+    "sha256": "59f265bd4f6757c8b1689768f2a6ce3a47faa26ed21e764fc10e9a0aca9268bf"
+  },
+  {
+    "path": "roblox-legacy/assets/agents/Tideback__LOD1.mtl",
+    "source": "work/project_audit/sources/roblox/assets/agents/Tideback__LOD1.mtl",
+    "sha256": "917a123d13647d2a3b8b6a7acd3b1f37b3de8ba85f366ccfd1bdfd15149d2c14"
+  },
+  {
+    "path": "roblox-legacy/assets/agents/Reedrunner__LOD1.gltf",
+    "source": "work/project_audit/sources/roblox/assets/agents/Reedrunner__LOD1.gltf",
+    "sha256": "ab09a8861adc2a69e6687c6c142efcba6578193ff64b82fdb96e92f8a9bec2e4"
+  },
+  {
+    "path": "roblox-legacy/assets/agents/Crestgrazer__LOD1_palette.png",
+    "source": "work/project_audit/sources/roblox/assets/agents/Crestgrazer__LOD1_palette.png",
+    "sha256": "59c2693f2de5378cf5ca6184566c229908c135573690e0d5098a62829a42fc68"
+  },
+  {
+    "path": "roblox-legacy/assets/agents/Reedrunner__LOD1_palette.png",
+    "source": "work/project_audit/sources/roblox/assets/agents/Reedrunner__LOD1_palette.png",
+    "sha256": "66dbf22c7627a2df70dfbba5affab8246ff17e84c7dc774386104729c0845339"
+  },
+  {
+    "path": "roblox-legacy/assets/agents/budgets.json",
+    "source": "work/project_audit/sources/roblox/assets/agents/budgets.json",
+    "sha256": "17433d4f728d6576c6051878593724e0a2e1ff86aad39d829914c182962e82ee"
+  },
+  {
+    "path": "roblox-legacy/assets/agents/BodoSaltans__LOD1.mtl",
+    "source": "work/project_audit/sources/roblox/assets/agents/BodoSaltans__LOD1.mtl",
+    "sha256": "63928e954ae9b4029128f72e5f218c10748f91a53be4db4984ceb39d0aafc7e3"
+  },
+  {
+    "path": "roblox-legacy/assets/agents/Bacterivore__LOD1_palette.png",
+    "source": "work/project_audit/sources/roblox/assets/agents/Bacterivore__LOD1_palette.png",
+    "sha256": "c1c29194071a50460380ab1787927ba26a389c4f57c0f51fb9eee64dcc20172f"
+  },
+  {
+    "path": "roblox-legacy/assets/agents/Reedrunner.gltf",
+    "source": "work/project_audit/sources/roblox/assets/agents/Reedrunner.gltf",
+    "sha256": "6b956bd8f089a85057ec8b26fef041985203206ff9cc399cf34af84e051f0824"
+  },
+  {
+    "path": "roblox-legacy/assets/agents/Crestgrazer__LOD1.mtl",
+    "source": "work/project_audit/sources/roblox/assets/agents/Crestgrazer__LOD1.mtl",
+    "sha256": "7ca208777f6205e28fb4b140884791509395adc78f87d30c59ae0b9d4631c3ed"
+  },
+  {
+    "path": "roblox-legacy/assets/agents/Tideback.gltf",
+    "source": "work/project_audit/sources/roblox/assets/agents/Tideback.gltf",
+    "sha256": "a436ece8f5a836caced5b396f63df5d355504a80032291667c1088e79e1e25f5"
+  },
+  {
+    "path": "roblox-legacy/assets/agents/Cyanobacteria.mtl",
+    "source": "work/project_audit/sources/roblox/assets/agents/Cyanobacteria.mtl",
+    "sha256": "d232323e357a8b2cf9e09767968ec5d8fde96fbfc22c6481ab432c251dd806a8"
+  },
+  {
+    "path": "roblox-legacy/assets/agents/BodoSaltans_palette.png",
+    "source": "work/project_audit/sources/roblox/assets/agents/BodoSaltans_palette.png",
+    "sha256": "efe740433fca32ba56287b6f034df894f850443f953fe6f7462f893f2150a956"
+  },
+  {
+    "path": "roblox-legacy/assets/agents/Crestgrazer.mtl",
+    "source": "work/project_audit/sources/roblox/assets/agents/Crestgrazer.mtl",
+    "sha256": "bd8908bb6d87fae85d20b0d6a0c71430aa3d1df1d00c4344424fd04d88c144c6"
+  },
+  {
+    "path": "roblox-legacy/assets/agents/Cyanobacteria__LOD1.mtl",
+    "source": "work/project_audit/sources/roblox/assets/agents/Cyanobacteria__LOD1.mtl",
+    "sha256": "e7a150beba89959a349e0e438cd048b57d8441e6833293f9bb8e7150048b2e19"
+  },
+  {
+    "path": "roblox-legacy/assets/agents/Tideback__LOD1_palette.png",
+    "source": "work/project_audit/sources/roblox/assets/agents/Tideback__LOD1_palette.png",
+    "sha256": "9c9a345303a04f6e26081e10b897b5118f14372d0447366ee6ea337b1dd45339"
+  },
+  {
+    "path": "roblox-legacy/assets/agents/Reedrunner.mtl",
+    "source": "work/project_audit/sources/roblox/assets/agents/Reedrunner.mtl",
+    "sha256": "f6744199f9452a8570bf4461e5ca987bfcade226f4649f34173947530182150f"
+  },
+  {
+    "path": "roblox-legacy/assets/agents/Bacterivore.gltf",
+    "source": "work/project_audit/sources/roblox/assets/agents/Bacterivore.gltf",
+    "sha256": "3ec1f91dd3ca67f2e69db677a306c0845fa337a6209d2502d9df9efdb3d5517e"
+  },
+  {
+    "path": "roblox-legacy/assets/agents/BodoSaltans__LOD1_palette.png",
+    "source": "work/project_audit/sources/roblox/assets/agents/BodoSaltans__LOD1_palette.png",
+    "sha256": "942b35b3247dc8f3de8a3a56f78497732cde1978ccaf98683ee90e43e827b8ae"
+  },
+  {
+    "path": "roblox-legacy/assets/plants/showcase_records.json",
+    "source": "work/project_audit/sources/roblox/assets/plants/showcase_records.json",
+    "sha256": "ba077d369dd5075e9d7f8858acc884bb061ee4e9e5b768c231bc4ec43d98ffd4"
+  },
+  {
+    "path": "roblox-legacy/assets/plants/showcase_geometry.json",
+    "source": "work/project_audit/sources/roblox/assets/plants/showcase_geometry.json",
+    "sha256": "5a4b5fba464fa0ab508bddfec79eb232d3c540ce7c3b2e58603f36bffeed9cbc"
+  },
+  {
+    "path": "roblox-legacy/assets/agents/cpp/agent_body_contract.hpp",
+    "source": "work/project_audit/sources/roblox/assets/agents/cpp/agent_body_contract.hpp",
+    "sha256": "48ee006c61daa642995b3f89ab522c6ffffd80cfee282b4f8d8ed08e81ef5bf9"
+  },
+  {
+    "path": "roblox-legacy/assets/agents/cpp/agent_pose_codec.hpp",
+    "source": "work/project_audit/sources/roblox/assets/agents/cpp/agent_pose_codec.hpp",
+    "sha256": "101ed3aca8d4c4ddcd6093fc60596108d129fd1db9c0ba3125cb7c4adf1e2f8e"
+  },
+  {
+    "path": "roblox-legacy/docs/agents/CreatureStudies.png",
+    "source": "work/project_audit/sources/roblox/docs/agents/CreatureStudies.png",
+    "sha256": "28977609385a9aff8bdc9940abe59fcc79defe628e5f9fd5efa0388ced5091dc"
+  },
+  {
+    "path": "roblox-legacy/docs/agents/Tideback.png",
+    "source": "work/project_audit/sources/roblox/docs/agents/Tideback.png",
+    "sha256": "27acd3fddab86771c330fd12e7e087611c573eb09163edfe5aea57f5849aaad0"
+  },
+  {
+    "path": "roblox-legacy/docs/agents/LiveAgents.png",
+    "source": "work/project_audit/sources/roblox/docs/agents/LiveAgents.png",
+    "sha256": "55c2982a0ad638673058d9c5feb134a16cf6c2f5885cbedff9c46a4afebd5a9b"
+  },
+  {
+    "path": "roblox-legacy/docs/agents/MotionStudy.gif",
+    "source": "work/project_audit/sources/roblox/docs/agents/MotionStudy.gif",
+    "sha256": "82f427b68908371a212c7d1565f80d6466c9cd72b2be2a25d8c421e2e27b3efa"
+  },
+  {
+    "path": "roblox-legacy/docs/agents/BRIDGE_CONTRACT.md",
+    "source": "work/project_audit/sources/roblox/docs/agents/BRIDGE_CONTRACT.md",
+    "sha256": "d54e080784a6b63a56c2aa88f353dff3b88ec9ae137518b2ec67514519b3dc64"
+  },
+  {
+    "path": "roblox-legacy/docs/agents/Crestgrazer.png",
+    "source": "work/project_audit/sources/roblox/docs/agents/Crestgrazer.png",
+    "sha256": "014c60a44d544b1177ddb60b2ee78fc9e170f5f182102886393d52719d740b9a"
+  },
+  {
+    "path": "roblox-legacy/docs/agents/Reedrunner.png",
+    "source": "work/project_audit/sources/roblox/docs/agents/Reedrunner.png",
+    "sha256": "d83d428c2da6a344ca58f2d75fad875514e0468fa935ef9e18afb3df8e6a5328"
+  },
+  {
+    "path": "roblox-legacy/docs/plants/VALIDATION.md",
+    "source": "work/project_audit/sources/roblox/docs/plants/VALIDATION.md",
+    "sha256": "7912c20390fbc5b889339812fa3fd92da4d0eaf5a2d8269e8124d5f7b34b7231"
+  },
+  {
+    "path": "roblox-legacy/docs/plants/IMPLEMENTATION_NOTES.md",
+    "source": "work/project_audit/sources/roblox/docs/plants/IMPLEMENTATION_NOTES.md",
+    "sha256": "c08f531e25c00f00f237e276232009b0ec85b5ec7e5f57905bbc46a2be87b38f"
+  },
+  {
+    "path": "roblox-legacy/docs/plants/START_HERE.md",
+    "source": "work/project_audit/sources/roblox/docs/plants/START_HERE.md",
+    "sha256": "d3915ea639383a9fb28ab48aa501af131159fd083235ccce8ed002fa10742325"
+  },
+  {
+    "path": "roblox-legacy/docs/plants/Benchmark.json",
+    "source": "work/project_audit/sources/roblox/docs/plants/Benchmark.json",
+    "sha256": "517b5ab26dd6194d08b8c38fbbbd097b40a88b55ed6351b81f6055e16643b06f"
+  },
+  {
+    "path": "roblox-legacy/docs/plants/PlantGrowthPreview.png",
+    "source": "work/project_audit/sources/roblox/docs/plants/PlantGrowthPreview.png",
+    "sha256": "80834998513382d3109fdf893a78b758a8a41fbcba6fadc45a38b7fcb0f3509c"
+  },
+  {
+    "path": "roblox-legacy/docs/island/VALIDATION.md",
+    "source": "work/project_audit/sources/roblox/docs/island/VALIDATION.md",
+    "sha256": "f01c4f7832d4cbc9c05a94ee6d9cc89393c8f0f145e52b70de098a2eb09a34c5"
+  },
+  {
+    "path": "roblox-legacy/docs/island/ARCHITECTURE_AND_LIMITS.md",
+    "source": "work/project_audit/sources/roblox/docs/island/ARCHITECTURE_AND_LIMITS.md",
+    "sha256": "b78855528b6e5a09324c61c3d41bb78f475b1adcf37299224939d388a6543fc9"
+  },
+  {
+    "path": "roblox-legacy/docs/island/START_HERE.md",
+    "source": "work/project_audit/sources/roblox/docs/island/START_HERE.md",
+    "sha256": "50b721202473d021c3e9ec7c10154b1e12a7492b24eff48fc6db4adaaefc3273"
+  },
+  {
+    "path": "planet/src/GlassSurface.lua",
+    "source": "output/CI_GlassWater/src/GlassSurface.lua",
+    "sha256": "8d3762fcc8197c481ea022a25396cc9fcb7464bea7cc10db5be4c800a13f97bc"
+  },
+  {
+    "path": "planet/src/LakeInstall.lua",
+    "source": "output/CI_GlassWater/src/LakeInstall.lua",
+    "sha256": "29c17bf820e364c17fa841b8d162c71a3a4bbeae40b075a86f37aa63f7d4e1b4"
+  },
+  {
+    "path": "planet/src/CI_PlanetPlayer.client.lua",
+    "source": "output/CI_GlassWater/src/CI_PlanetPlayer.client.lua",
+    "sha256": "2ef22af0d557e74f8d4f26b8d2217744fa0492a45d923e82b71d6299a8f48d90"
+  },
+  {
+    "path": "planet/src/LakePresentation.lua",
+    "source": "output/CI_GlassWater/src/LakePresentation.lua",
+    "sha256": "47e41f57ff849b9ca6d53bbe12d5300ffefedc52f6fb73864f10ea02d5cd2097"
+  },
+  {
+    "path": "planet/src/Bootstrap.server.lua",
+    "source": "output/CI_GlassWater/src/Bootstrap.server.lua",
+    "sha256": "1d863774e12abd89b0af126561305dc10416bb74c2ef6ca1f4e191908db6d130"
+  },
+  {
+    "path": "planet/src/WaterWaveMath.lua",
+    "source": "output/CI_GlassWater/src/WaterWaveMath.lua",
+    "sha256": "e3864aed0d245fa235b0a717819dca041c2b7386b3f9caa2e135f9ffa4023c1e"
+  }
+]

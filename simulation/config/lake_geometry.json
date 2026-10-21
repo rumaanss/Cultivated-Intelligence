@@ -1,0 +1,260 @@
+{
+  "version": 2,
+  "revision": "lake-natural-basin-2",
+  "bounds": [
+    100,
+    100,
+    60
+  ],
+  "bodyRadius": 0.25,
+  "terrain": {
+    "planes": [
+      [
+        0,
+        0,
+        4
+      ],
+      [
+        -1.25,
+        0.12,
+        40
+      ],
+      [
+        0.95,
+        -0.08,
+        -48
+      ],
+      [
+        -0.08,
+        -1.05,
+        44
+      ],
+      [
+        0.1,
+        1.15,
+        -76
+      ],
+      [
+        0.18,
+        0.12,
+        -14
+      ],
+      [
+        -0.48,
+        -0.52,
+        53
+      ],
+      [
+        0.55,
+        0.38,
+        -43
+      ]
+    ]
+  },
+  "objects": [
+    {
+      "id": 101,
+      "shape": "sphere",
+      "center": [
+        36,
+        42,
+        18.78028570595633
+      ],
+      "halfSize": [
+        4,
+        4,
+        4
+      ],
+      "solid": true,
+      "opaque": true,
+      "material": "Slate"
+    },
+    {
+      "id": 102,
+      "shape": "sphere",
+      "center": [
+        67,
+        59,
+        22.28435782108115
+      ],
+      "halfSize": [
+        5,
+        5,
+        5
+      ],
+      "solid": true,
+      "opaque": true,
+      "material": "Rock"
+    },
+    {
+      "id": 103,
+      "shape": "sphere",
+      "center": [
+        48,
+        74,
+        18.48175730479037
+      ],
+      "halfSize": [
+        3,
+        3,
+        3
+      ],
+      "solid": true,
+      "opaque": true,
+      "material": "Rock"
+    },
+    {
+      "id": 104,
+      "shape": "sphere",
+      "center": [
+        19,
+        46,
+        26.906872200084408
+      ],
+      "halfSize": [
+        3.2,
+        3.2,
+        3.2
+      ],
+      "solid": true,
+      "opaque": true,
+      "material": "Slate"
+    },
+    {
+      "id": 105,
+      "shape": "sphere",
+      "center": [
+        22,
+        59,
+        23.432654150063303
+      ],
+      "halfSize": [
+        2.4,
+        2.4,
+        2.4
+      ],
+      "solid": true,
+      "opaque": true,
+      "material": "Rock"
+    },
+    {
+      "id": 106,
+      "shape": "sphere",
+      "center": [
+        30,
+        69,
+        13.990545125052755
+      ],
+      "halfSize": [
+        2,
+        2,
+        2
+      ],
+      "solid": true,
+      "opaque": true,
+      "material": "Rock"
+    },
+    {
+      "id": 107,
+      "shape": "sphere",
+      "center": [
+        76,
+        37,
+        26.49019199648928
+      ],
+      "halfSize": [
+        3.8,
+        3.8,
+        3.8
+      ],
+      "solid": true,
+      "opaque": true,
+      "material": "Slate"
+    },
+    {
+      "id": 108,
+      "shape": "sphere",
+      "center": [
+        83,
+        49,
+        30.10774778734876
+      ],
+      "halfSize": [
+        2.3,
+        2.3,
+        2.3
+      ],
+      "solid": true,
+      "opaque": true,
+      "material": "Rock"
+    },
+    {
+      "id": 109,
+      "shape": "sphere",
+      "center": [
+        62,
+        24,
+        18.196615658971993
+      ],
+      "halfSize": [
+        3,
+        3,
+        3
+      ],
+      "solid": true,
+      "opaque": true,
+      "material": "Rock"
+    },
+    {
+      "id": 110,
+      "shape": "sphere",
+      "center": [
+        48,
+        19,
+        23.114410439314664
+      ],
+      "halfSize": [
+        2,
+        2,
+        2
+      ],
+      "solid": true,
+      "opaque": true,
+      "material": "Slate"
+    },
+    {
+      "id": 111,
+      "shape": "sphere",
+      "center": [
+        73,
+        78,
+        29.917466066962206
+      ],
+      "halfSize": [
+        2.6,
+        2.6,
+        2.6
+      ],
+      "solid": true,
+      "opaque": true,
+      "material": "Rock"
+    },
+    {
+      "id": 112,
+      "shape": "sphere",
+      "center": [
+        33,
+        84,
+        26.64905438287422
+      ],
+      "halfSize": [
+        1.8,
+        1.8,
+        1.8
+      ],
+      "solid": true,
+      "opaque": true,
+      "material": "Rock"
+    }
+  ]
+}

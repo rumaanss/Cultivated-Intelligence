@@ -1,0 +1,7 @@
+{
+  "test": "full_pond",
+  "compile_exit": 0,
+  "compile_log": "",
+  "run_exit": 0,
+  "run_log": "Full pond: transforms, chemistry grid, 15483 outer habitat sites, 3000 placements, 24000 movements and ridge crossings passed\n"
+}

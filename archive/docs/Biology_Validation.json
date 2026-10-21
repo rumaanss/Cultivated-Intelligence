@@ -1,0 +1,20 @@
+{
+  "release": "planet-lake-biology-1",
+  "habitatDigest": "db04d3c77c22a8c8c770e48b90a16cb445f0b2003d2c86a96d02f5eb21ca85f5",
+  "nativeStudioVerified": false,
+  "windowsBuildVerified": false,
+  "verified": [
+    "C++ application compiled with g++ and exercised through relay",
+    "30 world ticks with microbial and plant streams",
+    "Native packets accepted by Roblox protocols",
+    "Legacy habitat and plant identities rejected",
+    "Deterministic 120 tick plant test and checkpoint restoration",
+    "58 mapped Luau files compile",
+    "Research UI checks and 17472 radial frame round trips",
+    "4 preflight tests and 1 relay identity test",
+    "Graceful headless stop writes checkpoint",
+    "Contract regeneration deterministic",
+    "Accepted water and movement executable code preserved"
+  ],
+  "delivery": "Source overlay; sync planet/default.project.json into existing accepted world; see START_HERE.md"
+}

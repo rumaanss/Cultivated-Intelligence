@@ -1,0 +1,37 @@
+# Project place file
+/roblox-src.rbxlx
+
+# Roblox Studio lock files
+/*.rbxlx.lock
+/*.rbxl.lock
+
+sourcemap.json
+
+# Build and generated outputs
+build/
+bin/
+out/
+*.obj
+*.pdb
+*.exe
+*.dll
+*.lib
+
+# Visual Studio / VS Code local state
+.vs/
+.vscode/
+*.user
+*.suo
+
+# Roblox local and generated artifacts
+*.rbxl.lock
+*.rbxlx.lock
+roblox/build/
+roblox/generated/
+
+# Never commit real bridge credentials
+**/BridgeConfig.local.lua
+**/.env
+**/.env.*
+
+src/server/LiveTransportConfig.lua

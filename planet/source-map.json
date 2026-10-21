@@ -1,0 +1,224 @@
+[
+  {
+    "id": 26,
+    "instance": "StarterPlayer/StarterPlayerScripts/CI_PlanetPlayer",
+    "source": "src/world/StarterPlayer/StarterPlayerScripts/CI_PlanetPlayer.client.lua",
+    "sha256": "2ef22af0d557e74f8d4f26b8d2217744fa0492a45d923e82b71d6299a8f48d90"
+  },
+  {
+    "id": 69,
+    "instance": "ReplicatedStorage/CI_PlanetPlayer/Shared/Config",
+    "source": "src/world/ReplicatedStorage/CI_PlanetPlayer/Shared/Config.lua",
+    "sha256": "efdfcda1dbc192791a453cc79200d7b984948a244d3da3c6e864e14424797955"
+  },
+  {
+    "id": 70,
+    "instance": "ReplicatedStorage/CI_PlanetPlayer/Shared/ContactPolicy",
+    "source": "src/world/ReplicatedStorage/CI_PlanetPlayer/Shared/ContactPolicy.lua",
+    "sha256": "1dd2c78d31939555ceba0f5d8ad82e8adf2a82a1da6a43de5305fca532b71392"
+  },
+  {
+    "id": 71,
+    "instance": "ReplicatedStorage/CI_PlanetPlayer/Shared/Contracts",
+    "source": "src/world/ReplicatedStorage/CI_PlanetPlayer/Shared/Contracts.lua",
+    "sha256": "94f3662b6aae30ce39ef8a9c1af10ecea9980045cc3d3f5d9da0642163543bb2"
+  },
+  {
+    "id": 72,
+    "instance": "ReplicatedStorage/CI_PlanetPlayer/Shared/GravityField",
+    "source": "src/world/ReplicatedStorage/CI_PlanetPlayer/Shared/GravityField.lua",
+    "sha256": "2618703fac24deef5674eba6c36419b3f2876d84b59be8ac1340631fe5bd1945"
+  },
+  {
+    "id": 73,
+    "instance": "ReplicatedStorage/CI_PlanetPlayer/Shared/LocomotionMath",
+    "source": "src/world/ReplicatedStorage/CI_PlanetPlayer/Shared/LocomotionMath.lua",
+    "sha256": "721a561a9aeebea3b153f0e12b5ae3fb69f4932ed464a104be5b7de751918dee"
+  },
+  {
+    "id": 74,
+    "instance": "ReplicatedStorage/CI_PlanetPlayer/Shared/LookInput",
+    "source": "src/world/ReplicatedStorage/CI_PlanetPlayer/Shared/LookInput.lua",
+    "sha256": "689bcb0a9e3d4637127c1bdc92a522f9ee17b02e440ec58570677fee0551520e"
+  },
+  {
+    "id": 75,
+    "instance": "ReplicatedStorage/CI_PlanetPlayer/Shared/LookState",
+    "source": "src/world/ReplicatedStorage/CI_PlanetPlayer/Shared/LookState.lua",
+    "sha256": "06c69d57e3cbb9977d76ac0cc05d954ff494880b4d53ac79d1efbd6d85e0d53a"
+  },
+  {
+    "id": 76,
+    "instance": "ReplicatedStorage/CI_PlanetPlayer/Shared/PhysicsBackend",
+    "source": "src/world/ReplicatedStorage/CI_PlanetPlayer/Shared/PhysicsBackend.lua",
+    "sha256": "936fc5e6af1804de8fee6329f0fcbed0cd3661952b867c2e770e67c863d17be2"
+  },
+  {
+    "id": 77,
+    "instance": "ReplicatedStorage/CI_PlanetPlayer/Shared/PlanetFrame",
+    "source": "src/world/ReplicatedStorage/CI_PlanetPlayer/Shared/PlanetFrame.lua",
+    "sha256": "12e795cbb9655563c77785e2f419abde086a7435107f7a70eb1535ce67708246"
+  },
+  {
+    "id": 78,
+    "instance": "ReplicatedStorage/CI_PlanetPlayer/Shared/Rig",
+    "source": "src/world/ReplicatedStorage/CI_PlanetPlayer/Shared/Rig.lua",
+    "sha256": "c64375db1f4b729af6e3b771054e289213e5287074956bf467484d3472ffa1f1"
+  },
+  {
+    "id": 79,
+    "instance": "ReplicatedStorage/CI_PlanetPlayer/Shared/Scalar",
+    "source": "src/world/ReplicatedStorage/CI_PlanetPlayer/Shared/Scalar.lua",
+    "sha256": "2416147b484d0963ba304d51942deb2d5d8137c54e898200fec1d2675e3ef897"
+  },
+  {
+    "id": 81,
+    "instance": "ReplicatedStorage/CI_PlanetPlayer/Client/BodyController",
+    "source": "src/world/ReplicatedStorage/CI_PlanetPlayer/Client/BodyController.lua",
+    "sha256": "5c13733a90e4b0be11f89690464b69e7057d0aa9b5b33eb8e2faca49c410bdb5"
+  },
+  {
+    "id": 82,
+    "instance": "ReplicatedStorage/CI_PlanetPlayer/Client/CameraController",
+    "source": "src/world/ReplicatedStorage/CI_PlanetPlayer/Client/CameraController.lua",
+    "sha256": "2f8fbcbe745ea5ecf08c96526216f1adc34c7b1e1449537fd8be8c031ce47509"
+  },
+  {
+    "id": 83,
+    "instance": "ReplicatedStorage/CI_PlanetPlayer/Client/InputController",
+    "source": "src/world/ReplicatedStorage/CI_PlanetPlayer/Client/InputController.lua",
+    "sha256": "6f65b56795132c4de4818338f42095835183d490b2bccdbeae98896e290dec8d"
+  },
+  {
+    "id": 84,
+    "instance": "ReplicatedStorage/CI_PlanetPlayer/Client/Inspection",
+    "source": "src/world/ReplicatedStorage/CI_PlanetPlayer/Client/Inspection.lua",
+    "sha256": "8822d9224dad220d2ff33f8d7fbcb407d6010c77573a834676674945d499db14"
+  },
+  {
+    "id": 85,
+    "instance": "ReplicatedStorage/CI_PlanetPlayer/Client/MovementController",
+    "source": "src/world/ReplicatedStorage/CI_PlanetPlayer/Client/MovementController.lua",
+    "sha256": "44033fab86fdbc6042b3cc37c91b3bda549bb135338b68cd1582d88a99464aff"
+  },
+  {
+    "id": 93,
+    "instance": "ServerScriptService/CI_PlanetPlayer/SiteValidator",
+    "source": "src/world/ServerScriptService/CI_PlanetPlayer/SiteValidator.lua",
+    "sha256": "0bb541afe0c8bfff8a8ce8a05e0ff277c5d42d801f427fdbfe9ae946fb13a226"
+  },
+  {
+    "id": 261,
+    "instance": "ServerStorage/CI_PlanetTerrain/BuildJournal",
+    "source": "src/world/ServerStorage/CI_PlanetTerrain/BuildJournal.lua",
+    "sha256": "a7ac5c315d5ed650c269e1890d6c5fe756298d4699a204e8dc54d505b0094567"
+  },
+  {
+    "id": 262,
+    "instance": "ServerStorage/CI_PlanetTerrain/CaveData",
+    "source": "src/world/ServerStorage/CI_PlanetTerrain/CaveData.lua",
+    "sha256": "f85b6de82ed55aada016cac5e635b4eb797584d9116600e0eb443d0ef5616d93"
+  },
+  {
+    "id": 263,
+    "instance": "ServerStorage/CI_PlanetTerrain/CollisionAudit",
+    "source": "src/world/ServerStorage/CI_PlanetTerrain/CollisionAudit.lua",
+    "sha256": "c97cf039f9bae549a83d95b25d3c89ebdb1592c95339ff746ed7b1606f4f2f1d"
+  },
+  {
+    "id": 264,
+    "instance": "ServerStorage/CI_PlanetTerrain/DatasetLoader",
+    "source": "src/world/ServerStorage/CI_PlanetTerrain/DatasetLoader.lua",
+    "sha256": "7608b0034f3317801c92dcc3448fa975fc5972444dee58bdcc36490a90d935a8"
+  },
+  {
+    "id": 265,
+    "instance": "ServerStorage/CI_PlanetTerrain/IslandSite",
+    "source": "src/world/ServerStorage/CI_PlanetTerrain/IslandSite.lua",
+    "sha256": "4e1d9747902cb74fecb80f2702b4ca722543ff37b51137c0a6dc0d53ae0d716a"
+  },
+  {
+    "id": 266,
+    "instance": "ServerStorage/CI_PlanetTerrain/MountainTour",
+    "source": "src/world/ServerStorage/CI_PlanetTerrain/MountainTour.lua",
+    "sha256": "507feae0e50eb09dcf35de416a4e50ea78d3bcdf45bc328601d96536ff7e0583"
+  },
+  {
+    "id": 267,
+    "instance": "ServerStorage/CI_PlanetTerrain/NativeBuild",
+    "source": "src/world/ServerStorage/CI_PlanetTerrain/NativeBuild.lua",
+    "sha256": "8051358faa3f573813f21de12ce83266a403adb5629f3382044620125ed6789f"
+  },
+  {
+    "id": 268,
+    "instance": "ServerStorage/CI_PlanetTerrain/NativePlan",
+    "source": "src/world/ServerStorage/CI_PlanetTerrain/NativePlan.lua",
+    "sha256": "ac9e954ef5a8367dc411d580926fadd269494078a9dc21b8c4973b8d1b8a793a"
+  },
+  {
+    "id": 269,
+    "instance": "ServerStorage/CI_PlanetTerrain/NativeShell",
+    "source": "src/world/ServerStorage/CI_PlanetTerrain/NativeShell.lua",
+    "sha256": "43e89b6f73efb4cfc75b311878ae8f62ed164fee46836633e42da74e05ea5bb6"
+  },
+  {
+    "id": 270,
+    "instance": "ServerStorage/CI_PlanetTerrain/PlanetConfig",
+    "source": "src/world/ServerStorage/CI_PlanetTerrain/PlanetConfig.lua",
+    "sha256": "9aecddc127c6ff875ae267f1a66baab5bc65542bae4a6dd1a621b585bd042e44"
+  },
+  {
+    "id": 271,
+    "instance": "ServerStorage/CI_PlanetTerrain/PlanetGeometry",
+    "source": "src/world/ServerStorage/CI_PlanetTerrain/PlanetGeometry.lua",
+    "sha256": "263ab0997ff4c70714d26cef2f4703e75b4094b376f41216344a4f5d2735917f"
+  },
+  {
+    "id": 272,
+    "instance": "ServerStorage/CI_PlanetTerrain/StudioFeasibility",
+    "source": "src/world/ServerStorage/CI_PlanetTerrain/StudioFeasibility.lua",
+    "sha256": "d59a2947524c203a8d3091d74cb98ab871fd0d66ccdc330efa6871a6e1a75a33"
+  },
+  {
+    "id": 273,
+    "instance": "ServerStorage/CI_PlanetTerrain/SurfaceProbe",
+    "source": "src/world/ServerStorage/CI_PlanetTerrain/SurfaceProbe.lua",
+    "sha256": "f232d47476f02f497f942e0f6c3362d7bf67ddfe4e26953e9663b3c5d9662c81"
+  },
+  {
+    "id": 274,
+    "instance": "ServerStorage/CI_PlanetTerrain/TerrainAudit",
+    "source": "src/world/ServerStorage/CI_PlanetTerrain/TerrainAudit.lua",
+    "sha256": "c75b86e066c360127d5fd591eb800bfcc732d9c5438d03aac6501a4e37f4851c"
+  },
+  {
+    "id": 275,
+    "instance": "ServerStorage/CI_PlanetTerrain/TerrainDataset",
+    "source": "src/world/ServerStorage/CI_PlanetTerrain/TerrainDataset.lua",
+    "sha256": "56f28fcd833faf0e051c05c58c7edf8243b8fcddbb58cfe99fcd97eb78679c3f"
+  },
+  {
+    "id": 276,
+    "instance": "ServerStorage/CI_PlanetTerrain/TerrainMaterials",
+    "source": "src/world/ServerStorage/CI_PlanetTerrain/TerrainMaterials.lua",
+    "sha256": "42c29cf19ced871a3f33c3d30b34e391393f4e9ad3b1d3bb8bd31478eedc2ab8"
+  },
+  {
+    "id": 277,
+    "instance": "ServerStorage/CI_PlanetTerrain/TerrainTiles",
+    "source": "src/world/ServerStorage/CI_PlanetTerrain/TerrainTiles.lua",
+    "sha256": "1feff7e6ae0039834889d4dc84343a7abe6d45b307fd78911a60d8a6a0c0f805"
+  },
+  {
+    "id": 278,
+    "instance": "ServerStorage/CI_PlanetTerrain/TerrainVolume",
+    "source": "src/world/ServerStorage/CI_PlanetTerrain/TerrainVolume.lua",
+    "sha256": "2e2c2028352771e68ec1f6a9e5accfc128cdeaf0494067b2003f71f475e08947"
+  },
+  {
+    "id": 92,
+    "instance": "ServerScriptService/CI_PlanetPlayer/Bootstrap",
+    "source": "src/world/ServerScriptService/CI_PlanetPlayer/Bootstrap.server.lua",
+    "sha256": "1d863774e12abd89b0af126561305dc10416bb74c2ef6ca1f4e191908db6d130"
+  }
+]

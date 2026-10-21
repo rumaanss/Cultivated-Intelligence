@@ -1,0 +1,7 @@
+{
+  "file": "planet0bc4_glass.rbxl",
+  "sha256": "bc20d4e0f8bdf69d7e7dde4365ab3da01a9a48ba676917fc704ca8db95d640c9",
+  "bytes": 48847731,
+  "status": "Authoritative user-confirmed baseline; supplied separately; not modified",
+  "source": "planet/src contains current glass package sources, with player modules embedded in the rbxl"
+}

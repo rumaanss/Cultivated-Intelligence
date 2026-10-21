@@ -1,0 +1,38 @@
+[
+  {
+    "seed": "42",
+    "benchmark_ticks": "1875",
+    "worker_count": "1",
+    "trace_enabled": "1",
+    "elapsed_seconds": "20.363317",
+    "ticks_per_second": "92.077336",
+    "peak_population": "1192",
+    "population_state_hash": "4245173410283384140",
+    "environment_seconds": "0.126919",
+    "decision_seconds": "1.555271",
+    "movement_seconds": "18.331213",
+    "interaction_seconds": "0.068193",
+    "population_seconds": "0.031058",
+    "metrics_seconds": "0.007681",
+    "actually_executed_ticks": 100,
+    "corrected_ticks_per_second": 4.910791301829658
+  },
+  {
+    "seed": "42",
+    "executed_ticks": "100",
+    "worker_count": "1",
+    "trace_enabled": "1",
+    "elapsed_seconds": "3.577876",
+    "ticks_per_second": "27.949543",
+    "peak_population": "1192",
+    "population_state_hash": "4245173410283384140",
+    "environment_seconds": "0.120394",
+    "decision_seconds": "1.454410",
+    "movement_seconds": "0.465135",
+    "interaction_seconds": "0.052519",
+    "population_seconds": "0.031191",
+    "metrics_seconds": "0.006357",
+    "actually_executed_ticks": 100,
+    "corrected_ticks_per_second": 27.949543248564233
+  }
+]

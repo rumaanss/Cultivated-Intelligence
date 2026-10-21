@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "revision": "basin-obstacles-1",
+  "bounds": [100,100,60],
+  "bodyRadius": 0.25,
+  "objects": [
+    {"id": 1, "shape": "box", "center": [35,50,25], "halfSize": [3,15,10], "solid": true, "opaque": true, "material": "Slate"},
+    {"id": 2, "shape": "sphere", "center": [65,45,20], "halfSize": [7,7,7], "solid": true, "opaque": true, "material": "Rock"},
+    {"id": 3, "shape": "box", "center": [57,75,37], "halfSize": [12,3,2], "solid": true, "opaque": true, "material": "Slate"}
+  ]
+}

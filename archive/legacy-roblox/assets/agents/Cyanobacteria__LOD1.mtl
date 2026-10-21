@@ -1,0 +1,260 @@
+newmtl pigment_0
+Kd 0.21852 0.44357 0.36203
+newmtl pigment_1
+Kd 0.16290 0.33067 0.26988
+newmtl pigment_2
+Kd 0.16290 0.33067 0.26988
+newmtl pigment_3
+Kd 0.16290 0.33067 0.26988
+newmtl pigment_4
+Kd 0.16290 0.33067 0.26988
+newmtl pigment_5
+Kd 0.21629 0.43904 0.35833
+newmtl pigment_6
+Kd 0.24965 0.50675 0.41360
+newmtl pigment_7
+Kd 0.25885 0.52542 0.42884
+newmtl pigment_8
+Kd 0.21704 0.44056 0.35957
+newmtl pigment_9
+Kd 0.16290 0.33067 0.26988
+newmtl pigment_10
+Kd 0.16290 0.33067 0.26988
+newmtl pigment_11
+Kd 0.16290 0.33067 0.26988
+newmtl pigment_12
+Kd 0.16290 0.33067 0.26988
+newmtl pigment_13
+Kd 0.19845 0.40283 0.32878
+newmtl pigment_14
+Kd 0.23706 0.48120 0.39275
+newmtl pigment_15
+Kd 0.24416 0.49560 0.40450
+newmtl pigment_16
+Kd 0.19998 0.40594 0.33131
+newmtl pigment_17
+Kd 0.16290 0.33067 0.26988
+newmtl pigment_18
+Kd 0.16290 0.33067 0.26988
+newmtl pigment_19
+Kd 0.16290 0.33067 0.26988
+newmtl pigment_20
+Kd 0.16290 0.33067 0.26988
+newmtl pigment_21
+Kd 0.17978 0.36492 0.29784
+newmtl pigment_22
+Kd 0.22217 0.45097 0.36807
+newmtl pigment_23
+Kd 0.22330 0.45327 0.36995
+newmtl pigment_24
+Kd 0.18219 0.36983 0.30184
+newmtl pigment_25
+Kd 0.16290 0.33067 0.26988
+newmtl pigment_26
+Kd 0.44357 0.60665 0.42400
+newmtl pigment_27
+Kd 0.33067 0.45224 0.31608
+newmtl pigment_28
+Kd 0.33067 0.45224 0.31608
+newmtl pigment_29
+Kd 0.33067 0.45224 0.31608
+newmtl pigment_30
+Kd 0.36198 0.49506 0.34601
+newmtl pigment_31
+Kd 0.46315 0.63342 0.44271
+newmtl pigment_32
+Kd 0.51856 0.70921 0.49568
+newmtl pigment_33
+Kd 0.52455 0.71740 0.50141
+newmtl pigment_34
+Kd 0.46458 0.63539 0.44409
+newmtl pigment_35
+Kd 0.36727 0.50230 0.35107
+newmtl pigment_36
+Kd 0.33067 0.45224 0.31608
+newmtl pigment_37
+Kd 0.33067 0.45224 0.31608
+newmtl pigment_38
+Kd 0.33067 0.45224 0.31608
+newmtl pigment_39
+Kd 0.42494 0.58117 0.40620
+newmtl pigment_40
+Kd 0.49699 0.67971 0.47507
+newmtl pigment_41
+Kd 0.51555 0.70510 0.49281
+newmtl pigment_42
+Kd 0.42685 0.58378 0.40802
+newmtl pigment_43
+Kd 0.33067 0.45224 0.31608
+newmtl pigment_44
+Kd 0.33067 0.45224 0.31608
+newmtl pigment_45
+Kd 0.33067 0.45224 0.31608
+newmtl pigment_46
+Kd 0.33067 0.45224 0.31608
+newmtl pigment_47
+Kd 0.33067 0.45224 0.31608
+newmtl pigment_48
+Kd 0.37716 0.51583 0.36053
+newmtl pigment_49
+Kd 0.35949 0.49166 0.34363
+newmtl pigment_50
+Kd 0.33067 0.45224 0.31608
+newmtl pigment_51
+Kd 0.33067 0.45224 0.31608
+newmtl pigment_52
+Kd 0.21852 0.44357 0.36203
+newmtl pigment_53
+Kd 0.16290 0.33067 0.26988
+newmtl pigment_54
+Kd 0.16290 0.33067 0.26988
+newmtl pigment_55
+Kd 0.16429 0.33349 0.27218
+newmtl pigment_56
+Kd 0.18726 0.38011 0.31024
+newmtl pigment_57
+Kd 0.22895 0.46473 0.37930
+newmtl pigment_58
+Kd 0.25380 0.51518 0.42048
+newmtl pigment_59
+Kd 0.25419 0.51597 0.42112
+newmtl pigment_60
+Kd 0.22973 0.46633 0.38060
+newmtl pigment_61
+Kd 0.18953 0.38473 0.31400
+newmtl pigment_62
+Kd 0.16290 0.33067 0.26988
+newmtl pigment_63
+Kd 0.16290 0.33067 0.26988
+newmtl pigment_64
+Kd 0.16290 0.33067 0.26988
+newmtl pigment_65
+Kd 0.19853 0.40300 0.32892
+newmtl pigment_66
+Kd 0.23706 0.48120 0.39275
+newmtl pigment_67
+Kd 0.24418 0.49564 0.40453
+newmtl pigment_68
+Kd 0.19998 0.40594 0.33131
+newmtl pigment_69
+Kd 0.16290 0.33067 0.26988
+newmtl pigment_70
+Kd 0.16290 0.33067 0.26988
+newmtl pigment_71
+Kd 0.16290 0.33067 0.26988
+newmtl pigment_72
+Kd 0.16290 0.33067 0.26988
+newmtl pigment_73
+Kd 0.16290 0.33067 0.26988
+newmtl pigment_74
+Kd 0.18010 0.36557 0.29837
+newmtl pigment_75
+Kd 0.17092 0.34694 0.28316
+newmtl pigment_76
+Kd 0.16290 0.33067 0.26988
+newmtl pigment_77
+Kd 0.16290 0.33067 0.26988
+newmtl pigment_78
+Kd 0.44357 0.60665 0.42400
+newmtl pigment_79
+Kd 0.33067 0.45224 0.31608
+newmtl pigment_80
+Kd 0.33067 0.45224 0.31608
+newmtl pigment_81
+Kd 0.33067 0.45224 0.31608
+newmtl pigment_82
+Kd 0.33067 0.45224 0.31608
+newmtl pigment_83
+Kd 0.46652 0.63804 0.44594
+newmtl pigment_84
+Kd 0.49027 0.67052 0.46864
+newmtl pigment_85
+Kd 0.50981 0.69724 0.48732
+newmtl pigment_86
+Kd 0.43376 0.59323 0.41462
+newmtl pigment_87
+Kd 0.33067 0.45224 0.31608
+newmtl pigment_88
+Kd 0.33067 0.45224 0.31608
+newmtl pigment_89
+Kd 0.33067 0.45224 0.31608
+newmtl pigment_90
+Kd 0.33067 0.45224 0.31608
+newmtl pigment_91
+Kd 0.45291 0.61942 0.43292
+newmtl pigment_92
+Kd 0.48120 0.65812 0.45997
+newmtl pigment_93
+Kd 0.49656 0.67912 0.47466
+newmtl pigment_94
+Kd 0.40594 0.55518 0.38803
+newmtl pigment_95
+Kd 0.33067 0.45224 0.31608
+newmtl pigment_96
+Kd 0.33067 0.45224 0.31608
+newmtl pigment_97
+Kd 0.33067 0.45224 0.31608
+newmtl pigment_98
+Kd 0.33067 0.45224 0.31608
+newmtl pigment_99
+Kd 0.44019 0.60202 0.42077
+newmtl pigment_100
+Kd 0.47296 0.64684 0.45209
+newmtl pigment_101
+Kd 0.48360 0.66139 0.46226
+newmtl pigment_102
+Kd 0.37862 0.51782 0.36192
+newmtl pigment_103
+Kd 0.33067 0.45224 0.31608
+newmtl pigment_104
+Kd 0.11742 0.24788 0.23809
+newmtl pigment_105
+Kd 0.08753 0.18478 0.17749
+newmtl pigment_106
+Kd 0.08753 0.18478 0.17749
+newmtl pigment_107
+Kd 0.08753 0.18478 0.17749
+newmtl pigment_108
+Kd 0.08753 0.18478 0.17749
+newmtl pigment_109
+Kd 0.12506 0.26402 0.25359
+newmtl pigment_110
+Kd 0.12928 0.27292 0.26215
+newmtl pigment_111
+Kd 0.13360 0.28204 0.27091
+newmtl pigment_112
+Kd 0.11525 0.24330 0.23370
+newmtl pigment_113
+Kd 0.08753 0.18478 0.17749
+newmtl pigment_114
+Kd 0.08753 0.18478 0.17749
+newmtl pigment_115
+Kd 0.08753 0.18478 0.17749
+newmtl pigment_116
+Kd 0.08753 0.18478 0.17749
+newmtl pigment_117
+Kd 0.12215 0.25787 0.24769
+newmtl pigment_118
+Kd 0.12738 0.26891 0.25829
+newmtl pigment_119
+Kd 0.13073 0.27599 0.26510
+newmtl pigment_120
+Kd 0.10745 0.22685 0.21789
+newmtl pigment_121
+Kd 0.08753 0.18478 0.17749
+newmtl pigment_122
+Kd 0.08753 0.18478 0.17749
+newmtl pigment_123
+Kd 0.08753 0.18478 0.17749
+newmtl pigment_124
+Kd 0.08753 0.18478 0.17749
+newmtl pigment_125
+Kd 0.11949 0.25225 0.24229
+newmtl pigment_126
+Kd 0.12569 0.26535 0.25487
+newmtl pigment_127
+Kd 0.12804 0.27031 0.25964
+newmtl pigment_128
+Kd 0.09970 0.21047 0.20216
+newmtl pigment_129
+Kd 0.08753 0.18478 0.17749

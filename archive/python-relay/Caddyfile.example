@@ -1,0 +1,12 @@
+# Replace the hostname; expose only HTTPS, never the Waitress port.
+bridge.example.com {
+ request_body {
+  max_size 3MB
+ }
+ reverse_proxy 127.0.0.1:8765 {
+  transport http {
+   dial_timeout 2s
+   response_header_timeout 8s
+  }
+ }
+}

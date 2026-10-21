@@ -1,0 +1,7 @@
+{
+  "test": "island_world",
+  "compile_exit": 0,
+  "compile_log": "",
+  "run_exit": 0,
+  "run_log": "PASS island bounds, land founders, distinct neural policy, shared clock, air-water optics, carbon exchange, wait autonomy, unified checkpoint and deterministic replay\n"
+}

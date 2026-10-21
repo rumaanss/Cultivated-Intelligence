@@ -1,0 +1,848 @@
+newmtl pigment_0
+Kd 0.56098 0.33920 0.31311
+newmtl pigment_1
+Kd 0.41820 0.25286 0.23341
+newmtl pigment_2
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_3
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_4
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_5
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_6
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_7
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_8
+Kd 0.41820 0.25286 0.23341
+newmtl pigment_9
+Kd 0.54463 0.43765 0.37443
+newmtl pigment_10
+Kd 0.54463 0.43765 0.37443
+newmtl pigment_11
+Kd 0.54463 0.43765 0.37443
+newmtl pigment_12
+Kd 0.72035 0.57886 0.49524
+newmtl pigment_13
+Kd 0.72035 0.57886 0.49524
+newmtl pigment_14
+Kd 0.38844 0.23759 0.27530
+newmtl pigment_15
+Kd 0.64866 0.39221 0.36204
+newmtl pigment_16
+Kd 0.38844 0.23759 0.27530
+newmtl pigment_17
+Kd 0.64866 0.39221 0.36204
+newmtl pigment_18
+Kd 0.86753 0.69712 0.59643
+newmtl pigment_19
+Kd 0.86753 0.69712 0.59643
+newmtl pigment_20
+Kd 0.73469 0.59038 0.50510
+newmtl pigment_21
+Kd 0.73469 0.59038 0.50510
+newmtl pigment_22
+Kd 0.56414 0.34111 0.31487
+newmtl pigment_23
+Kd 0.73469 0.59038 0.50510
+newmtl pigment_24
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_25
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_26
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_27
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_28
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_29
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_30
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_31
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_32
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_33
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_34
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_35
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_36
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_37
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_38
+Kd 0.54463 0.43765 0.37443
+newmtl pigment_39
+Kd 0.41820 0.25286 0.23341
+newmtl pigment_40
+Kd 0.41820 0.25286 0.23341
+newmtl pigment_41
+Kd 0.54463 0.43765 0.37443
+newmtl pigment_42
+Kd 0.41820 0.25286 0.23341
+newmtl pigment_43
+Kd 0.41820 0.25286 0.23341
+newmtl pigment_44
+Kd 0.41820 0.25286 0.23341
+newmtl pigment_45
+Kd 0.41820 0.25286 0.23341
+newmtl pigment_46
+Kd 0.54463 0.43765 0.37443
+newmtl pigment_47
+Kd 0.49572 0.29974 0.27668
+newmtl pigment_48
+Kd 0.49572 0.29974 0.27668
+newmtl pigment_49
+Kd 0.64559 0.51878 0.44385
+newmtl pigment_50
+Kd 0.60858 0.36798 0.33967
+newmtl pigment_51
+Kd 0.60858 0.36798 0.33967
+newmtl pigment_52
+Kd 0.36444 0.22291 0.25829
+newmtl pigment_53
+Kd 0.60858 0.36798 0.33967
+newmtl pigment_54
+Kd 0.60858 0.36798 0.33967
+newmtl pigment_55
+Kd 0.36444 0.22291 0.25829
+newmtl pigment_56
+Kd 0.60858 0.36798 0.33967
+newmtl pigment_57
+Kd 0.60858 0.36798 0.33967
+newmtl pigment_58
+Kd 0.36444 0.22291 0.25829
+newmtl pigment_59
+Kd 0.62330 0.37688 0.34789
+newmtl pigment_60
+Kd 0.62330 0.37688 0.34789
+newmtl pigment_61
+Kd 0.81174 0.65229 0.55807
+newmtl pigment_62
+Kd 0.51339 0.31042 0.28654
+newmtl pigment_63
+Kd 0.51339 0.31042 0.28654
+newmtl pigment_64
+Kd 0.66860 0.53727 0.45966
+newmtl pigment_65
+Kd 0.51339 0.31042 0.28654
+newmtl pigment_66
+Kd 0.51339 0.31042 0.28654
+newmtl pigment_67
+Kd 0.51339 0.31042 0.28654
+newmtl pigment_68
+Kd 0.66860 0.53727 0.45966
+newmtl pigment_69
+Kd 0.51339 0.31042 0.28654
+newmtl pigment_70
+Kd 0.51339 0.31042 0.28654
+newmtl pigment_71
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_72
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_73
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_74
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_75
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_76
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_77
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_78
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_79
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_80
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_81
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_82
+Kd 0.54463 0.43765 0.37443
+newmtl pigment_83
+Kd 0.54463 0.43765 0.37443
+newmtl pigment_84
+Kd 0.54463 0.43765 0.37443
+newmtl pigment_85
+Kd 0.54463 0.43765 0.37443
+newmtl pigment_86
+Kd 0.54463 0.43765 0.37443
+newmtl pigment_87
+Kd 0.54463 0.43765 0.37443
+newmtl pigment_88
+Kd 0.56418 0.45336 0.38787
+newmtl pigment_89
+Kd 0.43321 0.26194 0.24179
+newmtl pigment_90
+Kd 0.55290 0.33431 0.30859
+newmtl pigment_91
+Kd 0.55290 0.33431 0.30859
+newmtl pigment_92
+Kd 0.55290 0.33431 0.30859
+newmtl pigment_93
+Kd 0.55290 0.33431 0.30859
+newmtl pigment_94
+Kd 0.55290 0.33431 0.30859
+newmtl pigment_95
+Kd 0.55290 0.33431 0.30859
+newmtl pigment_96
+Kd 0.71689 0.57607 0.49286
+newmtl pigment_97
+Kd 0.55047 0.33284 0.30724
+newmtl pigment_98
+Kd 0.59560 0.47861 0.40947
+newmtl pigment_99
+Kd 0.59560 0.47861 0.40947
+newmtl pigment_100
+Kd 0.59560 0.47861 0.40947
+newmtl pigment_101
+Kd 0.59560 0.47861 0.40947
+newmtl pigment_102
+Kd 0.59560 0.47861 0.40947
+newmtl pigment_103
+Kd 0.59560 0.47861 0.40947
+newmtl pigment_104
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_105
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_106
+Kd 0.69145 0.50880 0.40443
+newmtl pigment_107
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_108
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_109
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_110
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_111
+Kd 0.52202 0.38413 0.30533
+newmtl pigment_112
+Kd 0.52202 0.38413 0.30533
+newmtl pigment_113
+Kd 0.69860 0.51406 0.40861
+newmtl pigment_114
+Kd 0.80828 0.59477 0.47277
+newmtl pigment_115
+Kd 0.80828 0.59477 0.47277
+newmtl pigment_116
+Kd 0.82157 0.60455 0.48054
+newmtl pigment_117
+Kd 0.71313 0.52476 0.41712
+newmtl pigment_118
+Kd 0.71313 0.52476 0.41712
+newmtl pigment_119
+Kd 0.55706 0.40991 0.32582
+newmtl pigment_120
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_121
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_122
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_123
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_124
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_125
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_126
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_127
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_128
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_129
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_130
+Kd 0.63352 0.46617 0.37055
+newmtl pigment_131
+Kd 0.30779 0.18826 0.21815
+newmtl pigment_132
+Kd 0.77013 0.56670 0.45045
+newmtl pigment_133
+Kd 0.37417 0.22886 0.26519
+newmtl pigment_134
+Kd 0.77013 0.56670 0.45045
+newmtl pigment_135
+Kd 0.37417 0.22886 0.26519
+newmtl pigment_136
+Kd 0.79139 0.58234 0.46289
+newmtl pigment_137
+Kd 0.38449 0.23518 0.27251
+newmtl pigment_138
+Kd 0.65518 0.48212 0.38322
+newmtl pigment_139
+Kd 0.65518 0.48212 0.38322
+newmtl pigment_140
+Kd 0.65518 0.48212 0.38322
+newmtl pigment_141
+Kd 0.65518 0.48212 0.38322
+newmtl pigment_142
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_143
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_144
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_145
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_146
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_147
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_148
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_149
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_150
+Kd 0.54463 0.43765 0.37443
+newmtl pigment_151
+Kd 0.30074 0.18395 0.21315
+newmtl pigment_152
+Kd 0.30074 0.18395 0.21315
+newmtl pigment_153
+Kd 0.30074 0.18395 0.21315
+newmtl pigment_154
+Kd 0.63684 0.51175 0.43783
+newmtl pigment_155
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_156
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_157
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_158
+Kd 0.56098 0.33920 0.31311
+newmtl pigment_159
+Kd 0.41820 0.25286 0.23341
+newmtl pigment_160
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_161
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_162
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_163
+Kd 0.57551 0.46247 0.39567
+newmtl pigment_164
+Kd 0.44191 0.26720 0.24665
+newmtl pigment_165
+Kd 0.57503 0.34769 0.32095
+newmtl pigment_166
+Kd 0.65609 0.39670 0.36619
+newmtl pigment_167
+Kd 0.65609 0.39670 0.36619
+newmtl pigment_168
+Kd 0.66414 0.40157 0.37068
+newmtl pigment_169
+Kd 0.58421 0.35324 0.32607
+newmtl pigment_170
+Kd 0.76083 0.61138 0.52307
+newmtl pigment_171
+Kd 0.57256 0.42132 0.33490
+newmtl pigment_172
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_173
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_174
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_175
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_176
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_177
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_178
+Kd 0.41820 0.25286 0.23341
+newmtl pigment_179
+Kd 0.41820 0.25286 0.23341
+newmtl pigment_180
+Kd 0.41820 0.25286 0.23341
+newmtl pigment_181
+Kd 0.41820 0.25286 0.23341
+newmtl pigment_182
+Kd 0.49681 0.30040 0.27729
+newmtl pigment_183
+Kd 0.49681 0.30040 0.27729
+newmtl pigment_184
+Kd 0.60858 0.36798 0.33967
+newmtl pigment_185
+Kd 0.60858 0.36798 0.33967
+newmtl pigment_186
+Kd 0.60858 0.36798 0.33967
+newmtl pigment_187
+Kd 0.60858 0.36798 0.33967
+newmtl pigment_188
+Kd 0.62361 0.37707 0.34806
+newmtl pigment_189
+Kd 0.62361 0.37707 0.34806
+newmtl pigment_190
+Kd 0.51339 0.31042 0.28654
+newmtl pigment_191
+Kd 0.51339 0.31042 0.28654
+newmtl pigment_192
+Kd 0.51339 0.31042 0.28654
+newmtl pigment_193
+Kd 0.51339 0.31042 0.28654
+newmtl pigment_194
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_195
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_196
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_197
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_198
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_199
+Kd 0.41820 0.25286 0.23341
+newmtl pigment_200
+Kd 0.41820 0.25286 0.23341
+newmtl pigment_201
+Kd 0.41820 0.25286 0.23341
+newmtl pigment_202
+Kd 0.50011 0.30239 0.27913
+newmtl pigment_203
+Kd 0.50011 0.30239 0.27913
+newmtl pigment_204
+Kd 0.48531 0.29344 0.27087
+newmtl pigment_205
+Kd 0.41820 0.25286 0.23341
+newmtl pigment_206
+Kd 0.41820 0.25286 0.23341
+newmtl pigment_207
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_208
+Kd 0.54229 0.32789 0.30267
+newmtl pigment_209
+Kd 0.41820 0.25286 0.23341
+newmtl pigment_210
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_211
+Kd 0.41820 0.25286 0.23341
+newmtl pigment_212
+Kd 0.41820 0.25286 0.23341
+newmtl pigment_213
+Kd 0.41820 0.25286 0.23341
+newmtl pigment_214
+Kd 0.45717 0.27643 0.25516
+newmtl pigment_215
+Kd 0.64478 0.38987 0.35988
+newmtl pigment_216
+Kd 0.64710 0.39127 0.36117
+newmtl pigment_217
+Kd 0.56728 0.34301 0.31662
+newmtl pigment_218
+Kd 0.56728 0.34301 0.31662
+newmtl pigment_219
+Kd 0.48071 0.29066 0.26831
+newmtl pigment_220
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_221
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_222
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_223
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_224
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_225
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_226
+Kd 0.41820 0.25286 0.23341
+newmtl pigment_227
+Kd 0.54463 0.43765 0.37443
+newmtl pigment_228
+Kd 0.41820 0.25286 0.23341
+newmtl pigment_229
+Kd 0.54463 0.43765 0.37443
+newmtl pigment_230
+Kd 0.25043 0.15318 0.17749
+newmtl pigment_231
+Kd 0.54463 0.43765 0.37443
+newmtl pigment_232
+Kd 0.36444 0.22291 0.25829
+newmtl pigment_233
+Kd 0.60858 0.36798 0.33967
+newmtl pigment_234
+Kd 0.36444 0.22291 0.25829
+newmtl pigment_235
+Kd 0.60858 0.36798 0.33967
+newmtl pigment_236
+Kd 0.36734 0.22469 0.26035
+newmtl pigment_237
+Kd 0.79888 0.64196 0.54923
+newmtl pigment_238
+Kd 0.53674 0.32454 0.29957
+newmtl pigment_239
+Kd 0.69901 0.56170 0.48057
+newmtl pigment_240
+Kd 0.53674 0.32454 0.29957
+newmtl pigment_241
+Kd 0.69901 0.56170 0.48057
+newmtl pigment_242
+Kd 0.53135 0.39099 0.31079
+newmtl pigment_243
+Kd 0.53135 0.39099 0.31079
+newmtl pigment_244
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_245
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_246
+Kd 0.54463 0.43765 0.37443
+newmtl pigment_247
+Kd 0.54463 0.43765 0.37443
+newmtl pigment_248
+Kd 0.54463 0.43765 0.37443
+newmtl pigment_249
+Kd 0.41820 0.25286 0.23341
+newmtl pigment_250
+Kd 0.54125 0.32727 0.30209
+newmtl pigment_251
+Kd 0.54125 0.32727 0.30209
+newmtl pigment_252
+Kd 0.55878 0.33787 0.31188
+newmtl pigment_253
+Kd 0.65626 0.52735 0.45118
+newmtl pigment_254
+Kd 0.65626 0.52735 0.45118
+newmtl pigment_255
+Kd 0.54463 0.43765 0.37443
+newmtl pigment_256
+Kd 0.33594 0.20548 0.23809
+newmtl pigment_257
+Kd 0.25043 0.15318 0.17749
+newmtl pigment_258
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_259
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_260
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_261
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_262
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_263
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_264
+Kd 0.25043 0.15318 0.17749
+newmtl pigment_265
+Kd 0.25043 0.15318 0.17749
+newmtl pigment_266
+Kd 0.35854 0.21930 0.25411
+newmtl pigment_267
+Kd 0.35854 0.21930 0.25411
+newmtl pigment_268
+Kd 0.37024 0.22646 0.26241
+newmtl pigment_269
+Kd 0.37024 0.22646 0.26241
+newmtl pigment_270
+Kd 0.37024 0.22646 0.26241
+newmtl pigment_271
+Kd 0.37024 0.22646 0.26241
+newmtl pigment_272
+Kd 0.38270 0.23408 0.27123
+newmtl pigment_273
+Kd 0.38270 0.23408 0.27123
+newmtl pigment_274
+Kd 0.33121 0.20259 0.23474
+newmtl pigment_275
+Kd 0.33121 0.20259 0.23474
+newmtl pigment_276
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_277
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_278
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_279
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_280
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_281
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_282
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_283
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_284
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_285
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_286
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_287
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_288
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_289
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_290
+Kd 0.54463 0.43765 0.37443
+newmtl pigment_291
+Kd 0.25043 0.15318 0.17749
+newmtl pigment_292
+Kd 0.25043 0.15318 0.17749
+newmtl pigment_293
+Kd 0.25043 0.15318 0.17749
+newmtl pigment_294
+Kd 0.34967 0.21388 0.24782
+newmtl pigment_295
+Kd 0.34967 0.21388 0.24782
+newmtl pigment_296
+Kd 0.34967 0.21388 0.24782
+newmtl pigment_297
+Kd 0.34967 0.21388 0.24782
+newmtl pigment_298
+Kd 0.36444 0.22291 0.25829
+newmtl pigment_299
+Kd 0.36444 0.22291 0.25829
+newmtl pigment_300
+Kd 0.36444 0.22291 0.25829
+newmtl pigment_301
+Kd 0.36444 0.22291 0.25829
+newmtl pigment_302
+Kd 0.36444 0.22291 0.25829
+newmtl pigment_303
+Kd 0.36444 0.22291 0.25829
+newmtl pigment_304
+Kd 0.36444 0.22291 0.25829
+newmtl pigment_305
+Kd 0.36444 0.22291 0.25829
+newmtl pigment_306
+Kd 0.37397 0.22874 0.26505
+newmtl pigment_307
+Kd 0.37397 0.22874 0.26505
+newmtl pigment_308
+Kd 0.37397 0.22874 0.26505
+newmtl pigment_309
+Kd 0.37397 0.22874 0.26505
+newmtl pigment_310
+Kd 0.66860 0.53727 0.45966
+newmtl pigment_311
+Kd 0.30744 0.18804 0.21789
+newmtl pigment_312
+Kd 0.30744 0.18804 0.21789
+newmtl pigment_313
+Kd 0.30744 0.18804 0.21789
+newmtl pigment_314
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_315
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_316
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_317
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_318
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_319
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_320
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_321
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_322
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_323
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_324
+Kd 0.25043 0.15318 0.17749
+newmtl pigment_325
+Kd 0.54463 0.43765 0.37443
+newmtl pigment_326
+Kd 0.34148 0.20887 0.24202
+newmtl pigment_327
+Kd 0.34148 0.20887 0.24202
+newmtl pigment_328
+Kd 0.35926 0.21974 0.25462
+newmtl pigment_329
+Kd 0.35926 0.21974 0.25462
+newmtl pigment_330
+Kd 0.35926 0.21974 0.25462
+newmtl pigment_331
+Kd 0.35926 0.21974 0.25462
+newmtl pigment_332
+Kd 0.36568 0.22367 0.25917
+newmtl pigment_333
+Kd 0.36568 0.22367 0.25917
+newmtl pigment_334
+Kd 0.28337 0.17332 0.20084
+newmtl pigment_335
+Kd 0.61626 0.49521 0.42368
+newmtl pigment_336
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_337
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_338
+Kd 0.73058 0.58708 0.50228
+newmtl pigment_339
+Kd 0.54463 0.43765 0.37443
+newmtl pigment_340
+Kd 0.66860 0.53727 0.45966
+newmtl pigment_341
+Kd 0.54463 0.43765 0.37443
+newmtl pigment_342
+Kd 0.54463 0.43765 0.37443
+newmtl pigment_343
+Kd 0.79257 0.63689 0.54489
+newmtl pigment_344
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_345
+Kd 0.63631 0.46823 0.37218
+newmtl pigment_346
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_347
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_348
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_349
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_350
+Kd 0.65284 0.48039 0.38185
+newmtl pigment_351
+Kd 0.79647 0.58608 0.46586
+newmtl pigment_352
+Kd 0.77570 0.57080 0.45371
+newmtl pigment_353
+Kd 0.60473 0.44499 0.35371
+newmtl pigment_354
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_355
+Kd 0.67364 0.49570 0.39402
+newmtl pigment_356
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_357
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_358
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_359
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_360
+Kd 0.70479 0.51862 0.41223
+newmtl pigment_361
+Kd 0.79169 0.58257 0.46307
+newmtl pigment_362
+Kd 0.71703 0.52763 0.41940
+newmtl pigment_363
+Kd 0.52707 0.38785 0.30829
+newmtl pigment_364
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_365
+Kd 0.77155 0.56775 0.45129
+newmtl pigment_366
+Kd 0.60525 0.44537 0.35401
+newmtl pigment_367
+Kd 0.69737 0.51316 0.40790
+newmtl pigment_368
+Kd 0.68336 0.50285 0.39970
+newmtl pigment_369
+Kd 0.57611 0.42393 0.33697
+newmtl pigment_370
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_371
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_372
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_373
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_374
+Kd 0.74402 0.54749 0.43518
+newmtl pigment_375
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_376
+Kd 0.53683 0.39503 0.31399
+newmtl pigment_377
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_378
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_379
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_380
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_381
+Kd 0.64960 0.47801 0.37996
+newmtl pigment_382
+Kd 0.73030 0.53739 0.42716
+newmtl pigment_383
+Kd 0.68263 0.50231 0.39927
+newmtl pigment_384
+Kd 0.69667 0.51264 0.40749
+newmtl pigment_385
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_386
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_387
+Kd 0.60229 0.44320 0.35228
+newmtl pigment_388
+Kd 0.74866 0.55090 0.43789
+newmtl pigment_389
+Kd 0.75656 0.55671 0.44252
+newmtl pigment_390
+Kd 0.62309 0.45850 0.36445
+newmtl pigment_391
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_392
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_393
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_394
+Kd 0.64164 0.47215 0.37530
+newmtl pigment_395
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_396
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_397
+Kd 0.57916 0.42618 0.33876
+newmtl pigment_398
+Kd 0.76003 0.55927 0.44455
+newmtl pigment_399
+Kd 0.79645 0.58607 0.46585
+newmtl pigment_400
+Kd 0.66819 0.49168 0.39083
+newmtl pigment_401
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_402
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_403
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_404
+Kd 0.67546 0.49703 0.39508
+newmtl pigment_405
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_406
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_407
+Kd 0.63049 0.46395 0.36878
+newmtl pigment_408
+Kd 0.77084 0.56723 0.45087
+newmtl pigment_409
+Kd 0.76017 0.55937 0.44463
+newmtl pigment_410
+Kd 0.60604 0.44596 0.35448
+newmtl pigment_411
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_412
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_413
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_414
+Kd 0.69066 0.50822 0.40397
+newmtl pigment_415
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_416
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_417
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_418
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_419
+Kd 0.51545 0.37929 0.30149
+newmtl pigment_420
+Kd 0.56057 0.41250 0.32788
+newmtl pigment_421
+Kd 0.72964 0.53691 0.42677
+newmtl pigment_422
+Kd 0.77314 0.56891 0.45221
+newmtl pigment_423
+Kd 0.66428 0.48881 0.38854

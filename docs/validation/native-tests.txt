@@ -1,0 +1,59 @@
+Test project /workspace/scratch/91465c988d92/work/build-native-root
+      Start  1: NativeTransportIntegration
+ 1/27 Test  #1: NativeTransportIntegration .......   Passed   17.00 sec
+      Start 13: SimulationTests
+      Start 19: ProducerCycles
+      Start 23: PlanetCollision
+      Start 16: LiveBridge
+ 2/27 Test #16: LiveBridge .......................   Passed    3.58 sec
+      Start 26: Plants
+ 3/27 Test #26: Plants ...........................   Passed    1.10 sec
+      Start 25: PlantDiagnostics
+ 4/27 Test #23: PlanetCollision ..................   Passed    5.62 sec
+      Start 24: HeightfieldExact
+ 5/27 Test #25: PlantDiagnostics .................   Passed    0.94 sec
+      Start 21: PlanetHabitat
+ 6/27 Test #21: PlanetHabitat ....................   Passed    0.21 sec
+      Start 15: IslandWorld
+ 7/27 Test #15: IslandWorld ......................   Passed    0.22 sec
+      Start 18: LiveCheckpoint
+ 8/27 Test #18: LiveCheckpoint ...................   Passed    0.17 sec
+      Start 20: FullPond
+ 9/27 Test #20: FullPond .........................   Passed    0.08 sec
+      Start 22: PlanetFounders
+10/27 Test #24: HeightfieldExact .................   Passed    0.69 sec
+      Start 12: SpawningTests
+11/27 Test #12: SpawningTests ....................   Passed    0.01 sec
+      Start  9: MetricsTests
+12/27 Test  #9: MetricsTests .....................   Passed    0.00 sec
+      Start 10: AsyncRecordWriterTests
+13/27 Test #10: AsyncRecordWriterTests ...........   Passed    0.00 sec
+      Start  5: PhysicsTests
+14/27 Test  #5: PhysicsTests .....................   Passed    0.00 sec
+      Start  6: EcologyTests
+15/27 Test  #6: EcologyTests .....................   Passed    0.00 sec
+      Start  4: ChemistryTests
+16/27 Test  #4: ChemistryTests ...................   Passed    0.00 sec
+      Start  7: LifecycleTests
+17/27 Test  #7: LifecycleTests ...................   Passed    0.00 sec
+      Start  3: RnnBrainTests
+18/27 Test  #3: RnnBrainTests ....................   Passed    0.00 sec
+      Start 11: SelectionTests
+19/27 Test #11: SelectionTests ...................   Passed    0.00 sec
+      Start  8: RunOptionsTests
+20/27 Test  #8: RunOptionsTests ..................   Passed    0.00 sec
+      Start 27: ReproductionIntent
+21/27 Test #27: ReproductionIntent ...............   Passed    0.00 sec
+      Start 14: SpatialGridTests
+22/27 Test #14: SpatialGridTests .................   Passed    0.00 sec
+      Start 17: Optics
+23/27 Test #22: PlanetFounders ...................   Passed    0.05 sec
+24/27 Test #17: Optics ...........................   Passed    0.00 sec
+25/27 Test #19: ProducerCycles ...................   Passed   11.07 sec
+26/27 Test #13: SimulationTests ..................   Passed   12.63 sec
+      Start  2: NativeAutonomous
+27/27 Test  #2: NativeAutonomous .................   Passed    1.21 sec
+
+100% tests passed out of 27
+
+Total Test time (real) =  30.85 sec

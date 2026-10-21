@@ -1,0 +1,224 @@
+{
+  "name": "CI_Planet",
+  "tree": {
+    "$className": "DataModel",
+    "StarterPlayer": {
+      "$ignoreUnknownInstances": true,
+      "StarterPlayerScripts": {
+        "$ignoreUnknownInstances": true,
+        "CI_PlanetPlayer": {
+          "$path": "src/world/StarterPlayer/StarterPlayerScripts/CI_PlanetPlayer.client.lua",
+          "$ignoreUnknownInstances": true
+        },
+        "$className": "StarterPlayerScripts",
+        "CI_Biology": {
+          "$path": "src/biology/client"
+        }
+      },
+      "$className": "StarterPlayer"
+    },
+    "ReplicatedStorage": {
+      "$ignoreUnknownInstances": true,
+      "CI_PlanetPlayer": {
+        "$ignoreUnknownInstances": true,
+        "Shared": {
+          "$ignoreUnknownInstances": true,
+          "Config": {
+            "$path": "src/world/ReplicatedStorage/CI_PlanetPlayer/Shared/Config.lua",
+            "$ignoreUnknownInstances": true
+          },
+          "ContactPolicy": {
+            "$path": "src/world/ReplicatedStorage/CI_PlanetPlayer/Shared/ContactPolicy.lua",
+            "$ignoreUnknownInstances": true
+          },
+          "Contracts": {
+            "$path": "src/world/ReplicatedStorage/CI_PlanetPlayer/Shared/Contracts.lua",
+            "$ignoreUnknownInstances": true
+          },
+          "GravityField": {
+            "$path": "src/world/ReplicatedStorage/CI_PlanetPlayer/Shared/GravityField.lua",
+            "$ignoreUnknownInstances": true
+          },
+          "LocomotionMath": {
+            "$path": "src/world/ReplicatedStorage/CI_PlanetPlayer/Shared/LocomotionMath.lua",
+            "$ignoreUnknownInstances": true
+          },
+          "LookInput": {
+            "$path": "src/world/ReplicatedStorage/CI_PlanetPlayer/Shared/LookInput.lua",
+            "$ignoreUnknownInstances": true
+          },
+          "LookState": {
+            "$path": "src/world/ReplicatedStorage/CI_PlanetPlayer/Shared/LookState.lua",
+            "$ignoreUnknownInstances": true
+          },
+          "PhysicsBackend": {
+            "$path": "src/world/ReplicatedStorage/CI_PlanetPlayer/Shared/PhysicsBackend.lua",
+            "$ignoreUnknownInstances": true
+          },
+          "PlanetFrame": {
+            "$path": "src/world/ReplicatedStorage/CI_PlanetPlayer/Shared/PlanetFrame.lua",
+            "$ignoreUnknownInstances": true
+          },
+          "Rig": {
+            "$path": "src/world/ReplicatedStorage/CI_PlanetPlayer/Shared/Rig.lua",
+            "$ignoreUnknownInstances": true
+          },
+          "Scalar": {
+            "$path": "src/world/ReplicatedStorage/CI_PlanetPlayer/Shared/Scalar.lua",
+            "$ignoreUnknownInstances": true
+          },
+          "$className": "Folder"
+        },
+        "Client": {
+          "$ignoreUnknownInstances": true,
+          "BodyController": {
+            "$path": "src/world/ReplicatedStorage/CI_PlanetPlayer/Client/BodyController.lua",
+            "$ignoreUnknownInstances": true
+          },
+          "CameraController": {
+            "$path": "src/world/ReplicatedStorage/CI_PlanetPlayer/Client/CameraController.lua",
+            "$ignoreUnknownInstances": true
+          },
+          "InputController": {
+            "$path": "src/world/ReplicatedStorage/CI_PlanetPlayer/Client/InputController.lua",
+            "$ignoreUnknownInstances": true
+          },
+          "Inspection": {
+            "$path": "src/world/ReplicatedStorage/CI_PlanetPlayer/Client/Inspection.lua",
+            "$ignoreUnknownInstances": true
+          },
+          "MovementController": {
+            "$path": "src/world/ReplicatedStorage/CI_PlanetPlayer/Client/MovementController.lua",
+            "$ignoreUnknownInstances": true
+          },
+          "$className": "Folder"
+        },
+        "Ready": {
+          "$className": "RemoteEvent"
+        },
+        "Request": {
+          "$className": "RemoteEvent"
+        },
+        "Pose": {
+          "$className": "UnreliableRemoteEvent"
+        },
+        "$className": "Folder"
+      },
+      "CI_Integration": {
+        "$path": "src/integration/shared",
+        "$ignoreUnknownInstances": true
+      },
+      "$className": "ReplicatedStorage",
+      "CI_Biology": {
+        "$path": "src/biology/shared"
+      }
+    },
+    "ServerScriptService": {
+      "$ignoreUnknownInstances": true,
+      "CI_PlanetPlayer": {
+        "$ignoreUnknownInstances": true,
+        "SiteValidator": {
+          "$path": "src/world/ServerScriptService/CI_PlanetPlayer/SiteValidator.lua",
+          "$ignoreUnknownInstances": true
+        },
+        "Bootstrap": {
+          "$path": "src/world/ServerScriptService/CI_PlanetPlayer/Bootstrap.server.lua",
+          "$ignoreUnknownInstances": true
+        },
+        "$className": "Folder"
+      },
+      "CI_Integration": {
+        "$path": "src/server",
+        "$ignoreUnknownInstances": true
+      },
+      "$className": "ServerScriptService",
+      "CI_Biology": {
+        "$path": "src/biology/server"
+      }
+    },
+    "ServerStorage": {
+      "$ignoreUnknownInstances": true,
+      "CI_PlanetTerrain": {
+        "$ignoreUnknownInstances": true,
+        "BuildJournal": {
+          "$path": "src/world/ServerStorage/CI_PlanetTerrain/BuildJournal.lua",
+          "$ignoreUnknownInstances": true
+        },
+        "CaveData": {
+          "$path": "src/world/ServerStorage/CI_PlanetTerrain/CaveData.lua",
+          "$ignoreUnknownInstances": true
+        },
+        "CollisionAudit": {
+          "$path": "src/world/ServerStorage/CI_PlanetTerrain/CollisionAudit.lua",
+          "$ignoreUnknownInstances": true
+        },
+        "DatasetLoader": {
+          "$path": "src/world/ServerStorage/CI_PlanetTerrain/DatasetLoader.lua",
+          "$ignoreUnknownInstances": true
+        },
+        "IslandSite": {
+          "$path": "src/world/ServerStorage/CI_PlanetTerrain/IslandSite.lua",
+          "$ignoreUnknownInstances": true
+        },
+        "MountainTour": {
+          "$path": "src/world/ServerStorage/CI_PlanetTerrain/MountainTour.lua",
+          "$ignoreUnknownInstances": true
+        },
+        "NativeBuild": {
+          "$path": "src/world/ServerStorage/CI_PlanetTerrain/NativeBuild.lua",
+          "$ignoreUnknownInstances": true
+        },
+        "NativePlan": {
+          "$path": "src/world/ServerStorage/CI_PlanetTerrain/NativePlan.lua",
+          "$ignoreUnknownInstances": true
+        },
+        "NativeShell": {
+          "$path": "src/world/ServerStorage/CI_PlanetTerrain/NativeShell.lua",
+          "$ignoreUnknownInstances": true
+        },
+        "PlanetConfig": {
+          "$path": "src/world/ServerStorage/CI_PlanetTerrain/PlanetConfig.lua",
+          "$ignoreUnknownInstances": true
+        },
+        "PlanetGeometry": {
+          "$path": "src/world/ServerStorage/CI_PlanetTerrain/PlanetGeometry.lua",
+          "$ignoreUnknownInstances": true
+        },
+        "StudioFeasibility": {
+          "$path": "src/world/ServerStorage/CI_PlanetTerrain/StudioFeasibility.lua",
+          "$ignoreUnknownInstances": true
+        },
+        "SurfaceProbe": {
+          "$path": "src/world/ServerStorage/CI_PlanetTerrain/SurfaceProbe.lua",
+          "$ignoreUnknownInstances": true
+        },
+        "TerrainAudit": {
+          "$path": "src/world/ServerStorage/CI_PlanetTerrain/TerrainAudit.lua",
+          "$ignoreUnknownInstances": true
+        },
+        "TerrainDataset": {
+          "$path": "src/world/ServerStorage/CI_PlanetTerrain/TerrainDataset.lua",
+          "$ignoreUnknownInstances": true
+        },
+        "TerrainMaterials": {
+          "$path": "src/world/ServerStorage/CI_PlanetTerrain/TerrainMaterials.lua",
+          "$ignoreUnknownInstances": true
+        },
+        "TerrainTiles": {
+          "$path": "src/world/ServerStorage/CI_PlanetTerrain/TerrainTiles.lua",
+          "$ignoreUnknownInstances": true
+        },
+        "TerrainVolume": {
+          "$path": "src/world/ServerStorage/CI_PlanetTerrain/TerrainVolume.lua",
+          "$ignoreUnknownInstances": true
+        },
+        "$className": "Folder"
+      },
+      "$className": "ServerStorage"
+    },
+    "Workspace": {
+      "$ignoreUnknownInstances": true,
+      "$className": "Workspace"
+    }
+  }
+}

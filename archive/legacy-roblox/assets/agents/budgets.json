@@ -1,0 +1,50 @@
+[
+  {
+    "key": "Cyanobacteria",
+    "heroTriangles": 964,
+    "lod1Triangles": 300,
+    "nativeParts": 8,
+    "components": 1,
+    "poseBytes": 22
+  },
+  {
+    "key": "Bacterivore",
+    "heroTriangles": 700,
+    "lod1Triangles": 300,
+    "nativeParts": 10,
+    "components": 5,
+    "poseBytes": 30
+  },
+  {
+    "key": "BodoSaltans",
+    "heroTriangles": 952,
+    "lod1Triangles": 524,
+    "nativeParts": 14,
+    "components": 9,
+    "poseBytes": 38
+  },
+  {
+    "key": "Tideback",
+    "heroTriangles": 4684,
+    "lod1Triangles": 1256,
+    "nativeParts": 69,
+    "components": 17,
+    "poseBytes": 54
+  },
+  {
+    "key": "Reedrunner",
+    "heroTriangles": 3300,
+    "lod1Triangles": 1284,
+    "nativeParts": 63,
+    "components": 18,
+    "poseBytes": 56
+  },
+  {
+    "key": "Crestgrazer",
+    "heroTriangles": 4600,
+    "lod1Triangles": 1264,
+    "nativeParts": 73,
+    "components": 16,
+    "poseBytes": 52
+  }
+]

@@ -1,0 +1,1 @@
+PASS: all 79 .lua files under planet/ compiled with luau-compile.

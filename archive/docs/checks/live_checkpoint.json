@@ -1,0 +1,7 @@
+{
+  "test": "live_checkpoint",
+  "compile_exit": 0,
+  "compile_log": "",
+  "run_exit": 0,
+  "run_log": "[CI Live] live-42-1792518470580435458; bridge hardened-v3; waiting for Roblox authority\n[CI Live] live-42-1792518470580435458; bridge hardened-v3; waiting for Roblox authority\n[CI Live] Restored tick 123; durable event 0; waiting for full resynchronization\n[CI Live] live-42-1792518470612082708; bridge hardened-v3; waiting for Roblox authority\n[CI Live] live-42-1792518470627885112; bridge hardened-v3; waiting for Roblox authority\n[CI Live] live-42-1792518470643991126; bridge hardened-v3; waiting for Roblox authority\n[CI Live] live-42-1792518470659776343; bridge hardened-v3; waiting for Roblox authority\n[CI Live] live-42-1792518470675535547; bridge hardened-v3; waiting for Roblox authority\n[CI Live] live-42-1792518470691591636; bridge hardened-v3; waiting for Roblox authority\n[CI Live] live-42-1792518470707329348; bridge hardened-v3; waiting for Roblox authority\n[CI Live] live-42-1792518470723166308; bridge hardened-v3; waiting for Roblox authority\nPASS full brain/population/chemistry/RNG checkpoint, restart, checksum rejection\n"
+}

@@ -1,0 +1,37 @@
+{
+  "name": "planetv000",
+  "tree": {
+    "$className": "DataModel",
+    "ReplicatedStorage": {
+      "Shared": {
+        "$path": "src/shared",
+        "$ignoreUnknownInstances": true
+      }
+    },
+    "ServerScriptService": {
+      "Server": {
+        "$path": "src/server",
+        "$ignoreUnknownInstances": true
+      }
+    },
+    "ServerStorage": {
+      "$className": "ServerStorage",
+      "$ignoreUnknownInstances": true
+    },
+    "StarterPlayer": {
+      "StarterPlayerScripts": {
+        "Client": {
+          "$path": "src/client",
+          "$ignoreUnknownInstances": true
+        }
+      }
+    },
+    "Workspace": {
+      "$ignoreUnknownInstances": true,
+      "$properties": {
+        "Gravity": 0,
+        "StreamingEnabled": false
+      }
+    }
+  }
+}
