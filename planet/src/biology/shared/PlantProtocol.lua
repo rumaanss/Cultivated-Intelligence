@@ -23,6 +23,11 @@ function M.validate(s:any)
   local carbon=s.environment.atmosphericCarbon
   assert(carbon==nil or (finite(carbon) and carbon>=0),"Invalid atmospheric carbon")
  end
+ if s.litter~=nil then
+  assert(type(s.litter)=="table" and #s.litter<=16384,"Litter budget")
+  local cells={}
+  for _,row in s.litter do vector(row,5);assert(integer(row[1],0,16383) and not cells[row[1]] and row[5]>=0,"Invalid litter");cells[row[1]]=true end
+ end
  local seen={}
  for _,p in s.upsert do
   assert(type(p)=="table" and integer(p.id,1,4294967295) and not seen[p.id],"Duplicate/invalid plant")
@@ -69,6 +74,6 @@ function M.apply(state:any,s:any):(any,string?)
  for _,p in s.upsert do records[p.id]=p end
  for _,id in s.removed do records[id]=nil end
  local count=0;for _ in records do count+=1 end;assert(count<=512,"State population budget")
- return {run=s.run,revision=s.revision,tick=s.tick,worldTick=s.worldTick,surface=s.surface,records=records,ledger=s.ledger,environment=s.environment,age=s.age},nil
+ return {run=s.run,revision=s.revision,tick=s.tick,worldTick=s.worldTick,surface=s.surface,records=records,litter=s.litter or {},deathCount=s.deathCount,ledger=s.ledger,environment=s.environment,age=s.age},nil
 end
 return M

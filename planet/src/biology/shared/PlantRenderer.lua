@@ -9,13 +9,14 @@ local Art=require(asset)
 function M.new(root:Instance):any return {root=root,plants={},parts=0} end
 local function remove(renderer:any,id:number)
  local rig=renderer.plants[id];if not rig then return end
+ if workspace:GetAttribute("CI_SelectedOrganismId")=="P"..id then workspace:SetAttribute("CI_SelectedOrganismId",nil)end
  renderer.parts-=#rig.items;rig.model:Destroy();renderer.plants[id]=nil
 end
 function M.select(renderer:any,records:any,cameraPosition:Vector3,config:any,roots:boolean)
  local candidates: {Candidate}={}
  for id,p in records do
   local d=(Space.plantPosition(p.position)-cameraPosition).Magnitude
-  if d<=config.FarDistance then
+  if p.stage~=2 and d<=config.FarDistance then
    local visual=p
    local resolveGround = config.ResolveGround
    if type(resolveGround)=="function" then

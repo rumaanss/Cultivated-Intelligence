@@ -29,11 +29,14 @@ struct Plant {
  bool fluxValid=false;std::array<double,8> flux{};
  Policy policy=Policy::Neural;Job job{};Decision decision{};std::vector<Organ> organs;
 };
-struct Cell {double height=0,depth=8,water=20,nutrients=8,litter=0;bool valid=true;};
+// Historical samples are informational: they never own carbon or nutrients.
+struct DeathRecord {unsigned id{},lineage{},species{},age{};std::uint64_t tick{};double carbon{};};
+struct Cell {double height=0,depth=8,water=20,nutrients=8,litter=0;bool valid=true;double dissolvedCarbon=0;};
 struct Surface {unsigned width=16,height=16;double originX=-64,originZ=-64,cellSize=8;std::string revision="flat-test-v1";std::vector<Cell> cells;};
 struct Ledger {double founderCarbon=0,assimilation=0,respiration=0,rain=0,waterOut=0,nutrientInput=0,initialWater=0,initialNutrients=0;};
 struct World {
  Surface surface;std::vector<Plant> plants;Ledger ledger{};
+ std::vector<DeathRecord> history;std::uint64_t retiredRecords=0; // durable history, separate from resource ownership
  std::vector<std::string> events; // bounded to one step; worker writes rotating audit log
  std::uint64_t rng=1,tick=0;unsigned nextId=1,revision=0;std::string run="plants-1";
  double rainfall=.025,daylight=1;bool mutation=true;

@@ -1,0 +1,2 @@
+# Checkpoint fixtures are checksum-protected byte streams, including whitespace.
+*.ciplants -text -diff

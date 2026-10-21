@@ -19,6 +19,7 @@ function Presentation.new(state)
  local function activate(value)
   if active==value then return end;active=value
   if value then
+   for key in pairs(saved)do saved[key]=lighting[key]end
    for _,a in originals do if a.Parent==lighting then a.Parent=parked end end;scatter.Parent=lighting
   else
    scatter.Parent=parked;for _,a in originals do if a.Parent==parked then a.Parent=lighting end end
@@ -58,10 +59,13 @@ function Presentation.new(state)
   blend+=(target-blend)*(1-math.exp(-dt/.45));depth+=(targetDepth-depth)*(1-math.exp(-dt/.45))
   if target==0 and blend<.001 then blend=0 end
   if targetNear==0 and near<.001 then near=0 end
-  activate(near>0 or blend>0);grade.Enabled=blend>0;bloom.Enabled=active
+  lighting:SetAttribute("CI_UnderwaterBlend",blend)
+  activate(blend>0 and lighting:GetAttribute("CI_DisableWaterPresentation")~=true);grade.Enabled=blend>0;bloom.Enabled=active
   if active then
    -- Existing planet clock remains authoritative; local illumination uses radial up.
-   local day=Waves.smoothstep((lighting:GetSunDirection():Dot(up)+.12)/.35)
+   local celestial=workspace:FindFirstChild('CI_PlanetCelestial')
+   local solar=celestial and celestial:GetAttribute('SolarDirection') or lighting:GetSunDirection()
+   local day=Waves.smoothstep((solar:Dot((p-center).Unit)+.12)/.35)
    local brightness=.18+(2.4-.18)*day
    lighting.Brightness=saved.Brightness+(brightness-saved.Brightness)*near
    lighting.Ambient=saved.Ambient:Lerp(Color3.fromRGB(75,86,106):Lerp(Color3.fromRGB(40,43,48),day),near)
@@ -107,7 +111,7 @@ function Presentation.new(state)
  end
  local conn=game:GetService('RunService').RenderStepped:Connect(update)
  return {Destroy=function()
-  if not alive then return end;alive=false;conn:Disconnect();activate(false)
+  if not alive then return end;alive=false;conn:Disconnect();activate(false);lighting:SetAttribute("CI_UnderwaterBlend",nil)
   grade:Destroy();bloom:Destroy();scatter:Destroy();surface.Destroy();root:Destroy()
  end}
 end

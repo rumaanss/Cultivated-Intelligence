@@ -38,7 +38,7 @@ remote.OnServerEvent:Connect(function(player:Player)
  local now=os.clock();if now-(lastRequest[player] or -10)<2 then return end;lastRequest[player]=now
  if state then
   local rows={};for _,p in state.records do table.insert(rows,p) end
-  send({schema=1,units="studs-Y-up",run=state.run,revision=state.revision,tick=state.tick,surface=state.surface,reset=true,base=0,upsert=rows,removed={},ledger=state.ledger,age=state.age},player)
+  send({schema=1,units="studs-Y-up",run=state.run,revision=state.revision,tick=state.tick,surface=state.surface,reset=true,base=0,upsert=rows,removed={},ledger=state.ledger,environment=state.environment,litter=state.litter,deathCount=state.deathCount,age=state.age},player)
  end
 end)
 Players.PlayerRemoving:Connect(function(player)lastRequest[player]=nil end)

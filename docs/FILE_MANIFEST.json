@@ -2,9 +2,14 @@
   "format": 1,
   "files": [
     {
+      "path": ".gitattributes",
+      "bytes": 104,
+      "sha256": "87148f60f35ea5207ee9b8d24d2641c1f561553048585f87cc85d7ce031a78a2"
+    },
+    {
       "path": ".gitignore",
-      "bytes": 274,
-      "sha256": "b8e3294eebd67c60ac0a76dc6021f0a403ea328f06d3c71a49899ee946ad1fa0"
+      "bytes": 558,
+      "sha256": "d978373567b171a048be0669706d79979ccbd3644b49f7b4ef51c1062ee629df"
     },
     {
       "path": ".vscode/settings.json",
@@ -23,8 +28,8 @@
     },
     {
       "path": "START_HERE.md",
-      "bytes": 5124,
-      "sha256": "66d66f83f990fcdc89a3c7b7afb91a26e2f5dde1f958203beca5b4d5940d66ea"
+      "bytes": 5385,
+      "sha256": "bc5764cceca782c6d09c17cecff02e0f894c20aa9803e06c5e007c1c0752ceb7"
     },
     {
       "path": "aftman.toml",
@@ -43,8 +48,8 @@
     },
     {
       "path": "applications/shared/application.cpp",
-      "bytes": 68338,
-      "sha256": "c26b06ce152f8496ec48b80010b9cf331d64ad03e4a8bbabd1184941fa64bf35"
+      "bytes": 68337,
+      "sha256": "7327bdac6a2f19853053b240b9e69d051d6c3b547b21046d43b6219e14fc8563"
     },
     {
       "path": "archive/README.md",
@@ -1182,9 +1187,44 @@
       "sha256": "da27cf0a7e2bbbf65c08f87764eaf314be1050fa6b027650f8cd38463fc56367"
     },
     {
+      "path": "docs/LIFECYCLE_SKY_IMPLEMENTATION.md",
+      "bytes": 1333,
+      "sha256": "63a70e25b5d8209030402990d8dcc27fcac62beed774fedeb04ccd8a5251e248"
+    },
+    {
+      "path": "docs/LIFECYCLE_SKY_RELEASE.md",
+      "bytes": 7144,
+      "sha256": "bb821cc4e8f3bd16f06e7ad8beb9af0c3b6270e9c76e3a96096d0b07084cb5e2"
+    },
+    {
       "path": "docs/VALIDATION.md",
       "bytes": 4851,
       "sha256": "f3ac081e770d83fa1bc839ad8b5be9cbf40c2cde1416b727233392ecd9bb42eb"
+    },
+    {
+      "path": "docs/validation/lifecycle-sky/ctest.txt",
+      "bytes": 3013,
+      "sha256": "e575583f98a0528e5888863aadcc5c70b823ac67403b09348103519c2cb52812"
+    },
+    {
+      "path": "docs/validation/lifecycle-sky/final-targeted.txt",
+      "bytes": 533,
+      "sha256": "cfad8f3674cd87f8a1ea7a97a42caeb0e6db9768dfb4c6a338edff92a863ccc5"
+    },
+    {
+      "path": "docs/validation/lifecycle-sky/luau.txt",
+      "bytes": 408,
+      "sha256": "6b8f2b8da64e562a3f19b0ff691639b9b207a3c90e8f0fedecc8975fed11dc34"
+    },
+    {
+      "path": "docs/validation/lifecycle-sky/tree_mechanical.csv",
+      "bytes": 252,
+      "sha256": "670346d6061e489dd145540dc893e51a4cbf938aa346ca8544490684647cb1c0"
+    },
+    {
+      "path": "docs/validation/lifecycle-sky/tree_neural.csv",
+      "bytes": 200,
+      "sha256": "636175d51b9852515f58a309b6242573d8428dbe08e601a1d02b4ae8a0f1359c"
     },
     {
       "path": "docs/validation/luau-compile.txt",
@@ -1238,8 +1278,8 @@
     },
     {
       "path": "planet/components/water-reference/LakePresentation.lua",
-      "bytes": 7414,
-      "sha256": "47e41f57ff849b9ca6d53bbe12d5300ffefedc52f6fb73864f10ea02d5cd2097"
+      "bytes": 7782,
+      "sha256": "00bc4f28450728020e9e72e68a0158827f86c0e3ecf9ec6f42ad790c3bc3c4d6"
     },
     {
       "path": "planet/components/water-reference/WaterWaveMath.lua",
@@ -1263,18 +1303,18 @@
     },
     {
       "path": "planet/src/biology/client/Celestial.client.lua",
-      "bytes": 6533,
-      "sha256": "80f94eb588d10d9927a0246d15c8c417bb56b92fd1ad9a8801e78d76fb1db17b"
+      "bytes": 8226,
+      "sha256": "65a984a6a2ec387adf9df29dae6ff4359dc21e6afd85c9145ed64ed8885e79c9"
     },
     {
       "path": "planet/src/biology/client/Microbes.client.lua",
-      "bytes": 6259,
-      "sha256": "af8dc714f4cce5c534a47985cce9481dacb6533b70d797e84a7eac90585f1653"
+      "bytes": 6409,
+      "sha256": "a33da9bb23323ca58c3ede64e1bcf0ee24e8c96b901f4e59a04b4ba881ac2be7"
     },
     {
       "path": "planet/src/biology/client/Plants.client.lua",
-      "bytes": 3785,
-      "sha256": "1e1b28dcb4bdc9c1ce4c86e922c62dfb45d03a8916aa7440d96b9d4d9f3ae426"
+      "bytes": 5269,
+      "sha256": "c8fa860df5cfca8c4dd30ca65d5033c48f62a0d4226b748356453f360a42e87f"
     },
     {
       "path": "planet/src/biology/server/Bootstrap.server.lua",
@@ -1288,8 +1328,8 @@
     },
     {
       "path": "planet/src/biology/server/PlantsService.lua",
-      "bytes": 5697,
-      "sha256": "2d8eb5808ae57fa46549322ec2580e447d9498a1455c93b44e8845ddaf72d51a"
+      "bytes": 5775,
+      "sha256": "a18b400577e5e1ace01a2f24a1336879368b1bd598a54a2a3fbb462e752617f6"
     },
     {
       "path": "planet/src/biology/shared/AgentDesignData.lua",
@@ -1358,18 +1398,23 @@
     },
     {
       "path": "planet/src/biology/shared/PlantProtocol.lua",
-      "bytes": 4469,
-      "sha256": "49baa529af8546abceda1b3509a376eed4024396fe30a7a0b5a64c002ea7b127"
+      "bytes": 4780,
+      "sha256": "300f4fe53613ff8d386c09275e953eec74ad2ff402533d8662a5ccd39edae980"
     },
     {
       "path": "planet/src/biology/shared/PlantRenderer.lua",
-      "bytes": 5837,
-      "sha256": "d1f4a99267a53cb0ff4d917cd5c6be658ce3aaf92baebca820952985b2ac7e79"
+      "bytes": 5973,
+      "sha256": "92f2511ba4712b4d2c6973de6e3a1422e0d38be141442908ba2d1cf12fe948a4"
     },
     {
       "path": "planet/src/biology/shared/PlantTransportBridge.lua",
       "bytes": 277,
       "sha256": "62b1363e9d36df3a653c25c1f1872f0fc98497890142c953f4d57529234e5515"
+    },
+    {
+      "path": "planet/src/biology/shared/RadialSky.lua",
+      "bytes": 3040,
+      "sha256": "a2e435b2e524eab5938c80bd57e58c32494e81271e2229aefcaf11b1f41df0e4"
     },
     {
       "path": "planet/src/biology/shared/RecordingSchema.lua",
@@ -1583,8 +1628,8 @@
     },
     {
       "path": "planet/src/world/StarterPlayer/StarterPlayerScripts/CI_PlanetPlayer.client.lua",
-      "bytes": 77403,
-      "sha256": "d46949c90d0e320d6b359f3f1c87ab9d136c3ee89a0779cfdcdbd60d787aaba1"
+      "bytes": 77595,
+      "sha256": "b7ef102e3f4ff3c2cd8184db40134e435a751dcb572e94a19b4601a698ecbe33"
     },
     {
       "path": "planet/tests/frame_assertions.lua",
@@ -1612,9 +1657,14 @@
       "sha256": "70d7e48ba3b93d88857780e3f1f1f4d26d53cb9c498d1c7734845ed3d992783e"
     },
     {
+      "path": "planet/tests/radial_sky_assertions.lua",
+      "bytes": 1072,
+      "sha256": "074ac0404ec174b783cbd8d12d19f98eaadfd6ff6cf9c231108144794b0d3fed"
+    },
+    {
       "path": "planet/tests/run_checks.py",
-      "bytes": 2027,
-      "sha256": "f1ba6ce50b491850d624a040e09c8dc35e3a2a37568d92e1200447693f192839"
+      "bytes": 2463,
+      "sha256": "9e4b973d360dd5d67c7f63017c1d2413f610d1ed44c8402c2649d5c674f85497"
     },
     {
       "path": "planet/tests/solar_assertions.lua",
@@ -1698,8 +1748,8 @@
     },
     {
       "path": "simulation/include/cybernet/plants/plant_world.hpp",
-      "bytes": 3665,
-      "sha256": "37c1cd6e5fb9e42d5e473c9e99e180df5826477e43649115a4598d1e9d562f4e"
+      "bytes": 3986,
+      "sha256": "adf926258fab1b18cec6d93c25f3281e95e2beb53989c8cf89992d5d98d4ee18"
     },
     {
       "path": "simulation/include/cybernet/random.hpp",
@@ -2088,8 +2138,8 @@
     },
     {
       "path": "simulation/src/plants/plant_world.cpp",
-      "bytes": 30567,
-      "sha256": "8955b22d82fa25fe5780c66ac76339ea5591c7c5f2fdabb572368725175a96b3"
+      "bytes": 32635,
+      "sha256": "b5bed54ab36ac7f6add3f02c62a452eb984f8c0e20e583fd172134fb4b845e00"
     },
     {
       "path": "simulation/src/simulation/async_record_writer.cpp",
@@ -2140,6 +2190,16 @@
       "path": "simulation/src/world/physics.cpp",
       "bytes": 2985,
       "sha256": "4d17a278f8592622c7b137d91ea14e24465618b553a3b4007a8f2151d12afaa9"
+    },
+    {
+      "path": "simulation/tests/plants/fixtures/legacy_pending.ciplants",
+      "bytes": 22471,
+      "sha256": "906d23eda325ad4b913388cd334aad37c962cd46da1b33efdf25e1d02eb97f0c"
+    },
+    {
+      "path": "simulation/tests/plants/test_lifecycle.cpp",
+      "bytes": 2447,
+      "sha256": "5f8b028d61991810ff8e8bffa0fe9c1d0ba64484ee8652741217ad8863749b07"
     },
     {
       "path": "simulation/tests/plants/test_plants.cpp",
@@ -2303,8 +2363,8 @@
     },
     {
       "path": "simulation/tools/plants/CMakeLists.txt",
-      "bytes": 1234,
-      "sha256": "90ae204cee58871914d5041a3b0649102f3dae74fd2b9f237bb8c8240dedb18f"
+      "bytes": 1698,
+      "sha256": "f5983f4159182fd1338e1971cafbdccb2831db7e2703d4ee0f01d4c2fb9c07a8"
     },
     {
       "path": "simulation/tools/plants/benchmark.py",
@@ -2315,6 +2375,11 @@
       "path": "simulation/tools/plants/showcase.cpp",
       "bytes": 2428,
       "sha256": "c43de67b0a380c02a89bc6761a3403a22c8cb670accf8afaf180f831dc3d6221"
+    },
+    {
+      "path": "simulation/tools/plants/tree_lifetime.cpp",
+      "bytes": 1872,
+      "sha256": "0a589e10090417fa7f994c0577f98ef395d9b7c9b876acd30c89dc3f0c3146d6"
     },
     {
       "path": "simulation/tools/recording_to_rojo.py",
@@ -2328,13 +2393,13 @@
     },
     {
       "path": "tests/native_transport_smoke.py",
-      "bytes": 3750,
-      "sha256": "8a52f509ff9ba4dee9644a1d31bb54a173ef37fda35fee63b1a894b76b61861b"
+      "bytes": 4302,
+      "sha256": "c75019fcf876e544a3aeac41759c00a968171edd61553840ce81d11f94845603"
     },
     {
       "path": "tests/run_native_transport.py",
-      "bytes": 2248,
-      "sha256": "a3b16fd682c1a6eebb4ad554b85f7e927810c146ee7703e68ad254ec5472bf66"
+      "bytes": 2291,
+      "sha256": "e72c9f8e6e565b5f24b274db8698760c9cbe912c6e8cb4f8453860b18ab93d5a"
     },
     {
       "path": "third_party/README.md",
@@ -2390,6 +2455,11 @@
       "path": "tools/source_update.py",
       "bytes": 4736,
       "sha256": "179d64472f69ead1ef75f87025ceaaf3e4e8b4963455e91f30446dd692f4a0dd"
+    },
+    {
+      "path": "tools/studio/SkyDiagnostic.lua",
+      "bytes": 779,
+      "sha256": "c53fbfefc369f222ab0e5e9fdd4c5fd5a05e50a10f67d89f3d68b3b2e35a9813"
     },
     {
       "path": "tools/test_planet_collision.py",

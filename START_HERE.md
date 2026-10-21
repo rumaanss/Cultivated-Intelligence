@@ -1,3 +1,7 @@
+# Lifecycle/sky review candidate
+
+Read [validation and upgrade notes](docs/LIFECYCLE_SKY_RELEASE.md) first. Preserve your working runtime: checkpoint migration is forward-only. Studio visual acceptance and sustained neural-tree reproduction remain open gates.
+
 # Start the native integration
 
 This root replaces the active Python relay with an embedded C++ service. Keep your existing Roblox place: this package does not regenerate the island, terrain or water.

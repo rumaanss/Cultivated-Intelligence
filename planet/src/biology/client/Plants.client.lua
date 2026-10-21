@@ -12,6 +12,36 @@ local remote=RS:WaitForChild("CI_PlantChannel",200)
 if not remote then return end
 local root=Instance.new("Folder");root.Name="CI_PlanetPlants";root.Parent=workspace
 local renderer=Renderer.new(root)
+local litterRoot=Instance.new("Folder");litterRoot.Name="GroundLitter";litterRoot.Parent=root
+local litterParts={}
+local function renderLitter(rows,camera)
+ local candidates={}
+ for _,row in rows do
+  local position=Space.plantPosition({row[2],row[3],row[4]})
+  local distance=(position-camera).Magnitude
+  if distance<Config.FarDistance then table.insert(candidates,{row=row,d=distance})end
+ end
+ table.sort(candidates,function(a,b)return a.d<b.d end)
+ local keep={}
+ for index,item in candidates do
+  if index>128 then break end
+  local row=item.row;local id=row[1];keep[id]=true
+  local part=litterParts[id]
+  if not part then
+   part=Instance.new("Part");part.Name="LitterCell_"..id;part.Anchored=true
+   part.CanCollide=false;part.CanTouch=false;part.CanQuery=false;part.CastShadow=false
+   part.Material=Enum.Material.Ground;part.Color=Color3.fromRGB(70,54,35)
+   part.Parent=litterRoot;litterParts[id]=part
+  end
+  local position={row[2],row[3],row[4]}
+  position[2]=Config.ResolveGround({id="litter-"..id,position=position})
+  local extent=math.clamp(math.sqrt(row[5])*.3,.15,3)
+  part.Size=Vector3.new(extent,.035,extent)
+  part.CFrame=Space.plantFrame(position)*CFrame.new(0,.018,0)
+  part:SetAttribute("StoredCarbon",row[5])
+ end
+ for id,part in litterParts do if not keep[id]then part:Destroy();litterParts[id]=nil end end
+end
 local state=nil
 local transfer=nil
 local lastRequest=-10
@@ -44,6 +74,7 @@ local receive=remote.OnClientEvent:Connect(function(serial,index,count,data)
   local updated,reason=Protocol.apply(state,packet);assert(updated,reason)
   if not state or state.run~=updated.run then Renderer.clear(renderer);table.clear(cache) end
   state=updated
+  for id in cache do if type(id)=="number" and not state.records[id]then cache[id]=nil end end
   Config.SnapshotTime=workspace:GetServerTimeNow()-math.max(0,tonumber(packet.age) or 0)
   local environment=state.environment
   if environment then
@@ -63,7 +94,7 @@ local frame=Run.Heartbeat:Connect(function(dt)
  if selectElapsed>=Config.SelectionSeconds then
   selectElapsed=0
   local camera=workspace.CurrentCamera
-  if camera then Renderer.select(renderer,state.records,camera.CFrame.Position,Config,Config.ShowRoots) end
+  if camera then Renderer.select(renderer,state.records,camera.CFrame.Position,Config,Config.ShowRoots);renderLitter(state.litter,camera.CFrame.Position) end
  end
  if poseElapsed>=1/Config.PoseHz then Renderer.pose(renderer,poseElapsed,os.clock());poseElapsed=0 end
 end)

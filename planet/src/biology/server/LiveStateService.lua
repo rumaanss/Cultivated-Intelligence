@@ -330,6 +330,14 @@ function M.Start()
     Workspace:SetAttribute("CI_RelayDiskMs",if response.relayTimingMs then response.relayTimingMs[2] else 0)
     local telemetry=RS:FindFirstChild("CI_ResearchTelemetry")
     if telemetry then
+     for _,name in {"snapshot","selection","agents","plants"}do
+      local value=if type(response.exchangeStagesMs)=="table" then response.exchangeStagesMs[name] else nil
+      telemetry:SetAttribute("ExchangeStage_"..name,if type(value)=="number" then value else nil)
+     end
+     for _,name in {"population","visible"}do
+      local value=if type(response.exchangeCounts)=="table" then response.exchangeCounts[name] else nil
+      telemetry:SetAttribute("ExchangeCount_"..name,if type(value)=="number" then value else nil)
+     end
      local snapshot=response.snapshot or response
      local currentTick=snapshot.tick
      local now=os.clock()

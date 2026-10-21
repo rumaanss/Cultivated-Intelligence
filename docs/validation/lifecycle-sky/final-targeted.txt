@@ -1,0 +1,13 @@
+Test project /workspace/scratch/91465c988d92/work/build-lifecycle
+    Start  1: NativeTransportIntegration
+1/4 Test  #1: NativeTransportIntegration .......   Passed   17.13 sec
+    Start  2: NativeAutonomous
+2/4 Test  #2: NativeAutonomous .................   Passed    1.27 sec
+    Start 26: Plants
+3/4 Test #26: Plants ...........................   Passed    0.97 sec
+    Start 28: PlantLifecycle
+4/4 Test #28: PlantLifecycle ...................   Passed    0.02 sec
+
+100% tests passed out of 4
+
+Total Test time (real) =  19.40 sec

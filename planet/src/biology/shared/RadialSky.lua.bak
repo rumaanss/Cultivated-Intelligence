@@ -1,0 +1,57 @@
+--!nonstrict
+-- Observer-dependent spherical sky radiance. Biological irradiance remains in C++.
+local M={}
+M.properties={"SkyboxRightContent","SkyboxLeftContent","SkyboxUpContent","SkyboxDownContent","SkyboxBackContent","SkyboxFrontContent"}
+function M.direction(face,u,v)
+ return (if face==1 then Vector3.new(1,-v,-u) elseif face==2 then Vector3.new(-1,-v,u)
+ elseif face==3 then Vector3.new(u,1,v) elseif face==4 then Vector3.new(u,-1,-v)
+ elseif face==5 then Vector3.new(u,-v,1) else Vector3.new(-u,-v,-1)).Unit
+end
+function M.radiance(view,up,sun)
+ local elevation=view:Dot(up);local solar= sun:Dot(up)
+ local day=math.clamp((solar+.16)/.35,0,1);day=day*day*(3-2*day)
+ local horizon=math.exp(-math.abs(elevation)*4)
+ local twilight=math.exp(-math.abs(solar)*12)*math.max(0,view:Dot(sun))^4*horizon
+ local warm=twilight*.65
+ -- One color allocation per sample; no per-pixel tables or palette objects.
+ local r=3+(45+(176-45)*horizon-3)*day
+ local g=5+(104+(204-104)*horizon-5)*day
+ local b=13+(183+(226-183)*horizon-13)*day
+ return Color3.fromRGB(r+(232-r)*warm,g+(119-g)*warm,b+(70-b)*warm)
+end
+function M.new(sky)
+ local Asset=game:GetService("AssetService");local size=64;local faces={};local original={}
+ local ok,err=pcall(function()
+  for i,key in M.properties do
+   original[key]=sky[key]
+   local image=Asset:CreateEditableImage({Size=Vector2.new(size,size)});assert(image,"Sky image memory unavailable")
+   local directions={}
+   for y=0,size-1 do for x=0,size-1 do table.insert(directions,M.direction(i,x*2/(size-1)-1,y*2/(size-1)-1))end end
+   faces[i]={image=image,directions=directions,pixels=buffer.create(size*size*4)}
+   sky[key]=Content.fromObject(image);sky[key]=original[key]
+  end
+ end)
+ if not ok then for key,value in original do sky[key]=value end;for _,f in faces do f.image:Destroy()end;return nil,tostring(err)end
+ local index=1;local nextAt=0;local batchUp,batchSun;local attached=false;local enabled=true
+ return {
+  Update=function(up,sun,now)
+   if index==1 then if now<nextAt then return end;batchUp,batchSun=up,sun end
+   local f=faces[index]
+   for i,view in f.directions do
+    local c=M.radiance(view,batchUp,batchSun);local offset=(i-1)*4
+    buffer.writeu8(f.pixels,offset,math.floor(c.R*255+.5));buffer.writeu8(f.pixels,offset+1,math.floor(c.G*255+.5))
+    buffer.writeu8(f.pixels,offset+2,math.floor(c.B*255+.5));buffer.writeu8(f.pixels,offset+3,255)
+   end
+   -- One displayed EditableImage upload per frame, per engine API budget.
+   f.image:WritePixelsBuffer(Vector2.zero,Vector2.new(size,size),f.pixels)
+   if enabled and not attached then sky[M.properties[index]]=Content.fromObject(f.image)end
+   index+=1;if index>6 then index=1;nextAt=now+.35;attached=true end
+  end,
+  SetEnabled=function(value)
+   if enabled==value then return end;enabled=value
+   for i,key in M.properties do sky[key]=if enabled then Content.fromObject(faces[i].image)else original[key]end
+  end,
+  Destroy=function()for i,key in M.properties do sky[key]=original[key];faces[i].image:Destroy()end end,
+ }
+end
+return M

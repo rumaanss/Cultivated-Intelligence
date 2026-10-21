@@ -32,6 +32,10 @@ for i in range(36):
  q['plants']=dict(schema=1,run='',revision=0)
  start=time.perf_counter();code,r=call('/exchange',q);times.append((time.perf_counter()-start)*1000)
  assert code==200,r
+ assert set(r['exchangeStagesMs'])=={'snapshot','selection','agents','plants'}
+ assert all(isinstance(v,(int,float)) and v>=0 for v in r['exchangeStagesMs'].values())
+ assert sum(r['exchangeStagesMs'].values()) <= r['relayTimingMs'][2]+0.01
+ assert r['exchangeCounts']['visible']==r['visible']
  assert r['run']==q['run'] and r['batch']==q['batch'] and r['session']==q['session'],r
  assert r['sequence']>=last_sequence;last_sequence=r['sequence']
  assert r['visible']<=q['observer']['regions'][0]['limit'] and r['transportBuild']=='native-memory-v1'

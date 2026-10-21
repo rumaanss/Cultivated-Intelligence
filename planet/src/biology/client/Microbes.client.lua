@@ -16,7 +16,11 @@ local colors={Color3.fromRGB(81,184,119),Color3.fromRGB(220,181,82),Color3.fromR
 local species={'Cyanobacteria','Bacterivore','Bodo saltans'}
 local capacity={100,150,250} -- Species maximumEnergy values in organism_types.hpp.
 local display={};local scene=nil;local run,boot='','';local alive=true;local lastReceived=0
-local function clear()for id,d in pairs(display)do d.part:Destroy();display[id]=nil end end
+local function removeDisplay(id,d)
+ if workspace:GetAttribute('CI_SelectedOrganismId')==id then workspace:SetAttribute('CI_SelectedOrganismId',nil)end
+ d.part:Destroy();display[id]=nil
+end
+local function clear()for id,d in pairs(display)do removeDisplay(id,d) end end
 local function accept(response)
  if type(response)~='table' then return end
  if response.error then provider:SetAttribute('BiologyConnected',false);provider:SetAttribute('Error',tostring(response.error));return end
@@ -46,8 +50,8 @@ local function accept(response)
   if response.state=='Live' then d.part:SetAttribute('CI_BiologyTimestamp',response.sampleTime or response.serverTime)end
   Interpolation.push(d.track,response.sampleTime or response.serverTime,position,response.warps and response.warps[tostring(id)] or 0)
  end
- if response.full then for id,d in pairs(display)do if not seen[id]then d.part:Destroy();display[id]=nil end end end
- local count=0;for id,d in pairs(display)do count+=1;if count>Config.MaximumVisibleOrganisms+64 then d.part:Destroy();display[id]=nil end end
+ if response.full then for id,d in pairs(display)do if not seen[id]then removeDisplay(id,d) end end end
+ local count=0;for id,d in pairs(display)do count+=1;if count>Config.MaximumVisibleOrganisms+64 then removeDisplay(id,d) end end
  local row=response.inspected
  if row and display[row[1]] then
   local part=display[row[1]].part;part:SetAttribute('CI_Health',row[18]);part:SetAttribute('CI_AgeTicks',row[10]);part:SetAttribute('CI_Generation',row[12])

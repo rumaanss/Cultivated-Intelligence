@@ -137,8 +137,8 @@ struct NativeServer::Impl {
  }
  J page(const Transfer&t,std::size_t index){auto count=(t.text.size()+256*1024-1)/(256*1024);need(index>=1&&index<=count,"plant chunk index");return {{"chunked",true},{"transfer",t.id},{"index",index},{"count",count},{"data",t.text.substr((index-1)*256*1024,256*1024)},{"age",age(t.at)}};}
  J exchange(const J&q){
-  auto started=Clock::now();load();need(q.is_object()&&q.value("protocol",0)==1&&q.contains("session")&&q["session"].is_string()&&token(q["session"]),"invalid request");
-  auto current=select(q);auto observed=[&](){J out=snapshot;out["agents"]=J::array();for(auto&[id,r]:current)out["agents"].push_back(r);out["total"]=rows.size();return out;};
+  auto started=Clock::now();load();auto loadedAt=Clock::now();need(q.is_object()&&q.value("protocol",0)==1&&q.contains("session")&&q["session"].is_string()&&token(q["session"]),"invalid request");
+  auto current=select(q);auto selectedAt=Clock::now();auto observed=[&](){J out=snapshot;out["agents"]=J::array();for(auto&[id,r]:current)out["agents"].push_back(r);out["total"]=rows.size();return out;};
   if(q.value("run",J())!=run)return {{"protocol",1},{"reset",true},{"manifest",snapshot["manifest"]},{"snapshot",observed()},{"age",bridge.memorySnapshotAge()}};
   need(integer(q.value("batch",J()),1)&&integer(q.value("ackBatch",J(0))),"invalid batch");unsigned nextBatch=q["batch"],acked=q.value("ackBatch",0u);need(acked<nextBatch,"invalid response acknowledgment");
   for(auto*field:{"poses","actors","events"})need(!q.contains(field)||(q[field].is_array()&&q[field].empty()),"C++ motion world accepts observer heartbeats only");
@@ -156,7 +156,12 @@ struct NativeServer::Impl {
   for(auto&[id,r]:base)if(!current.count(id))removed.push_back(id);
   bool same=snapshot["session"]==session;
   J out={{"protocol",1},{"reset",false},{"run",run},{"session",session},{"batch",nextBatch},{"sequence",snapshot["sequence"]},{"tick",snapshot["tick"]},{"ack",same?snapshot["ack"]:J(0)},{"light",snapshot["light"]},{"state",snapshot["state"]},{"age",bridge.memorySnapshotAge()},{"stalled",age(lastTickAt)>3&&lastTick>0},{"total",rows.size()},{"visible",current.size()},{"viewVersion",1},{"added",added},{"updates",updates},{"removed",removed},{"motions",motions},{"epoch",epoch},{"boot",boot},{"durableAck",same?snapshot.value("durableAck",J(0)):J(0)},{"bridgeBuild","hardened-v3"},{"transportBuild","native-memory-v1"},{"corrections",same?snapshot.value("corrections",J::array()):J::array()},{"bridgeStatus",bridge.nativeStatus()},{"cppInputAgeMs",bridge.observerAge()},{"cppReceivedBatch",nextBatch},{"eventError",nullptr}};
+  auto agentsAt=Clock::now();
   if(q.contains("plants")){try{out["plants"]=plantPacket(q["plants"]);}catch(const std::exception&e){out["plantError"]=e.what();}}
+  auto plantsAt=Clock::now();
+  auto ms=[](auto a,auto b){return std::chrono::duration<double,std::milli>(b-a).count();};
+  out["exchangeStagesMs"]={{"snapshot",ms(started,loadedAt)},{"selection",ms(loadedAt,selectedAt)},{"agents",ms(selectedAt,agentsAt)},{"plants",ms(agentsAt,plantsAt)}};
+  out["exchangeCounts"]={{"population",rows.size()},{"visible",current.size()}};
   out["relayTimingMs"]=J::array({0,0,age(started)*1000});
   // Commit the identity and delta base together only after encoding succeeds.
   auto encoded=out.dump();confirmed=std::move(base);sent=std::move(current);sentBatch=batch=nextBatch;cachedPayload=std::move(payload);cachedReply=std::move(encoded);return out;

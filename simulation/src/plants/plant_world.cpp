@@ -183,14 +183,15 @@ void World::step(){const double respirationBefore=ledger.respiration;events.clea
  }
  for(unsigned c=0;c<surface.cells.size();++c)for(int layer=62;layer>=0;--layer)canopy_[c*64+unsigned(layer)]+=canopy_[c*64+unsigned(layer)+1];
  }
- for(auto& c:surface.cells)if(c.valid){double rain=std::min(rainfall,std::max(0.,40-c.water));c.water+=rain;ledger.rain+=rain;double evap=std::min(c.water,.006*daylight);c.water-=evap;ledger.waterOut+=evap;double decay=std::min(c.litter,.015);c.litter-=decay;c.nutrients+=decay*.05;ledger.respiration+=decay;}
+ for(auto& c:surface.cells)if(c.valid){double rain=std::min(rainfall,std::max(0.,40-c.water));c.water+=rain;ledger.rain+=rain;double evap=std::min(c.water,.006*daylight);c.water-=evap;ledger.waterOut+=evap;double decay=std::min(c.litter,.015);c.litter-=decay;c.nutrients+=decay*.05;ledger.respiration+=decay;double mobileDecay=std::min(c.dissolvedCarbon,.03);c.dissolvedCarbon-=mobileDecay;ledger.respiration+=mobileDecay;}
  // Shared uptake is staged then proportionally allocated, independent of plant order.
  struct Demand {std::size_t plant;unsigned cell;double water,nutrient;};std::vector<Demand> demands;std::vector<double> wd(surface.cells.size()),nd(surface.cells.size());
  for(std::size_t i=0;i<plants.size();++i){auto& p=plants[i];if(p.stage==2)continue;for(auto& o:p.organs)if(!o.dead&&o.kind==Kind::Root){auto c=cell(p.position+o.end);if(c>=surface.cells.size())continue;double w=std::max(0.,5-p.water)*.035,n=std::max(0.,1.5-p.nutrients)*.012;demands.push_back({i,c,w,n});wd[c]+=w;nd[c]+=n;}}
  std::vector<double> ws(wd.size(),1),ns(nd.size(),1);for(unsigned c=0;c<wd.size();++c){if(wd[c]>0)ws[c]=std::min(1.,surface.cells[c].water/wd[c]);if(nd[c]>0)ns[c]=std::min(1.,surface.cells[c].nutrients/nd[c]);}
  for(auto d:demands){double w=d.water*ws[d.cell],n=d.nutrient*ns[d.cell];plants[d.plant].water+=w;plants[d.plant].nutrients+=n;surface.cells[d.cell].water-=w;surface.cells[d.cell].nutrients-=n;}
- const auto initial=plants.size();for(std::size_t i=0;i<initial;++i){auto& p=plants[i];++p.age;auto c=cell(p.position);
+ const auto initial=plants.size();for(std::size_t i=0;i<initial;++i){auto& p=plants[i];const bool alreadyDead=p.stage==2;++p.age;auto c=cell(p.position);
   p.fluxValid=false;
+  if(p.stage==2){for(auto& o:p.organs)o.dead=true;if(p.job.active){p.carbon+=p.job.carbon;p.nutrients+=p.job.carbon*.05;p.job={};}}
   if(p.stage!=2){double intake=0,leafWeight=0;for(auto& o:p.organs)if(!o.dead&&o.kind==Kind::Leaf){intake+=o.mass*p.genome.leafArea*light(p,o)*.22*o.health;leafWeight+=o.mass*p.genome.leafArea*o.health;}
    p.flux={intake,0,0,0,leafWeight>0?intake/(leafWeight*.22):0,std::min(1.,p.water),std::min(1.,p.nutrients*5),0};p.fluxValid=true;
    intake*=std::min(1.,p.water)*std::min(1.,p.nutrients*5);p.flux[0]=intake;if(assimilateCarbon)intake=assimilateCarbon(intake);p.flux[1]=intake;p.carbon+=intake;ledger.assimilation+=intake;
@@ -217,8 +218,19 @@ void World::step(){const double respirationBefore=ledger.respiration;events.clea
    bool changed=true;while(changed){changed=false;for(auto& o:p.organs)if(failed.count(o.parent)&&!failed.count(o.id)){failed.insert(o.id);changed=true;}}
    for(auto& o:p.organs)if(failed.count(o.id)&&!o.dead){o.dead=true;++p.revision;}
   }
-  for(auto& o:p.organs)if(o.dead&&o.mass>0){double decay=std::min(o.mass,.01);o.mass-=decay;surface.cells[c].litter+=decay;}
-  if(p.stage==2){double decay=std::min(p.carbon,.03);p.carbon-=decay;ledger.respiration+=decay;surface.cells[c].nutrients+=p.nutrients;p.nutrients=0;surface.cells[c].water+=p.water;p.water=0;continue;}
+  if(p.job.active&&p.job.action!=Action::Germinate){auto* site=organ(p,p.job.site);
+   if(!site||site->dead){p.carbon+=p.job.carbon;p.nutrients+=p.job.carbon*.05;p.job={};p.decision.result="job-cancelled-site-lost";}
+  }
+  double detachedCarbon=0;for(auto& o:p.organs)if(o.dead&&o.mass>0){detachedCarbon+=o.mass;// Detachment transfers ownership once; soil litter decomposes independently.
+   surface.cells[c].litter+=o.mass;o.mass=0;++p.revision;}
+  if(p.stage==2){
+   double structural=detachedCarbon;
+   history.push_back({p.id,p.lineage,p.genome.species,alreadyDead?0:p.age,alreadyDead?0:tick,p.carbon+structural});
+   // Mobile carbon decomposes separately: it has no structural nutrient ratio.
+   surface.cells[c].dissolvedCarbon+=p.carbon;p.carbon=0;
+   surface.cells[c].nutrients+=p.nutrients;p.nutrients=0;
+   surface.cells[c].water+=p.water;p.water=0;continue;
+  }
   if(p.job.active)grow(p);else if((tick+p.id)%4==0){decide(p);
    events.push_back("{\"tick\":"+std::to_string(tick)+",\"kind\":\"decision\",\"id\":"+std::to_string(p.id)+",\"action\":\""+actionName(p.decision.requested)+"\",\"result\":\""+p.decision.result+"\",\"site\":"+std::to_string(p.decision.site)+",\"investment\":"+std::to_string(p.decision.investment)+"}");
   }
@@ -229,7 +241,7 @@ void World::step(){const double respirationBefore=ledger.respiration;events.clea
  if(returnCarbon)returnCarbon(ledger.respiration-respirationBefore);
  plants.erase(std::remove_if(plants.begin(),plants.end(),[](const Plant& p){if(p.stage!=2||p.carbon>1e-9)return false;for(auto& o:p.organs)if(o.mass>1e-9)return false;return true;}),plants.end());
 }
-double World::carbonTotal()const{double v=0;for(auto& c:surface.cells)v+=c.litter;for(auto& p:plants){v+=p.carbon+p.job.carbon;for(auto& o:p.organs)v+=o.mass;}return v;}
+double World::carbonTotal()const{double v=0;for(auto& c:surface.cells)v+=c.litter+c.dissolvedCarbon;for(auto& p:plants){v+=p.carbon+p.job.carbon;for(auto& o:p.organs)v+=o.mass;}return v;}
 double World::nutrientTotal()const{double v=0;for(auto& c:surface.cells)v+=c.nutrients+c.litter*.05;for(auto& p:plants){v+=p.nutrients+p.job.carbon*.05;for(auto& o:p.organs)v+=o.mass*.05;}return v;}
 double World::waterTotal()const{double v=0;for(auto& c:surface.cells)v+=c.water;for(auto& p:plants)v+=p.water;return v;}
 void World::validate()const {
@@ -237,7 +249,8 @@ void World::validate()const {
  need(finite(surface.cellSize)&&surface.cellSize>0&&finite(surface.originX)&&finite(surface.originZ),"Surface coordinates");
  need(run.size()<100&&!run.empty()&&run.find_first_not_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_")==std::string::npos,"Run identity");
  need(plants.size()<=MaxPlants&&nextId>0&&rng!=0&&finite(daylight)&&daylight>=0&&daylight<=1&&finite(rainfall)&&rainfall>=0&&rainfall<=10,"World limits");
- for(auto& c:surface.cells)need(finite(c.height)&&finite(c.depth)&&c.depth>0&&finite(c.water)&&c.water>=-1e-8&&finite(c.nutrients)&&c.nutrients>=-1e-8&&finite(c.litter)&&c.litter>=0,"Invalid soil");
+ for(auto& c:surface.cells)need(finite(c.height)&&finite(c.depth)&&c.depth>0&&finite(c.water)&&c.water>=-1e-8&&finite(c.nutrients)&&c.nutrients>=-1e-8&&finite(c.litter)&&c.litter>=0&&finite(c.dissolvedCarbon)&&c.dissolvedCarbon>=0,"Invalid soil");
+ need(history.size()<=1000000,"History checkpoint budget");
  std::set<unsigned> ids;
  for(auto& p:plants){need(p.id>0&&p.id<nextId&&ids.insert(p.id).second&&p.stage<=2&&unsigned(p.policy)<=2&&p.genome.version==1&&p.genome.species<3,"Plant identity/schema");need(p.organs.size()<=MaxOrgans&&finite(length(p.position))&&cell(p.position)<surface.cells.size(),"Plant shape/location");
   need(finite(p.carbon)&&p.carbon>=-1e-8&&finite(p.water)&&p.water>=-1e-8&&finite(p.nutrients)&&p.nutrients>=-1e-8&&finite(p.health)&&p.health>=0&&p.health<=1,"Plant reserves");
@@ -258,7 +271,7 @@ void World::validate()const {
 std::string World::checkpoint()const {validate();std::ostringstream s;s.imbue(std::locale::classic());s<<std::setprecision(17);
  s<<rng<<' '<<tick<<' '<<nextId<<' '<<revision<<' '<<run<<' '<<rainfall<<' '<<daylight<<' '<<mutation<<'\n';
  s<<surface.width<<' '<<surface.height<<' '<<surface.originX<<' '<<surface.originZ<<' '<<surface.cellSize<<' '<<surface.revision<<'\n';
- for(auto& c:surface.cells)s<<c.height<<' '<<c.depth<<' '<<c.water<<' '<<c.nutrients<<' '<<c.litter<<' '<<c.valid<<'\n';
+ for(auto& c:surface.cells)s<<c.height<<' '<<c.depth<<' '<<c.water<<' '<<c.nutrients<<' '<<c.litter<<' '<<c.valid<<' '<<c.dissolvedCarbon<<'\n';
  s<<ledger.founderCarbon<<' '<<ledger.assimilation<<' '<<ledger.respiration<<' '<<ledger.rain<<' '<<ledger.waterOut<<' '<<ledger.nutrientInput<<' '<<ledger.initialWater<<' '<<ledger.initialNutrients<<'\n'<<plants.size()<<'\n';
  for(auto& p:plants){s<<p.id<<' '<<p.parent<<' '<<p.lineage<<' '<<p.generation<<' '<<p.age<<' '<<p.nextOrgan<<' '<<p.revision<<' '<<p.mutations<<' '<<p.cursor<<' '<<p.mutationDistance;vec(s,p.position);s<<' '<<p.stage<<' '<<p.carbon<<' '<<p.water<<' '<<p.nutrients<<' '<<p.health<<' '<<unsigned(p.policy)<<'\n';
   auto& g=p.genome;s<<g.version<<' '<<g.species<<' '<<g.angle<<' '<<g.elongation<<' '<<g.leafArea<<' '<<g.wood<<' '<<g.waterLoss<<' '<<g.maturity<<' '<<g.hue<<'\n';for(auto v:g.weights)s<<v<<' ';s<<'\n';for(auto v:p.memory)s<<v<<' ';s<<'\n';
@@ -266,18 +279,26 @@ std::string World::checkpoint()const {validate();std::ostringstream s;s.imbue(st
   auto& d=p.decision;s<<unsigned(d.requested)<<' '<<d.site<<' '<<d.investment<<' '<<d.result<<'\n';for(auto x:d.inputs)s<<x<<' ';s<<'\n';
   s<<p.organs.size()<<'\n';for(auto& o:p.organs){s<<o.id<<' '<<o.parent<<' '<<unsigned(o.kind);vec(s,o.start);vec(s,o.end);s<<' '<<o.radius<<' '<<o.mass<<' '<<o.health<<' '<<o.dead<<'\n';}
  }
- auto body=s.str();return "CIPLANTS1 "+std::to_string(hash(body))+"\n"+body;
+ s<<"HISTORY1 "<<retiredRecords<<' '<<history.size()<<'\n';
+ for(const auto& d:history)s<<d.id<<' '<<d.lineage<<' '<<d.species<<' '<<d.age<<' '<<d.tick<<' '<<d.carbon<<'\n';
+ auto body=s.str();return "CIPLANTS2 "+std::to_string(hash(body))+"\n"+body;
 }
-World World::restore(const std::string& text){need(text.size()<64*1024*1024,"Checkpoint too large");auto nl=text.find('\n');need(nl!=std::string::npos,"Checkpoint header");std::istringstream header(text.substr(0,nl));std::string magic;std::uint64_t checksum;need(bool(header>>magic>>checksum)&&magic=="CIPLANTS1"&&hash(std::string_view(text).substr(nl+1))==checksum,"Checkpoint checksum/schema");std::istringstream s(text.substr(nl+1));s.imbue(std::locale::classic());World w;
+World World::restore(const std::string& text){need(text.size()<64*1024*1024,"Checkpoint too large");auto nl=text.find('\n');need(nl!=std::string::npos,"Checkpoint header");std::istringstream header(text.substr(0,nl));std::string magic;std::uint64_t checksum;need(bool(header>>magic>>checksum)&&(magic=="CIPLANTS1"||magic=="CIPLANTS2")&&hash(std::string_view(text).substr(nl+1))==checksum,"Checkpoint checksum/schema");std::istringstream s(text.substr(nl+1));s.imbue(std::locale::classic());World w;
  s>>w.rng>>w.tick>>w.nextId>>w.revision>>w.run>>w.rainfall>>w.daylight>>w.mutation;
  auto& f=w.surface;s>>f.width>>f.height>>f.originX>>f.originZ>>f.cellSize>>f.revision;need(bool(s)&&f.width>0&&f.height>0&&f.width<=128&&f.height<=128,"Checkpoint surface budget");f.cells.resize(f.width*f.height);
- for(auto& c:f.cells)s>>c.height>>c.depth>>c.water>>c.nutrients>>c.litter>>c.valid;
+ for(auto& c:f.cells){s>>c.height>>c.depth>>c.water>>c.nutrients>>c.litter>>c.valid;if(magic=="CIPLANTS2")s>>c.dissolvedCarbon;}
  auto& l=w.ledger;s>>l.founderCarbon>>l.assimilation>>l.respiration>>l.rain>>l.waterOut>>l.nutrientInput>>l.initialWater>>l.initialNutrients;unsigned n;s>>n;need(bool(s)&&n<=MaxPlants,"Checkpoint plant budget");w.plants.resize(n);
  for(auto& p:w.plants){unsigned policy;s>>p.id>>p.parent>>p.lineage>>p.generation>>p.age>>p.nextOrgan>>p.revision>>p.mutations>>p.cursor>>p.mutationDistance;vec(s,p.position);s>>p.stage>>p.carbon>>p.water>>p.nutrients>>p.health>>policy;p.policy=Policy(policy);
   auto& g=p.genome;s>>g.version>>g.species>>g.angle>>g.elongation>>g.leafArea>>g.wood>>g.waterLoss>>g.maturity>>g.hue;for(auto& v:g.weights)s>>v;for(auto& v:p.memory)s>>v;
   unsigned action;auto& j=p.job;s>>j.active>>action>>j.site>>j.carbon>>j.remaining;vec(s,j.direction);j.action=Action(action);
   auto& d=p.decision;s>>action>>d.site>>d.investment>>d.result;d.requested=Action(action);for(auto& x:d.inputs)s>>x;
   unsigned count;s>>count;need(bool(s)&&count<=MaxOrgans,"Checkpoint organ budget");p.organs.resize(count);for(auto& o:p.organs){unsigned kind;s>>o.id>>o.parent>>kind;vec(s,o.start);vec(s,o.end);s>>o.radius>>o.mass>>o.health>>o.dead;o.kind=Kind(kind);}
+ }
+ if(magic=="CIPLANTS2"){
+  std::string tag;unsigned records=0;s>>tag>>w.retiredRecords>>records;
+  need(bool(s)&&tag=="HISTORY1"&&records<=1000000,"Checkpoint history budget");
+  w.history.resize(records);for(auto& d:w.history){s>>d.id>>d.lineage>>d.species>>d.age>>d.tick>>d.carbon;
+   need(d.id>0&&d.id<w.nextId&&d.lineage>0&&d.lineage<w.nextId&&d.species<3&&d.tick<=w.tick&&finite(d.carbon)&&d.carbon>=0,"Invalid history");}
  }
  need(bool(s),"Checkpoint truncated");std::string extra;need(!(s>>extra),"Checkpoint trailing bytes");w.validate();return w;
 }
@@ -292,7 +313,12 @@ std::string World::snapshot()const {std::ostringstream s;s.imbue(std::locale::cl
  for(unsigned i=0;i<Inputs;++i){if(i)s<<',';s<<p.decision.inputs[i];}s<<"],\"organs\":[";bool f=true;for(auto& o:p.organs){if(!f)s<<',';f=false;s<<'['<<o.id<<','<<o.parent<<','<<unsigned(o.kind)<<','<<o.start.x<<','<<o.start.y<<','<<o.start.z<<','<<o.end.x<<','<<o.end.y<<','<<o.end.z<<','<<o.radius<<','<<o.mass<<','<<o.health<<','<<o.dead<<']';}s<<"],\"structureCarbon\":"<<structure<<",\"growthCost\":["<<required<<','<<required*.1<<','<<required*.05<<"],\"fluxValid\":"<<(p.fluxValid?"true":"false")<<",\"flux\":[";
  for(unsigned i=0;i<p.flux.size();++i){if(i)s<<',';s<<p.flux[i];}s<<"]}";
  }
- s<<"],\"environment\":{\"daylight\":"<<daylight<<",\"atmosphericCarbon\":";
+ s<<"],\"litter\":[";bool firstLitter=true;
+ for(unsigned i=0;i<surface.cells.size();++i){const auto& c=surface.cells[i];if(c.litter<=1e-9)continue;
+  if(!firstLitter){s<<',';}firstLitter=false;
+  s<<'['<<i<<','<<surface.originX+(i%surface.width+.5)*surface.cellSize<<','<<c.height<<','<<surface.originZ+(i/surface.width+.5)*surface.cellSize<<','<<c.litter<<']';
+ }
+ s<<"],\"deathCount\":"<<retiredRecords+history.size()<<",\"environment\":{\"daylight\":"<<daylight<<",\"atmosphericCarbon\":";
  if(atmosphereCarbon)s<<atmosphereCarbon();else s<<"null";
  s<<",\"assimilationTotal\":"<<ledger.assimilation<<",\"respirationTotal\":"<<ledger.respiration<<"},\"ledger\":{\"carbon\":"<<carbonTotal()<<",\"carbonExpected\":"<<ledger.founderCarbon+ledger.assimilation-ledger.respiration<<",\"water\":"<<waterTotal()<<",\"nutrients\":"<<nutrientTotal()<<"}}";return s.str();}
 }
