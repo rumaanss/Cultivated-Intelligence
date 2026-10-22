@@ -2,6 +2,7 @@
 #include <filesystem>
 #include <memory>
 #include <vector>
+#include <string>
 namespace cybernet {class LiveBridge;}
 namespace cybernet::transport {
 struct Options {
@@ -16,6 +17,7 @@ class NativeServer {
 public:
  NativeServer(LiveBridge&,const Options&);
  ~NativeServer();
+ void publishAquatic(std::string snapshot);
  void recordTick(unsigned tick,double milliseconds,const double* phases);
 };
 }

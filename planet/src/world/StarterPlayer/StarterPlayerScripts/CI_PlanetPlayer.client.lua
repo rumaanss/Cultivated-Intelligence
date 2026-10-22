@@ -84,7 +84,7 @@ function UI:paragraph(parent,text,x,y,w,h)
  local l=label(parent,text,x,y,w,h,14,P.muted);l.TextWrapped=true;l.TextTruncate=Enum.TextTruncate.None;l.TextYAlignment=Enum.TextYAlignment.Top;return l
 end
 function UI:row(parent,name,y,w)
- label(parent,name,20,y,math.floor(w*.48),24,14,P.muted)
+ local title=label(parent,name,20,y,math.floor(w*.48),24,14,P.muted);title.Name="RowLabel_"..name
  local value=label(parent,"—",math.floor(w*.49),y,math.floor(w*.51)-20,24,14)
  value.TextXAlignment=Enum.TextXAlignment.Right;return value
 end
@@ -164,7 +164,8 @@ function UI:setStatus(state,reason)
  if not active then self.latest=nil;self:setCursor(false) end
 end
 function UI:provider()
- local f=Replicated:FindFirstChild("CI_ResearchData")
+ local aquatic=Replicated:FindFirstChild("CI_AquaticResearchData")
+ local f=if aquatic and aquatic:GetAttribute("BiologyConnected") then aquatic else Replicated:FindFirstChild("CI_ResearchData")
  if not f then return false,"OFFLINE",nil end
  local stamp=f:GetAttribute("LastUpdate")
  if f:GetAttribute("BiologyConnected")~=true then return false,"OFFLINE",f end
@@ -253,7 +254,8 @@ function UI:updateSelection()
  local available=finite(stamp)
  self.selectionLive=live
  local id=short(obj:GetAttribute("CI_OrganismId")or obj.Name)
- self.organismTitle.Text="Organism "..id
+ local isPopulation=obj:GetAttribute("CI_BiologyKind")=="Population"
+ self.organismTitle.Text=(isPopulation and "Population " or "Organism ")..id
  self.markerLabel.Text=id
  local species=obj:GetAttribute("CI_Species")
  self.species.Text=species and tostring(species)..(obj:GetAttribute("CI_Lifecycle") and " · "..tostring(obj:GetAttribute("CI_Lifecycle"))or "")or "Species unavailable"
@@ -261,6 +263,37 @@ function UI:updateSelection()
  self.distanceValue.Text=camera and number((cf.Position-camera.CFrame.Position).Magnitude).." studs"or "—"
  self.boundsValue.Text=number(math.max(size.X,size.Y,size.Z)).." studs"
  local isPlant=obj:GetAttribute("CI_BiologyKind")=="Plant"
+ self.health.title.Text="Health";self.health.rail.Visible=true
+ self.health.value.Position=UDim2.fromOffset(290,0);self.health.value.Size=UDim2.fromOffset(38,24)
+ self.ageTitle.Text="Age";self.trendHigh.Text="100%";self.trendLow.Text="0%"
+ self.populationTrend=isPopulation
+ if isPopulation then
+  self.energy.title.Text="Biomass";self.energy.rail.Visible=false
+  self.energy.value.Position=UDim2.fromOffset(130,0);self.energy.value.Size=UDim2.fromOffset(198,24)
+  local units=obj:GetAttribute("CI_BiomassUnits")or "mmol C"
+  self.energy.value.Text=number(obj:GetAttribute("CI_Biomass"),"%.3f").." "..units
+  self.health.title.Text="O₂ (mmol/m³)";self.health.rail.Visible=false
+  self.health.value.Position=UDim2.fromOffset(180,0);self.health.value.Size=UDim2.fromOffset(148,24)
+  self.health.value.Text=number(obj:GetAttribute("CI_Oxygen"),"%.2f")
+  self.ageTitle.Text="PAR (µmol/m²/s)";self.ageValue.Text=number(obj:GetAttribute("CI_PAR"),"%.2f")
+  self.sourceLabel.Text=live and "C++ population · live · no individual age/health" or "C++ population · stale last-known values"
+  self.sourceLabel.TextColor3=live and P.muted or P.warning
+  self.trendStatus.Text=(live and "Biomass · " or "STALE · biomass · ")..units
+  if live and stamp~=self.lastSample and finite(obj:GetAttribute("CI_Biomass")) then
+   table.insert(self.history,{time=stamp,value=obj:GetAttribute("CI_Biomass")});self.lastSample=stamp
+  end
+  while #self.history>120 or (#self.history>0 and now-self.history[1].time>60)do table.remove(self.history,1)end
+  local function v(key)return number(obj:GetAttribute(key),"%.3f")end
+  self.plantBudget.Text="C++ biomass population · patch "..short(obj:GetAttribute("CI_PatchId"))..
+   "\nNet change: "..v("CI_NetBiomassChange").." "..units.."/day (sampled)"..
+   "\nOrganic N / P: "..v("CI_OrganicN").." / "..v("CI_OrganicP")..
+   "\nDIC / NH₄: "..v("CI_DIC").." / "..v("CI_NH4")..
+   "\nNO₃ / PO₄: "..v("CI_NO3").." / "..v("CI_PO4").." mmol/m³"..
+   "\nSediment: "..v("CI_SedimentCarbon").." mmol C/m²"..
+   "\nTick "..short(obj:GetAttribute("CI_SimulationTick")).." · non-neural"..
+   "\nN/P follow the model's fixed 106:16:1 quota."
+  self:drawTrend(now);return
+ end
  self.energy.title.Text=if isPlant then "Carbon (C)" else "Energy"
  self.energy.rail.Visible=not isPlant
  self.energy.value.Position=UDim2.fromOffset(if isPlant then 130 else 290,0)
@@ -285,12 +318,18 @@ function UI:updateSelection()
 end
 function UI:drawTrend(now)
  local h=self.history
+ local scale=1
+ if self.populationTrend then
+  scale=0;for _,sample in h do scale=math.max(scale,sample.value)end
+  scale=math.max(scale*1.1,1e-9)
+  self.trendHigh.Text=number(scale,"%.2g");self.trendLow.Text="0"
+ end
  for i,seg in ipairs(self.trendSegments)do
   local a,b=h[i],h[i+1]
   seg.Visible=a~=nil and b~=nil and b.time-a.time<=5
   if seg.Visible then
    local x1=math.clamp((a.time-(now-60))/60,0,1)*286;local x2=math.clamp((b.time-(now-60))/60,0,1)*286
-   local y1=(1-a.value)*86;local y2=(1-b.value)*86;local dx,dy=x2-x1,y2-y1
+   local y1=(1-a.value/scale)*86;local y2=(1-b.value/scale)*86;local dx,dy=x2-x1,y2-y1
    seg.Position=UDim2.fromOffset((x1+x2)/2,(y1+y2)/2);seg.Size=UDim2.fromOffset(math.sqrt(dx*dx+dy*dy),1.5);seg.Rotation=math.deg(math.atan2(dy,dx))
   end
  end
@@ -350,6 +389,11 @@ function UI:addObservation(record)
    copy.biology={source="CI_ResearchData",timestamp=stamp,species=obj:GetAttribute("CI_Species"),
     energy=obj:GetAttribute("CI_Energy"),maxEnergy=obj:GetAttribute("CI_MaxEnergy"),
     health=obj:GetAttribute("CI_Health"),maxHealth=obj:GetAttribute("CI_MaxHealth"),ageSeconds=obj:GetAttribute("CI_AgeSeconds")}
+   copy.biology.kind=obj:GetAttribute("CI_BiologyKind")
+   if copy.biology.kind=="Population" then copy.biology.source="CI_AquaticResearchData" end
+   for _,key in {"CI_Biomass","CI_BiomassUnits","CI_OrganicN","CI_OrganicP","CI_Oxygen","CI_PAR","CI_DIC","CI_NH4","CI_NO3","CI_PO4","CI_SedimentCarbon","CI_NetBiomassChange","CI_PatchId","CI_SimulationTick","CI_Run","CI_Carbon","CI_StructuralCarbon","CI_Water","CI_Nutrients","CI_Assimilation","CI_Respiration","CI_Maintenance","CI_AgeTicks","CI_Generation"}do
+    copy.biology[key]=obj:GetAttribute(key)
+   end
   else copy.biologyState=connected and "STALE"or status end
  end
  self.observationCount=self.observationCount+1;copy.observationId=self.observationCount
@@ -383,13 +427,13 @@ function UI:refreshOrganisms()
  table.sort(objects,function(a,b)return short(a:GetAttribute("CI_OrganismId")or a.Name)<short(b:GetAttribute("CI_OrganismId")or b.Name)end)
  self:clearList(self.organismList)
  self.organismEmpty.Visible=#objects==0
- self.organismCount.Text=tostring(#objects).." registered organisms"
+ self.organismCount.Text=tostring(#objects).." nearby life records"
  local query=string.lower(self.search.Text);local n=0
  for _,obj in ipairs(objects)do
   local id=short(obj:GetAttribute("CI_OrganismId")or obj.Name)
-  if query==""or string.find(string.lower(id),query,1,true)then
+  if query==""or string.find(string.lower(id.." "..short(obj:GetAttribute("CI_Species"))),query,1,true)then
    n=n+1;if n>100 then break end
-   self:button(self.organismList,"Organism "..id,0,(n-1)*46,322,38,function()self:select(obj)end)
+   self:button(self.organismList,(obj:GetAttribute("CI_BiologyKind")=="Population" and "Population " or "Organism ")..id,0,(n-1)*46,322,38,function()self:select(obj)end)
   end
  end
  self.organismList.CanvasSize=UDim2.fromOffset(0,math.min(n,100)*46)
@@ -433,7 +477,17 @@ function UI:update(d)
  if self.envRows and self.envRows["Atmospheric carbon"] then
   local plants=workspace:FindFirstChild("CI_PlanetPlants")
   local value=plants and plants:GetAttribute("atmosphericCarbon")
-  self.envRows["Atmospheric carbon"].Text=finite(value) and number(value,"%.1f").." C units" or "Unavailable"
+  local aquatic=Replicated:FindFirstChild("CI_AquaticResearchData")
+  if aquatic and aquatic:GetAttribute("BiologyConnected") then
+   local t=aquatic:GetAttribute("LastUpdate")
+   local fresh=finite(t) and workspace:GetServerTimeNow()-t<=5
+   value=if fresh then aquatic:GetAttribute("AtmosphericCarbon") else nil
+   self.envRows["Atmospheric carbon"].Text=finite(value) and number(value,"%.2g").." mmol C" or "Stale / unavailable"
+   self.environmentInfo.Text="Lake C/N/P residuals (mmol): "..number(aquatic:GetAttribute("CarbonResidual"),"%.2g").." / "..number(aquatic:GetAttribute("NitrogenResidual"),"%.2g").." / "..number(aquatic:GetAttribute("PhosphorusResidual"),"%.2g").."\nSelect a population for local water chemistry. Carbon reservoir is not atmospheric ppm."
+  else
+   self.environmentInfo.Text="Carbon is a model pool, not atmospheric ppm. Light follows the shared simulation clock."
+   self.envRows["Atmospheric carbon"].Text=finite(value) and number(value,"%.1f").." C units" or "Unavailable"
+  end
  end
  self.latest=d
  local lake=game:GetService("ReplicatedStorage"):FindFirstChild("CI_LakeWater")
@@ -563,7 +617,7 @@ function UI:buildOrganismPanel()
  end
  self.tabButtons.Summary.button.TextColor3=P.accent
  local summary=self.tabs.Summary
- self.energy=self:metric(summary,"Energy",0);self.health=self:metric(summary,"Health",34);self.ageValue=self:row(summary,"Age",68,350)
+ self.energy=self:metric(summary,"Energy",0);self.health=self:metric(summary,"Health",34);self.ageValue=self:row(summary,"Age",68,350);self.ageTitle=summary:FindFirstChild("RowLabel_Age")
  rule(summary,104,350);self.distanceValue=self:row(summary,"Distance",117,350);self.boundsValue=self:row(summary,"Model bounds",147,350)
  self.sourceLabel=label(g,"Geometry: Roblox | Biology: unavailable",18,389,314,24,11,P.muted)
  self.recordButton=self:button(g,"+  Record observation",18,420,314,32,function()self:action("capture")end)
@@ -571,7 +625,7 @@ function UI:buildOrganismPanel()
  self.trendStatus=label(trends,"Waiting for biology data",18,0,314,26,12,P.muted)
  local plot=new("Frame",{Position=UDim2.fromOffset(40,43),Size=UDim2.fromOffset(286,86),BackgroundTransparency=1,ClipsDescendants=true},trends)
  for i=0,2 do line(plot,0,i*43,286,i*43,P.line,1)end
- label(trends,"100%",3,30,36,22,10,P.muted);label(trends,"0%",12,116,25,22,10,P.muted)
+ self.trendHigh=label(trends,"100%",3,30,36,22,10,P.muted);self.trendLow=label(trends,"0%",12,116,25,22,10,P.muted)
  label(trends,"−60 s",40,136,90,20,11,P.muted);label(trends,"now",286,136,40,20,11,P.muted)
  self.trendSegments={};for i=1,119 do local l=line(plot,0,0,1,0,P.accent,1.5);l.Visible=false;self.trendSegments[i]=l end
  self.trendEmpty=label(trends,"No trend samples",62,73,240,24,13,P.muted)
@@ -598,10 +652,10 @@ function UI:buildDrawers()
  for i,name in ipairs({"Spawn site","Radial altitude","Gravity","Sea radius","Local clock","Water generation","Bank setback","Atmospheric carbon"})do self.envRows[name]=self:row(e,name,66+(i-1)*36,360)end
  self.envRows["Sea radius"].Text=tostring(self.config.SeaRadius).." studs"
  self.envRows["Water generation"].Text="Initializing lake"
- self:paragraph(e,"Carbon is a model pool, not atmospheric ppm. Light follows the shared simulation clock.",20,376,320,90)
+ self.environmentInfo=self:paragraph(e,"Carbon is a model pool, not atmospheric ppm. Light follows the shared simulation clock.",20,376,320,90)
  local o=self:panel("Organisms",360,500,false)
  self.organismCount=label(o,"0 registered organisms",20,62,320,24,13,P.muted)
- self.search=new("TextBox",{Position=UDim2.fromOffset(18,96),Size=UDim2.fromOffset(324,36),Text="",PlaceholderText="Filter by organism ID",ClearTextOnFocus=false,TextSize=14,Font=Enum.Font.Code,TextColor3=P.text,PlaceholderColor3=P.muted,BackgroundColor3=P.hover,BackgroundTransparency=.4,BorderSizePixel=0},o);round(self.search,5);stroke(self.search,P.line)
+ self.search=new("TextBox",{Position=UDim2.fromOffset(18,96),Size=UDim2.fromOffset(324,36),Text="",PlaceholderText="Filter by ID or species",ClearTextOnFocus=false,TextSize=14,Font=Enum.Font.Code,TextColor3=P.text,PlaceholderColor3=P.muted,BackgroundColor3=P.hover,BackgroundTransparency=.4,BorderSizePixel=0},o);round(self.search,5);stroke(self.search,P.line)
  self.organismList=new("ScrollingFrame",{Position=UDim2.fromOffset(18,148),Size=UDim2.fromOffset(324,292),BackgroundTransparency=1,BorderSizePixel=0,ScrollBarThickness=3,ScrollBarImageColor3=P.accent,CanvasSize=UDim2.fromOffset(0,0)},o)
  self.organismEmpty=self:paragraph(o,"No organisms registered in this world.\n\nThe terrain and player controller remain available for field inspection.",24,164,308,150)
  self.organismLimit=label(o,"Select an entry to inspect",20,456,320,24,12,P.muted)

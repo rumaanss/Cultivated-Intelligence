@@ -1,0 +1,70 @@
+{
+  "version": "aquatic-research-2",
+  "files": [
+    {
+      "path": "planet/src/biology/client/Aquatic.client.lua",
+      "before": "9395c268f7f8f18fbe9912c1b8af14dcb2066107de2e4e851bb2c867901204e4",
+      "sha256": "fab0fc0b48c4f896e4b9a71d6dd722e4ed7c9cf3a53d8550baa61a70b7d8401d"
+    },
+    {
+      "path": "planet/src/biology/shared/AquaticModels.lua",
+      "before": null,
+      "sha256": "ee824a7e84d26a09e3392f58811ca5006b2b8b867c27bc3c19698b7214797b74"
+    },
+    {
+      "path": "planet/src/biology/shared/AquaticProtocol.lua",
+      "before": "ed24391eeba6eeb4a51192bbc5cb7759c91351b40e75e70c3d17deacc6982b53",
+      "sha256": "c6227597f57245b40963dfd4659124046fb4da468699248a7dd3bb4cd3e15b9e"
+    },
+    {
+      "path": "planet/src/world/StarterPlayer/StarterPlayerScripts/CI_PlanetPlayer.client.lua",
+      "before": "b7ef102e3f4ff3c2cd8184db40134e435a751dcb572e94a19b4601a698ecbe33",
+      "sha256": "6b44778177c68b30b46200b809e3f7dde67f964e96c4d244abe72a8a64fd9569"
+    },
+    {
+      "path": "simulation/src/aquatic/lake.cpp",
+      "before": "77b142a763feaf9fb6fcb2dc86a3b1fef05dc096d8d14aafe0fc49a02b455d61",
+      "sha256": "bbe98f8503264f4a28f818b2b92142f51231d2db8569751ac1dc4fe2fb15efc5"
+    },
+    {
+      "path": "planet/tests/run_aquatic_checks.py",
+      "before": "fa26c8462cddd61b17343b39ad767c05f2337ebc2ff566d01541682270ed25ff",
+      "sha256": "2244b7483fa22cfa94fe446f6e2840af9b3067b4a4e4ce73375c168d85a918d8"
+    },
+    {
+      "path": "planet/tests/aquatic_render_assertions.lua",
+      "before": "1142c6e8f03c7ecb02522be7481610cb48f0a032c17ed44af16f99a5f0462b44",
+      "sha256": "d25be3803e329a9191caea770ba20d9fa425b3befa4eb91eff0e6cd4a3a0fb00"
+    },
+    {
+      "path": "planet/tests/ui_assertions.lua",
+      "before": "0273c681387d20d716e00b1edc86640f747a923e6d93fa8f6fc3ed83f1aa7bf1",
+      "sha256": "14bc04dcf8bfbd8bbea5b1b76061832a80febe21e5d672800640859ee6cdd5ae"
+    },
+    {
+      "path": "docs/AQUATIC_FOUNDATION.md",
+      "before": "cc66409827094a835bd79db1ff2be1eda238e1543cfd60669beec4961c8af66d",
+      "sha256": "13b850e361b77840da5fe12d80e63b61f38953e7730b126d6423705120b3c666"
+    },
+    {
+      "path": "docs/AQUATIC_VALIDATION.md",
+      "before": "e02db1b63e0c5c10eb1f57ec67da81df839b8d25ceabddd869e3e646d791dafc",
+      "sha256": "b3f6e5b6e32d501bfb81998d8ecee74271f225718f829339259d1444bf35f821"
+    },
+    {
+      "path": "docs/AQUATIC_RESEARCH_METRICS.md",
+      "before": null,
+      "sha256": "ee8a750166520cb7391fa63c6e8416596c14be296af7ab5a59b5bad380de93da"
+    }
+  ],
+  "dependencies": [
+    {
+      "path": "planet/src/biology/shared/AgentModelFactory.lua",
+      "sha256": "b5abffd0ffd261ecb029e63afe603b8ec4d8740490c4e04cff8769ea83f114d7"
+    },
+    {
+      "path": "planet/src/biology/shared/AgentDesignData.lua",
+      "sha256": "bdd7ea861804fb090386298edd1412abb09745ca8b4a947d1941245e98fd3fd0"
+    }
+  ]
+}

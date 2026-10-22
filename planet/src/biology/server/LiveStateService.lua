@@ -205,6 +205,7 @@ local function accept(response:any)
  ackBatch=response.batch
  batch+=1
 end
+local AquaticDelivery=require(script.Parent.AquaticDelivery)
 local PlantTransport=require(RS:WaitForChild("CI_Biology"):WaitForChild("PlantTransportBridge"))
 local function requestBody(): any
  local poses:{{number}}={} -- C++ owns all microbial motion.
@@ -215,7 +216,7 @@ local function requestBody(): any
  table.sort(ordered,function(a:{player:Player,observer:any},b:{player:Player,observer:any})return a.player.UserId<b.player.UserId end)
  for i=1,math.min(4,#ordered)do table.insert(regions,ordered[i].observer.region)end
  if #regions==0 then table.insert(regions,{center={Space.Bounds.width/2,Space.Bounds.length/2,Space.Bounds.depth/2},limit=Config.MaximumVisibleOrganisms,selected=0})end
- return {observer={version=1,regions=regions},protocol=1,run=run,session=session,batch=batch,ackBatch=ackBatch,boot=boot,epoch=leaseEpoch,correctionAck=correctionAck,poses=poses,actors=actorRows,events=table.clone(events),plants={schema=1,run=PlantTransport.run,revision=PlantTransport.revision,transfer=PlantTransport.transfer,chunk=PlantTransport.nextChunk}}
+ return {aquaticToken=AquaticDelivery.token,observer={version=1,regions=regions},protocol=1,run=run,session=session,batch=batch,ackBatch=ackBatch,boot=boot,epoch=leaseEpoch,correctionAck=correctionAck,poses=poses,actors=actorRows,events=table.clone(events),plants={schema=1,run=PlantTransport.run,revision=PlantTransport.revision,transfer=PlantTransport.transfer,chunk=PlantTransport.nextChunk}}
 end
 local function clearLine(scene:Geometry.Scene,a:Vector3,b:Vector3,ignore:number?):boolean
  if Geometry.blocked(scene,{a.X,a.Y,a.Z},{b.X,b.Y,b.Z},0,true) then return false end
@@ -355,6 +356,8 @@ function M.Start()
     local applyStarted=os.clock()
     phase="validate/apply"
     accept(response)
+    if response.reset or response.resync then AquaticDelivery.clear() end
+    AquaticDelivery.update(response.aquatic,run,observers)
     phase="plants"
     if response.plants then PlantTransport.deliver(response.plants) end
     if response.plantError then Workspace:SetAttribute("CI_PlantStatus",response.plantError) end

@@ -48,6 +48,8 @@ struct NativeServer::Impl {
  std::mutex exchangeMutex,metricsMutex;
  std::string key,owner,boot,run,cachedPayload,cachedReply;
  unsigned epoch{},batch{},sentBatch{};
+ std::atomic<std::shared_ptr<const std::string>> aquaticIncoming;
+ std::shared_ptr<const std::string> aquaticPtr;J aquatic;
  J snapshot,plants,habitat,identity;std::shared_ptr<const std::string> snapshotPtr,plantPtr;
  Clock::time_point snapshotAt=Clock::now(),plantAt=Clock::now(),lastRequest=Clock::now(),lastTickAt=Clock::now(),rateAt=Clock::now();
  unsigned lastTick{},rateTick{};double rate{};
@@ -136,6 +138,24 @@ struct NativeServer::Impl {
   transfers.push_back({id.str(),std::move(encoded),Clock::now()});while(transfers.size()>3)transfers.pop_front();return page(transfers.back(),1);
  }
  J page(const Transfer&t,std::size_t index){auto count=(t.text.size()+256*1024-1)/(256*1024);need(index>=1&&index<=count,"plant chunk index");return {{"chunked",true},{"transfer",t.id},{"index",index},{"count",count},{"data",t.text.substr((index-1)*256*1024,256*1024)},{"age",age(t.at)}};}
+ J aquaticPacket(const J&q){
+  auto p=aquaticIncoming.load();if(!p)return nullptr;
+  if(p!=aquaticPtr){need(p->size()<512*1024,"aquatic snapshot budget");aquatic=J::parse(*p);aquaticPtr=p;}
+  std::set<unsigned> ids;
+  for(const auto&r:q["observer"]["regions"]){
+   double x=r["center"][0],y=r["center"][1],z=r["center"][2];
+   std::vector<std::pair<double,unsigned>> nearest;
+   for(unsigned i=0;i<aquatic["patches"].size();++i){auto& row=aquatic["patches"][i];double dx=row[1].get<double>()-x,dy=row[2].get<double>()-y;
+    double dz=std::max({row[3].get<double>()-z,z-108.,0.});double d=dx*dx+dy*dy+dz*dz;
+    if(d<=160*160)nearest.emplace_back(d,i);}
+   std::sort(nearest.begin(),nearest.end());
+   for(unsigned i=0;i<std::min<std::size_t>(24,nearest.size());++i)ids.insert(nearest[i].second);
+  }
+  std::string token=run+":"+std::to_string(aquatic["revision"].get<unsigned>());
+  for(auto id:ids)token+=":"+std::to_string(id);
+  if(q.value("aquaticToken",std::string())==token)return nullptr;
+  J out=aquatic;out["patches"]=J::array();for(auto id:ids)out["patches"].push_back(aquatic["patches"][id]);out["token"]=token;return out;
+ }
  J exchange(const J&q){
   auto started=Clock::now();load();auto loadedAt=Clock::now();need(q.is_object()&&q.value("protocol",0)==1&&q.contains("session")&&q["session"].is_string()&&token(q["session"]),"invalid request");
   auto current=select(q);auto selectedAt=Clock::now();auto observed=[&](){J out=snapshot;out["agents"]=J::array();for(auto&[id,r]:current)out["agents"].push_back(r);out["total"]=rows.size();return out;};
@@ -158,6 +178,7 @@ struct NativeServer::Impl {
   J out={{"protocol",1},{"reset",false},{"run",run},{"session",session},{"batch",nextBatch},{"sequence",snapshot["sequence"]},{"tick",snapshot["tick"]},{"ack",same?snapshot["ack"]:J(0)},{"light",snapshot["light"]},{"state",snapshot["state"]},{"age",bridge.memorySnapshotAge()},{"stalled",age(lastTickAt)>3&&lastTick>0},{"total",rows.size()},{"visible",current.size()},{"viewVersion",1},{"added",added},{"updates",updates},{"removed",removed},{"motions",motions},{"epoch",epoch},{"boot",boot},{"durableAck",same?snapshot.value("durableAck",J(0)):J(0)},{"bridgeBuild","hardened-v3"},{"transportBuild","native-memory-v1"},{"corrections",same?snapshot.value("corrections",J::array()):J::array()},{"bridgeStatus",bridge.nativeStatus()},{"cppInputAgeMs",bridge.observerAge()},{"cppReceivedBatch",nextBatch},{"eventError",nullptr}};
   auto agentsAt=Clock::now();
   if(q.contains("plants")){try{out["plants"]=plantPacket(q["plants"]);}catch(const std::exception&e){out["plantError"]=e.what();}}
+  auto water=aquaticPacket(q);if(!water.is_null())out["aquatic"]=std::move(water);
   auto plantsAt=Clock::now();
   auto ms=[](auto a,auto b){return std::chrono::duration<double,std::milli>(b-a).count();};
   out["exchangeStagesMs"]={{"snapshot",ms(started,loadedAt)},{"selection",ms(loadedAt,selectedAt)},{"agents",ms(selectedAt,agentsAt)},{"plants",ms(agentsAt,plantsAt)}};
@@ -195,5 +216,6 @@ struct NativeServer::Impl {
 };
 NativeServer::NativeServer(LiveBridge&b,const Options&o):impl_(std::make_unique<Impl>(b,o)){}
 NativeServer::~NativeServer()=default;
+void NativeServer::publishAquatic(std::string snapshot){impl_->aquaticIncoming.store(std::make_shared<const std::string>(std::move(snapshot)));}
 void NativeServer::recordTick(unsigned tick,double ms,const double*phases){impl_->record(tick,ms,phases);}
 }

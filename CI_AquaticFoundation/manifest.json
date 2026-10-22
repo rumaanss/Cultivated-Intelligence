@@ -1,0 +1,95 @@
+{
+  "version": "aquatic-foundation-1",
+  "files": [
+    {
+      "path": "CMakeLists.txt",
+      "before": "6aab487c082114a90b4955165d9fce149abe943b7628b684a833d6b234ce9976",
+      "sha256": "c8eb4a3d6791ecb5e39762e5b213da9d412d67c64752aaccce710ff035f7ea80"
+    },
+    {
+      "path": "transport/src/native_server.cpp",
+      "before": "732ec37b235a438529324c3316aa838f95351e4f89e9992ccd9986ee26b80371",
+      "sha256": "c2100a8148d4a23e3f8c7424fe76313a8efde1173d89fdfe739a9597c0de9912"
+    },
+    {
+      "path": "transport/include/native_server.hpp",
+      "before": "a121de4e05140c3d1e293a598ae56f12007cb06985168f4baab370db582f2a5b",
+      "sha256": "d5c5a906e428ae4c0132857eeac0b9c35750be339454f76f4219cbf3cd78b2de"
+    },
+    {
+      "path": "planet/src/biology/server/LiveStateService.lua",
+      "before": "9688ed1f95eb5fb76680519f50f97cefc29e83608ac8e88c9d92993dbefeafc9",
+      "sha256": "fa64e922646a69e451a9feb1c9f4e468b8e9a1c71cd2ec1f48a63373c7e6ee24"
+    },
+    {
+      "path": "simulation/include/cybernet/aquatic/lake.hpp",
+      "before": null,
+      "sha256": "27ad313a0a89c8900f783222ac5602c166b26411ab20d793d653662d86bee97c"
+    },
+    {
+      "path": "simulation/src/aquatic/lake.cpp",
+      "before": null,
+      "sha256": "77b142a763feaf9fb6fcb2dc86a3b1fef05dc096d8d14aafe0fc49a02b455d61"
+    },
+    {
+      "path": "applications/aquatic/main.cpp",
+      "before": null,
+      "sha256": "4a6fd02bcbf3a0c25691a5d840aeb069980d31f789bd65fb953383b976e90268"
+    },
+    {
+      "path": "scripts/Start-Aquatic.ps1",
+      "before": null,
+      "sha256": "5e8262ab093511f630d24b28515692e3aad8ef826544f787ab327a94f7dc220c"
+    },
+    {
+      "path": "planet/src/biology/server/AquaticDelivery.lua",
+      "before": null,
+      "sha256": "53ad21f886aac16ca425e84c3f8578d6709e6e4706a7d44e0911104efdcc961d"
+    },
+    {
+      "path": "planet/src/biology/shared/AquaticProtocol.lua",
+      "before": null,
+      "sha256": "ed24391eeba6eeb4a51192bbc5cb7759c91351b40e75e70c3d17deacc6982b53"
+    },
+    {
+      "path": "planet/src/biology/client/Aquatic.client.lua",
+      "before": null,
+      "sha256": "9395c268f7f8f18fbe9912c1b8af14dcb2066107de2e4e851bb2c867901204e4"
+    },
+    {
+      "path": "tests/test_aquatic.cpp",
+      "before": null,
+      "sha256": "2bc2964d45d2ad1db46a78f8f096e5d8fad09e50f3948a4e0ee20a4040d2c8b7"
+    },
+    {
+      "path": "tests/native_aquatic.py",
+      "before": null,
+      "sha256": "229704d781253bb00100e4c1aae25eb7cf277b28ce04ee9d64bfb731aa779364"
+    },
+    {
+      "path": "planet/tests/aquatic_assertions.lua",
+      "before": null,
+      "sha256": "c86be01e312a9280a49fb627d73b97d20130bf5e3a48bde7010b5d3ddbed68fb"
+    },
+    {
+      "path": "planet/tests/aquatic_render_assertions.lua",
+      "before": null,
+      "sha256": "1142c6e8f03c7ecb02522be7481610cb48f0a032c17ed44af16f99a5f0462b44"
+    },
+    {
+      "path": "planet/tests/run_aquatic_checks.py",
+      "before": null,
+      "sha256": "fa26c8462cddd61b17343b39ad767c05f2337ebc2ff566d01541682270ed25ff"
+    },
+    {
+      "path": "docs/AQUATIC_FOUNDATION.md",
+      "before": null,
+      "sha256": "cc66409827094a835bd79db1ff2be1eda238e1543cfd60669beec4961c8af66d"
+    },
+    {
+      "path": "docs/AQUATIC_VALIDATION.md",
+      "before": null,
+      "sha256": "e02db1b63e0c5c10eb1f57ec67da81df839b8d25ceabddd869e3e646d791dafc"
+    }
+  ]
+}
