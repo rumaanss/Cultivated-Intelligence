@@ -1,0 +1,2 @@
+PASS python preflight, atomic conflict refusal, CRLF acceptance, installation, repeat, edited-file rollback refusal and complete rollback
+PASS powershell preflight, atomic conflict refusal, CRLF acceptance, installation, repeat, edited-file rollback refusal and complete rollback

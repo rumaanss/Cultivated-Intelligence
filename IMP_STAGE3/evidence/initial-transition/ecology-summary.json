@@ -1,0 +1,222 @@
+{
+  "status": "finite observation; not proof of permanent stability",
+  "endTick": 60000,
+  "windowStart": 30000,
+  "trials": [
+    {
+      "case": "1-fixed",
+      "seed": 1,
+      "mutation": 0.0,
+      "endTick": 60000,
+      "gates": {
+        "completedRequestedDuration": true,
+        "allGuildsPersist": true,
+        "allAlgalFormsPersist": true,
+        "belowRecordCap": true,
+        "foodLedgersClose": true,
+        "allGuildsReproduceLate": true,
+        "allAlgalFormsReproduceLate": true,
+        "lateMeanBiomassWithinFactorTwo": false
+      },
+      "allGatesPass": false,
+      "maximumRecords": 41043,
+      "maximumLocalLedgerResidual": 3.4779077395796776e-09,
+      "finalCounts": [
+        3718,
+        181,
+        1197,
+        4762,
+        14748,
+        560
+      ],
+      "finalForms": [
+        102,
+        157,
+        98,
+        203
+      ],
+      "lateGuildBirths": [
+        3211,
+        163,
+        2705,
+        5809,
+        11321,
+        505
+      ],
+      "lateFormBirths": [
+        86,
+        130,
+        82,
+        207
+      ],
+      "lateMeanBiomassRatios": [
+        0.7152147014516667,
+        1.4503020157536284,
+        0.34178671026653085,
+        0.9377640740732824,
+        0.7190438116378652,
+        1.3788147539834699
+      ],
+      "finalBiomass": [
+        1048061.2416555642,
+        196469.50321854305,
+        104438.45358448912,
+        142214.2470765901,
+        1493259.2746313107,
+        110265.28999019417
+      ],
+      "timing": [
+        {
+          "p95StepMs": 28.518845,
+          "segmentEnd": 60000,
+          "segmentStart": 40000
+        }
+      ]
+    },
+    {
+      "case": "42-mutating",
+      "seed": 42,
+      "mutation": 0.02,
+      "endTick": 60000,
+      "gates": {
+        "completedRequestedDuration": true,
+        "allGuildsPersist": true,
+        "allAlgalFormsPersist": true,
+        "belowRecordCap": true,
+        "foodLedgersClose": true,
+        "allGuildsReproduceLate": true,
+        "allAlgalFormsReproduceLate": true,
+        "lateMeanBiomassWithinFactorTwo": false
+      },
+      "allGatesPass": false,
+      "maximumRecords": 42180,
+      "maximumLocalLedgerResidual": 5.107722245156765e-09,
+      "finalCounts": [
+        3548,
+        158,
+        1279,
+        4008,
+        14666,
+        565
+      ],
+      "finalForms": [
+        119,
+        112,
+        126,
+        208
+      ],
+      "lateGuildBirths": [
+        3021,
+        128,
+        2304,
+        5174,
+        10574,
+        471
+      ],
+      "lateFormBirths": [
+        79,
+        78,
+        98,
+        216
+      ],
+      "lateMeanBiomassRatios": [
+        0.620152354043287,
+        1.3878218988760265,
+        0.2419653470300174,
+        0.8340727869630405,
+        0.7000166125218034,
+        1.3906577491430356
+      ],
+      "finalBiomass": [
+        923229.612951955,
+        151138.8425177506,
+        96510.0211416467,
+        99574.69534354137,
+        1416480.5314856437,
+        108816.95433664856
+      ],
+      "timing": [
+        {
+          "p95StepMs": 7.88349,
+          "segmentEnd": 10000,
+          "segmentStart": 0
+        },
+        {
+          "p95StepMs": 33.892225,
+          "segmentEnd": 60000,
+          "segmentStart": 35000
+        }
+      ]
+    },
+    {
+      "case": "9876-mutating",
+      "seed": 9876,
+      "mutation": 0.02,
+      "endTick": 60000,
+      "gates": {
+        "completedRequestedDuration": true,
+        "allGuildsPersist": true,
+        "allAlgalFormsPersist": true,
+        "belowRecordCap": true,
+        "foodLedgersClose": true,
+        "allGuildsReproduceLate": true,
+        "allAlgalFormsReproduceLate": true,
+        "lateMeanBiomassWithinFactorTwo": false
+      },
+      "allGatesPass": false,
+      "maximumRecords": 42286,
+      "maximumLocalLedgerResidual": 3.0704541131854057e-09,
+      "finalCounts": [
+        3620,
+        199,
+        1414,
+        5296,
+        15744,
+        513
+      ],
+      "finalForms": [
+        108,
+        111,
+        114,
+        180
+      ],
+      "lateGuildBirths": [
+        2985,
+        165,
+        2818,
+        6649,
+        11767,
+        459
+      ],
+      "lateFormBirths": [
+        85,
+        103,
+        80,
+        191
+      ],
+      "lateMeanBiomassRatios": [
+        0.6090625793331412,
+        1.5743720433904336,
+        0.370551831460973,
+        0.928157896835595,
+        0.6976261856832787,
+        1.3911831842173839
+      ],
+      "finalBiomass": [
+        902053.6616413338,
+        189690.4405348779,
+        126296.87461880685,
+        143649.14291901406,
+        1426511.1865078823,
+        99196.1825549193
+      ],
+      "timing": [
+        {
+          "p95StepMs": 31.109247,
+          "segmentEnd": 60000,
+          "segmentStart": 35000
+        }
+      ]
+    }
+  ]
+}

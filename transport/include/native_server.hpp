@@ -15,7 +15,7 @@ Options parseArguments(int argc,char**argv);
 class NativeServer {
  struct Impl;std::unique_ptr<Impl> impl_;
 public:
- NativeServer(LiveBridge&,const Options&);
+ NativeServer(LiveBridge&,const Options&,std::string initialAquatic={});
  ~NativeServer();
  void publishAquatic(std::string snapshot);
  void recordTick(unsigned tick,double milliseconds,const double* phases);

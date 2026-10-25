@@ -1,0 +1,69 @@
+{
+  "BacterialGrazer": {
+    "vertices": 432,
+    "triangles": 656,
+    "nativeTriangles": 48
+  },
+  "MicroalgalGrazer": {
+    "vertices": 672,
+    "triangles": 992,
+    "nativeTriangles": 80
+  },
+  "Ribbon": {
+    "vertices": 55,
+    "triangles": 80,
+    "nativeTriangles": 12
+  },
+  "Fan": {
+    "vertices": 55,
+    "triangles": 80,
+    "nativeTriangles": 12
+  },
+  "Sheet": {
+    "vertices": 55,
+    "triangles": 80,
+    "nativeTriangles": 12
+  },
+  "Filament": {
+    "vertices": 42,
+    "triangles": 72,
+    "nativeTriangles": 16
+  },
+  "Holdfast": {
+    "vertices": 96,
+    "triangles": 128,
+    "nativeTriangles": 64
+  },
+  "RibbonHabitat1": {
+    "vertices": 371,
+    "triangles": 528
+  },
+  "RibbonHabitat2": {
+    "vertices": 371,
+    "triangles": 528
+  },
+  "FanHabitat1": {
+    "vertices": 646,
+    "triangles": 928
+  },
+  "FanHabitat2": {
+    "vertices": 646,
+    "triangles": 928
+  },
+  "FilamentHabitat1": {
+    "vertices": 1020,
+    "triangles": 1712
+  },
+  "FilamentHabitat2": {
+    "vertices": 1020,
+    "triangles": 1712
+  },
+  "SheetHabitat1": {
+    "vertices": 371,
+    "triangles": 528
+  },
+  "SheetHabitat2": {
+    "vertices": 371,
+    "triangles": 528
+  }
+}

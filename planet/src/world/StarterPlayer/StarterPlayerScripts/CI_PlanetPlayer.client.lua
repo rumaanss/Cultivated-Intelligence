@@ -190,6 +190,7 @@ function UI:bounds(obj)
  return nil
 end
 function UI:select(obj)
+ if self.budgetScroll then self.budgetScroll.CanvasPosition=Vector2.new(0,0)end
  if self.selected==obj then self:showPanel("Organism",true);return end
  workspace:SetAttribute("CI_SelectedOrganismId",obj and obj:GetAttribute("CI_OrganismId") or nil)
  self.selected=obj;self.occlusionTime=0;self.pinned=false;self:setPinColor();self.history={};self.lastSample=nil
@@ -254,8 +255,9 @@ function UI:updateSelection()
  local available=finite(stamp)
  self.selectionLive=live
  local id=short(obj:GetAttribute("CI_OrganismId")or obj.Name)
+ local isColony=obj:GetAttribute("CI_BiologyKind")=="Colony"
  local isPopulation=obj:GetAttribute("CI_BiologyKind")=="Population"
- self.organismTitle.Text=(isPopulation and "Population " or "Organism ")..id
+ self.organismTitle.Text=(isColony and "Colony " or isPopulation and "Population " or "Organism ")..id
  self.markerLabel.Text=id
  local species=obj:GetAttribute("CI_Species")
  self.species.Text=species and tostring(species)..(obj:GetAttribute("CI_Lifecycle") and " · "..tostring(obj:GetAttribute("CI_Lifecycle"))or "")or "Species unavailable"
@@ -266,8 +268,8 @@ function UI:updateSelection()
  self.health.title.Text="Health";self.health.rail.Visible=true
  self.health.value.Position=UDim2.fromOffset(290,0);self.health.value.Size=UDim2.fromOffset(38,24)
  self.ageTitle.Text="Age";self.trendHigh.Text="100%";self.trendLow.Text="0%"
- self.populationTrend=isPopulation
- if isPopulation then
+ self.populationTrend=isPopulation or isColony
+ if isPopulation or isColony then
   self.energy.title.Text="Biomass";self.energy.rail.Visible=false
   self.energy.value.Position=UDim2.fromOffset(130,0);self.energy.value.Size=UDim2.fromOffset(198,24)
   local units=obj:GetAttribute("CI_BiomassUnits")or "mmol C"
@@ -292,6 +294,24 @@ function UI:updateSelection()
    "\nSediment: "..v("CI_SedimentCarbon").." mmol C/m²"..
    "\nTick "..short(obj:GetAttribute("CI_SimulationTick")).." · non-neural"..
    "\nN/P follow the model's fixed 106:16:1 quota."
+  if isColony then
+   self.ageTitle.Text="Age (ticks)";self.ageValue.Text=number(obj:GetAttribute("CI_AgeTicks"),"%.0f")
+   self.sourceLabel.Text=live and "C++ colony · live · magnified sample" or "C++ colony · stale last-known values"
+   self.plantBudget.Text="Genotype "..short(obj:GetAttribute("CI_GenomeId")).." · generation "..short(obj:GetAttribute("CI_Generation")).." · ploidy "..short(obj:GetAttribute("CI_Ploidy"))..
+    "\nParent: "..short(obj:GetAttribute("CI_ParentId")).." · patch "..short(obj:GetAttribute("CI_PatchId"))..
+    "\nStructure / reserve C: "..v("CI_StructuralCarbon").." / "..v("CI_ReserveCarbon")..
+    "\nReserve N / P: "..v("CI_ReserveNitrogen").." / "..v("CI_ReservePhosphorus")..
+    "\nDNA / RNA / protein C: "..v("CI_DNA").." / "..v("CI_RNA").." / "..v("CI_Protein")..
+    "\nDNA replication: "..number((obj:GetAttribute("CI_Replication")or 0)*100,"%.1f").."%"..
+    "\nAssimilated / respired C: "..v("CI_Assimilation").." / "..v("CI_Respiration")..
+    "\nAction: "..short(obj:GetAttribute("CI_Behavior")).." · "..short(obj:GetAttribute("CI_Lifecycle"))..
+    "\nTravel (studs) / movement C: "..v("CI_DistanceStuds").." / "..v("CI_MovementCarbon")..
+    "\nSensing / motor protein activity: "..v("CI_SensingActivity").." / "..v("CI_MotorActivity")..
+    "\nSensing / motility allele: "..v("CI_SensingAllele").." / "..v("CI_MotilityAllele")..
+    (if obj:GetAttribute("CI_IngestedCarbon")~=nil then "\nConsumed / egested C: "..v("CI_IngestedCarbon").." / "..v("CI_EgestedCarbon").."\nLocal food C: "..v("CI_AccessibleFoodCarbon") else "")..
+    (if obj:GetAttribute("CI_TotalSegments")~=nil then "\nAlgal sections: "..short(obj:GetAttribute("CI_VisibleSegments")).." / "..short(obj:GetAttribute("CI_TotalSegments")) else "")..
+    "\nColor encodes inherited alleles. Bodies are magnified samples."
+  end
   self:drawTrend(now);return
  end
  self.energy.title.Text=if isPlant then "Carbon (C)" else "Energy"
@@ -390,8 +410,8 @@ function UI:addObservation(record)
     energy=obj:GetAttribute("CI_Energy"),maxEnergy=obj:GetAttribute("CI_MaxEnergy"),
     health=obj:GetAttribute("CI_Health"),maxHealth=obj:GetAttribute("CI_MaxHealth"),ageSeconds=obj:GetAttribute("CI_AgeSeconds")}
    copy.biology.kind=obj:GetAttribute("CI_BiologyKind")
-   if copy.biology.kind=="Population" then copy.biology.source="CI_AquaticResearchData" end
-   for _,key in {"CI_Biomass","CI_BiomassUnits","CI_OrganicN","CI_OrganicP","CI_Oxygen","CI_PAR","CI_DIC","CI_NH4","CI_NO3","CI_PO4","CI_SedimentCarbon","CI_NetBiomassChange","CI_PatchId","CI_SimulationTick","CI_Run","CI_Carbon","CI_StructuralCarbon","CI_Water","CI_Nutrients","CI_Assimilation","CI_Respiration","CI_Maintenance","CI_AgeTicks","CI_Generation"}do
+   if copy.biology.kind=="Population" or copy.biology.kind=="Colony" then copy.biology.source="CI_AquaticResearchData" end
+   for _,key in {"CI_Behavior","CI_Lifecycle","CI_DistanceStuds","CI_MovementCarbon","CI_SensingActivity","CI_MotorActivity","CI_SensingAllele","CI_MotilityAllele","CI_IngestedCarbon","CI_EgestedCarbon","CI_AccessibleFoodCarbon","CI_TotalSegments","CI_VisibleSegments","CI_RepresentedCohort","CI_ColonyId","CI_ParentId","CI_GenomeId","CI_ReserveCarbon","CI_ReserveNitrogen","CI_ReservePhosphorus","CI_DNA","CI_RNA","CI_Protein","CI_Replication","CI_Ploidy","CI_Biomass","CI_BiomassUnits","CI_OrganicN","CI_OrganicP","CI_Oxygen","CI_PAR","CI_DIC","CI_NH4","CI_NO3","CI_PO4","CI_SedimentCarbon","CI_NetBiomassChange","CI_PatchId","CI_SimulationTick","CI_Run","CI_Carbon","CI_StructuralCarbon","CI_Water","CI_Nutrients","CI_Assimilation","CI_Respiration","CI_Maintenance","CI_AgeTicks","CI_Generation"}do
     copy.biology[key]=obj:GetAttribute(key)
    end
   else copy.biologyState=connected and "STALE"or status end
@@ -433,7 +453,7 @@ function UI:refreshOrganisms()
   local id=short(obj:GetAttribute("CI_OrganismId")or obj.Name)
   if query==""or string.find(string.lower(id.." "..short(obj:GetAttribute("CI_Species"))),query,1,true)then
    n=n+1;if n>100 then break end
-   self:button(self.organismList,(obj:GetAttribute("CI_BiologyKind")=="Population" and "Population " or "Organism ")..id,0,(n-1)*46,322,38,function()self:select(obj)end)
+   self:button(self.organismList,(obj:GetAttribute("CI_BiologyKind")=="Colony" and "Colony " or obj:GetAttribute("CI_BiologyKind")=="Population" and "Population " or "Organism ")..id,0,(n-1)*46,322,38,function()self:select(obj)end)
   end
  end
  self.organismList.CanvasSize=UDim2.fromOffset(0,math.min(n,100)*46)
@@ -483,7 +503,10 @@ function UI:update(d)
    local fresh=finite(t) and workspace:GetServerTimeNow()-t<=5
    value=if fresh then aquatic:GetAttribute("AtmosphericCarbon") else nil
    self.envRows["Atmospheric carbon"].Text=finite(value) and number(value,"%.2g").." mmol C" or "Stale / unavailable"
-   self.environmentInfo.Text="Lake C/N/P residuals (mmol): "..number(aquatic:GetAttribute("CarbonResidual"),"%.2g").." / "..number(aquatic:GetAttribute("NitrogenResidual"),"%.2g").." / "..number(aquatic:GetAttribute("PhosphorusResidual"),"%.2g").."\nSelect a population for local water chemistry. Carbon reservoir is not atmospheric ppm."
+   self.environmentInfo.Text="Lake C/N/P residuals (mmol): "..number(aquatic:GetAttribute("CarbonResidual"),"%.2g").." / "..number(aquatic:GetAttribute("NitrogenResidual"),"%.2g").." / "..number(aquatic:GetAttribute("PhosphorusResidual"),"%.2g").."\nSelect a colony or population for local water chemistry. Carbon reservoir is not atmospheric ppm."
+   if aquatic:GetAttribute("ColonyCount") then
+    self.environmentInfo.Text..="\nBiology: "..short(aquatic:GetAttribute("Model")).." · visible sample: "..short(aquatic:GetAttribute("VisibleColonies")).."\nColonies: "..number(aquatic:GetAttribute("ColonyCount"),"%.0f").." · births / deaths / mutations: "..number(aquatic:GetAttribute("Births"),"%.0f").." / "..number(aquatic:GetAttribute("Deaths"),"%.0f").." / "..number(aquatic:GetAttribute("Mutations"),"%.0f")
+   end
   else
    self.environmentInfo.Text="Carbon is a model pool, not atmospheric ppm. Light follows the shared simulation clock."
    self.envRows["Atmospheric carbon"].Text=finite(value) and number(value,"%.1f").." C units" or "Unavailable"
@@ -630,7 +653,9 @@ function UI:buildOrganismPanel()
  self.trendSegments={};for i=1,119 do local l=line(plot,0,0,1,0,P.accent,1.5);l.Visible=false;self.trendSegments[i]=l end
  self.trendEmpty=label(trends,"No trend samples",62,73,240,24,13,P.muted)
  self:paragraph(trends,"Gaps remain visible when data stops.",18,168,314,32)
- self.plantBudget=self:paragraph(self.tabs.Notes,"Record the selection with a note in your field notebook.",18,4,314,150)
+ self.budgetScroll=new("ScrollingFrame",{Position=UDim2.fromOffset(18,4),Size=UDim2.fromOffset(314,146),BackgroundTransparency=1,BorderSizePixel=0,ScrollBarThickness=3,AutomaticCanvasSize=Enum.AutomaticSize.Y,CanvasSize=UDim2.fromOffset(0,0),ClipsDescendants=true},self.tabs.Notes)
+ self.plantBudget=self:paragraph(self.budgetScroll,"Record the selection with a note in your field notebook.",0,0,304,0)
+ self.plantBudget.Size=UDim2.new(1,-10,0,0);self.plantBudget.AutomaticSize=Enum.AutomaticSize.Y
  self:button(self.tabs.Notes,"Open notebook",18,160,314,34,function()self:showPanel("Notebook",true)end)
 end
 function UI:buildDrawers()
@@ -652,7 +677,9 @@ function UI:buildDrawers()
  for i,name in ipairs({"Spawn site","Radial altitude","Gravity","Sea radius","Local clock","Water generation","Bank setback","Atmospheric carbon"})do self.envRows[name]=self:row(e,name,66+(i-1)*36,360)end
  self.envRows["Sea radius"].Text=tostring(self.config.SeaRadius).." studs"
  self.envRows["Water generation"].Text="Initializing lake"
- self.environmentInfo=self:paragraph(e,"Carbon is a model pool, not atmospheric ppm. Light follows the shared simulation clock.",20,376,320,90)
+ local environmentScroll=new("ScrollingFrame",{Position=UDim2.fromOffset(20,376),Size=UDim2.fromOffset(320,100),BackgroundTransparency=1,BorderSizePixel=0,ScrollBarThickness=3,AutomaticCanvasSize=Enum.AutomaticSize.Y,CanvasSize=UDim2.fromOffset(0,0),ClipsDescendants=true},e)
+ self.environmentInfo=self:paragraph(environmentScroll,"Carbon is a model pool, not atmospheric ppm. Light follows the shared simulation clock.",0,0,310,0)
+ self.environmentInfo.Size=UDim2.new(1,-10,0,0);self.environmentInfo.AutomaticSize=Enum.AutomaticSize.Y
  local o=self:panel("Organisms",360,500,false)
  self.organismCount=label(o,"0 registered organisms",20,62,320,24,13,P.muted)
  self.search=new("TextBox",{Position=UDim2.fromOffset(18,96),Size=UDim2.fromOffset(324,36),Text="",PlaceholderText="Filter by ID or species",ClearTextOnFocus=false,TextSize=14,Font=Enum.Font.Code,TextColor3=P.text,PlaceholderColor3=P.muted,BackgroundColor3=P.hover,BackgroundTransparency=.4,BorderSizePixel=0},o);round(self.search,5);stroke(self.search,P.line)

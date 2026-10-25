@@ -61,7 +61,8 @@ struct NativeServer::Impl {
  J profile=J::object();std::deque<double> tickTimes,httpTimes;
  std::string transferNonce=secret().substr(0,48);
  std::uint64_t transferCounter{},tickCount{};double totalTickMs{};
- Impl(LiveBridge&b,const Options&o):bridge(b),options(o),boot(b.bootId()),run(b.runId()),epoch(b.initialEpoch()) {
+ Impl(LiveBridge&b,const Options&o,std::string initialAquatic):bridge(b),options(o),boot(b.bootId()),run(b.runId()),epoch(b.initialEpoch()) {
+  if(!initialAquatic.empty())aquaticIncoming.store(std::make_shared<const std::string>(std::move(initialAquatic)));
   habitat=readJson(o.root/"contracts/planet_habitat.json");identity=readJson(o.root/"contracts/identity.json");
   need(readJson(o.root/"contracts/identity.json")["habitat"]["sha256"]==planet_contract::Digest,"Compiled habitat differs from project contract; rebuild generated contracts first");
  need(readJson(o.runtime/"planet_habitat.json")==habitat,"Runtime habitat differs from compiled project contract");
@@ -140,7 +141,7 @@ struct NativeServer::Impl {
  J page(const Transfer&t,std::size_t index){auto count=(t.text.size()+256*1024-1)/(256*1024);need(index>=1&&index<=count,"plant chunk index");return {{"chunked",true},{"transfer",t.id},{"index",index},{"count",count},{"data",t.text.substr((index-1)*256*1024,256*1024)},{"age",age(t.at)}};}
  J aquaticPacket(const J&q){
   auto p=aquaticIncoming.load();if(!p)return nullptr;
-  if(p!=aquaticPtr){need(p->size()<512*1024,"aquatic snapshot budget");aquatic=J::parse(*p);aquaticPtr=p;}
+  if(p!=aquaticPtr){need(p->size()<2*1024*1024,"aquatic snapshot budget");aquatic=J::parse(*p);aquaticPtr=p;}
   std::set<unsigned> ids;
   for(const auto&r:q["observer"]["regions"]){
    double x=r["center"][0],y=r["center"][1],z=r["center"][2];
@@ -154,7 +155,7 @@ struct NativeServer::Impl {
   std::string token=run+":"+std::to_string(aquatic["revision"].get<unsigned>());
   for(auto id:ids)token+=":"+std::to_string(id);
   if(q.value("aquaticToken",std::string())==token)return nullptr;
-  J out=aquatic;out["patches"]=J::array();for(auto id:ids)out["patches"].push_back(aquatic["patches"][id]);out["token"]=token;return out;
+  J out=aquatic;out["patches"]=J::array();for(auto id:ids)out["patches"].push_back(aquatic["patches"][id]);if(out.contains("colonies")){out["colonies"]=J::array();for(const auto& colony:aquatic["colonies"]){auto patch=colony[0].get<unsigned>();if(patch>0&&ids.count(patch-1))out["colonies"].push_back(colony);}}if(out.contains("lifecycle")){out["lifecycle"]=J::array();for(const auto& event:aquatic["lifecycle"]){auto patch=event[4].get<unsigned>();if(patch>0&&ids.count(patch-1))out["lifecycle"].push_back(event);}}for(const auto *key:{"algae","food"})if(out.contains(key)){out[key]=J::array();for(const auto &row:aquatic[key]){auto patch=row[0].get<unsigned>();if(patch>0&&ids.count(patch-1))out[key].push_back(row);}}out["token"]=token;return out;
  }
  J exchange(const J&q){
   auto started=Clock::now();load();auto loadedAt=Clock::now();need(q.is_object()&&q.value("protocol",0)==1&&q.contains("session")&&q["session"].is_string()&&token(q["session"]),"invalid request");
@@ -214,7 +215,7 @@ struct NativeServer::Impl {
   const char* names[]={"environmentMs","decisionMs","movementMs","interactionMs","populationMs","metricsMs"};for(int i=0;i<6;++i)profile[names[i]]=phases[i]*1000/tickCount;
  }
 };
-NativeServer::NativeServer(LiveBridge&b,const Options&o):impl_(std::make_unique<Impl>(b,o)){}
+NativeServer::NativeServer(LiveBridge&b,const Options&o,std::string initialAquatic):impl_(std::make_unique<Impl>(b,o,std::move(initialAquatic))){}
 NativeServer::~NativeServer()=default;
 void NativeServer::publishAquatic(std::string snapshot){impl_->aquaticIncoming.store(std::make_shared<const std::string>(std::move(snapshot)));}
 void NativeServer::recordTick(unsigned tick,double ms,const double*phases){impl_->record(tick,ms,phases);}

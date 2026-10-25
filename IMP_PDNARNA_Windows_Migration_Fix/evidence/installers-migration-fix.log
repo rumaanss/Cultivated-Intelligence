@@ -1,0 +1,5 @@
+PASS powershell LF: preflight, conflict refusal, install, exact backup, repeat install, edited-file protection, rollback, repeat rollback, runtime untouched
+PASS powershell CRLF: preflight, conflict refusal, install, exact backup, repeat install, edited-file protection, rollback, repeat rollback, runtime untouched
+PASS python LF: preflight, conflict refusal, install, exact backup, repeat install, edited-file protection, rollback, repeat rollback, runtime untouched
+PASS python CRLF: preflight, conflict refusal, install, exact backup, repeat install, edited-file protection, rollback, repeat rollback, runtime untouched
+PASS complete release: only the migration test source changed; all payload hashes valid

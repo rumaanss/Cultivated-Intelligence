@@ -1,0 +1,662 @@
+Start testing: Oct 23 19:04 CDT
+----------------------------------------------------------
+29/34 Testing: PlanetCollision
+29/34 Test: PlanetCollision
+Command: "/workspace/scratch/71b5e5a3af9a/source/build/behavior/simulation/test_planet_collision"
+Directory: /workspace/scratch/71b5e5a3af9a/source/build/behavior/simulation
+"PlanetCollision" start time: Oct 23 19:04 CDT
+Output:
+----------------------------------------------------------
+PASS 10000 exact native collision/recovery comparisons, including invalid shoreline starts
+<end of output>
+Test time =   5.90 sec
+----------------------------------------------------------
+Test Passed.
+"PlanetCollision" end time: Oct 23 19:04 CDT
+"PlanetCollision" time elapsed: 00:00:05
+----------------------------------------------------------
+
+22/34 Testing: LiveBridge
+22/34 Test: LiveBridge
+Command: "/workspace/scratch/71b5e5a3af9a/source/build/behavior/simulation/test_live_bridge"
+Directory: /workspace/scratch/71b5e5a3af9a/source/build/behavior/simulation
+"LiveBridge" start time: Oct 23 19:04 CDT
+Output:
+----------------------------------------------------------
+[LiveBridgeTests] initialize terrain and publisher
+[LiveBridgeTests] one-shot snapshot survives queue contention
+[CI Live] live-42-1792800279136401650; bridge hardened-v3; waiting for Roblox authority
+[CI Live] live-42-1792800279351497922; bridge hardened-v3; waiting for Roblox authority
+[LiveBridgeTests] wait for initial snapshot
+[CI Live hardened-v3] waiting-for-input
+[LiveBridgeTests] exclusive publisher lock
+[LiveBridgeTests] first input and damage acknowledgment
+[CI Live hardened-v3] running
+[LiveBridgeTests] duplicate event in a newly received batch
+[LiveBridgeTests] reject event gap before the two-second stale cutoff
+[CI Live hardened-v3] event-gap
+[LiveBridgeTests] valid lethal event after rejected gap
+[CI Live hardened-v3] running
+[LiveBridgeTests] malformed input rejection
+[LiveBridgeTests] stale input pause
+[CI Live hardened-v3] stale-input
+[LiveBridgeTests] new heartbeat resumes after stale input without replaying damage
+[CI Live hardened-v3] running
+[LiveBridgeTests] final snapshot and clean shutdown
+[LiveBridgeTests] cross-engine lakebed contact rounding and penetration rejection
+[CI Live] live-42-1792800282573506412; bridge hardened-v3; waiting for Roblox authority
+[CI Live hardened-v3] waiting-for-input
+[CI Live hardened-v3] running
+[CI Live hardened-v3] correction 1 kind=1 id=1292; other entities continue
+[CI Live hardened-v3] recovering-entities
+[CI Live hardened-v3] running
+[LiveBridgeTests] out-of-bounds actor recovery does not stop healthy agents
+[CI Live hardened-v3] correction 2 kind=2 id=1; other entities continue
+[CI Live hardened-v3] recovering-entities
+PASS live ownership, atomic publisher, event dedup/gaps, bounds, stale pause, lock
+<end of output>
+Test time =   3.57 sec
+----------------------------------------------------------
+Test Passed.
+"LiveBridge" end time: Oct 23 19:04 CDT
+"LiveBridge" time elapsed: 00:00:03
+----------------------------------------------------------
+
+25/34 Testing: ProducerCycles
+25/34 Test: ProducerCycles
+Command: "/workspace/scratch/71b5e5a3af9a/source/build/behavior/simulation/test_producer_cycles"
+Directory: /workspace/scratch/71b5e5a3af9a/source/build/behavior/simulation
+"ProducerCycles" start time: Oct 23 19:04 CDT
+Output:
+----------------------------------------------------------
+seed 42: 44 living plants at world tick 30000
+seed 250: 35 living plants at world tick 30000
+seed 731: 26 living plants at world tick 30000
+PASS reserves, 50 cycles, neural autonomy, carbon accounting, drought mortality
+<end of output>
+Test time =  13.28 sec
+----------------------------------------------------------
+Test Passed.
+"ProducerCycles" end time: Oct 23 19:04 CDT
+"ProducerCycles" time elapsed: 00:00:13
+----------------------------------------------------------
+
+2/34 Testing: Physiology
+2/34 Test: Physiology
+Command: "/workspace/scratch/71b5e5a3af9a/source/build/behavior/test_physiology"
+Directory: /workspace/scratch/71b5e5a3af9a/source/build/behavior
+"Physiology" start time: Oct 23 19:04 CDT
+Output:
+----------------------------------------------------------
+PASS material ledgers, ploidy, migration, paid birth, mutations, cached reference, exact resume, corruption rejection, darkness, P limitation, paid expression, storage housekeeping, fair nutrient allocation and proportional RNA
+<end of output>
+Test time =   4.05 sec
+----------------------------------------------------------
+Test Passed.
+"Physiology" end time: Oct 23 19:04 CDT
+"Physiology" time elapsed: 00:00:04
+----------------------------------------------------------
+
+19/34 Testing: SimulationTests
+19/34 Test: SimulationTests
+Command: "/workspace/scratch/71b5e5a3af9a/source/build/behavior/simulation/test_simulation"
+Directory: /workspace/scratch/71b5e5a3af9a/source/build/behavior/simulation
+"SimulationTests" start time: Oct 23 19:04 CDT
+Output:
+----------------------------------------------------------
+[CI Recording] 30 complete frames; completed
+[CI Recording] 30 complete frames; completed
+[CI Recording] 30 complete frames; completed
+[CI Recording] 30 complete frames; completed
+[CI Recording] 30 complete frames; completed
+[CI Recording] 30 complete frames; completed
+[CI Recording] 30 complete frames; completed
+[CI Recording] 30 complete frames; completed
+[CI Recording] 30 complete frames; completed
+[CI Recording] 30 complete frames; completed
+[CI Recording] 30 complete frames; completed
+[CI Recording] 30 complete frames; completed
+[CI Recording] 30 complete frames; completed
+<end of output>
+Test time =  14.50 sec
+----------------------------------------------------------
+Test Passed.
+"SimulationTests" end time: Oct 23 19:04 CDT
+"SimulationTests" time elapsed: 00:00:14
+----------------------------------------------------------
+
+31/34 Testing: PlantDiagnostics
+31/34 Test: PlantDiagnostics
+Command: "/workspace/scratch/71b5e5a3af9a/source/build/behavior/simulation/test_plant_diagnostics" "/workspace/scratch/71b5e5a3af9a/source/simulation/../contracts/planet_surface.txt" "/workspace/scratch/71b5e5a3af9a/source/build/behavior/simulation/plant_diagnostics.json"
+Directory: /workspace/scratch/71b5e5a3af9a/source/build/behavior/simulation
+"PlantDiagnostics" start time: Oct 23 19:04 CDT
+Output:
+----------------------------------------------------------
+PASS 6000-tick native plant diagnostic fixture
+<end of output>
+Test time =   1.13 sec
+----------------------------------------------------------
+Test Passed.
+"PlantDiagnostics" end time: Oct 23 19:04 CDT
+"PlantDiagnostics" time elapsed: 00:00:01
+----------------------------------------------------------
+
+32/34 Testing: Plants
+32/34 Test: Plants
+Command: "/workspace/scratch/71b5e5a3af9a/source/build/behavior/simulation/tools/plants/test_plants"
+Directory: /workspace/scratch/71b5e5a3af9a/source/build/behavior/simulation/tools/plants
+"Plants" start time: Oct 23 19:04 CDT
+Output:
+----------------------------------------------------------
+PASS: permission/intent, reservations, three genomes, conserved carbon/water/nutrients, mutation, pending and neural checkpoint replay, corruption rejection, drought death
+<end of output>
+Test time =   1.38 sec
+----------------------------------------------------------
+Test Passed.
+"Plants" end time: Oct 23 19:04 CDT
+"Plants" time elapsed: 00:00:01
+----------------------------------------------------------
+
+27/34 Testing: PlanetHabitat
+27/34 Test: PlanetHabitat
+Command: "/workspace/scratch/71b5e5a3af9a/source/build/behavior/simulation/test_planet_habitat" "/workspace/scratch/71b5e5a3af9a/source/simulation/../contracts/planet_surface.txt"
+Directory: /workspace/scratch/71b5e5a3af9a/source/build/behavior/simulation
+"PlanetHabitat" start time: Oct 23 19:04 CDT
+Output:
+----------------------------------------------------------
+PASS planet geometry, 8471 valid wet positions, 96 surveyed land founders, deterministic biology, checkpoint and manifest identity
+<end of output>
+Test time =   0.15 sec
+----------------------------------------------------------
+Test Passed.
+"PlanetHabitat" end time: Oct 23 19:04 CDT
+"PlanetHabitat" time elapsed: 00:00:00
+----------------------------------------------------------
+
+1/34 Testing: AquaticBehavior
+1/34 Test: AquaticBehavior
+Command: "/workspace/scratch/71b5e5a3af9a/source/build/behavior/test_aquatic_behavior"
+Directory: /workspace/scratch/71b5e5a3af9a/source/build/behavior
+"AquaticBehavior" start time: Oct 23 19:04 CDT
+Output:
+----------------------------------------------------------
+PASS local light response, resource-paid travel, attached immobility, anoxia, inherited expression, exact motion continuation and native observation
+<end of output>
+Test time =   0.20 sec
+----------------------------------------------------------
+Test Passed.
+"AquaticBehavior" end time: Oct 23 19:04 CDT
+"AquaticBehavior" time elapsed: 00:00:00
+----------------------------------------------------------
+
+24/34 Testing: LiveCheckpoint
+24/34 Test: LiveCheckpoint
+Command: "/workspace/scratch/71b5e5a3af9a/source/build/behavior/simulation/test_live_checkpoint"
+Directory: /workspace/scratch/71b5e5a3af9a/source/build/behavior/simulation
+"LiveCheckpoint" start time: Oct 23 19:04 CDT
+Output:
+----------------------------------------------------------
+[CI Live] live-42-1792800288093693170; bridge hardened-v3; waiting for Roblox authority
+[CI Live] live-42-1792800288093693170; bridge hardened-v3; waiting for Roblox authority
+[CI Live] Restored tick 123; durable event 0; waiting for full resynchronization
+[CI Live] live-42-1792800288130425702; bridge hardened-v3; waiting for Roblox authority
+[CI Live] live-42-1792800288146248115; bridge hardened-v3; waiting for Roblox authority
+[CI Live] live-42-1792800288162104418; bridge hardened-v3; waiting for Roblox authority
+[CI Live] live-42-1792800288177954642; bridge hardened-v3; waiting for Roblox authority
+[CI Live] live-42-1792800288193803169; bridge hardened-v3; waiting for Roblox authority
+[CI Live] live-42-1792800288209713919; bridge hardened-v3; waiting for Roblox authority
+[CI Live] live-42-1792800288225769663; bridge hardened-v3; waiting for Roblox authority
+[CI Live] live-42-1792800288241591394; bridge hardened-v3; waiting for Roblox authority
+PASS full brain/population/chemistry/RNG checkpoint, restart, checksum rejection
+<end of output>
+Test time =   0.17 sec
+----------------------------------------------------------
+Test Passed.
+"LiveCheckpoint" end time: Oct 23 19:04 CDT
+"LiveCheckpoint" time elapsed: 00:00:00
+----------------------------------------------------------
+
+21/34 Testing: IslandWorld
+21/34 Test: IslandWorld
+Command: "/workspace/scratch/71b5e5a3af9a/source/build/behavior/simulation/test_island_world"
+Directory: /workspace/scratch/71b5e5a3af9a/source/build/behavior/simulation
+"IslandWorld" start time: Oct 23 19:04 CDT
+Output:
+----------------------------------------------------------
+PASS island bounds, land founders, distinct neural policy, shared clock, air-water optics, carbon exchange, wait autonomy, unified checkpoint and deterministic replay
+<end of output>
+Test time =   0.21 sec
+----------------------------------------------------------
+Test Passed.
+"IslandWorld" end time: Oct 23 19:04 CDT
+"IslandWorld" time elapsed: 00:00:00
+----------------------------------------------------------
+
+28/34 Testing: PlanetFounders
+28/34 Test: PlanetFounders
+Command: "/workspace/scratch/71b5e5a3af9a/source/build/behavior/simulation/test_planet_founders"
+Directory: /workspace/scratch/71b5e5a3af9a/source/build/behavior/simulation
+"PlanetFounders" start time: Oct 23 19:04 CDT
+Output:
+----------------------------------------------------------
+PASS 30000 deterministic wet founder samples; volume fraction 0.400163; initial density ratio 0.999593
+<end of output>
+Test time =   0.05 sec
+----------------------------------------------------------
+Test Passed.
+"PlanetFounders" end time: Oct 23 19:04 CDT
+"PlanetFounders" time elapsed: 00:00:00
+----------------------------------------------------------
+
+26/34 Testing: FullPond
+26/34 Test: FullPond
+Command: "/workspace/scratch/71b5e5a3af9a/source/build/behavior/simulation/test_full_pond"
+Directory: /workspace/scratch/71b5e5a3af9a/source/build/behavior/simulation
+"FullPond" start time: Oct 23 19:04 CDT
+Output:
+----------------------------------------------------------
+Full pond: transforms, chemistry grid, 15483 outer habitat sites, 3000 placements, 24000 movements and ridge crossings passed
+<end of output>
+Test time =   0.06 sec
+----------------------------------------------------------
+Test Passed.
+"FullPond" end time: Oct 23 19:04 CDT
+"FullPond" time elapsed: 00:00:00
+----------------------------------------------------------
+
+18/34 Testing: SpawningTests
+18/34 Test: SpawningTests
+Command: "/workspace/scratch/71b5e5a3af9a/source/build/behavior/simulation/test_spawning"
+Directory: /workspace/scratch/71b5e5a3af9a/source/build/behavior/simulation
+"SpawningTests" start time: Oct 23 19:04 CDT
+Output:
+----------------------------------------------------------
+Spawning tests passed.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"SpawningTests" end time: Oct 23 19:04 CDT
+"SpawningTests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+15/34 Testing: MetricsTests
+15/34 Test: MetricsTests
+Command: "/workspace/scratch/71b5e5a3af9a/source/build/behavior/simulation/test_metrics"
+Directory: /workspace/scratch/71b5e5a3af9a/source/build/behavior/simulation
+"MetricsTests" start time: Oct 23 19:04 CDT
+Output:
+----------------------------------------------------------
+Metrics tests passed.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"MetricsTests" end time: Oct 23 19:04 CDT
+"MetricsTests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+16/34 Testing: AsyncRecordWriterTests
+16/34 Test: AsyncRecordWriterTests
+Command: "/workspace/scratch/71b5e5a3af9a/source/build/behavior/simulation/test_async_record_writer"
+Directory: /workspace/scratch/71b5e5a3af9a/source/build/behavior/simulation
+"AsyncRecordWriterTests" start time: Oct 23 19:04 CDT
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"AsyncRecordWriterTests" end time: Oct 23 19:04 CDT
+"AsyncRecordWriterTests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+10/34 Testing: ChemistryTests
+10/34 Test: ChemistryTests
+Command: "/workspace/scratch/71b5e5a3af9a/source/build/behavior/simulation/test_chemistry"
+Directory: /workspace/scratch/71b5e5a3af9a/source/build/behavior/simulation
+"ChemistryTests" start time: Oct 23 19:04 CDT
+Output:
+----------------------------------------------------------
+Chemistry tests passed.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"ChemistryTests" end time: Oct 23 19:04 CDT
+"ChemistryTests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+9/34 Testing: RnnBrainTests
+9/34 Test: RnnBrainTests
+Command: "/workspace/scratch/71b5e5a3af9a/source/build/behavior/simulation/test_brain"
+Directory: /workspace/scratch/71b5e5a3af9a/source/build/behavior/simulation
+"RnnBrainTests" start time: Oct 23 19:04 CDT
+Output:
+----------------------------------------------------------
+RnnBrain tests passed.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"RnnBrainTests" end time: Oct 23 19:04 CDT
+"RnnBrainTests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+20/34 Testing: SpatialGridTests
+20/34 Test: SpatialGridTests
+Command: "/workspace/scratch/71b5e5a3af9a/source/build/behavior/simulation/test_spatial_grid"
+Directory: /workspace/scratch/71b5e5a3af9a/source/build/behavior/simulation
+"SpatialGridTests" start time: Oct 23 19:04 CDT
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"SpatialGridTests" end time: Oct 23 19:04 CDT
+"SpatialGridTests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+17/34 Testing: SelectionTests
+17/34 Test: SelectionTests
+Command: "/workspace/scratch/71b5e5a3af9a/source/build/behavior/simulation/test_selection"
+Directory: /workspace/scratch/71b5e5a3af9a/source/build/behavior/simulation
+"SelectionTests" start time: Oct 23 19:04 CDT
+Output:
+----------------------------------------------------------
+Selection tests passed.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"SelectionTests" end time: Oct 23 19:04 CDT
+"SelectionTests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+34/34 Testing: PlantLifecycle
+34/34 Test: PlantLifecycle
+Command: "/workspace/scratch/71b5e5a3af9a/source/build/behavior/simulation/tools/plants/test_plant_lifecycle"
+Directory: /workspace/scratch/71b5e5a3af9a/source/build/behavior/simulation/tools/plants
+"PlantLifecycle" start time: Oct 23 19:04 CDT
+Output:
+----------------------------------------------------------
+Death, shedding, litter conservation, removal and replay passed
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"PlantLifecycle" end time: Oct 23 19:04 CDT
+"PlantLifecycle" time elapsed: 00:00:00
+----------------------------------------------------------
+
+23/34 Testing: Optics
+23/34 Test: Optics
+Command: "/workspace/scratch/71b5e5a3af9a/source/build/behavior/simulation/test_optics"
+Directory: /workspace/scratch/71b5e5a3af9a/source/build/behavior/simulation
+"Optics" start time: Oct 23 19:04 CDT
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"Optics" end time: Oct 23 19:04 CDT
+"Optics" time elapsed: 00:00:00
+----------------------------------------------------------
+
+33/34 Testing: ReproductionIntent
+33/34 Test: ReproductionIntent
+Command: "/workspace/scratch/71b5e5a3af9a/source/build/behavior/simulation/tools/plants/test_reproduction_intent"
+Directory: /workspace/scratch/71b5e5a3af9a/source/build/behavior/simulation/tools/plants
+"ReproductionIntent" start time: Oct 23 19:04 CDT
+Output:
+----------------------------------------------------------
+PASS legacy-v1 unchanged; intent-v2 needs both neural intent and eligibility; CLI parsed
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"ReproductionIntent" end time: Oct 23 19:04 CDT
+"ReproductionIntent" time elapsed: 00:00:00
+----------------------------------------------------------
+
+12/34 Testing: EcologyTests
+12/34 Test: EcologyTests
+Command: "/workspace/scratch/71b5e5a3af9a/source/build/behavior/simulation/test_ecology"
+Directory: /workspace/scratch/71b5e5a3af9a/source/build/behavior/simulation
+"EcologyTests" start time: Oct 23 19:04 CDT
+Output:
+----------------------------------------------------------
+Ecology tests passed.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"EcologyTests" end time: Oct 23 19:04 CDT
+"EcologyTests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+14/34 Testing: RunOptionsTests
+14/34 Test: RunOptionsTests
+Command: "/workspace/scratch/71b5e5a3af9a/source/build/behavior/simulation/test_run_options"
+Directory: /workspace/scratch/71b5e5a3af9a/source/build/behavior/simulation
+"RunOptionsTests" start time: Oct 23 19:04 CDT
+Output:
+----------------------------------------------------------
+Run options tests passed.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"RunOptionsTests" end time: Oct 23 19:04 CDT
+"RunOptionsTests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+13/34 Testing: LifecycleTests
+13/34 Test: LifecycleTests
+Command: "/workspace/scratch/71b5e5a3af9a/source/build/behavior/simulation/test_lifecycle"
+Directory: /workspace/scratch/71b5e5a3af9a/source/build/behavior/simulation
+"LifecycleTests" start time: Oct 23 19:04 CDT
+Output:
+----------------------------------------------------------
+Lifecycle tests passed.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"LifecycleTests" end time: Oct 23 19:04 CDT
+"LifecycleTests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+11/34 Testing: PhysicsTests
+11/34 Test: PhysicsTests
+Command: "/workspace/scratch/71b5e5a3af9a/source/build/behavior/simulation/test_physics"
+Directory: /workspace/scratch/71b5e5a3af9a/source/build/behavior/simulation
+"PhysicsTests" start time: Oct 23 19:04 CDT
+Output:
+----------------------------------------------------------
+Physics tests passed.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"PhysicsTests" end time: Oct 23 19:04 CDT
+"PhysicsTests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+30/34 Testing: HeightfieldExact
+30/34 Test: HeightfieldExact
+Command: "/workspace/scratch/71b5e5a3af9a/source/build/behavior/simulation/test_heightfield_exact"
+Directory: /workspace/scratch/71b5e5a3af9a/source/build/behavior/simulation
+"HeightfieldExact" start time: Oct 23 19:04 CDT
+Output:
+----------------------------------------------------------
+PASS 200000 exact ray hit/fraction/normal comparisons against initialized-buffer reference
+<end of output>
+Test time =   0.79 sec
+----------------------------------------------------------
+Test Passed.
+"HeightfieldExact" end time: Oct 23 19:04 CDT
+"HeightfieldExact" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/34 Testing: AquaticFoundation
+3/34 Test: AquaticFoundation
+Command: "/workspace/scratch/71b5e5a3af9a/source/build/behavior/test_aquatic"
+Directory: /workspace/scratch/71b5e5a3af9a/source/build/behavior
+"AquaticFoundation" start time: Oct 23 19:04 CDT
+Output:
+----------------------------------------------------------
+seed 1 tick 100000 biomass phyto/mat/bacteria 1.73388e+06/12559.6/111429 snapshot bytes 46251
+seed 42 tick 100000 biomass phyto/mat/bacteria 1.73389e+06/12439.4/111411 snapshot bytes 46230
+seed 9876 tick 100000 biomass phyto/mat/bacteria 1.73388e+06/12575.9/111424 snapshot bytes 46218
+Aquatic acceptance passed; 300000 ticks in 22.1342 s
+<end of output>
+Test time =  22.29 sec
+----------------------------------------------------------
+Test Passed.
+"AquaticFoundation" end time: Oct 23 19:04 CDT
+"AquaticFoundation" time elapsed: 00:00:22
+----------------------------------------------------------
+
+7/34 Testing: NativeTransportIntegration
+7/34 Test: NativeTransportIntegration
+Command: "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3.12" "/workspace/scratch/71b5e5a3af9a/source/tests/run_native_transport.py" "--executable" "/workspace/scratch/71b5e5a3af9a/source/build/behavior/ci_headless"
+Directory: /workspace/scratch/71b5e5a3af9a/source/build/behavior
+"NativeTransportIntegration" start time: Oct 23 19:04 CDT
+Output:
+----------------------------------------------------------
+{
+  "startTick": 0,
+  "endTick": 191,
+  "requests": 36,
+  "httpMedianMs": 14.305904499906319,
+  "httpP95Ms": 21.81218700025056,
+  "health": {
+    "RelayWorkMs": 5.247454,
+    "SimulationTick": 199,
+    "SimulationTicksPerSecond": 30.365332794075982,
+    "SnapshotAgeSeconds": 0.019062971,
+    "decisionMs": 6.905011994974873,
+    "environmentMs": 0.6016020402010048,
+    "httpP95Ms": 13.530222,
+    "interactionMs": 0.35437458793969856,
+    "liveFileReads": 0,
+    "liveFileWrites": 0,
+    "metricsMs": 0.027799251256281403,
+    "movementMs": 1.0018486482412061,
+    "populationMs": 0.0428678743718593,
+    "profileTick": 199,
+    "schema": 1,
+    "state": "running",
+    "tickMeanMs": 9.257173125628142,
+    "tickP95Ms": 12.438626,
+    "transport": "native-memory-v1"
+  }
+}
+{
+  "startTick": 240,
+  "endTick": 433,
+  "requests": 36,
+  "httpMedianMs": 15.293339999971067,
+  "httpP95Ms": 20.490695999797026,
+  "health": {
+    "RelayWorkMs": 4.649373,
+    "SimulationTick": 440,
+    "SimulationTicksPerSecond": 28.703559461673066,
+    "SnapshotAgeSeconds": 0.018554043,
+    "decisionMs": 4.994076730000001,
+    "environmentMs": 0.6023079750000001,
+    "httpP95Ms": 14.293669999999999,
+    "interactionMs": 0.3264219150000001,
+    "liveFileReads": 0,
+    "liveFileWrites": 0,
+    "metricsMs": 0.08772090000000005,
+    "movementMs": 1.9318062,
+    "populationMs": 0.2552664449999999,
+    "profileTick": 440,
+    "schema": 1,
+    "state": "running",
+    "tickMeanMs": 8.512752750000002,
+    "tickP95Ms": 12.962687,
+    "transport": "native-memory-v1"
+  }
+}
+PASS: authenticated exchange, bounded views, retry identity, fencing, plants, persistence and restart /tmp/ci-native-test-z81c9cn2
+<end of output>
+Test time =  17.34 sec
+----------------------------------------------------------
+Test Passed.
+"NativeTransportIntegration" end time: Oct 23 19:05 CDT
+"NativeTransportIntegration" time elapsed: 00:00:17
+----------------------------------------------------------
+
+4/34 Testing: NativePhysiologyIntegration
+4/34 Test: NativePhysiologyIntegration
+Command: "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3.12" "/workspace/scratch/71b5e5a3af9a/source/tests/native_physiology.py" "--executable" "/workspace/scratch/71b5e5a3af9a/source/build/behavior/ci_aquatic"
+Directory: /workspace/scratch/71b5e5a3af9a/source/build/behavior
+"NativePhysiologyIntegration" start time: Oct 23 19:05 CDT
+Output:
+----------------------------------------------------------
+Aquatic selected patches: 24 exchange bytes: 36033 native work ms: 5.292272
+PASS physiology native exchange, bounded views, retry, authentication, exact resume and runtime isolation
+<end of output>
+Test time =   6.33 sec
+----------------------------------------------------------
+Test Passed.
+"NativePhysiologyIntegration" end time: Oct 23 19:05 CDT
+"NativePhysiologyIntegration" time elapsed: 00:00:06
+----------------------------------------------------------
+
+6/34 Testing: NativeAquaticIntegration
+6/34 Test: NativeAquaticIntegration
+Command: "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3.12" "/workspace/scratch/71b5e5a3af9a/source/tests/native_aquatic.py" "--executable" "/workspace/scratch/71b5e5a3af9a/source/build/behavior/ci_aquatic"
+Directory: /workspace/scratch/71b5e5a3af9a/source/build/behavior
+"NativeAquaticIntegration" start time: Oct 23 19:05 CDT
+Output:
+----------------------------------------------------------
+Aquatic selected patches: 24 exchange bytes: 5437 native work ms: 0.617741
+PASS aquatic native exchange, bounded views, retry, authentication, exact resume and runtime isolation
+<end of output>
+Test time =   6.19 sec
+----------------------------------------------------------
+Test Passed.
+"NativeAquaticIntegration" end time: Oct 23 19:05 CDT
+"NativeAquaticIntegration" time elapsed: 00:00:06
+----------------------------------------------------------
+
+8/34 Testing: NativeAutonomous
+8/34 Test: NativeAutonomous
+Command: "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3.12" "/workspace/scratch/71b5e5a3af9a/source/tests/native_autonomous.py" "--executable" "/workspace/scratch/71b5e5a3af9a/source/build/behavior/ci_headless"
+Directory: /workspace/scratch/71b5e5a3af9a/source/build/behavior
+"NativeAutonomous" start time: Oct 23 19:05 CDT
+Output:
+----------------------------------------------------------
+PASS unattended headless execution, exact resume, and 1/4-worker state equivalence
+<end of output>
+Test time =   1.37 sec
+----------------------------------------------------------
+Test Passed.
+"NativeAutonomous" end time: Oct 23 19:05 CDT
+"NativeAutonomous" time elapsed: 00:00:01
+----------------------------------------------------------
+
+5/34 Testing: NativePhysiologyMigration
+5/34 Test: NativePhysiologyMigration
+Command: "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3.12" "/workspace/scratch/71b5e5a3af9a/source/tests/native_physiology_migration.py" "--executable" "/workspace/scratch/71b5e5a3af9a/source/build/behavior/ci_aquatic"
+Directory: /workspace/scratch/71b5e5a3af9a/source/build/behavior
+"NativePhysiologyMigration" start time: Oct 23 19:05 CDT
+Output:
+----------------------------------------------------------
+PASS explicit migration, untouched original runtime, no repeat migration, bidirectional runtime isolation
+PASS previous-release checkpoint upgrade: exact pools, genomes, lineage and RNG retained; new machinery starts unpaid; original backup untouched
+<end of output>
+Test time =   0.69 sec
+----------------------------------------------------------
+Test Passed.
+"NativePhysiologyMigration" end time: Oct 23 19:05 CDT
+"NativePhysiologyMigration" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 23 19:05 CDT

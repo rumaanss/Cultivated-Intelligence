@@ -1,0 +1,15 @@
+Test project /workspace/scratch/71b5e5a3af9a/stage3-source/build/stage3
+    Start 1: Stage3Disturbance
+1/5 Test #1: Stage3Disturbance ................   Passed   51.86 sec
+    Start 2: Stage3Controls
+2/5 Test #2: Stage3Controls ...................   Passed    9.92 sec
+    Start 3: Stage3Core
+3/5 Test #3: Stage3Core .......................   Passed    3.76 sec
+    Start 7: NativeStage3Integration
+4/5 Test #7: NativeStage3Integration ..........   Passed    7.56 sec
+    Start 8: NativeStage3Migration
+5/5 Test #8: NativeStage3Migration ............   Passed    3.36 sec
+
+100% tests passed out of 5
+
+Total Test time (real) =  76.46 sec

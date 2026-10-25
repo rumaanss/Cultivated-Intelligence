@@ -64,6 +64,19 @@ assert(#ui.history==1 and ui.history[1].value==2.5,"raw biomass trend, not inven
 assert(ui.plantBudget.Text:find("non%-neural") and ui.plantBudget.Text:find("106:16:1"))
 ui:addObservation({time=now});assert(ui.notes[1].biology.CI_Biomass==2.5 and ui.notes[1].biology.source=="CI_AquaticResearchData")
 now+=6;ui:updateSelection();assert(ui.sourceLabel.Text:find("stale") and #ui.history==1,"stale population cannot add trend samples")
+
+local colony=Instance.new("Model");colony.Name="SampleColony";colony.Parent=workspace
+local body=Instance.new("Part");body.Parent=colony
+colony:SetAttribute("CI_OrganismId","aq-101");colony:SetAttribute("CI_BiologyKind","Colony")
+colony:SetAttribute("CI_BiologyTimestamp",now);colony:SetAttribute("CI_GenomeId",17);colony:SetAttribute("CI_Generation",4)
+colony:SetAttribute("CI_ParentId",90);colony:SetAttribute("CI_Biomass",3);colony:SetAttribute("CI_DNA",.02)
+provider:SetAttribute("LastUpdate",now)
+ui.selected=colony;ui.history={};ui.lastSample=nil;ui:updateSelection()
+assert(ui.organismTitle.Text:find("Colony") and ui.plantBudget.Text:find("Genotype 17"))
+assert(ui.plantBudget.Text:find("DNA / RNA / protein") and not ui.plantBudget.Text:find("106:16:1"))
+ui:addObservation({time=now});assert(ui.notes[1].biology.CI_GenomeId==17 and ui.notes[1].biology.CI_ParentId==90)
+colony:Destroy();ui.selected=nil
+
 population:Destroy()
 ui.selected=nil;ui.bounds=oldBounds;plant:Destroy()
 ui:destroy();assert(activeConnections==0,"Cleanup must disconnect all UI connections")

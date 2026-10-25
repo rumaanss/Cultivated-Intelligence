@@ -1,0 +1,11 @@
+{
+  "release": "PDNARNA Windows migration fixture fix 2026-10-24",
+  "baseline": "IMP_PDNARNA behavior update pdnarna-4 2026-10-23",
+  "files": [
+    {
+      "path": "tests/native_physiology_migration.py",
+      "base": "a0ef29f9c610859f638dd87ae11415dcb6e56e35a1cb6dffc48f7772d04baa33",
+      "target": "12b1f4c9dae65b60be7815435d9fc57ac80587a042839def8de81935f645fae8"
+    }
+  ]
+}

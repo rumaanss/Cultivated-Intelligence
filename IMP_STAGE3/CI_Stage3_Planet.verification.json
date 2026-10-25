@@ -1,0 +1,13 @@
+{
+  "inputSha256": "d397346739e135701e10141bd6f049d158aa0360ebf0090d3b498bedae94bc6a",
+  "outputSha256": "923bd4c31f648fa586bca18751514b6ff4916667af18b78ba8ac320195b6fc5b",
+  "changedSources": {
+    "26": "planet/src/world/StarterPlayer/StarterPlayerScripts/CI_PlanetPlayer.client.lua",
+    "32": "planet/src/biology/client/Aquatic.client.lua",
+    "121": "planet/src/biology/shared/AquaticProtocol.lua"
+  },
+  "changedChunks": 2,
+  "totalChunks": 1486,
+  "allOtherChunksByteIdentical": true,
+  "studioVisualValidation": false
+}

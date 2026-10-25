@@ -1,0 +1,55 @@
+{
+  "name": "CI_PDNARNA",
+  "tree": {
+    "$className": "DataModel",
+    "$ignoreUnknownInstances": true,
+    "ReplicatedStorage": {
+      "$ignoreUnknownInstances": true,
+      "CI_Biology": {
+        "$ignoreUnknownInstances": true,
+        "AquaticProtocol": {
+          "$path": "src/biology/shared/AquaticProtocol.lua",
+          "$ignoreUnknownInstances": true
+        },
+        "AquaticModels": {
+          "$path": "src/biology/shared/AquaticModels.lua",
+          "$ignoreUnknownInstances": true
+        },
+        "$className": "Folder"
+      },
+      "$className": "ReplicatedStorage"
+    },
+    "StarterPlayer": {
+      "$ignoreUnknownInstances": true,
+      "StarterPlayerScripts": {
+        "$ignoreUnknownInstances": true,
+        "CI_Biology": {
+          "$ignoreUnknownInstances": true,
+          "Aquatic": {
+            "$path": "src/biology/client/Aquatic.client.lua",
+            "$ignoreUnknownInstances": true
+          },
+          "$className": "Folder"
+        },
+        "CI_PlanetPlayer": {
+          "$path": "src/world/StarterPlayer/StarterPlayerScripts/CI_PlanetPlayer.client.lua",
+          "$ignoreUnknownInstances": true
+        },
+        "$className": "StarterPlayerScripts"
+      },
+      "$className": "StarterPlayer"
+    },
+    "ServerScriptService": {
+      "$ignoreUnknownInstances": true,
+      "CI_Integration": {
+        "$ignoreUnknownInstances": true,
+        "LiveTransportConfig": {
+          "$path": "src/server/LiveTransportConfig.lua",
+          "$ignoreUnknownInstances": true
+        },
+        "$className": "Folder"
+      },
+      "$className": "ServerScriptService"
+    }
+  }
+}

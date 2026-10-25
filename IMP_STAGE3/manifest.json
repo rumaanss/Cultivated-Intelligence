@@ -1,0 +1,371 @@
+{
+  "release": "IMP Stage 3 trophic web stage3-1 2026-10-24",
+  "baseline": "IMP_PDNARNA behavior update pdnarna-4 with Windows migration fix",
+  "files": [
+    {
+      "path": "CMakeLists.txt",
+      "base": "6889b38d4b8d364b0319086a2f11d533deaafffeecbf6ee422f187b71861a630",
+      "target": "c7d55221e89806ebd467b913540fa948b3139090f76614c58548febc253afb76"
+    },
+    {
+      "path": "applications/aquatic/main.cpp",
+      "base": "02f85cd7d40decc1414b6c89c7ca2717908f05a27a479515cf309f936f1e402f",
+      "target": "001c4b96cbd52b3d07975f48b0c5aa9d68cec383190709043be4539bc6de90cc"
+    },
+    {
+      "path": "applications/stage3/main.cpp",
+      "base": null,
+      "target": "5d9dd0e536ded99e5f0c917a2115b7bf57aa40d8d8b5f4d6aeaeca5a87ebf581"
+    },
+    {
+      "path": "assets/stage3/BacterialGrazer.gltf",
+      "base": null,
+      "target": "013b5a4b5cb7c0d24b860e92a4453a46c7a5378cf44b33c15b2a2857d2a85f3e"
+    },
+    {
+      "path": "assets/stage3/BacterialGrazer.obj",
+      "base": null,
+      "target": "254813e172a15ca96efbbae765c5d14188416d40bf8e61af8667b8fc9cee5f81"
+    },
+    {
+      "path": "assets/stage3/Fan.gltf",
+      "base": null,
+      "target": "d107b9377ce1a07ac1acdff57bfd22f1c912bb0546fcb349750b79066ff7e73e"
+    },
+    {
+      "path": "assets/stage3/Fan.obj",
+      "base": null,
+      "target": "f4d265c4601af5e2c8d3031c2c692ed20c8eab74fdb2b77e8ff0ed7e475d8ced"
+    },
+    {
+      "path": "assets/stage3/FanHabitat1.gltf",
+      "base": null,
+      "target": "6c86cd3032a64faa831d430c91be55216fcee836d2e7cd6d84d241f304caf674"
+    },
+    {
+      "path": "assets/stage3/FanHabitat1.obj",
+      "base": null,
+      "target": "f194d47ec1ccb39938f1d13362ae3d000a1bb7c89bab2780ebef9863c53538ec"
+    },
+    {
+      "path": "assets/stage3/FanHabitat2.gltf",
+      "base": null,
+      "target": "93b8fb4e42fd5da9afef744b8d115985d6da265ca058d59da4c41ee61832cada"
+    },
+    {
+      "path": "assets/stage3/FanHabitat2.obj",
+      "base": null,
+      "target": "6819e5cd13e49609ea532633f601dc24008ec9efb8b0ddd99deab72a0c52fc4b"
+    },
+    {
+      "path": "assets/stage3/Filament.gltf",
+      "base": null,
+      "target": "9a586cc2c313818bae553f642e2768fb2c1de0a75ee2adf491d5b136f7d16275"
+    },
+    {
+      "path": "assets/stage3/Filament.obj",
+      "base": null,
+      "target": "637aaab8fd6083ab010a86bf789919ceebd0f39bb2f176a4ab20a66f16aa5d2a"
+    },
+    {
+      "path": "assets/stage3/FilamentHabitat1.gltf",
+      "base": null,
+      "target": "ba500fc0d499a76c08f6fbcb1040db1757c09fe5ca43ed215135fa1133ffedc0"
+    },
+    {
+      "path": "assets/stage3/FilamentHabitat1.obj",
+      "base": null,
+      "target": "c30e09e78c4f44f41fc34a6a3db936aed8791f90fccb5390ec48c480d96f0fe0"
+    },
+    {
+      "path": "assets/stage3/FilamentHabitat2.gltf",
+      "base": null,
+      "target": "d087937fe05d2a7d0b35a8ada1365b77016f067451a3507f241405b525a5dad9"
+    },
+    {
+      "path": "assets/stage3/FilamentHabitat2.obj",
+      "base": null,
+      "target": "ab5c7a8a9a8b7d94c69e57c729f027131f1ddf3a188dbeda9210237fe7a350af"
+    },
+    {
+      "path": "assets/stage3/Holdfast.gltf",
+      "base": null,
+      "target": "6ac8efd8dc061556b38a8818cac59e026d6cab0c505cf99dc1eb25835d20411e"
+    },
+    {
+      "path": "assets/stage3/Holdfast.obj",
+      "base": null,
+      "target": "a8ffef8b0c08cba05e72703e34119c07a24f61463922a9e30fe34ec45f9a5843"
+    },
+    {
+      "path": "assets/stage3/MicroalgalGrazer.gltf",
+      "base": null,
+      "target": "a6866b8dfd88a03cf4e61b897f7e53f65bcb2200a1a5a5621c8f421687874e75"
+    },
+    {
+      "path": "assets/stage3/MicroalgalGrazer.obj",
+      "base": null,
+      "target": "529f2bb56c7a4e4689a3f7b5ae685f0e7ff27c5a4fb0a005e5d8ae35ba2a031c"
+    },
+    {
+      "path": "assets/stage3/Ribbon.gltf",
+      "base": null,
+      "target": "55dce3d3683b34d290104b15e2572ad7f4bc8191e680281d5ec6c49c96699224"
+    },
+    {
+      "path": "assets/stage3/Ribbon.obj",
+      "base": null,
+      "target": "018cfc11e57c0e5ee5ddc7effd22dee9860e1fa3689ab1af2cda29621e789a4a"
+    },
+    {
+      "path": "assets/stage3/RibbonHabitat1.gltf",
+      "base": null,
+      "target": "b5770aecd5935d25a9df103c05553ccfb1b2a2c047d994dc4c54f09147146261"
+    },
+    {
+      "path": "assets/stage3/RibbonHabitat1.obj",
+      "base": null,
+      "target": "d107b6688433a133cac423ed353e0dcfef267ab37e00b779f9f842169f57b8e8"
+    },
+    {
+      "path": "assets/stage3/RibbonHabitat2.gltf",
+      "base": null,
+      "target": "7d6b1db0bfff11a36525c4e37211d962d70b3eb46f6e666eebcb707d4ccddbc1"
+    },
+    {
+      "path": "assets/stage3/RibbonHabitat2.obj",
+      "base": null,
+      "target": "bad4afb11fcc630ea4463df5c18c40841ad21817313260d97367cf4c10531b6d"
+    },
+    {
+      "path": "assets/stage3/Sheet.gltf",
+      "base": null,
+      "target": "e0ada56c6b6b9520edf17b221a9e6ba4a2a86cfbda31000f5a6d8777ab1311fe"
+    },
+    {
+      "path": "assets/stage3/Sheet.obj",
+      "base": null,
+      "target": "077a9b7be166b57a195558a13d775c5b7463a78ea968a41a294fba0e8bcd1d84"
+    },
+    {
+      "path": "assets/stage3/SheetHabitat1.gltf",
+      "base": null,
+      "target": "b9e04706d620e6fc66976d04e87230c99661085ba9a5580995488f39fc913dfa"
+    },
+    {
+      "path": "assets/stage3/SheetHabitat1.obj",
+      "base": null,
+      "target": "3452785eb696462d9d089937d14f9edbec59b6f8c8a1c095e2e65263658e0333"
+    },
+    {
+      "path": "assets/stage3/SheetHabitat2.gltf",
+      "base": null,
+      "target": "e5f6cab072be1eadc96797a847aa93294af56c59ffd1989eca92cfba3a865b96"
+    },
+    {
+      "path": "assets/stage3/SheetHabitat2.obj",
+      "base": null,
+      "target": "0dee42839d865efed68beee86d0d412739f15b3b89ab5bb6520371e0d1a2a05a"
+    },
+    {
+      "path": "assets/stage3/actual-mesh-preview.png",
+      "base": null,
+      "target": "d77bef7a51581bead761b926994cd36369aa4f4f594b63d206f5b3e0b7c9a14b"
+    },
+    {
+      "path": "assets/stage3/mesh-manifest.json",
+      "base": null,
+      "target": "8ee399d911a3836bd6d6f84bde8bfd52d9ef92248a8e36378d3c9fb26a2452a5"
+    },
+    {
+      "path": "docs/STAGE3_IMPLEMENTATION_PLAN.md",
+      "base": null,
+      "target": "e805540d80b85cbf89bbbad424456e2f1dbabb9edfeb96e9786158eb83f88424"
+    },
+    {
+      "path": "docs/stage3/ASSETS.md",
+      "base": null,
+      "target": "25ef499f3f5357a1d6cd74877d32e772673d23a1a52b24cf77cba4abbee4ed8e"
+    },
+    {
+      "path": "docs/stage3/IMPLEMENTATION_PLAN.md",
+      "base": null,
+      "target": "e805540d80b85cbf89bbbad424456e2f1dbabb9edfeb96e9786158eb83f88424"
+    },
+    {
+      "path": "docs/stage3/MODEL.md",
+      "base": null,
+      "target": "2fa205b118e0cc90a3d5ca02ef880934ad206c2804c4e45aac97edd1090546ee"
+    },
+    {
+      "path": "docs/stage3/START_HERE.md",
+      "base": null,
+      "target": "02794f003f83c5dd4ad02a76717cd2f5c7436d5b61c4c850edbe5abaa7642426"
+    },
+    {
+      "path": "docs/stage3/VALIDATION.md",
+      "base": null,
+      "target": "3295d9c0e0fad489243b40109b6418aa53f852d2ffe51d07e6ef9ca2b453d1f6"
+    },
+    {
+      "path": "docs/stage3/world-baseline.json",
+      "base": null,
+      "target": "f53d2a8c60b2e7dc205e025b8cd1f0f80c640c86cdae910eee94bc4e8c8dd4b4"
+    },
+    {
+      "path": "planet/src/biology/client/Aquatic.client.lua",
+      "base": "91e12e57292bb403ae59ff466dbab02617a028297eab0aa2f33b8283ba0169d3",
+      "target": "e5312234d455480d441352627298fec80d981e35140b23f337b034f9f8f49874"
+    },
+    {
+      "path": "planet/src/biology/shared/AquaticProtocol.lua",
+      "base": "659330b0cabf8559b6c049a40bbb03e2c328eff7b96c9b5504b67faa07dfba11",
+      "target": "e135ba498043f0c09cfafc24f7f766d36dff1eb97d1405115bdaa34e9bd7ee34"
+    },
+    {
+      "path": "planet/src/biology/shared/Stage3MeshData.lua",
+      "base": null,
+      "target": "7000fd4b582d62a22cf9ad5897597f9d0143caf2a9ad226c3e12abb6390ab29c"
+    },
+    {
+      "path": "planet/src/biology/shared/Stage3Models.lua",
+      "base": null,
+      "target": "c4c8d93efb4f7eed96b18fbefd0947861a515afc1a5cf51fcd95ccd449c08822"
+    },
+    {
+      "path": "planet/src/biology/shared/Stage3Protocol.lua",
+      "base": null,
+      "target": "b0c3ed14727ffc05a88180eef724b4aa1ee91b4632d542a82abfaad67a6d7b21"
+    },
+    {
+      "path": "planet/src/world/StarterPlayer/StarterPlayerScripts/CI_PlanetPlayer.client.lua",
+      "base": "f59ee64b66c4be9404fa11a0ebc2cac9117a3ed0edc9f3cbeb9df9d6c3c1c5d2",
+      "target": "62b0fdbd2dc4531edcc25aa94746d69241dee7f5398e24a028467b065217d718"
+    },
+    {
+      "path": "planet/tests/aquatic_render_assertions.lua",
+      "base": "aac538a1198452cd6af0a9560a5688026e29b6ba6d6c6af1468c97c1cf0f80cb",
+      "target": "d39b49df3a64258298cd6ba180b3b2e5d564fb6fb51ed97336cb54cd1281d248"
+    },
+    {
+      "path": "planet/tests/run_aquatic_checks.py",
+      "base": "36564ab492125f7367812a0ee81d74a3a27458bf9ea69029bd3115e2f29f2754",
+      "target": "c4d4893c5a983577d2b6b949860d9a62649583044bc55d9567947fbab49a6e60"
+    },
+    {
+      "path": "scripts/Report-Stage3.ps1",
+      "base": null,
+      "target": "81c9ecd150db361cf749ddb8c82ba7ceeee6dba6c1f341149905a96c1073fcf7"
+    },
+    {
+      "path": "scripts/Start-PDNARNA.ps1",
+      "base": "34d2f1b945a23211eab323114a25210e299803cf1f536f9814cecffba1b1a2ea",
+      "target": "c24bd94a3d0be779488f30aed12e81aecf2fa5cdf345c8b0834111c6b68da9f3"
+    },
+    {
+      "path": "scripts/Start-Stage3.ps1",
+      "base": null,
+      "target": "b1d1e7dad7a0b0bdecf1e46750132a812b9a79f9abee17e51b896419bb108db0"
+    },
+    {
+      "path": "simulation/include/cybernet/aquatic/stage3.hpp",
+      "base": null,
+      "target": "d11036e10a365ec1780de87d5f2fa5834e105c8be2e3d96efa856734f9654e51"
+    },
+    {
+      "path": "simulation/src/aquatic/stage3.cpp",
+      "base": null,
+      "target": "f40377b9da895580ecc5ea431fae547b11bcbfd8d83213cd44935c0ed1017e5e"
+    },
+    {
+      "path": "simulation/src/aquatic/stage3_extra.inc",
+      "base": null,
+      "target": "7511930205009de55acc931fc7db7ab34ca186c965fb56d16206b09713f480b7"
+    },
+    {
+      "path": "tests/native_stage3.py",
+      "base": null,
+      "target": "cb4f7098c45a061ceb285f87c7bb64748c616af356c9fd7b1078c9e4ac931e4b"
+    },
+    {
+      "path": "tests/native_stage3_migration.py",
+      "base": null,
+      "target": "0a66de5eccd6f7085701c3883320542abc04be19f898e98b2efff1a0e6355f59"
+    },
+    {
+      "path": "tests/test_stage3.cpp",
+      "base": null,
+      "target": "dae5f35215b3f3a3ece0432bfedd9ebe0758be490608d3db871d52b20bdd3024"
+    },
+    {
+      "path": "tests/test_stage3_controls.cpp",
+      "base": null,
+      "target": "675c167ab43328ce55776174c2c6f54bb04bcbd6f697834b93f441e56f5eccad"
+    },
+    {
+      "path": "tests/test_stage3_disturbance.cpp",
+      "base": null,
+      "target": "b37d24d3ce343f47051a2a8e93216be504da85c09d5e72a2b5953094e901936f"
+    },
+    {
+      "path": "tests/test_stage3_install.py",
+      "base": null,
+      "target": "67ec2ab0b2300a02cd2891d250a305a50ec5eb0b18aa0f1f4ca3cf22141aa3a3"
+    },
+    {
+      "path": "tests/test_stage3_launch.py",
+      "base": null,
+      "target": "937c59331dfe25f3a454edc93ca8ba33fa0b682619899e31c659c6467a877b02"
+    },
+    {
+      "path": "tests/validate_stage3.cpp",
+      "base": null,
+      "target": "1e268861d2eb01688f6610ff393f410705b56c55cb5c1c046da4cfe2b3b111f4"
+    },
+    {
+      "path": "tools/stage3/Install-Stage3.ps1",
+      "base": null,
+      "target": "eedf1bad39361034528f1967c59f7ccf57378f3a4efd153eba55f497bd5cf52f"
+    },
+    {
+      "path": "tools/stage3/Restore-Stage3.ps1",
+      "base": null,
+      "target": "e19d1a59c0501a4aeae05af462f1cca7c3482ebcc5795465e8c0bc26b38920e8"
+    },
+    {
+      "path": "tools/stage3/package.py",
+      "base": null,
+      "target": "9b65ff43fc05b5dd24ddf44bf60a5f6e15f9e7b420ff6c42d012a6e1a25f1697"
+    },
+    {
+      "path": "tools/stage3/patch_world.py",
+      "base": null,
+      "target": "0701e89b77c1f2aa9e6335970c1fbd4d0be0a544c36a5d556f3c50bfc222108e"
+    },
+    {
+      "path": "tools/stage3/plot_food.py",
+      "base": null,
+      "target": "e748076bdb6bae81f0c4bc25be4ea2550cccd4e19dab1aa870824fb3b0c9127a"
+    },
+    {
+      "path": "tools/stage3/source_update.py",
+      "base": null,
+      "target": "b2a339c25a2fcb79343106bb9641249fd388d5deac085e6bb82294fcf985f0ea"
+    },
+    {
+      "path": "tools/stage3/summarize_ecology.py",
+      "base": null,
+      "target": "b1d9a4cc4edf3a65330bf0c34b1b65ee388d7a5358cf68c714b770fdbc72e273"
+    },
+    {
+      "path": "tools/stage3_models.py",
+      "base": null,
+      "target": "7bffc90a5089a4a704ddf2ee1c4d9b8b86a56dffa734b8a3fdca6b238268b373"
+    },
+    {
+      "path": "transport/src/native_server.cpp",
+      "base": "506a40fb5469c50b7ff1a3d524f758dd6d6e5031762fd6e04eb5da2774e5fe7f",
+      "target": "d88bd6283bb4c95742d39b09ba50ebd662e4821ea72f4e16302e646f1f9c76c0"
+    }
+  ]
+}
