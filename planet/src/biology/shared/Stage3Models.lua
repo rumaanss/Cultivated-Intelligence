@@ -5,6 +5,28 @@ local Data=require(script.Parent.Stage3MeshData)
 local Space=require(script.Parent.SimulationSpace)
 local Collection=game:GetService("CollectionService")
 local tracks={}
+-- Intersect the authored mesh once; cilia roots follow its actual surface,
+-- including the asymmetric bacterial notch and recessed microalgal waist.
+local anchors={}
+for _,key in {"BacterialGrazer","MicroalgalGrazer"} do
+ local data=Data[key];local roots={};anchors[key]=roots
+ local function vertex(i)local v=data.vertices[i+1];return Vector3.new(v[1],v[2],v[3])end
+ for i=1,12 do
+  local angle=i*math.pi/6;local direction=Vector3.new(math.cos(angle),0,math.sin(angle))
+  local origin=Vector3.new(0,-.12,0);local nearest=math.huge
+  for _,face in data.faces do
+   local a,b,c=vertex(face[1]),vertex(face[2]),vertex(face[3])
+   local e1,e2=b-a,c-a;local h=direction:Cross(e2);local det=e1:Dot(h)
+   if math.abs(det)>1e-8 then
+    local inv=1/det;local offset=origin-a;local u=offset:Dot(h)*inv
+    local q=offset:Cross(e1);local v=direction:Dot(q)*inv;local distance=e2:Dot(q)*inv
+    if u>=-1e-6 and v>=-1e-6 and u+v<=1+1e-6 and distance>0 then nearest=math.min(nearest,distance)end
+   end
+  end
+  assert(nearest<math.huge,"Missing grazer cilium surface")
+  roots[i]={origin+direction*(nearest-.025),direction}
+ end
+end
 local function part(t,index)
  local p=t.parts[index]
  if not p then p=Instance.new("WedgePart");p.Name="Tissue";p.Anchored=true;p.CanCollide=false;p.CanTouch=false;p.CanQuery=true;p.CastShadow=false;p.Material=Enum.Material.SmoothPlastic;p.Parent=t.model;t.parts[index]=p end
@@ -49,7 +71,7 @@ local function pose(t,now)
   -- remain in C++; the model explicitly advertises a structural LOD.
   local n=math.min(8,#t.nodes)
   for i=1,n do local node=t.nodes[i];local base=frames[node[2]] or CFrame.new();local yaw=(form==1 and 0 or node[1]*2.399963)
-   local orientation=base*CFrame.Angles(0,yaw,node[7]);local length=node[5];local width=node[6]
+   local orientation=base*CFrame.Angles(0,yaw,node[7]);local length=node[5] :: number;local width=node[6] :: number
    -- Bound presentation to the water surface without changing biological tissue.
    length=math.min(length,math.max(.05,107.9-position.Z-base.Position.Y))
    mesh(t,key,orientation,Vector3.new(width,length,form==3 and length or math.max(.05,width)),tint)
@@ -58,15 +80,19 @@ local function pose(t,now)
   t.model:SetAttribute("CI_VisibleSegments",n);t.model:SetAttribute("CI_TotalSegments",#t.nodes)
  else
   local growth=math.clamp((row[8]/row[26])^(1/3),.5,1.3)
-  local width=math.clamp(row[42],.7,1.4);local size=Vector3.new(.42*growth*width,.42*growth,.42*growth/width)
+  local width=math.clamp(row[42] :: number,.7,1.4);local size=Vector3.new(.42*growth*width,.42*growth,.42*growth/width)
   local bodyFrame=CFrame.Angles(0,t.heading or 0,0)
   mesh(t,row[2]==3 and "BacterialGrazer" or "MicroalgalGrazer",bodyFrame,size,tint)
   -- Short cilia: no trailing flagella. Oscillation illustrates paid travel/intake.
   local active=math.clamp((t.to-t.from).Magnitude+(row[48]-(t.previousIntake or row[48])),0,1)
   if alpha>=1 then active=0 end
-  for i=1,12 do local a=i*math.pi/6;local x=math.cos(a)*size.X;local z=math.sin(a)*size.Z*(row[2]==4 and 1.5 or 1)
-   local p=Vector3.new(x,-size.Y*.12,z);local q=Vector3.new(x*1.18,-size.Y*(.42+.08*math.sin(now*5+i)*active),z*1.18)
-   local side=Vector3.new(.012,0,0);triangle(t,bodyFrame:PointToWorldSpace(p-side),bodyFrame:PointToWorldSpace(p+side),bodyFrame:PointToWorldSpace(q),Color3.fromRGB(187,196,151),t.root)
+  local key=if row[2]==3 then "BacterialGrazer" else "MicroalgalGrazer"
+  for i,anchor in anchors[key] do
+   local base,direction=anchor[1],anchor[2]
+   local tip=base+direction*.20-Vector3.new(0,.22+.06*math.sin(now*5+i)*active,0)
+   local tangent=Vector3.new(-direction.Z,0,direction.X)*.025
+   local function point(v)return bodyFrame:PointToWorldSpace(Vector3.new(v.X*size.X,v.Y*size.Y,v.Z*size.Z))end
+   triangle(t,point(base-tangent),point(base+tangent),point(tip),Color3.fromRGB(187,196,151),t.root)
   end
  end
  for i=#t.parts,t.used+1,-1 do t.parts[i]:Destroy();t.parts[i]=nil end

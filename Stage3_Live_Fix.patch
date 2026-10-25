@@ -1,0 +1,224 @@
+diff --git a/docs/stage3/LIVE_FIX.md b/docs/stage3/LIVE_FIX.md
+new file mode 100644
+index 0000000..4490c86
+--- /dev/null
++++ b/docs/stage3/LIVE_FIX.md
+@@ -0,0 +1,92 @@
++# Stage 3 live relay and cilia fix
++
++Based on 495e894939282f9cccc164f89601c7c99561df57.
++
++## Findings and changes
++
++Start-Stage3.ps1 launches ci_stage3 directly. Neither Python nor the historical
++Python relay runs in this path. The repository includes archived projects,
++installation payload duplicates, tests and asset-generation tools. Its language
++percentage is not a runtime cost measurement. Keep biology and live transport
++in C++; do not rewrite offline tools as a speculative latency fix.
++
++The native HTTP request previously parsed a new whole-lake JSON snapshot and
++copied the whole JSON tree before filtering it to observer patches. New
++snapshots arrive about once per second, explaining why work spikes on only
++some requests. Publication now parses into an immutable shared JSON object;
++requests pin that object and copy metadata plus selected rows only. Parsing
++still costs CPU on publication; it is not included in HTTP relay work anymore.
++There is no biology, timestep, sampling budget or checkpoint format change.
++
++Cilia previously started on an idealized ellipse independently of the authored
++asymmetric/recessed body mesh. Their roots now come from ray intersections with
++the actual low-detail body triangles, computed once when the module loads.
++Each root is embedded slightly into the body; body and cilia share scaling and
++rotation. Oscillation moves the tip, never the attachment. This fixes both
++Stage 3 grazer types. Numeric annotations also address the three Studio math
++warnings reported previously.
++
++## Measurements and checks
++
++Release GCC build, Linux, fresh seed 42, actual loopback HTTP requests.
++These are small comparative samples, not Windows or Roblox performance promises.
++
++- Initial 24-patch request: baseline 18.14 ms, patched 0.42 ms native relay work.
++- Repeated four-region requests (15 each): baseline new-publication spikes
++  17.89–20.10 ms; patched changed-view/snapshot requests 1.54–1.99 ms.
++- Requests without a changed snapshot remained around 1 ms.
++- The existing relay timing excludes final response encoding/network/Studio
++  scheduling. Video frame at 65 seconds shows native relay work 2.2 ms and HTTP
++  round-trip p95 83.6 ms. They are different measurements.
++- All 39 native tests passed, including native transport, Stage 3 migration,
++  controls and disturbance. FullPond initially had an empty local executable;
++  relinking that target and rerunning passed. No FullPond source change.
++- Actual native packet renderer replay passed both grazers/four algae forms,
++  identities, part budgets, offspring visibility and stale cleanup. Luau compile
++  passed. Actual Studio visuals/FPS remain to be verified.
++
++## Algae investigation: no speculative relocation
++
++A fresh seed-43 run for 6000 ticks (ten biological days), unchanged biology,
++was grouped by water depth at each founder's chemistry cell. Material validation
++passed. Carbon is mmol C including all organism compartments.
++
++| Depth (studs) | Algal founders | Original founders surviving | Living algae at end | Initial C | Final C |
++|---|---:|---:|---:|---:|---:|
++| Less than 20 | 64 | 55 | 76 | 3134.79 | 12989.1 |
++| 20 to less than 50 | 64 | 54 | 82 | 3913.17 | 17188.9 |
++| 50 or deeper | 668 | 560 | 700 | 42444.9 | 73015.1 |
++
++This does not reproduce a rapid deep-water die-off and does not diagnose the
++user's saved population. Visible disappearance can also be interest filtering
++or bounded display selection: at most two algae per form are shown locally.
++The recording alone cannot distinguish those from deaths. The model uses its
++own native light field; visual darkness is not a light measurement.
++
++Founder placement, physiology and mortality are unchanged. Before relocating
++algae, inspect the affected stage3.checkpoint.json and food-day reports, compare
++individual ancestry death records against visibility, and correlate local
++fixation, respiration and biomass. Shore/wall colonization should be governed
++by native substrate/light availability and accounted founder material, never
++Roblox-only spawning or free biomass. This issue remains open for that saved run.
++
++## Apply from the existing project root
++
++Save Stage3_Live_Fix.patch in the project root. Commit or stash local edits first.
++Apply with `git apply --check .\Stage3_Live_Fix.patch` followed by
++`git apply .\Stage3_Live_Fix.patch` only if the check succeeds. Rebuild with:
++
++```powershell
++powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\scripts\Build.ps1
++```
++
++Sync the modified planet source into Studio using your existing Rojo connection
++(`rojo serve planet/default.project.json`), then restart Play. Rebuilding C++
++alone does not update a saved .rbxl. This fix does not replace your place file.
++Resume the existing world without -NewWorld:
++
++```powershell
++powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\scripts\Start-Stage3.ps1 -Runtime runtime/stage3-43
++```
++
++Use the actual runtime directory you previously created if it differs.
+diff --git a/planet/src/biology/shared/Stage3Models.lua b/planet/src/biology/shared/Stage3Models.lua
+index c36b50e..9b26b85 100644
+--- a/planet/src/biology/shared/Stage3Models.lua
++++ b/planet/src/biology/shared/Stage3Models.lua
+@@ -5,6 +5,28 @@ local Data=require(script.Parent.Stage3MeshData)
+ local Space=require(script.Parent.SimulationSpace)
+ local Collection=game:GetService("CollectionService")
+ local tracks={}
++-- Intersect the authored mesh once; cilia roots follow its actual surface,
++-- including the asymmetric bacterial notch and recessed microalgal waist.
++local anchors={}
++for _,key in {"BacterialGrazer","MicroalgalGrazer"} do
++ local data=Data[key];local roots={};anchors[key]=roots
++ local function vertex(i)local v=data.vertices[i+1];return Vector3.new(v[1],v[2],v[3])end
++ for i=1,12 do
++  local angle=i*math.pi/6;local direction=Vector3.new(math.cos(angle),0,math.sin(angle))
++  local origin=Vector3.new(0,-.12,0);local nearest=math.huge
++  for _,face in data.faces do
++   local a,b,c=vertex(face[1]),vertex(face[2]),vertex(face[3])
++   local e1,e2=b-a,c-a;local h=direction:Cross(e2);local det=e1:Dot(h)
++   if math.abs(det)>1e-8 then
++    local inv=1/det;local offset=origin-a;local u=offset:Dot(h)*inv
++    local q=offset:Cross(e1);local v=direction:Dot(q)*inv;local distance=e2:Dot(q)*inv
++    if u>=-1e-6 and v>=-1e-6 and u+v<=1+1e-6 and distance>0 then nearest=math.min(nearest,distance)end
++   end
++  end
++  assert(nearest<math.huge,"Missing grazer cilium surface")
++  roots[i]={origin+direction*(nearest-.025),direction}
++ end
++end
+ local function part(t,index)
+  local p=t.parts[index]
+  if not p then p=Instance.new("WedgePart");p.Name="Tissue";p.Anchored=true;p.CanCollide=false;p.CanTouch=false;p.CanQuery=true;p.CastShadow=false;p.Material=Enum.Material.SmoothPlastic;p.Parent=t.model;t.parts[index]=p end
+@@ -49,7 +71,7 @@ local function pose(t,now)
+   -- remain in C++; the model explicitly advertises a structural LOD.
+   local n=math.min(8,#t.nodes)
+   for i=1,n do local node=t.nodes[i];local base=frames[node[2]] or CFrame.new();local yaw=(form==1 and 0 or node[1]*2.399963)
+-   local orientation=base*CFrame.Angles(0,yaw,node[7]);local length=node[5];local width=node[6]
++   local orientation=base*CFrame.Angles(0,yaw,node[7]);local length=node[5] :: number;local width=node[6] :: number
+    -- Bound presentation to the water surface without changing biological tissue.
+    length=math.min(length,math.max(.05,107.9-position.Z-base.Position.Y))
+    mesh(t,key,orientation,Vector3.new(width,length,form==3 and length or math.max(.05,width)),tint)
+@@ -58,15 +80,19 @@ local function pose(t,now)
+   t.model:SetAttribute("CI_VisibleSegments",n);t.model:SetAttribute("CI_TotalSegments",#t.nodes)
+  else
+   local growth=math.clamp((row[8]/row[26])^(1/3),.5,1.3)
+-  local width=math.clamp(row[42],.7,1.4);local size=Vector3.new(.42*growth*width,.42*growth,.42*growth/width)
++  local width=math.clamp(row[42] :: number,.7,1.4);local size=Vector3.new(.42*growth*width,.42*growth,.42*growth/width)
+   local bodyFrame=CFrame.Angles(0,t.heading or 0,0)
+   mesh(t,row[2]==3 and "BacterialGrazer" or "MicroalgalGrazer",bodyFrame,size,tint)
+   -- Short cilia: no trailing flagella. Oscillation illustrates paid travel/intake.
+   local active=math.clamp((t.to-t.from).Magnitude+(row[48]-(t.previousIntake or row[48])),0,1)
+   if alpha>=1 then active=0 end
+-  for i=1,12 do local a=i*math.pi/6;local x=math.cos(a)*size.X;local z=math.sin(a)*size.Z*(row[2]==4 and 1.5 or 1)
+-   local p=Vector3.new(x,-size.Y*.12,z);local q=Vector3.new(x*1.18,-size.Y*(.42+.08*math.sin(now*5+i)*active),z*1.18)
+-   local side=Vector3.new(.012,0,0);triangle(t,bodyFrame:PointToWorldSpace(p-side),bodyFrame:PointToWorldSpace(p+side),bodyFrame:PointToWorldSpace(q),Color3.fromRGB(187,196,151),t.root)
++  local key=if row[2]==3 then "BacterialGrazer" else "MicroalgalGrazer"
++  for i,anchor in anchors[key] do
++   local base,direction=anchor[1],anchor[2]
++   local tip=base+direction*.20-Vector3.new(0,.22+.06*math.sin(now*5+i)*active,0)
++   local tangent=Vector3.new(-direction.Z,0,direction.X)*.025
++   local function point(v)return bodyFrame:PointToWorldSpace(Vector3.new(v.X*size.X,v.Y*size.Y,v.Z*size.Z))end
++   triangle(t,point(base-tangent),point(base+tangent),point(tip),Color3.fromRGB(187,196,151),t.root)
+   end
+  end
+  for i=#t.parts,t.used+1,-1 do t.parts[i]:Destroy();t.parts[i]=nil end
+diff --git a/transport/src/native_server.cpp b/transport/src/native_server.cpp
+index 7c8c79c..6e5d1b2 100644
+--- a/transport/src/native_server.cpp
++++ b/transport/src/native_server.cpp
+@@ -48,8 +48,7 @@ struct NativeServer::Impl {
+  std::mutex exchangeMutex,metricsMutex;
+  std::string key,owner,boot,run,cachedPayload,cachedReply;
+  unsigned epoch{},batch{},sentBatch{};
+- std::atomic<std::shared_ptr<const std::string>> aquaticIncoming;
+- std::shared_ptr<const std::string> aquaticPtr;J aquatic;
++ std::atomic<std::shared_ptr<const J>> aquaticIncoming;
+  J snapshot,plants,habitat,identity;std::shared_ptr<const std::string> snapshotPtr,plantPtr;
+  Clock::time_point snapshotAt=Clock::now(),plantAt=Clock::now(),lastRequest=Clock::now(),lastTickAt=Clock::now(),rateAt=Clock::now();
+  unsigned lastTick{},rateTick{};double rate{};
+@@ -62,7 +61,7 @@ struct NativeServer::Impl {
+  std::string transferNonce=secret().substr(0,48);
+  std::uint64_t transferCounter{},tickCount{};double totalTickMs{};
+  Impl(LiveBridge&b,const Options&o,std::string initialAquatic):bridge(b),options(o),boot(b.bootId()),run(b.runId()),epoch(b.initialEpoch()) {
+-  if(!initialAquatic.empty())aquaticIncoming.store(std::make_shared<const std::string>(std::move(initialAquatic)));
++  if(!initialAquatic.empty())publishAquatic(std::move(initialAquatic));
+   habitat=readJson(o.root/"contracts/planet_habitat.json");identity=readJson(o.root/"contracts/identity.json");
+   need(readJson(o.root/"contracts/identity.json")["habitat"]["sha256"]==planet_contract::Digest,"Compiled habitat differs from project contract; rebuild generated contracts first");
+  need(readJson(o.runtime/"planet_habitat.json")==habitat,"Runtime habitat differs from compiled project contract");
+@@ -139,9 +138,14 @@ struct NativeServer::Impl {
+   transfers.push_back({id.str(),std::move(encoded),Clock::now()});while(transfers.size()>3)transfers.pop_front();return page(transfers.back(),1);
+  }
+  J page(const Transfer&t,std::size_t index){auto count=(t.text.size()+256*1024-1)/(256*1024);need(index>=1&&index<=count,"plant chunk index");return {{"chunked",true},{"transfer",t.id},{"index",index},{"count",count},{"data",t.text.substr((index-1)*256*1024,256*1024)},{"age",age(t.at)}};}
++ void publishAquatic(std::string text){
++  need(text.size()<2*1024*1024,"aquatic snapshot budget");
++  // Parse once on publication, never on the latency-sensitive HTTP worker.
++  aquaticIncoming.store(std::make_shared<const J>(J::parse(text)));
++ }
+  J aquaticPacket(const J&q){
+   auto p=aquaticIncoming.load();if(!p)return nullptr;
+-  if(p!=aquaticPtr){need(p->size()<2*1024*1024,"aquatic snapshot budget");aquatic=J::parse(*p);aquaticPtr=p;}
++  const auto &aquatic=*p;
+   std::set<unsigned> ids;
+   for(const auto&r:q["observer"]["regions"]){
+    double x=r["center"][0],y=r["center"][1],z=r["center"][2];
+@@ -155,7 +159,11 @@ struct NativeServer::Impl {
+   std::string token=run+":"+std::to_string(aquatic["revision"].get<unsigned>());
+   for(auto id:ids)token+=":"+std::to_string(id);
+   if(q.value("aquaticToken",std::string())==token)return nullptr;
+-  J out=aquatic;out["patches"]=J::array();for(auto id:ids)out["patches"].push_back(aquatic["patches"][id]);if(out.contains("colonies")){out["colonies"]=J::array();for(const auto& colony:aquatic["colonies"]){auto patch=colony[0].get<unsigned>();if(patch>0&&ids.count(patch-1))out["colonies"].push_back(colony);}}if(out.contains("lifecycle")){out["lifecycle"]=J::array();for(const auto& event:aquatic["lifecycle"]){auto patch=event[4].get<unsigned>();if(patch>0&&ids.count(patch-1))out["lifecycle"].push_back(event);}}for(const auto *key:{"algae","food"})if(out.contains(key)){out[key]=J::array();for(const auto &row:aquatic[key]){auto patch=row[0].get<unsigned>();if(patch>0&&ids.count(patch-1))out[key].push_back(row);}}out["token"]=token;return out;
++  J out=J::object();
++  // Copy metadata only. Never deep-copy the whole lake just to discard it.
++  for(auto it=aquatic.begin();it!=aquatic.end();++it)
++   if(it.key()!="patches"&&it.key()!="colonies"&&it.key()!="lifecycle"&&it.key()!="algae"&&it.key()!="food")out[it.key()]=it.value();
++  out["patches"]=J::array();for(auto id:ids)out["patches"].push_back(aquatic["patches"][id]);if(aquatic.contains("colonies")){out["colonies"]=J::array();for(const auto& colony:aquatic["colonies"]){auto patch=colony[0].get<unsigned>();if(patch>0&&ids.count(patch-1))out["colonies"].push_back(colony);}}if(aquatic.contains("lifecycle")){out["lifecycle"]=J::array();for(const auto& event:aquatic["lifecycle"]){auto patch=event[4].get<unsigned>();if(patch>0&&ids.count(patch-1))out["lifecycle"].push_back(event);}}for(const auto *key:{"algae","food"})if(aquatic.contains(key)){out[key]=J::array();for(const auto &row:aquatic[key]){auto patch=row[0].get<unsigned>();if(patch>0&&ids.count(patch-1))out[key].push_back(row);}}out["token"]=token;return out;
+  }
+  J exchange(const J&q){
+   auto started=Clock::now();load();auto loadedAt=Clock::now();need(q.is_object()&&q.value("protocol",0)==1&&q.contains("session")&&q["session"].is_string()&&token(q["session"]),"invalid request");
+@@ -217,6 +225,6 @@ struct NativeServer::Impl {
+ };
+ NativeServer::NativeServer(LiveBridge&b,const Options&o,std::string initialAquatic):impl_(std::make_unique<Impl>(b,o,std::move(initialAquatic))){}
+ NativeServer::~NativeServer()=default;
+-void NativeServer::publishAquatic(std::string snapshot){impl_->aquaticIncoming.store(std::make_shared<const std::string>(std::move(snapshot)));}
++void NativeServer::publishAquatic(std::string snapshot){impl_->publishAquatic(std::move(snapshot));}
+ void NativeServer::recordTick(unsigned tick,double ms,const double*phases){impl_->record(tick,ms,phases);}
+ }
