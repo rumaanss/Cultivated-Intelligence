@@ -1,5 +1,6 @@
 #pragma once
 #include <filesystem>
+#include <functional>
 #include <memory>
 #include <vector>
 #include <string>
@@ -15,7 +16,8 @@ Options parseArguments(int argc,char**argv);
 class NativeServer {
  struct Impl;std::unique_ptr<Impl> impl_;
 public:
- NativeServer(LiveBridge&,const Options&,std::string initialAquatic={});
+ using Extension = std::function<std::string(const std::string&, const std::string&)>;
+ NativeServer(LiveBridge&,const Options&,std::string initialAquatic={}, Extension extension={});
  ~NativeServer();
  void publishAquatic(std::string snapshot);
  void recordTick(unsigned tick,double milliseconds,const double* phases);

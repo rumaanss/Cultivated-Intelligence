@@ -1,0 +1,87 @@
+Test project /workspace/scratch/71b5e5a3af9a/ps3vinspection/build/native
+      Start  8: NativeInspectionIntegration
+ 1/41 Test  #8: NativeInspectionIntegration ......   Passed    3.92 sec
+      Start  2: Stage3Disturbance
+      Start  7: AquaticFoundation
+      Start 26: SimulationTests
+      Start 32: ProducerCycles
+ 2/41 Test #32: ProducerCycles ...................   Passed   12.28 sec
+      Start 36: PlanetCollision
+ 3/41 Test #26: SimulationTests ..................   Passed   13.21 sec
+      Start  3: Stage3Controls
+ 4/41 Test #36: PlanetCollision ..................   Passed    5.38 sec
+      Start 29: LiveBridge
+ 5/41 Test  #3: Stage3Controls ...................   Passed    4.55 sec
+      Start  6: Physiology
+ 6/41 Test  #7: AquaticFoundation ................   Passed   20.44 sec
+      Start  4: Stage3Core
+ 7/41 Test  #6: Physiology .......................   Passed    3.08 sec
+      Start  1: Stage3Inspection
+ 8/41 Test #29: LiveBridge .......................   Passed    3.55 sec
+      Start 39: Plants
+ 9/41 Test #39: Plants ...........................   Passed    1.15 sec
+      Start 38: PlantDiagnostics
+10/41 Test #38: PlantDiagnostics .................   Passed    0.71 sec
+      Start 37: HeightfieldExact
+11/41 Test  #1: Stage3Inspection .................   Passed    2.23 sec
+      Start 28: IslandWorld
+12/41 Test #28: IslandWorld ......................   Passed    0.16 sec
+      Start 34: PlanetHabitat
+13/41 Test #34: PlanetHabitat ....................   Passed    0.14 sec
+      Start  5: AquaticBehavior
+14/41 Test  #4: Stage3Core .......................   Passed    2.95 sec
+      Start 31: LiveCheckpoint
+15/41 Test #31: LiveCheckpoint ...................   Passed    0.17 sec
+      Start 33: FullPond
+16/41 Test  #5: AquaticBehavior ..................   Passed    0.18 sec
+      Start 35: PlanetFounders
+17/41 Test #35: PlanetFounders ...................   Passed    0.04 sec
+      Start 41: PlantLifecycle
+18/41 Test #33: FullPond .........................   Passed    0.06 sec
+      Start 25: SpawningTests
+19/41 Test #25: SpawningTests ....................   Passed    0.01 sec
+      Start 22: MetricsTests
+20/41 Test #41: PlantLifecycle ...................   Passed    0.02 sec
+      Start 40: ReproductionIntent
+21/41 Test #22: MetricsTests .....................   Passed    0.00 sec
+      Start 30: Optics
+22/41 Test #40: ReproductionIntent ...............   Passed    0.00 sec
+      Start 16: RnnBrainTests
+23/41 Test #30: Optics ...........................   Passed    0.00 sec
+      Start 23: AsyncRecordWriterTests
+24/41 Test #16: RnnBrainTests ....................   Passed    0.00 sec
+      Start 27: SpatialGridTests
+25/41 Test #23: AsyncRecordWriterTests ...........   Passed    0.00 sec
+      Start 17: ChemistryTests
+26/41 Test #27: SpatialGridTests .................   Passed    0.01 sec
+      Start 19: EcologyTests
+27/41 Test #17: ChemistryTests ...................   Passed    0.00 sec
+      Start 20: LifecycleTests
+28/41 Test #19: EcologyTests .....................   Passed    0.00 sec
+      Start 18: PhysicsTests
+29/41 Test #20: LifecycleTests ...................   Passed    0.00 sec
+      Start 21: RunOptionsTests
+30/41 Test #18: PhysicsTests .....................   Passed    0.00 sec
+31/41 Test #21: RunOptionsTests ..................   Passed    0.00 sec
+      Start 24: SelectionTests
+32/41 Test #24: SelectionTests ...................   Passed    0.00 sec
+33/41 Test #37: HeightfieldExact .................   Passed    0.62 sec
+34/41 Test  #2: Stage3Disturbance ................   Passed   30.96 sec
+      Start 14: NativeTransportIntegration
+35/41 Test #14: NativeTransportIntegration .......   Passed   17.48 sec
+      Start  9: NativeStage3Integration
+36/41 Test  #9: NativeStage3Integration ..........   Passed    6.92 sec
+      Start 11: NativePhysiologyIntegration
+37/41 Test #11: NativePhysiologyIntegration ......   Passed    6.32 sec
+      Start 13: NativeAquaticIntegration
+38/41 Test #13: NativeAquaticIntegration .........   Passed    6.21 sec
+      Start 10: NativeStage3Migration
+39/41 Test #10: NativeStage3Migration ............   Passed    2.15 sec
+      Start 15: NativeAutonomous
+40/41 Test #15: NativeAutonomous .................   Passed    1.45 sec
+      Start 12: NativePhysiologyMigration
+41/41 Test #12: NativePhysiologyMigration ........   Passed    0.83 sec
+
+100% tests passed out of 41
+
+Total Test time (real) =  76.25 sec

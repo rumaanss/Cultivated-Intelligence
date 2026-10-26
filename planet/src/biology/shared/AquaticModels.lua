@@ -230,6 +230,7 @@ local function poseTrack(t,now)
  t.model:SetAttribute("CI_DisplayX",p.X);t.model:SetAttribute("CI_DisplayY",p.Y);t.model:SetAttribute("CI_DisplayZ",p.Z)
 end
 function M.syncIndividuals(packet,parent,stamp,now)
+ M.displayStatus={};M.displayRun=packet.run
  local patches={};for _,r in packet.patches do patches[r[1]]=r end
  local wanted,rows={},{}
  -- Preserve existing visible IDs first, then admit offspring/other samples.
@@ -251,7 +252,9 @@ function M.syncIndividuals(packet,parent,stamp,now)
  for _,r in rows do
   local key=if r[2]==2 then "Bacterivore" else "Cyanobacteria"
   local cost=Factory.count(key,if r[2]==2 then 1 else 2)
+  M.displayStatus[r[3]]="budget omitted"
   if #selected+dying<M.MaximumColonies and used+cost<=M.MaximumParts then
+   M.displayStatus[r[3]]="awaiting render"
    table.insert(selected,r);wanted[r[3]]=true;used+=cost
   end
  end

@@ -402,6 +402,10 @@ void Physiology::divide(std::size_t index) {
   ++births;
 }
 void Physiology::step(bool gas, bool transport, double sunlight, bool cached) {
+  if(!sceneTransmission.empty()) {
+    need(sceneTransmission.size()*2==environment.cells.size(),"Scene light coverage");
+    for(double v:sceneTransmission)need(std::isfinite(v)&&v>=0&&v<=1,"Scene light transmission");
+  }
   if(environment.tick>budgetStart && environment.tick%600==0){lastDay=report();resetBudget();}
   census();
   auto &cells = environment.cells;
@@ -412,6 +416,8 @@ void Physiology::step(bool gas, bool transport, double sunlight, bool cached) {
                                   double(environment.tick % Lake::CycleTicks) /
                                   Lake::CycleTicks));
   environment.step(false, gas, transport, sun);
+  if(!sceneTransmission.empty())for(unsigned i=0;i<cells.size();i+=2)
+    environment.cumulative.incidentPhotons-=1000*sun*(1-sceneTransmission[i/2])*cells[i].area*Lake::SecondsPerTick/1000.;
   if (transport) {
     // Decisions use the previous complete environmental field, before uptake.
     for (auto &c : colonies) {unsigned old=c.cell;move(c);if(c.cell!=old){auto m=material(c);book(c,Exchange,m);auto prior=c;prior.cell=old;book(prior,Exchange,m*(-1));}}
@@ -458,7 +464,7 @@ void Physiology::step(bool gas, bool transport, double sunlight, bool cached) {
   }
   std::vector<std::array<double, 3>> light(cells.size()), photons(cells.size());
   for (unsigned i = 0; i < cells.size(); i += 2) {
-    double incoming = 1000 * sun;
+    double incoming = 1000 * sun * (sceneTransmission.empty()?1.:sceneTransmission[i/2]);
     for (unsigned layer = 0; layer < 2; ++layer) {
       auto &cell = cells[i + layer];
       double attenuation = .12 + .008 * biomass[i + layer][0] / cell.volume +
@@ -491,6 +497,7 @@ void Physiology::step(bool gas, bool transport, double sunlight, bool cached) {
     auto &cell = cells[c.cell];
     auto &m = cell.m;
     auto expr = cached ? expressions_[c.genome - 1] : expression(c.genome);
+    c.sensedPar = light[c.cell][c.guild==5?2:c.guild<2?c.guild:0];
     double spentPhotons = 0;
     if (producer(c)) {
       double par = light[c.cell][c.guild==5?2:c.guild];
@@ -851,6 +858,7 @@ std::string Physiology::checkpoint() const {
                   c.destination, c.behavior, c.decision, c.distance, c.movementRespiration, c.represented, c.ingested, c.egested, c.nextSegment});
   for (const auto &a : ancestry)
     as.push_back({a.id, a.parent, a.genome, a.born, a.died, a.generation});
+  J receptor=J::array();for(const auto& c:colonies)receptor.push_back({c.id,c.sensedPar});
   J shapes=J::array();
   for(const auto &c:colonies) { J nodes=J::array(); for(const auto &n:c.segments) nodes.push_back({n.id,n.parent,n.born,n.carbon,n.length,n.width,n.angle}); shapes.push_back({c.id,nodes}); }
   J ledger=J::array(); for(const auto &b:budgets) {J fs=J::array();for(auto m:b.flows)fs.push_back(mat(m));ledger.push_back({mat(b.opening),mat(b.closing),fs});}
@@ -871,6 +879,7 @@ std::string Physiology::checkpoint() const {
       {"ancestry", as},
       {"events", {births, deaths, mutations}},
       {"recentEvents", recentEvents_},
+      {"sceneTransmission",sceneTransmission}, {"photoreceptors",receptor},
       {"shapes", shapes}, {"budgets", ledger}, {"budgetStart", budgetStart}, {"lastDay", lastDay},
       {"air", {e.airCarbon, e.airOxygen}},
       {"initial",
@@ -974,6 +983,8 @@ Physiology Physiology::restore(const std::string &text, std::uint64_t seed) {
     w.colonies.push_back(c);
   }
   if (!legacy) w.recentEvents_ = j.at("recentEvents").get<std::vector<std::array<double, 8>>>();
+  if(j.contains("sceneTransmission"))w.sceneTransmission=j.at("sceneTransmission").get<std::vector<double>>();
+  if(j.contains("photoreceptors")){need(j.at("photoreceptors").size()==w.colonies.size(),"Photoreceptor coverage");for(std::size_t i=0;i<w.colonies.size();++i){auto r=j.at("photoreceptors").at(i);need(r.at(0)==w.colonies[i].id,"Photoreceptor identity");w.colonies[i].sensedPar=r.at(1);need(std::isfinite(w.colonies[i].sensedPar)&&w.colonies[i].sensedPar>=-1,"Photoreceptor value");}}
   w.ancestry.clear();
   need(j.at("ancestry").size() <= 2000000, "Ancestry restore budget");
   for (auto r : j.at("ancestry"))

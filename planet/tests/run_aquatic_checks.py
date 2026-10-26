@@ -36,6 +36,23 @@ if replay.model=="stage3-1" then
  end
  for _,name in {"Bacterial grazer","Microalgal grazer","Ribbon algae","Fan algae","Filament algae","Sheet algae"}do assert(seen[name],"Missing native model: "..name)end
  assert(parts<=2800,"Stage3 part budget")
+ local algae={};local container
+ for _,m in tags do if m:GetAttribute("CI_TotalSegments")then
+  assert(m:GetAttribute("CI_AttachmentStatus")=="Grounded on terrain")
+  assert(type(m:GetAttribute("CI_GroundOffsetStuds"))=="number")
+  table.insert(algae,m);container=m.Parent
+ end end
+ local originalRay=workspace.Raycast;local rays=0
+ workspace.Raycast=function()rays+=1;return nil end
+ local groundReplay=table.clone(replay);groundReplay.revision+=20;Stage3.sync(groundReplay,container,now,now)
+ assert(rays==#algae,"One terrain query per visible alga per snapshot")
+ for _,m in algae do assert(#m:GetDescendants()==0 and m:GetAttribute("CI_AttachmentStatus")=="Waiting for submerged terrain","Missing terrain must not leave floating tissue")end
+ Stage3.animate(now+.1);assert(rays==#algae,"Animation must not raycast")
+ workspace.Raycast=originalRay
+ Stage3.sync(replay,container,now,now)
+ for _,m in algae do assert(#m:GetDescendants()>0 and m:GetAttribute("CI_AttachmentStatus")=="Grounded on terrain","Terrain recovery must restore the same model")end
+ print("PASS Stage3 attachment: grounded base, missing-terrain hide, identity recovery, no per-frame rays")
+
  event.OnClientEvent:Fire(replay);for _,m in tags do assert(persistent[m:GetAttribute("CI_ColonyId")]==m,"Repeated packet rebuilt identity")end
  local bad=table.clone(replay);bad.food=table.clone(replay.food);table.insert(bad.food,bad.food[1]);assert(not pcall(Protocol.validate,bad,bad.run),"Duplicate food cell accepted")
  bad=table.clone(replay);bad.algae=table.clone(replay.algae);bad.algae[1]=table.clone(bad.algae[1]);bad.algae[1][3]=table.clone(bad.algae[1][3]);bad.algae[1][3][1]=table.clone(bad.algae[1][3][1]);bad.algae[1][3][1][4]+=1;assert(not pcall(Protocol.validate,bad,bad.run),"Unpaid tissue accepted")

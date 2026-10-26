@@ -6,6 +6,7 @@ local Run=game:GetService("RunService")
 local shared=RS:WaitForChild("CI_Biology")
 local contract=require(shared.PlanetContract)
 local Clock=require(shared.SolarClock)
+local WorldLighting=require(shared.WorldLighting)
 local up=Vector3.new(table.unpack(contract.habitat.frame.up))
 local east=Vector3.new(table.unpack(contract.habitat.frame.east))
 local center=Vector3.new(table.unpack(contract.habitat.frame.center))
@@ -148,12 +149,8 @@ local connection=Run.Heartbeat:Connect(function(dt)
  local day=math.clamp((solarDirection:Dot(localUp)+.12)/.35,0,1)
  sky.StarCount=if radial then 0 else math.floor(1800*(1-day)^2)
  root:SetAttribute("LocalUp",localUp);root:SetAttribute("UnderwaterBlend",waterBlend)
- if not submerged then
-  Lighting.Brightness=.18+2.22*day
-  Lighting.Ambient=Color3.fromRGB(16,20,30):Lerp(Color3.fromRGB(40,43,48),day)
-  Lighting.OutdoorAmbient=Color3.fromRGB(24,30,44):Lerp(Color3.fromRGB(99,108,120),day)
-  Lighting.ExposureCompensation=.2*(1-day)
- end
+ -- Illumination follows the shared lake frame. Camera depth only affects grading.
+ WorldLighting.apply(math.clamp((solarDirection:Dot(up)+.12)/.35,0,1))
  rays.Enabled=not submerged and solarDirection:Dot((position-center).Unit)>0 and root:GetAttribute("EngineDirectionErrorDegrees")~=nil and root:GetAttribute("EngineDirectionErrorDegrees")<5
 end)
 -- Rendering work has its own bounded heartbeat budget; it does not wait on the

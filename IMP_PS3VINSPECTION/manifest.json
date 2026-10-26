@@ -1,0 +1,269 @@
+{
+  "release": "IMP_PS3VINSPECTION-1",
+  "baseline": "ac1041870d98756460300aa71804560389cfa6a1",
+  "habitat": "db04d3c77c22a8c8c770e48b90a16cb445f0b2003d2c86a96d02f5eb21ca85f5",
+  "optics": "surface-par-1",
+  "inspectionSchema": 1,
+  "files": [
+    {
+      "path": "CMakeLists.txt",
+      "base": "c7d55221e89806ebd467b913540fa948b3139090f76614c58548febc253afb76",
+      "accepted": [
+        "c7d55221e89806ebd467b913540fa948b3139090f76614c58548febc253afb76"
+      ],
+      "target": "eddd60d93e3d4c2f781308e8795212462cc19104ced417b1d00ef7f716da1b04"
+    },
+    {
+      "path": "applications/stage3/main.cpp",
+      "base": "5d9dd0e536ded99e5f0c917a2115b7bf57aa40d8d8b5f4d6aeaeca5a87ebf581",
+      "accepted": [
+        "5d9dd0e536ded99e5f0c917a2115b7bf57aa40d8d8b5f4d6aeaeca5a87ebf581"
+      ],
+      "target": "58923ff41cf9b962e8d4f0f8989c0bf96522c07265796bd24c144587104d813f"
+    },
+    {
+      "path": "docs/inspection/IMPLEMENTATION.md",
+      "base": null,
+      "accepted": [
+        null
+      ],
+      "target": "97c2a73cb6957d954ef584d5490e8ec8571003a816311b3b8972f02d777d5017"
+    },
+    {
+      "path": "docs/inspection/MODEL.md",
+      "base": null,
+      "accepted": [
+        null
+      ],
+      "target": "477d5cd21410f30ff22c04c08bbcf6237183a187439f49725753cdc3229f982e"
+    },
+    {
+      "path": "docs/inspection/START_HERE.md",
+      "base": null,
+      "accepted": [
+        null
+      ],
+      "target": "da51738df6c9a8b8bf9029bc92bb914fb84b4589607df93ac6ec50e31f270426"
+    },
+    {
+      "path": "docs/inspection/VALIDATION.md",
+      "base": null,
+      "accepted": [
+        null
+      ],
+      "target": "59fb779bde11b22cbf3eb0572d9e80a706dd62a01d712e564a014bf6c4d2e417"
+    },
+    {
+      "path": "docs/stage3/ALGAE_GROUNDING_FIX.md",
+      "base": null,
+      "accepted": [
+        null,
+        "f7e2095a11f5b3b09a3ea03791c7a386faeb48fceb6e8607d4ee73a62929c241"
+      ],
+      "target": "f7e2095a11f5b3b09a3ea03791c7a386faeb48fceb6e8607d4ee73a62929c241"
+    },
+    {
+      "path": "planet/src/biology/client/Celestial.client.lua",
+      "base": "045c35dc223154af4b1cd644b729f078d0331f21a2bd3de60e337a4f6a53d797",
+      "accepted": [
+        "045c35dc223154af4b1cd644b729f078d0331f21a2bd3de60e337a4f6a53d797"
+      ],
+      "target": "ce28f099c405f3764fdcb7794312e9dcea829e8b228b473f2e39f27466a9d134"
+    },
+    {
+      "path": "planet/src/biology/client/Inspection.client.lua",
+      "base": null,
+      "accepted": [
+        null
+      ],
+      "target": "077c19078da2455aa75aeb4c079de1c0007894e0ef83219b4df02e7bc1001f28"
+    },
+    {
+      "path": "planet/src/biology/client/PixelCapability.client.lua",
+      "base": null,
+      "accepted": [
+        null
+      ],
+      "target": "13fc75c30a3e1037d010d6f912086cc0f83282bbf01d74dd3c38e151fdbe489f"
+    },
+    {
+      "path": "planet/src/biology/server/Bootstrap.server.lua",
+      "base": "5690b91ec948645576e77d315b213fc843397eae2b64816fb00f3cc71843dc56",
+      "accepted": [
+        "5690b91ec948645576e77d315b213fc843397eae2b64816fb00f3cc71843dc56"
+      ],
+      "target": "dbe8c780776df71fa024bea69ff3dc6775cc204b7c63eb4d36691276fcd52305"
+    },
+    {
+      "path": "planet/src/biology/server/InspectionCalibration.lua",
+      "base": null,
+      "accepted": [
+        null
+      ],
+      "target": "63578cb82e1ba098f771594bb02157e3ebf24264df8babc55d86460e6dff3874"
+    },
+    {
+      "path": "planet/src/biology/server/InspectionGeometryFixture.lua",
+      "base": null,
+      "accepted": [
+        null
+      ],
+      "target": "eeb2640632d58e574c4249c79f28dfdeafbdc2b571155b2679a09eae8746f190"
+    },
+    {
+      "path": "planet/src/biology/server/InspectionService.lua",
+      "base": null,
+      "accepted": [
+        null
+      ],
+      "target": "9b8926200e30d170fbf37f9923f454e4fdbb4d014dec776e41157d4ed624aae1"
+    },
+    {
+      "path": "planet/src/biology/shared/AquaticModels.lua",
+      "base": "57c6abca625d2b352fa566d20603efe60bbf94b8dc4db465b1354d734dced237",
+      "accepted": [
+        "57c6abca625d2b352fa566d20603efe60bbf94b8dc4db465b1354d734dced237"
+      ],
+      "target": "f3f65e7a7dbfce6045caed06f723e48c711076147de7442eaf132f3151ef11e8"
+    },
+    {
+      "path": "planet/src/biology/shared/InspectionState.lua",
+      "base": null,
+      "accepted": [
+        null
+      ],
+      "target": "712a62316824f828ad9fe4e60b03c19835029de8f8771290f6ae4cef06ef49ae"
+    },
+    {
+      "path": "planet/src/biology/shared/Stage3Models.lua",
+      "base": "8e2f282863b6550260152fe1c43f4e0276609ecaa7867c337f50f6c54beca779",
+      "accepted": [
+        "8e2f282863b6550260152fe1c43f4e0276609ecaa7867c337f50f6c54beca779",
+        "f241764643e8261e5148a4031af2277320b0dd9bd87904f7dfcd0bd0f72608ff"
+      ],
+      "target": "5c68c0ccf2ab65d4a055352895f67664b26e01e649750f04f8450c140fd5b789"
+    },
+    {
+      "path": "planet/src/biology/shared/WorldLighting.lua",
+      "base": null,
+      "accepted": [
+        null
+      ],
+      "target": "b133b20b6001f48216df4436d00599ac53c2928d5664d843f53d37d5381e36f5"
+    },
+    {
+      "path": "planet/src/world/StarterPlayer/StarterPlayerScripts/CI_PlanetPlayer.client.lua",
+      "base": "62b0fdbd2dc4531edcc25aa94746d69241dee7f5398e24a028467b065217d718",
+      "accepted": [
+        "62b0fdbd2dc4531edcc25aa94746d69241dee7f5398e24a028467b065217d718"
+      ],
+      "target": "7ccbd17d2f1936e1e79c80dc427e389119a4f88dbb2b73cfc064fba90c479f12"
+    },
+    {
+      "path": "planet/tests/inspection_state_assertions.lua",
+      "base": null,
+      "accepted": [
+        null
+      ],
+      "target": "74884080ddbfd5627ff5a7f1bc16e704629da97cd9907a60f94c67f1567b6c92"
+    },
+    {
+      "path": "planet/tests/run_aquatic_checks.py",
+      "base": "c4d4893c5a983577d2b6b949860d9a62649583044bc55d9567947fbab49a6e60",
+      "accepted": [
+        "c4d4893c5a983577d2b6b949860d9a62649583044bc55d9567947fbab49a6e60",
+        "09040469725cf6894ef0e0d5ea21e40f5fea28546b6a4e869923dd9db9ed6b53"
+      ],
+      "target": "09040469725cf6894ef0e0d5ea21e40f5fea28546b6a4e869923dd9db9ed6b53"
+    },
+    {
+      "path": "scripts/Start-Stage3.ps1",
+      "base": "b1d1e7dad7a0b0bdecf1e46750132a812b9a79f9abee17e51b896419bb108db0",
+      "accepted": [
+        "b1d1e7dad7a0b0bdecf1e46750132a812b9a79f9abee17e51b896419bb108db0"
+      ],
+      "target": "f2e0ecae9735b05faec80c2ff3220254aafa11ccb69342f80a24c825cbbaed70"
+    },
+    {
+      "path": "simulation/include/cybernet/aquatic/inspection.hpp",
+      "base": null,
+      "accepted": [
+        null
+      ],
+      "target": "d1501dcb4c38c28bc1117c61d9271ead9a58f2f984d85e68475b600c0ab0429d"
+    },
+    {
+      "path": "simulation/include/cybernet/aquatic/stage3.hpp",
+      "base": "d11036e10a365ec1780de87d5f2fa5834e105c8be2e3d96efa856734f9654e51",
+      "accepted": [
+        "d11036e10a365ec1780de87d5f2fa5834e105c8be2e3d96efa856734f9654e51"
+      ],
+      "target": "f2417367cc6226d07a44ceaef441c13a641e61dc0378915ac2ae7a8d60df61b6"
+    },
+    {
+      "path": "simulation/src/aquatic/inspection.cpp",
+      "base": null,
+      "accepted": [
+        null
+      ],
+      "target": "8888c09052964ba46461c640e85fe863b5a0dec9d89135f048482a208aa34a70"
+    },
+    {
+      "path": "simulation/src/aquatic/stage3.cpp",
+      "base": "f40377b9da895580ecc5ea431fae547b11bcbfd8d83213cd44935c0ed1017e5e",
+      "accepted": [
+        "f40377b9da895580ecc5ea431fae547b11bcbfd8d83213cd44935c0ed1017e5e"
+      ],
+      "target": "64ca29826ad5e32a269b2781cbc6f535f3381c136c82b882d3ad5909a8af160c"
+    },
+    {
+      "path": "tests/inspection_installer.py",
+      "base": null,
+      "accepted": [
+        null
+      ],
+      "target": "c2de71fbe7ce8cb45d944fbd9bf69971d49a17be2f4f4cf9a522f0a9bfdd43de"
+    },
+    {
+      "path": "tests/native_inspection.py",
+      "base": null,
+      "accepted": [
+        null
+      ],
+      "target": "95739374ed7001d6ba6dc3e7829e668a1f039f3442ed70ecc42e2a3cd91dd6a4"
+    },
+    {
+      "path": "tests/test_inspection.cpp",
+      "base": null,
+      "accepted": [
+        null
+      ],
+      "target": "f10f05ed80e3f2385871c3a4e9c59cf125a6a8038468ee9b96eb186897f6edae"
+    },
+    {
+      "path": "tools/inspection/geometry_probe.cpp",
+      "base": null,
+      "accepted": [
+        null
+      ],
+      "target": "f7fb45045dffbd7470cc48571aa5491fe23cc37f874c151b004a84835bee0b8e"
+    },
+    {
+      "path": "transport/include/native_server.hpp",
+      "base": "141198134bc8475e78d0ba817b1c52c9df9818ecb8a888a634ce47c4419085c6",
+      "accepted": [
+        "141198134bc8475e78d0ba817b1c52c9df9818ecb8a888a634ce47c4419085c6"
+      ],
+      "target": "c2071482b336e1abe0c24337fc97f10f1e8b79b7333109ed659df5628d0c9208"
+    },
+    {
+      "path": "transport/src/native_server.cpp",
+      "base": "c01c4578d883066c04ffd87346f5c98ce988b66fc611a1fced863483195d4bea",
+      "accepted": [
+        "c01c4578d883066c04ffd87346f5c98ce988b66fc611a1fced863483195d4bea"
+      ],
+      "target": "0e786078b3ab47f297bfd11bb6ba6ec872b982e8d5846980019c5550cb300289"
+    }
+  ],
+  "studioAcceptance": "pending; see VALIDATION.md"
+}

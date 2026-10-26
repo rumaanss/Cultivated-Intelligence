@@ -45,7 +45,8 @@ Options parseArguments(int argc,char**argv){
 }
 struct NativeServer::Impl {
  LiveBridge& bridge;Options options;httplib::Server server;std::thread thread;
- std::mutex exchangeMutex,metricsMutex;
+ std::mutex exchangeMutex,metricsMutex,extensionMutex;
+ NativeServer::Extension extension;std::deque<Clock::time_point> extensionCalls;
  std::string key,owner,boot,run,cachedPayload,cachedReply;
  unsigned epoch{},batch{},sentBatch{};
  std::atomic<std::shared_ptr<const J>> aquaticIncoming;
@@ -60,7 +61,7 @@ struct NativeServer::Impl {
  J profile=J::object();std::deque<double> tickTimes,httpTimes;
  std::string transferNonce=secret().substr(0,48);
  std::uint64_t transferCounter{},tickCount{};double totalTickMs{};
- Impl(LiveBridge&b,const Options&o,std::string initialAquatic):bridge(b),options(o),boot(b.bootId()),run(b.runId()),epoch(b.initialEpoch()) {
+ Impl(LiveBridge&b,const Options&o,std::string initialAquatic,NativeServer::Extension e):bridge(b),options(o),extension(std::move(e)),boot(b.bootId()),run(b.runId()),epoch(b.initialEpoch()) {
   if(!initialAquatic.empty())publishAquatic(std::move(initialAquatic));
   habitat=readJson(o.root/"contracts/planet_habitat.json");identity=readJson(o.root/"contracts/identity.json");
   need(readJson(o.root/"contracts/identity.json")["habitat"]["sha256"]==planet_contract::Digest,"Compiled habitat differs from project contract; rebuild generated contracts first");
@@ -73,7 +74,7 @@ struct NativeServer::Impl {
 #endif
   server.new_task_queue=[](){return new httplib::ThreadPool(4,8);};
   server.set_payload_max_length(3*1024*1024);server.set_read_timeout(2,0);server.set_write_timeout(2,0);server.set_keep_alive_max_count(100);
-  for(const auto* route:{"/exchange","/plants","/habitat","/telemetry","/health"})server.Post(route,[this](const httplib::Request&req,httplib::Response&res){handle(req,res);});
+  for(const auto* route:{"/exchange","/plants","/habitat","/telemetry","/health","/inspection","/sensing"})server.Post(route,[this](const httplib::Request&req,httplib::Response&res){handle(req,res);});
   if(!server.bind_to_port("127.0.0.1",o.port))throw std::runtime_error("Native HTTP port already in use. Stop the old relay; do not run two transports.");
   auto roblox=o.roblox.is_absolute()?o.roblox:o.root/o.roblox;
   if(!std::filesystem::exists(roblox/"default.project.json"))throw std::runtime_error("Invalid Roblox project root");
@@ -204,6 +205,15 @@ struct NativeServer::Impl {
    need(!r.has_header("Transfer-Encoding")&&r.get_header_value_count("Content-Length")==1&&!r.body.empty(),"invalid framing");
    std::vector<std::set<std::string>> keys;
    auto q=J::parse(r.body,[&](int depth,J::parse_event_t event,J&value){need(depth<=64,"JSON depth budget");if(event==J::parse_event_t::object_start)keys.emplace_back();else if(event==J::parse_event_t::object_end)keys.pop_back();else if(event==J::parse_event_t::key)need(keys.back().insert(value.get<std::string>()).second,"duplicate JSON key");return true;});
+   if(r.path=="/inspection"||r.path=="/sensing") {
+    need(r.body.size()<=128*1024,"inspection input budget");
+    std::lock_guard extensionLock(extensionMutex);
+    while(!extensionCalls.empty()&&age(extensionCalls.front())>60)extensionCalls.pop_front();
+    need(extensionCalls.size()<900,"inspection request budget");extensionCalls.push_back(Clock::now());
+    if(!extension)throw std::runtime_error("Inspection requires Stage 3 executable");
+    // Dedicated bounded service: never hold the exchange mutex during queries.
+    response.set_content(extension(r.path,r.body),"application/json");return;
+   }
    std::lock_guard lock(exchangeMutex);
    auto& budget=r.path=="/exchange"?calls:auxiliaryCalls;
    while(!budget.empty()&&age(budget.front())>60)budget.pop_front();need(budget.size()<(r.path=="/exchange"?420u:180u),"relay request budget exceeded");budget.push_back(Clock::now());
@@ -223,7 +233,7 @@ struct NativeServer::Impl {
   const char* names[]={"environmentMs","decisionMs","movementMs","interactionMs","populationMs","metricsMs"};for(int i=0;i<6;++i)profile[names[i]]=phases[i]*1000/tickCount;
  }
 };
-NativeServer::NativeServer(LiveBridge&b,const Options&o,std::string initialAquatic):impl_(std::make_unique<Impl>(b,o,std::move(initialAquatic))){}
+NativeServer::NativeServer(LiveBridge&b,const Options&o,std::string initialAquatic,Extension e):impl_(std::make_unique<Impl>(b,o,std::move(initialAquatic),std::move(e))){}
 NativeServer::~NativeServer()=default;
 void NativeServer::publishAquatic(std::string snapshot){impl_->publishAquatic(std::move(snapshot));}
 void NativeServer::recordTick(unsigned tick,double ms,const double*phases){impl_->record(tick,ms,phases);}

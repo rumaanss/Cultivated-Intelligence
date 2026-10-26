@@ -11,3 +11,5 @@ if state:GetAttribute("HabitatDigest")~=contract.habitat.sha256 then
 end
 require(script.Parent.PlantsService)()
 require(script.Parent.LiveStateService).Start()
+
+require(script.Parent.InspectionService).Start()

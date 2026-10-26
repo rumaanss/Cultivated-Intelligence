@@ -1,0 +1,1 @@
+Linux GCC Release; PowerShell Core installer tests; standalone Luau mocks and Rojo source build. No actual Studio, GPU renderer, or Windows/MSVC acceptance is claimed.

@@ -1,5 +1,6 @@
 #include "cybernet/aquatic/lake.hpp"
 #include "cybernet/aquatic/stage3.hpp"
+#include "cybernet/aquatic/inspection.hpp"
 #include "cybernet/simulation/live_bridge.hpp"
 #include "cybernet/world/planet_geometry_generated.hpp"
 #include "json.hpp"
@@ -33,7 +34,7 @@ int main(int argc, char **argv) {
     auto options = transport::parseArguments(argc, argv);
     std::uint64_t seed = 42, stopTick = 2147483000;
     bool newWorld = false, physMode = true, fixed = false, seedExplicit = false;
-    std::string migration, configFile;
+    std::string migration, configFile, sensorMode, sensorReplay;
     for (std::size_t i = 1; i < options.arguments.size(); ++i) {
       std::string a = options.arguments[i];
       auto value = [&]() {
@@ -54,6 +55,8 @@ int main(int argc, char **argv) {
         migration = value();
       else if (a == "--physiology-config")
         configFile = value();
+      else if (a == "--sensor-mode") sensorMode=value();
+      else if (a == "--sensor-replay") sensorReplay=value();
       else if (a == "--live-dir")
         value();
       else
@@ -84,6 +87,15 @@ int main(int argc, char **argv) {
       auto envelope=nlohmann::json::parse(read(std::filesystem::exists(path)?path:std::filesystem::path(migration),256*1024*1024));
       seed=nlohmann::json::parse(envelope.at("payload").get<std::string>()).at("seed").get<std::uint64_t>();
     }
+    auto modePath=options.runtime/"inspection-mode.json";
+    if(std::filesystem::exists(modePath)) {
+      auto savedMode=nlohmann::json::parse(read(modePath,4096)).at("mode").get<std::string>();
+      if(!sensorMode.empty()&&sensorMode!=savedMode)throw std::runtime_error("Sensor mode is retained by the runtime; use a separate experiment directory to change it");
+      sensorMode=savedMode;
+    }
+    if(sensorMode.empty())sensorMode="native-reference";
+    if(sensorMode!="native-reference"&&sensorMode!="scene"&&sensorMode!="replay")throw std::runtime_error("Invalid sensor mode");
+    if((sensorMode=="replay")!=!sensorReplay.empty())throw std::runtime_error("Replay mode requires --sensor-replay, other modes must omit it");
     LiveBridge bridge(options.runtime, seed, true, true);
     aquatic::Lake standalone(seed);
     std::unique_ptr<aquatic::stage3::Physiology> physiology;
@@ -117,6 +129,8 @@ int main(int argc, char **argv) {
               aquatic::stage3::Physiology::migrateStage2(read(migration, 256 * 1024 * 1024), seed));
       }
     }
+    if(std::filesystem::exists(path)&&!physiology->sceneTransmission.empty()&&sensorMode=="native-reference")
+      throw std::runtime_error("Scene-lit checkpoint cannot silently resume as native-reference. Preserve inspection-mode.json or select scene/replay explicitly in a separate experiment runtime.");
     auto &lake = physiology ? physiology->environment : standalone;
     auto checkpoint = [&]() {
       return physiology ? physiology->checkpoint() : lake.checkpoint();
@@ -157,7 +171,10 @@ int main(int argc, char **argv) {
           .dump();
     };
     bridge.publishPlants(plants());
-    transport::NativeServer server(bridge, options, snapshot());
+    aquatic::stage3::Inspection inspection(bridge.runId(),bridge.bootId(),sensorMode,options.runtime,sensorReplay);
+    inspection.publish(*physiology);
+    LiveBridge::atomicWrite(modePath,nlohmann::json{{"schema",1},{"mode",sensorMode}}.dump());
+    transport::NativeServer server(bridge, options, snapshot(),[&](const std::string& route,const std::string& body){return inspection.request(route,body);});
     std::cout
         << "[CI Aquatic] Stage 3 producers, decomposers, grazers and algae; "
         << lake.cells.size() << " water cells; seed " << seed
@@ -165,6 +182,8 @@ int main(int argc, char **argv) {
         << "[CI Aquatic] Autonomous, 20 ticks/s; 600 ticks per biological day. "
            "Ctrl+C saves. Existing land runtime retained.\n"
         << std::flush;
+    std::cout<<"[CI Inspection] Mode "<<sensorMode<<"; optics surface-par-1; no neural or new founder sensory traits.\n";
+    if(sensorMode=="scene")std::cout<<"[CI Inspection] Record "<<(options.runtime/("scene-observations-"+bridge.bootId()+".jsonl"))<<"; awaiting Roblox server.\n";
     double phases[6] = {};
     auto next = steady_clock::now(), published = next, saved = next;
     auto saveBudget=[&](){
@@ -179,12 +198,20 @@ int main(int argc, char **argv) {
       auto began = steady_clock::now();
       if (!bridge.beginTick(empty, geometry))
         throw std::runtime_error("Native publisher unhealthy");
+      if(!inspection.prepare(*physiology)) {
+        // A required observation has not arrived. Pump native clock publication,
+        // retain selection/history, and do not spend biological time or materials.
+        sky.update(static_cast<int>(lake.tick));bridge.capture(static_cast<unsigned>(lake.tick),sky.state(),empty);
+        if(steady_clock::now()-published>=seconds(1)){inspection.publish(*physiology);server.publishAquatic(snapshot());published=steady_clock::now();}
+        std::this_thread::sleep_for(milliseconds(25));next=steady_clock::now();continue;
+      }
       if (physiology) physiology->step(); else lake.step();
       if(lake.tick%600==1)saveBudget();
       sky.update(static_cast<int>(lake.tick));
       bridge.capture(static_cast<unsigned>(lake.tick), sky.state(), empty);
       if (steady_clock::now() - published >= seconds(1)) {
         validate();
+        inspection.publish(*physiology);
         server.publishAquatic(snapshot());
         bridge.publishPlants(plants());
         published = steady_clock::now();

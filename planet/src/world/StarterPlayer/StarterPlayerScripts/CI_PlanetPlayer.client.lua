@@ -192,6 +192,7 @@ end
 function UI:select(obj)
  if self.budgetScroll then self.budgetScroll.CanvasPosition=Vector2.new(0,0)end
  if self.selected==obj then self:showPanel("Organism",true);return end
+ workspace:SetAttribute("CI_SelectedColonyRun",obj and obj:GetAttribute("CI_Run") or nil)
  workspace:SetAttribute("CI_SelectedOrganismId",obj and obj:GetAttribute("CI_OrganismId") or nil)
  self.selected=obj;self.occlusionTime=0;self.pinned=false;self:setPinColor();self.history={};self.lastSample=nil
  if obj then self:showPanel("Organism",true);self:buildPreview(obj);self:updateSelection()else self:showPanel("Organism",false);self.marker.Visible=false end
@@ -248,7 +249,12 @@ end
 function UI:updateSelection()
  local obj=self.selected;if not obj then return end
  local cf,size=self:bounds(obj)
- if not cf then self:select(nil);self:notify("Selected organism is no longer available");return end
+ if not cf then
+  if obj:GetAttribute("CI_BiologyKind")=="Colony" then
+   self.selectionLive=false;self.marker.Visible=false;self.species.Text="Not rendered. See lineage inspector for native status.";return
+  end
+  self:select(nil);self:notify("Selected organism is no longer available");return
+ end
  local now=workspace:GetServerTimeNow();local connected,status=self:provider()
  local stamp=obj:GetAttribute("CI_BiologyTimestamp")
  local live=connected and finite(stamp)and now-stamp<=5 and now-stamp>=-1
@@ -959,7 +965,7 @@ function Presentation.new(state)
    for _,a in originals do if a.Parent==lighting then a.Parent=parked end end;scatter.Parent=lighting
   else
    scatter.Parent=parked;for _,a in originals do if a.Parent==parked then a.Parent=lighting end end
-   for key,value in pairs(saved)do lighting[key]=value end
+   for key,value in pairs(saved)do if key~="Brightness" and key~="Ambient" and key~="OutdoorAmbient" and key~="ShadowSoftness" then lighting[key]=value end end
   end
  end
  local random=Random.new(2391);local particles={}
@@ -1003,10 +1009,7 @@ function Presentation.new(state)
    local solar=celestial and celestial:GetAttribute('SolarDirection') or lighting:GetSunDirection()
    local day=Waves.smoothstep((solar:Dot((p-center).Unit)+.12)/.35)
    local brightness=.18+(2.4-.18)*day
-   lighting.Brightness=saved.Brightness+(brightness-saved.Brightness)*near
-   lighting.Ambient=saved.Ambient:Lerp(Color3.fromRGB(75,86,106):Lerp(Color3.fromRGB(40,43,48),day),near)
-   lighting.OutdoorAmbient=saved.OutdoorAmbient:Lerp(Color3.fromRGB(112,126,148):Lerp(Color3.fromRGB(99,108,120),day),near)
-   lighting.ShadowSoftness=saved.ShadowSoftness+(.35-saved.ShadowSoftness)*near
+   -- WorldLighting owns illumination; this layer owns water scattering/grading.
    local lo,hi=layers[1],layers[#layers]
    for i=1,#layers-1 do if depth<=layers[i+1][1]then lo,hi=layers[i],layers[i+1];break end end
    if depth>=60 then lo,hi=layers[4],layers[4]end

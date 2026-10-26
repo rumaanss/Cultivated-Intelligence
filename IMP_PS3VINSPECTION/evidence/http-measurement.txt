@@ -1,0 +1,2 @@
+PASS executable scene pause/resume, bounded input, auth, records and four-observer exchange
+{"exchanges": 33, "medianMs": 1.0501340000000001, "p95Ms": 1.4763330000000001, "maxMs": 1.9718549999999997}

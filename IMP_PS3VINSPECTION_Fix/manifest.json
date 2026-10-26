@@ -1,0 +1,30 @@
+{
+  "release": "IMP_PS3VINSPECTION-1 targeted Windows cleanup and diagnostic warning fix",
+  "baseline": "b1de4f46045b68937ad699c3df6b61ab65e35328",
+  "files": [
+    {
+      "path": "tests/test_inspection.cpp",
+      "base": "f10f05ed80e3f2385871c3a4e9c59cf125a6a8038468ee9b96eb186897f6edae",
+      "accepted": [
+        "f10f05ed80e3f2385871c3a4e9c59cf125a6a8038468ee9b96eb186897f6edae"
+      ],
+      "target": "aa0844a0b58ef8d07ea722993f2e2e64f724c4673eea90c8370cc25a41470202"
+    },
+    {
+      "path": "planet/src/biology/server/InspectionCalibration.lua",
+      "base": "63578cb82e1ba098f771594bb02157e3ebf24264df8babc55d86460e6dff3874",
+      "accepted": [
+        "63578cb82e1ba098f771594bb02157e3ebf24264df8babc55d86460e6dff3874"
+      ],
+      "target": "36639270596c60a61e73e7d7e357fe9e89fdf30285fae092004f26752663636e"
+    },
+    {
+      "path": "planet/src/biology/client/PixelCapability.client.lua",
+      "base": "13fc75c30a3e1037d010d6f912086cc0f83282bbf01d74dd3c38e151fdbe489f",
+      "accepted": [
+        "13fc75c30a3e1037d010d6f912086cc0f83282bbf01d74dd3c38e151fdbe489f"
+      ],
+      "target": "478cfc3092121063a484fbee620b51756bb795394db68a4bce06ff077ee5ea94"
+    }
+  ]
+}

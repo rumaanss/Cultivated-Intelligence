@@ -1,0 +1,10 @@
+PASS UI behavioral checks
+PASS habitat radial frame: 17472 round trips, depths and antipodal rejection
+PASS regional solar clock inversion: 12010 phases; daylight matches biological phase
+PASS bounded percentile window and repeated-snapshot interpolation
+PASS original species silhouettes and non-zenith solar cycles
+PASS radial sky: all 12 Roblox face joins and world orientation and dawn/noon/dusk/night at four planetary positions
+PASS sky rotation/altitude, Opaque-only publication, serialized baking, failure/backoff/recovery, mode cancellation, destruction during bake and allocation cleanup
+PASS celestial cached background: deterministic, all baked face borders continuous; body angular sizes, checkpoint-time repeatability and observer parallax
+PASS celestial models: bounded shading, six nonphysical models, underwater handoff, no per-frame allocation, shutdown and partial-allocation cleanup
+PASS sky isolation probe: eight balanced phases, distinct exchange sampling, restoration on completion and cancellation

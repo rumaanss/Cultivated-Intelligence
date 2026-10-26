@@ -58,6 +58,7 @@ struct Colony {
   unsigned destination{}, behavior{};
   std::uint64_t decision{};
   double distance{}, movementRespiration{};
+  double sensedPar{-1}; // Last biological light field, not rendered brightness.
   double represented{1}, ingested{}, egested{}, availableFood{};
   std::vector<Segment> segments;
   unsigned nextSegment{1};
@@ -91,6 +92,9 @@ public:
   static Physiology migrateStage2(const std::string &, std::uint64_t seed);
   explicit Physiology(std::uint64_t seed = 42, PhysiologyConfig config = {});
   static Physiology migrate(const Lake &, PhysiologyConfig config = {});
+  // Empty means the unchanged native reference. Otherwise one external surface
+  // transmission per water column, applied before native water/canopy losses.
+  std::vector<double> sceneTransmission;
   void step(bool gas = true, bool transport = true, double sunlight = -1,
             bool cached = true);
   Totals totals() const;

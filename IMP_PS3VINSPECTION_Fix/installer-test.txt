@@ -1,0 +1,2 @@
+PASS baseline preflight, install, repeat install, exact rollback
+PASS conflict refusal without mutation

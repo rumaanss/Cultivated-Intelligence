@@ -1,0 +1,7 @@
+Test project /workspace/scratch/71b5e5a3af9a/ps3vinspection/build/native
+    Start 1: Stage3Inspection
+1/1 Test #1: Stage3Inspection .................   Passed    2.24 sec
+
+100% tests passed out of 1
+
+Total Test time (real) =   2.24 sec

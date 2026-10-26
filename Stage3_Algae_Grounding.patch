@@ -1,0 +1,146 @@
+diff --git a/docs/stage3/ALGAE_GROUNDING_FIX.md b/docs/stage3/ALGAE_GROUNDING_FIX.md
+new file mode 100644
+index 0000000..c17d8a5
+--- /dev/null
++++ b/docs/stage3/ALGAE_GROUNDING_FIX.md
+@@ -0,0 +1,41 @@
++# Algae terrain attachment correction
++
++Apply after Stage3_Live_Fix.patch. This is a Roblox presentation change only.
++
++Stage 3 algae used native heightfield positions directly, unlike the existing
++attached microbial mat renderer, which checks Roblox Terrain. A difference
++between the analytic native surface and the rendered voxel surface can leave
++an attached alga visibly suspended, especially on slopes. The authored holdfast
++mesh was also absent from live algae models.
++
++The correction raycasts only Terrain, ignores water, and adjusts the displayed
++base along the local planetary vertical. It embeds the base slightly and draws
++the existing holdfast mesh. Growth remains upward in the planetary frame.
++Native position, lineage, tissue graph, biomass and chemistry remain unchanged.
++The holdfast represents existing structural tissue; it adds no simulated mass.
++
++If there is no submerged terrain hit within 12 studs above/below native placement,
++the renderer hides that alga's geometry and retries at the next snapshot. Its
++identity and native lifetime are retained. No distant terrain snap is attempted.
++The correction exposes CI_AttachmentStatus and CI_GroundOffsetStuds attributes.
++
++One terrain ray per visible alga on a snapshot revision; no per-frame algae
++raycasts. Holdfast triangles are included in the unchanged 2800-part budget.
++
++Validation: Luau compile and actual native packet replay pass; both grazers,
++four habitat forms, stable identities, offspring, part budget, stale cleanup,
++missing-terrain hiding and same-model terrain recovery pass. A renderer test
++also verifies animation adds no terrain queries. These are CPU test doubles,
++not a substitute for visual inspection in Studio.
++
++Save Stage3_Algae_Grounding.patch in the existing project root:
++
++```powershell
++git apply --check .\Stage3_Algae_Grounding.patch
++if ($LASTEXITCODE -eq 0) { git apply .\Stage3_Algae_Grounding.patch }
++```
++
++Sync the changed Stage3Models module through the existing Rojo connection.
++No C++ rebuild or native simulation restart is required. Restart Studio Play if
++needed for the cached ModuleScript to reload. Keep the native long run running.
++This source patch does not modify a saved .rbxl by itself.
+diff --git a/planet/src/biology/shared/Stage3Models.lua b/planet/src/biology/shared/Stage3Models.lua
+index 9b26b85..44cbf5b 100644
+--- a/planet/src/biology/shared/Stage3Models.lua
++++ b/planet/src/biology/shared/Stage3Models.lua
+@@ -4,6 +4,10 @@ local M={MaximumParts=2800,MaximumGrazersPerGuild=3,MaximumAlgae=8}
+ local Data=require(script.Parent.Stage3MeshData)
+ local Space=require(script.Parent.SimulationSpace)
+ local Collection=game:GetService("CollectionService")
++local ground=RaycastParams.new()
++ground.FilterType=Enum.RaycastFilterType.Include
++ground.FilterDescendantsInstances={workspace.Terrain}
++ground.IgnoreWater=true
+ local tracks={}
+ -- Intersect the authored mesh once; cilia roots follow its actual surface,
+ -- including the asymmetric bacterial notch and recessed microalgal waist.
+@@ -55,17 +59,35 @@ local function clearTrack(id)
+  local t=tracks[id];if t then Collection:RemoveTag(t.model,"CI_Organism");t.model:Destroy();tracks[id]=nil end
+ end
+ function M.clear()local ids={};for id in tracks do table.insert(ids,id)end;for _,id in ids do clearTrack(id)end end
+-local function rootAt(position)
++local function rootAt(position,attachment)
+  local point=Space.toRobloxXYZ(position.X,position.Y,position.Z)
+  local up=Space.toRobloxXYZ(position.X,position.Y,position.Z+.1)-point;up=up.Unit
+  local direction=Space.toRobloxXYZ(position.X+.1,position.Y,position.Z)-point
+  local right=direction:Cross(up).Unit
+- return CFrame.fromMatrix(point,right,up,right:Cross(up))
++ return CFrame.fromMatrix(attachment or point,right,up,right:Cross(up))
+ end
+ local function pose(t,now)
+  local alpha=math.clamp((now-t.start)/t.duration,0,1);local position=t.from:Lerp(t.to,alpha);t.display=position;t.root=rootAt(position);t.used=0
+  local row=t.row;local tint=Color3.fromHSV((row[42]*.06+.25)%1,.45,.65)
+  if row[2]==5 then
++  -- Native placement remains authoritative. Correct only the visual height
++  -- against Roblox's voxel surface; water and organism parts cannot be hits.
++  -- Algae are posed on snapshot revisions, so this is never a per-frame ray.
++  local point=Space.toRobloxXYZ(position.X,position.Y,position.Z)
++  local up=(Space.toRobloxXYZ(position.X,position.Y,position.Z+.1)-point).Unit
++  local hit=workspace:Raycast(point+up*12,-up*24,ground)
++  local q=hit and Space.toSimulation(hit.Position)
++  if not hit or not q or q.z>=107.8 then
++   for _,p in t.parts do p:Destroy()end;t.parts={}
++   t.model:SetAttribute("CI_AttachmentStatus","Waiting for submerged terrain")
++   return
++  end
++  t.root=rootAt(position,hit.Position-up*.06)
++  t.model:SetAttribute("CI_AttachmentStatus","Grounded on terrain")
++  t.model:SetAttribute("CI_GroundOffsetStuds",(hit.Position-point):Dot(up))
++  -- The holdfast illustrates the existing structural tissue, not added biomass.
++  local rootWidth=math.clamp((t.nodes[1] and t.nodes[1][6] or .3) :: number,.2,.8)
++  mesh(t,"Holdfast",CFrame.new(),Vector3.new(rootWidth,.65,rootWidth),tint)
+   local frames={[0]=CFrame.new()};local form=row[46];local key=({"Ribbon","Fan","Filament","Sheet"})[form+1]
+   -- The near view renders up to eight persistent sections. Omitted descendants
+   -- remain in C++; the model explicitly advertises a structural LOD.
+@@ -73,7 +95,7 @@ local function pose(t,now)
+   for i=1,n do local node=t.nodes[i];local base=frames[node[2]] or CFrame.new();local yaw=(form==1 and 0 or node[1]*2.399963)
+    local orientation=base*CFrame.Angles(0,yaw,node[7]);local length=node[5] :: number;local width=node[6] :: number
+    -- Bound presentation to the water surface without changing biological tissue.
+-   length=math.min(length,math.max(.05,107.9-position.Z-base.Position.Y))
++   length=math.min(length,math.max(.05,107.9-q.z-base.Position.Y))
+    mesh(t,key,orientation,Vector3.new(width,length,form==3 and length or math.max(.05,width)),tint)
+    frames[node[1]]=orientation*CFrame.new(0,form==3 and .08 or length*.65,form==3 and length*.6 or 0)
+   end
+@@ -110,7 +132,7 @@ function M.sync(packet,parent,stamp,now)
+  table.sort(rows,function(a,b)local ap,bp=priority(a),priority(b);if ap~=bp then return ap<bp end;return a[3]<b[3]end)
+  local wanted={};local guilds={[3]=0,[4]=0};local forms={};local budget=0
+  for _,r in rows do
+-  local algae=r[2]==5;local nodes=shapes[r[3]] or {};local cost=algae and math.min(8,#nodes)*(r[46]==2 and 32 or 24) or (#Data[r[2]==3 and "BacterialGrazer" or "MicroalgalGrazer"].faces*2+24)
++  local algae=r[2]==5;local nodes=shapes[r[3]] or {};local cost=algae and (math.min(8,#nodes)*(r[46]==2 and 32 or 24)+#Data.Holdfast.faces*2) or (#Data[r[2]==3 and "BacterialGrazer" or "MicroalgalGrazer"].faces*2+24)
+   local eligible=if algae then (forms[r[46]]or 0)<2 else guilds[r[2]]<M.MaximumGrazersPerGuild
+   if eligible and budget+cost<=M.MaximumParts then
+    budget+=cost;if algae then forms[r[46]]=(forms[r[46]]or 0)+1 else guilds[r[2]]+=1 end;wanted[r[3]]=true
+diff --git a/planet/tests/run_aquatic_checks.py b/planet/tests/run_aquatic_checks.py
+index ec43da4..60e659d 100644
+--- a/planet/tests/run_aquatic_checks.py
++++ b/planet/tests/run_aquatic_checks.py
+@@ -36,6 +36,23 @@ if replay.model=="stage3-1" then
+  end
+  for _,name in {"Bacterial grazer","Microalgal grazer","Ribbon algae","Fan algae","Filament algae","Sheet algae"}do assert(seen[name],"Missing native model: "..name)end
+  assert(parts<=2800,"Stage3 part budget")
++ local algae={};local container
++ for _,m in tags do if m:GetAttribute("CI_TotalSegments")then
++  assert(m:GetAttribute("CI_AttachmentStatus")=="Grounded on terrain")
++  assert(type(m:GetAttribute("CI_GroundOffsetStuds"))=="number")
++  table.insert(algae,m);container=m.Parent
++ end end
++ local originalRay=workspace.Raycast;local rays=0
++ workspace.Raycast=function()rays+=1;return nil end
++ local groundReplay=table.clone(replay);groundReplay.revision+=20;Stage3.sync(groundReplay,container,now,now)
++ assert(rays==#algae,"One terrain query per visible alga per snapshot")
++ for _,m in algae do assert(#m:GetDescendants()==0 and m:GetAttribute("CI_AttachmentStatus")=="Waiting for submerged terrain","Missing terrain must not leave floating tissue")end
++ Stage3.animate(now+.1);assert(rays==#algae,"Animation must not raycast")
++ workspace.Raycast=originalRay
++ Stage3.sync(replay,container,now,now)
++ for _,m in algae do assert(#m:GetDescendants()>0 and m:GetAttribute("CI_AttachmentStatus")=="Grounded on terrain","Terrain recovery must restore the same model")end
++ print("PASS Stage3 attachment: grounded base, missing-terrain hide, identity recovery, no per-frame rays")
++
+  event.OnClientEvent:Fire(replay);for _,m in tags do assert(persistent[m:GetAttribute("CI_ColonyId")]==m,"Repeated packet rebuilt identity")end
+  local bad=table.clone(replay);bad.food=table.clone(replay.food);table.insert(bad.food,bad.food[1]);assert(not pcall(Protocol.validate,bad,bad.run),"Duplicate food cell accepted")
+  bad=table.clone(replay);bad.algae=table.clone(replay.algae);bad.algae[1]=table.clone(bad.algae[1]);bad.algae[1][3]=table.clone(bad.algae[1][3]);bad.algae[1][3][1]=table.clone(bad.algae[1][3][1]);bad.algae[1][3][1][4]+=1;assert(not pcall(Protocol.validate,bad,bad.run),"Unpaid tissue accepted")

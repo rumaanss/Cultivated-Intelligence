@@ -4,6 +4,10 @@ local M={MaximumParts=2800,MaximumGrazersPerGuild=3,MaximumAlgae=8}
 local Data=require(script.Parent.Stage3MeshData)
 local Space=require(script.Parent.SimulationSpace)
 local Collection=game:GetService("CollectionService")
+local ground=RaycastParams.new()
+ground.FilterType=Enum.RaycastFilterType.Include
+ground.FilterDescendantsInstances={workspace.Terrain}
+ground.IgnoreWater=true
 local tracks={}
 -- Intersect the authored mesh once; cilia roots follow its actual surface,
 -- including the asymmetric bacterial notch and recessed microalgal waist.
@@ -54,18 +58,36 @@ end
 local function clearTrack(id)
  local t=tracks[id];if t then Collection:RemoveTag(t.model,"CI_Organism");t.model:Destroy();tracks[id]=nil end
 end
-function M.clear()local ids={};for id in tracks do table.insert(ids,id)end;for _,id in ids do clearTrack(id)end end
-local function rootAt(position)
+function M.clear()M.displayStatus={};local ids={};for id in tracks do table.insert(ids,id)end;for _,id in ids do clearTrack(id)end end
+local function rootAt(position,attachment)
  local point=Space.toRobloxXYZ(position.X,position.Y,position.Z)
  local up=Space.toRobloxXYZ(position.X,position.Y,position.Z+.1)-point;up=up.Unit
  local direction=Space.toRobloxXYZ(position.X+.1,position.Y,position.Z)-point
  local right=direction:Cross(up).Unit
- return CFrame.fromMatrix(point,right,up,right:Cross(up))
+ return CFrame.fromMatrix(attachment or point,right,up,right:Cross(up))
 end
 local function pose(t,now)
  local alpha=math.clamp((now-t.start)/t.duration,0,1);local position=t.from:Lerp(t.to,alpha);t.display=position;t.root=rootAt(position);t.used=0
  local row=t.row;local tint=Color3.fromHSV((row[42]*.06+.25)%1,.45,.65)
  if row[2]==5 then
+  -- Native placement remains authoritative. Correct only the visual height
+  -- against Roblox's voxel surface; water and organism parts cannot be hits.
+  -- Algae are posed on snapshot revisions, so this is never a per-frame ray.
+  local point=Space.toRobloxXYZ(position.X,position.Y,position.Z)
+  local up=(Space.toRobloxXYZ(position.X,position.Y,position.Z+.1)-point).Unit
+  local hit=workspace:Raycast(point+up*12,-up*24,ground)
+  local q=hit and Space.toSimulation(hit.Position)
+  if not hit or not q or q.z>=107.8 then
+   for _,p in t.parts do p:Destroy()end;t.parts={}
+   t.model:SetAttribute("CI_AttachmentStatus","Waiting for submerged terrain")
+   return
+  end
+  t.root=rootAt(position,hit.Position-up*.06)
+  t.model:SetAttribute("CI_AttachmentStatus","Grounded on terrain")
+  t.model:SetAttribute("CI_GroundOffsetStuds",(hit.Position-point):Dot(up))
+  -- The holdfast illustrates the existing structural tissue, not added biomass.
+  local rootWidth=math.clamp((t.nodes[1] and t.nodes[1][6] or .3) :: number,.2,.8)
+  mesh(t,"Holdfast",CFrame.new(),Vector3.new(rootWidth,.65,rootWidth),tint)
   local frames={[0]=CFrame.new()};local form=row[46];local key=({"Ribbon","Fan","Filament","Sheet"})[form+1]
   -- The near view renders up to eight persistent sections. Omitted descendants
   -- remain in C++; the model explicitly advertises a structural LOD.
@@ -73,7 +95,7 @@ local function pose(t,now)
   for i=1,n do local node=t.nodes[i];local base=frames[node[2]] or CFrame.new();local yaw=(form==1 and 0 or node[1]*2.399963)
    local orientation=base*CFrame.Angles(0,yaw,node[7]);local length=node[5] :: number;local width=node[6] :: number
    -- Bound presentation to the water surface without changing biological tissue.
-   length=math.min(length,math.max(.05,107.9-position.Z-base.Position.Y))
+   length=math.min(length,math.max(.05,107.9-q.z-base.Position.Y))
    mesh(t,key,orientation,Vector3.new(width,length,form==3 and length or math.max(.05,width)),tint)
    frames[node[1]]=orientation*CFrame.new(0,form==3 and .08 or length*.65,form==3 and length*.6 or 0)
   end
@@ -99,6 +121,7 @@ local function pose(t,now)
  t.model:SetAttribute("CI_DisplayX",position.X);t.model:SetAttribute("CI_DisplayY",position.Y);t.model:SetAttribute("CI_DisplayZ",position.Z)
 end
 function M.sync(packet,parent,stamp,now)
+ M.displayStatus={};M.displayRun=packet.run
  local shapes={};for _,r in packet.algae or {}do shapes[r[2]]=r[3]end
  local rows={};for _,r in packet.colonies do if r[2]>=3 then table.insert(rows,r)end end
  -- Reserve one observed parent/daughter pair per visible guild/form. Otherwise
@@ -110,9 +133,11 @@ function M.sync(packet,parent,stamp,now)
  table.sort(rows,function(a,b)local ap,bp=priority(a),priority(b);if ap~=bp then return ap<bp end;return a[3]<b[3]end)
  local wanted={};local guilds={[3]=0,[4]=0};local forms={};local budget=0
  for _,r in rows do
-  local algae=r[2]==5;local nodes=shapes[r[3]] or {};local cost=algae and math.min(8,#nodes)*(r[46]==2 and 32 or 24) or (#Data[r[2]==3 and "BacterialGrazer" or "MicroalgalGrazer"].faces*2+24)
+  local algae=r[2]==5;local nodes=shapes[r[3]] or {};local cost=algae and (math.min(8,#nodes)*(r[46]==2 and 32 or 24)+#Data.Holdfast.faces*2) or (#Data[r[2]==3 and "BacterialGrazer" or "MicroalgalGrazer"].faces*2+24)
   local eligible=if algae then (forms[r[46]]or 0)<2 else guilds[r[2]]<M.MaximumGrazersPerGuild
+  M.displayStatus[r[3]]="budget omitted"
   if eligible and budget+cost<=M.MaximumParts then
+   M.displayStatus[r[3]]="awaiting render"
    budget+=cost;if algae then forms[r[46]]=(forms[r[46]]or 0)+1 else guilds[r[2]]+=1 end;wanted[r[3]]=true
    local t=tracks[r[3]]
    if not t then local model=Instance.new("Model");model.Name="Stage3_"..r[3];model.Parent=parent;t={model=model,parts={},row=r,nodes=nodes,from=Vector3.new(r[23],r[24],r[25]),to=Vector3.new(r[23],r[24],r[25]),start=now,duration=1};t.display=t.to;tracks[r[3]]=t;Collection:AddTag(model,"CI_Organism")end

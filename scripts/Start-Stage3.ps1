@@ -6,7 +6,9 @@ param(
  [switch]$FixedGenome,
  [string]$Config='',
  [int]$Port=8765,
- [uint32]$StopTick=2147483000
+ [uint32]$StopTick=2147483000,
+ [ValidateSet("native-reference","scene","replay")][string]$SensorMode,
+ [string]$SensorReplay=""
 )
 $ErrorActionPreference='Stop'
 $root=Split-Path $PSScriptRoot -Parent
@@ -28,6 +30,8 @@ try {
  if ($PSBoundParameters.ContainsKey('Seed') -or ($NewWorld -and !$MigratePDNARNA)) { $launch+=@('--seed',"$Seed") }
  if ($NewWorld) { $launch+='--new-world' }
  if ($MigratePDNARNA) { $launch+=@('--migrate-pdnarna',(Resolve-Path $MigratePDNARNA).Path) }
+ if ($SensorMode) { $launch+=@('--sensor-mode',$SensorMode) }
+ if ($SensorReplay) { $launch+=@('--sensor-replay',(Resolve-Path $SensorReplay).Path) }
  if ($FixedGenome) { $launch+='--fixed-genome' }
  if ($Config) { $launch+=@('--physiology-config',(Resolve-Path $Config).Path) }
  Write-Host 'Stage 3: native trophic web and food accounting, 20 ticks/s. Ctrl+C saves. Stop other native processes first.'
